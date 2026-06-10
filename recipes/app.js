@@ -653,13 +653,14 @@ function normalizeRecipe(raw) {
   };
 }
 
-async function handleImportFile(file) {
+// Shared by file import and paste import. Returns true on success.
+async function importFromText(text, sourceLabel) {
   let data;
   try {
-    data = JSON.parse(await file.text());
+    data = JSON.parse(text);
   } catch {
-    toast('Import failed: that file is not valid JSON.', 'error', 4000);
-    return;
+    toast(`Import failed: that ${sourceLabel} is not valid JSON.`, 'error', 4000);
+    return false;
   }
 
   const rawList = Array.isArray(data) ? data
@@ -679,15 +680,15 @@ async function handleImportFile(file) {
   }
 
   if (!incoming.length) {
-    toast('Import failed: no valid recipes found in that file.', 'error', 4000);
-    return;
+    toast(`Import failed: no valid recipes found in that ${sourceLabel}.`, 'error', 4000);
+    return false;
   }
 
   try {
     await dbPutMany(incoming);
   } catch (err) {
     toast('Import failed: ' + err.message, 'error', 4000);
-    return;
+    return false;
   }
 
   for (const rec of incoming) {
@@ -702,6 +703,29 @@ async function handleImportFile(file) {
   if (skipped) bits.push(`${skipped} skipped (invalid)`);
   toast(`Imported: ${bits.join(', ')}.`, null, 4000);
   route();
+  return true;
+}
+
+async function handleImportFile(file) {
+  await importFromText(await file.text(), 'file');
+}
+
+function openImportDialog() {
+  const dlg = document.getElementById('import-dialog');
+  document.getElementById('paste-json').value = '';
+  dlg.showModal();
+}
+
+async function importFromPaste() {
+  const text = document.getElementById('paste-json').value.trim();
+  if (!text) {
+    toast('Paste some recipe JSON first.', 'error');
+    return;
+  }
+  // Keep the dialog open on failure so the paste can be fixed.
+  if (await importFromText(text, 'pasted text')) {
+    document.getElementById('import-dialog').close();
+  }
 }
 
 function exportRecipes() {
@@ -776,9 +800,20 @@ document.addEventListener('click', e => {
       break;
     }
     case 'delete-recipe': deleteCurrentRecipe(); break;
-    case 'import': document.getElementById('import-file').click(); break;
+    case 'import': openImportDialog(); break;
+    case 'import-file':
+      document.getElementById('import-dialog').close();
+      document.getElementById('import-file').click();
+      break;
+    case 'import-paste': importFromPaste(); break;
+    case 'close-import': document.getElementById('import-dialog').close(); break;
     case 'export': exportRecipes(); break;
   }
+});
+
+// Tapping the dialog backdrop closes it.
+document.getElementById('import-dialog').addEventListener('click', e => {
+  if (e.target === e.currentTarget) e.currentTarget.close();
 });
 
 document.getElementById('import-file').addEventListener('change', e => {

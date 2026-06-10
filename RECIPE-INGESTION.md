@@ -94,6 +94,12 @@ The user pastes messy recipe text, types it roughly, or describes it.
 5. Each recipe has a unique `id` and **no** `date_added` (unless requested).
 6. `source` matches the ingestion path used.
 
-Then deliver the JSON as a downloadable file and remind the user to import it via
-the app's **Import** button. Mention anything that was illegible, ambiguous, or
-left null so the user can fix it in the app's editor.
+Then deliver the JSON. Two delivery options — pick whichever suits the session:
+
+- **Copyable JSON block** (best on a phone): the app's Import dialog accepts pasted
+  JSON directly, so the user can copy your output and paste it straight in.
+- **Downloadable file**: for bigger batches or desktop sessions.
+
+Either way, remind the user to import it via the app's **Import** button, and
+mention anything that was illegible, ambiguous, or left null so the user can fix it
+in the app's editor.

@@ -9,8 +9,10 @@ A personal, offline-first recipe box PWA. Lives at `https://r2vchew.github.io/re
 
 ## Importing recipes
 
-The **Import** button accepts a JSON file containing either a single recipe object,
-an array of recipes, or `{ "recipes": [...] }`. Recipes are merged by `id`: unknown
+The **Import** button accepts recipe JSON two ways — paste it directly into the
+dialog (handy on a phone, straight from a Claude session) or choose a JSON file.
+Either way the JSON may be a single recipe object, an array of recipes, or
+`{ "recipes": [...] }`. Recipes are merged by `id`: unknown
 ids are added, matching ids are overwritten. A missing `id` gets a new UUID.
 `sample-recipes.json` in this folder is a working example.
 
