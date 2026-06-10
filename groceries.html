@@ -1,0 +1,2208 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Grocery Deals</title>
+<style>
+  :root{--bg:#0f1115;--card:#1a1e27;--line:#2a3040;--ink:#e7ebf3;--mut:#9aa4b8;--accent:#4f8cff;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;
+       padding:env(safe-area-inset-top) 0 48px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px}
+  header{position:sticky;top:0;z-index:6;background:#11141bf2;backdrop-filter:blur(8px);
+         border-bottom:1px solid var(--line);padding:14px 16px}
+  h1{font-size:20px;margin:0;font-weight:720}
+  .sub{color:var(--mut);font-size:12.5px;margin-top:4px}
+  a.back{color:var(--accent);font-size:13px;text-decoration:none}
+  nav{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;position:sticky;top:0}
+  h2{font-size:17px;margin:28px 0 10px;font-weight:680;display:flex;align-items:center;gap:8px}
+  h2 .ic{font-size:20px}
+  h2 .count{color:var(--mut);font-weight:500;font-size:13px}
+  .items{display:flex;flex-direction:column;gap:8px}
+  .item{display:flex;gap:12px;align-items:flex-start;background:var(--card);
+        border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+  .price{flex:0 0 auto;font-weight:720;font-variant-numeric:tabular-nums;
+         color:var(--accent);min-width:58px}
+  .info{flex:1;min-width:0}
+  .name{font-size:14.5px;font-weight:560;line-height:1.35}
+  .meta{margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .store{color:var(--mut);font-size:12px}
+  .badge{color:#37c98a;font-size:10.5px;border:1px solid #2f6b52;border-radius:5px;
+         padding:1px 6px;background:#163326}
+  .foot{color:#6f7890;font-size:12px;margin-top:32px;text-align:center}
+</style></head>
+<body>
+  <header>
+    <a class="back" href="index.html">&lsaquo; Home</a>
+    <h1 style="margin-top:6px">Grocery Deals &mdash; Cochrane</h1>
+    <div class="sub">Week of 2026-06-11 &middot; 305 deals across 5 stores (Calgary Co-op, No Frills, Real Canadian Superstore, Safeway, Save-On-Foods) &middot; via Flipp</div>
+  </header>
+  <div class="wrap">
+
+<section>
+  <h2><span class="ic">&#129385;</span>Meat &amp; Seafood <span class="count">(63)</span></h2>
+  <div class="items">
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">Chicken Drumsticks</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.69</div>
+    <div class="info">
+      <div class="name">Ayesen Coho Fillet</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.89</div>
+    <div class="info">
+      <div class="name">Maple Lodge Chicken Breast</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.25</div>
+    <div class="info">
+      <div class="name">Pork &amp; Beef Burgers</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.29</div>
+    <div class="info">
+      <div class="name">Atlantic Salmon Fillet</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Atlantic Salmon Fillets</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Whole Pork Tenderloin</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Fresh AIR-CHILLED Whole Chicken, Drumsticks or Thighs</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.50</div>
+    <div class="info">
+      <div class="name">Mastro Salami or Ham</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.87</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Montreal Smoked Meat, Roast Beef, Corned Beef or Pastrami</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Old Style Carving Ham</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Pork Tenderloin, Pkg of 2</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Bacon Bits</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Whole Frying Chicken</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Sablefish Fillet</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.44</div>
+    <div class="info">
+      <div class="name">Fresh Pork Tenderloin or Fresh Pork Loin Back Ribs</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">MEMBERS SAVE $1/lb</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.49</div>
+    <div class="info">
+      <div class="name">Fresh Pork Shoulder Blade Roasts or Steak</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">300 Scene+ PTS when you spend $20 or more</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Split Chicken Wings</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Fresh Pork Loin Centre and Rib Combo Chops</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">200 Scene+ PTS when you spend $15 or more</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Sweet or Hot Italian Pork Sausage Meat</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Western Family Bacon</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.25</div>
+    <div class="info">
+      <div class="name">Lean Ground Beef, 450 G</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">SAVE 42%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.48</div>
+    <div class="info">
+      <div class="name">Pork Belly Portions</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">Boneless Pork Loin Center or Rib End Chops</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 10%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">Breakfast, Dinner or Smoked Pork Sausages</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">300 Scene+ PTS when you buy 3</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Pork Dinner or Breakfast Sausage</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Fresh AIR-CHILLED Chicken Breast</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">150 Scene+ PTS when you spend $18 or more</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Chicken Breast</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">Ground Chicken, 454 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">PC Sausage, 375/500 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Bone-In Ham Steak</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.50</div>
+    <div class="info">
+      <div class="name">PC Street Cart Sausages, 500 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.79</div>
+    <div class="info">
+      <div class="name">Real Bacon Bits</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.99</div>
+    <div class="info">
+      <div class="name">Prime Extra Lean Ground Chicken</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.99</div>
+    <div class="info">
+      <div class="name">Back Bacon or Entrees</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.99</div>
+    <div class="info">
+      <div class="name">Split Chicken Wings</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">PC Bacon, 375 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Medium Ground Chuck Burgers</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Fresh Lean Ground Beef</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">500 Scene+ PTS when you buy 1</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.88</div>
+    <div class="info">
+      <div class="name">Sirloin Tip Steak or Roast</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">No Name Garlic Sausage Coil, 750 G or Smoked Sausages, 900 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Harvest Wieners, Farmer&#x27;s Sausage or Ball Park Sausage, 375-675 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Sausages</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">200 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">Boneless, Skinless Chicken Breast</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">PC Air Chilled Chicken Breast Sticks or Bone in Thighs, up to 870 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">T &amp; T Pork Belly with Salted Mustard Greens, 400 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.99</div>
+    <div class="info">
+      <div class="name">Polish Sausage or Farmers Sausage</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.99</div>
+    <div class="info">
+      <div class="name">No Name Extra Thick Cut Bacon, 1 Kg</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.00</div>
+    <div class="info">
+      <div class="name">PC Smoked Salmon, 125/150 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.99</div>
+    <div class="info">
+      <div class="name">Smoked Coho Salmon Lox</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.99</div>
+    <div class="info">
+      <div class="name">Compliments, Cardinal Roadhouse, Belmont Burgers, Pinty&#x27;s Chicken Wings &amp; More!</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">MEMBERS SAVE $3</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.99</div>
+    <div class="info">
+      <div class="name">Country Classic Chicken Wings</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$13.00</div>
+    <div class="info">
+      <div class="name">Freybe Lyoner Sausage 1 Kg or Maple Leaf Natural Selections Shaved Deli Meats or PC Free From Sliced Meats Club Size 375-400 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span><span class="badge">Members Save $2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$13.99</div>
+    <div class="info">
+      <div class="name">Turkey Burgers</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 10%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$13.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Breakfast, Mild or Honey Garlic Pork Sausages</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.99</div>
+    <div class="info">
+      <div class="name">Beef Short Rib Roast</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$15.99</div>
+    <div class="info">
+      <div class="name">Thick Cut Bacon</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$17.00</div>
+    <div class="info">
+      <div class="name">PC Split Chicken Wings or Boneless, Skinless Thighs</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$22.00</div>
+    <div class="info">
+      <div class="name">Prime Boneless Skinless Chicken Breast</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$24.87</div>
+    <div class="info">
+      <div class="name">Fresh Boneless Striploin Premium Oven Roast or Family Size Grilling Steaks</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$24.99</div>
+    <div class="info">
+      <div class="name">Boneless Strip Loin Grilling Steaks</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$29.99</div>
+    <div class="info">
+      <div class="name">Fresh Boneless Rib Grilling Steak Family Size or Premium Oven Roast</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$30.00</div>
+    <div class="info">
+      <div class="name">Sufra Halal Chicken Breast, 7&#x27;S, Up to 1.51 Kg</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">&#129382;</span>Veggies <span class="count">(29)</span></h2>
+  <div class="items">
+  <div class="item">
+    <div class="price">$0.98</div>
+    <div class="info">
+      <div class="name">Garlic</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.29</div>
+    <div class="info">
+      <div class="name">Green Onions or Radishes</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.49</div>
+    <div class="info">
+      <div class="name">Tomatoes on the Vine</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.87</div>
+    <div class="info">
+      <div class="name">Romaine, Green or Red Leaf Lettuce</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.92</div>
+    <div class="info">
+      <div class="name">Beefsteak Tomatoes</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.99</div>
+    <div class="info">
+      <div class="name">Tomatoes on the Vine</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">Broccoli Crowns</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.98</div>
+    <div class="info">
+      <div class="name">PC Little Gems Mixed, Red or Yellow Mini Potatoes, 680 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Spinach Bunch</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Tri Coloured Sweet Peppers</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Butter Lettuce</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">PC Whole White or Cremini Mushrooms, 454 G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">PC Little Gems Red, Yellow or Mixed Min Potatoes, 680 G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">PC Mushrooms Whole Cremini or White, 454 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">The Little Potato Co. Kits</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Hothouse Grape, Medley or HIIROS Tomatoes</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS ORGANIC Baby-Cut Carrots</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS ORGANIC Cremini or White Sliced Mushrooms</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">200 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Warba Nugget Potatoes</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.00</div>
+    <div class="info">
+      <div class="name">Farmer&#x27;s Market Baking Potatoes, 4&#x27;S</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.00</div>
+    <div class="info">
+      <div class="name">Farmers Market Red Onions</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.88</div>
+    <div class="info">
+      <div class="name">PC Organics Shiitake or PC Oyster Mushrooms</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Rooster Garlic</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Farmer&#x27;s Market Grape Tomatoes 907G or PC Little Beauts Variety Tomatoes 567G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">BBQ Bakers Potatoes</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Aria Grape Tomatoes</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">PC Luscious Lovelies Strawberry Tomatoes, 340 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">PC Sweet Marvels Grape Tomatoes on the Vine, 340 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">PC Mixiany Tomatoes, 340 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">&#127813;</span>Fruit <span class="count">(8)</span></h2>
+  <div class="items">
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Green or Red Seedless Grapes</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">SAVE 25%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Green or Red Seedless Grapes</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Strawberries</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Blueberries, Strawberries or Cherries</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Pineapple or Avocados, Pkg of 5 or 6</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Organic Strawberries</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">PC Greenhouse Grown Strawberries, 340 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.99</div>
+    <div class="info">
+      <div class="name">Pink Lady or Farmer&#x27;s Market Fuji Apples</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">&#129389;</span>Frozen &amp; Prepared <span class="count">(50)</span></h2>
+  <div class="items">
+  <div class="item">
+    <div class="price">$2.09</div>
+    <div class="info">
+      <div class="name">Al Pastor Chicken Taco Kit</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">T &amp; T Frozen Veggies, 458 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.97</div>
+    <div class="info">
+      <div class="name">Cavendish Premium Fries or Specialty Potatoes, 454-750 G or Onion Rings, 400 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Ice Cream Cones or Cuplets</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">PC Hummus or Garlic Hummus, 227 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Lactose Free Ice Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.49</div>
+    <div class="info">
+      <div class="name">McCain French Fries</div>
+      <div class="meta"><span class="store">Save-On-Foods</span><span class="badge">BUY 2 EARN 550 More REWARDS POINTS REDEEMED</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.50</div>
+    <div class="info">
+      <div class="name">PC Black Label Ice Cream, 500 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.94</div>
+    <div class="info">
+      <div class="name">Ice Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.98</div>
+    <div class="info">
+      <div class="name">Breyers Creamery Style Ice Cream, 1.41 L</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Häagen-dazs Matcha Green Tea and Pineapple Coconut Ice Cream, 450 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Stuffed Chicken Cutlettes</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.00</div>
+    <div class="info">
+      <div class="name">PC Scoop Shop Ice Cream, 946 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.00</div>
+    <div class="info">
+      <div class="name">PC Loads of Ice Cream Bars, 4X72 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">Premium Ice Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.87</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Ice Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Fresh Pork Tenderloin Kabobs With Vegetables</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">Plant-Based Sausages</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.48</div>
+    <div class="info">
+      <div class="name">Vivasea Cooked Mussels, 500 G, Traditions Fish Balls, 750 G or Shrimp &amp; Surimi Balls, 650 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.50</div>
+    <div class="info">
+      <div class="name">Seaquest Fish Fillets, 400 G or Colossal Shrimp, 16-20/LB, 300 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Kawartha Ice Cream, 1.5 L or Chapman&#x27;s Super Novelties, 8-20&#x27;S</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">PC Loads of Ice Cream, 1.5 L</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Al Pastor Pulled Pork Flatbread or Selected</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Plant-Based Chicken Tenders, Breakfast or Dinner Sausage, Burger</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.00</div>
+    <div class="info">
+      <div class="name">PC Pub Recipe Chicken, 700 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.87</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Wild Pacific Salmon Burgers</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Creamery Ice Cream</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 10%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Breaded or Battered Fish</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">High Liner Family Fish, 315-700 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.88</div>
+    <div class="info">
+      <div class="name">Wonton Soup, Shrimp Toast or Prawn Dumplings</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Handi Chicken Momos, 300 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Smoked Pink Salmon Nuggets</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Ice Cream</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 1</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Fresh Boneless Skinless Chicken Breast or Thigh Kabobs with Vegetables</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Western Family Breaded Chicken</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Shrimp Skewers, Pkg of 10</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Al Pastor Chicken Bowl or Select Varieties</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.87</div>
+    <div class="info">
+      <div class="name">Crispy Chicken</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.00</div>
+    <div class="info">
+      <div class="name">PC Shrimp D&#x27;oeuvres, 294-454 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.00</div>
+    <div class="info">
+      <div class="name">No Name Ice Cream Sandwiches or Bars, 24/30&#x27;S</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.99</div>
+    <div class="info">
+      <div class="name">Breaded Chicken Strips or Nuggets</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 10%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$12.00</div>
+    <div class="info">
+      <div class="name">PC Blue Menu Argentinian Scallops 80-150/LB, 400 G, Salmon or Tuna Tataki 130 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$12.00</div>
+    <div class="info">
+      <div class="name">PC Cream Pie, 730 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$13.99</div>
+    <div class="info">
+      <div class="name">Strawberry Cream Pie</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.99</div>
+    <div class="info">
+      <div class="name">Ultimates Boneless Chicken Bites or Tenders or Original Roadhouse Fully Cooked Pork Back Ribs</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.99</div>
+    <div class="info">
+      <div class="name">Al Pastor Style Roasted Chicken</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.99</div>
+    <div class="info">
+      <div class="name">Ultimates Breaded or Battered Haddock, Cod or Sole</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$19.00</div>
+    <div class="info">
+      <div class="name">PC Buttermilk Breaded Chicken Breast Strips, 907 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$19.99</div>
+    <div class="info">
+      <div class="name">Fruit &amp; Whip Cream Cake</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$21.99</div>
+    <div class="info">
+      <div class="name">Strawberry Shortcake</div>
+      <div class="meta"><span class="store">Save-On-Foods</span><span class="badge">LOAD MY OFFERS - Hotter Price $19.99 ea First 2</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="ic">&#128722;</span>Everything Else <span class="count">(155)</span></h2>
+  <div class="items">
+  <div class="item">
+    <div class="price">$0.88</div>
+    <div class="info">
+      <div class="name">Campbell&#x27;s Swanson Chicken Broth, 412 Ml</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$0.99</div>
+    <div class="info">
+      <div class="name">No Name Tomato, Cream of Mushroom, Vegetable or Chicken Noodle Soup, 284 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$0.99</div>
+    <div class="info">
+      <div class="name">Yop Drinkable Yogurt, 200 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.00</div>
+    <div class="info">
+      <div class="name">Unico Tomato Paste, 156 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.00</div>
+    <div class="info">
+      <div class="name">Ravine Canned Mushrooms, 284 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.75</div>
+    <div class="info">
+      <div class="name">Nestlé Milkshake, 473 mL or MILK2GO 325/473 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.88</div>
+    <div class="info">
+      <div class="name">Aroy-d Coconut Milk, 400 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.97</div>
+    <div class="info">
+      <div class="name">Italpasta Pasta, 900 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$1.98</div>
+    <div class="info">
+      <div class="name">Rooster Coconut Cream, 400 Ml, Meiji Hello Panda, 60 G or Garden Cream Wafers, 200 G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.00</div>
+    <div class="info">
+      <div class="name">Soykei Tofu, 400 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.47</div>
+    <div class="info">
+      <div class="name">Catelli Whole Grains or Smart Pasta, 340/375 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.48</div>
+    <div class="info">
+      <div class="name">Rooster Sweetened Condensed Milk, 300 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">AROY-D Coconut Milk</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS White or Whole Wheat Bread</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">50 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.49</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Sour Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.50</div>
+    <div class="info">
+      <div class="name">Deli World Light Rye Bread, 500 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.50</div>
+    <div class="info">
+      <div class="name">Rooster Tofu, 454 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.50</div>
+    <div class="info">
+      <div class="name">PC Kettle Cooked, Loads of Flavour or World of Flavours Potato Chips, 200 g</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">Earn 750 That&#x27;s, 75 value</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.68</div>
+    <div class="info">
+      <div class="name">Baken-ets Pork Rinds, 70 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.69</div>
+    <div class="info">
+      <div class="name">Lemon Caper Pasta Salad or Quinoa Tabouli</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 20%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.88</div>
+    <div class="info">
+      <div class="name">Lao Gan Ma Chili Crisp 210 g or Lee Kum Kee Premium Soy Sauce 500 mL</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.97</div>
+    <div class="info">
+      <div class="name">Black Diamond Slices Processed Cheese Product 410 g or Lactantia Cream Cheese 227 g</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">SAVE UP TO 38%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.97</div>
+    <div class="info">
+      <div class="name">Yoplait Source Tubs, 630 G or Tubes, 8X56 G or Minigo, 6X60 G Yogurt</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.98</div>
+    <div class="info">
+      <div class="name">Country Harvest Bagels 450 G or Bread 600 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Swiss Cheese</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Mutti Finely Chopped Tomatoes with Italian Garlic, 398 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Mutti Finely Chopped Tomatoes with Italian Basil, 398 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Compliments Snacks</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Cream Cheese or Spread</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Sourdough Bread</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">D&#x27;Italiano Bread</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Earth&#x27;s Own Oat Beverage</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$2.99</div>
+    <div class="info">
+      <div class="name">Thai Kitchen Pure Coconut Milk</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">Ziggy&#x27;s Fresh Pasta, 350 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">Catelli Protein+ Pasta, 340 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">D&#x27;italiano Bread 620/675 g or Buns 6/8&#x27;s</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">Earn 500 pts That&#x27;s 50 value</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">Lay&#x27;s Potato Chips, 177-235 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.00</div>
+    <div class="info">
+      <div class="name">Kiri, 8 Piece, 144G Cheese Dippers, 4 Pack, 140G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.27</div>
+    <div class="info">
+      <div class="name">Astro Yogurt Tubs, 650/750 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.29</div>
+    <div class="info">
+      <div class="name">Dairyland Sour Cream</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.29</div>
+    <div class="info">
+      <div class="name">Dairyland Sour Cream, 450/500 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.29</div>
+    <div class="info">
+      <div class="name">Silk Oat Beverage</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.33</div>
+    <div class="info">
+      <div class="name">Oikos Pro Yogurt,</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Yoplait Source Yogurt Protein Tubs, 650 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Quaker Harvest or Cap&#x27;n Crunch, Life or Squares Cereal, 288-510 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Liberté Mediterranée, 4X100 G/500 G, Yogurt</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Tostitos Tortilla Chips, 210-295 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.49</div>
+    <div class="info">
+      <div class="name">Only Goodness Organic Tomato Sauce</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.50</div>
+    <div class="info">
+      <div class="name">iÖGO Nano Drinks 6x93 mL or Pouches 4x90 g Yogurt</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.50</div>
+    <div class="info">
+      <div class="name">Lactantia or Dairyland Cream 473 ml-1 L or Gay Lea Whipped Cream 225 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.79</div>
+    <div class="info">
+      <div class="name">PC Organics Apple Sauce Cups 6x100 g, Squeezable Fruit Snacks 360 g or Jumbo Raisin Snack Pack 196 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.87</div>
+    <div class="info">
+      <div class="name">Potato Chips 200-235 g or CHEETOS 170-285 g</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.87</div>
+    <div class="info">
+      <div class="name">Bread</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Deli In-store Sliced Cheese</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">High Fibre Sunflower Flax or High Fibre Flax Bread</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Kellogg&#x27;s Premium Cereal, 210-525 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Violife Dairy Free Cheese Alternatives, 200 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Bistro Express Rice</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Balkan Yogurt or IÖGO Creamy Duo Yogurt</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Sour Cream</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Liberté Yogourt</div>
+      <div class="meta"><span class="store">Save-On-Foods</span><span class="badge">BUY 2 EARN 500 More REWARDS POINTS</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$3.99</div>
+    <div class="info">
+      <div class="name">Silk Coconut Yogurt</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.00</div>
+    <div class="info">
+      <div class="name">Quaker Harvest Crunch Cereal</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.49</div>
+    <div class="info">
+      <div class="name">Cereal</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.49</div>
+    <div class="info">
+      <div class="name">Soy-Free Tofu</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.49</div>
+    <div class="info">
+      <div class="name">WINDSOR Fine or Coarse Sea Salt 500 g, SUGAR IN THE RAW 500 g, ROBIN HOOD Oats 1 kg or CRISCO Shortening 454 g</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.75</div>
+    <div class="info">
+      <div class="name">La Baguetterie Miche Sliced Bread, 600/800 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Kraft Cream Cheese</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Organic Yogurt</div>
+      <div class="meta"><span class="store">Calgary Co-op</span><span class="badge">MEMBERS EARN 10%</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Cheese Slices</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">LUCERNE or DAIRYLAND Chocolate Milk</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">COMPLIMENTS Cozy Coop Large White Eggs</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$4.99</div>
+    <div class="info">
+      <div class="name">Silver Hills The Big 16 Bread</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.00</div>
+    <div class="info">
+      <div class="name">Farmer&#x27;s Market Butter Croissants, 260-336 G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.00</div>
+    <div class="info">
+      <div class="name">PC Instant Coffee, 80/100 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.47</div>
+    <div class="info">
+      <div class="name">Kellogg&#x27;s Family Size Cereal, 450-650 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.47</div>
+    <div class="info">
+      <div class="name">General Mills Family Size Cereal, 475-778 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">PC Shredded Cheese, 250-320 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">Organic Regular or Greek Yogurt</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">200 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.49</div>
+    <div class="info">
+      <div class="name">Silk Oat Barista</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.50</div>
+    <div class="info">
+      <div class="name">General Mills Family Size Cereal, 453-778 G</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.50</div>
+    <div class="info">
+      <div class="name">Armstrong Shredded Cheese 320 g, Cheese Bar 400 g or Saputo Mozzarellissima 500 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.50</div>
+    <div class="info">
+      <div class="name">Milk 2GO Milk, 6X200 Ml</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.50</div>
+    <div class="info">
+      <div class="name">PC Organics Cereal Puffs or Entrées, 42-185 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.50</div>
+    <div class="info">
+      <div class="name">PC Brioche Bread, Mini Rolls or Buns, 400 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.87</div>
+    <div class="info">
+      <div class="name">Salted Butter</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.97</div>
+    <div class="info">
+      <div class="name">Cracker Barrel Shredded Cheese 250-320g &amp; Black Diamond Snack Cheese 252-336g</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.97</div>
+    <div class="info">
+      <div class="name">Cracker Barrel Cheese Bars, 400 G or Shreds, 300/320 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.97</div>
+    <div class="info">
+      <div class="name">Yoplait Source or Creamy Yogurt, 16X100 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Family Size Cereal</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">75 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Kellogg&#x27;s Mini-Wheats Cereal</div>
+      <div class="meta"><span class="store">Save-On-Foods</span><span class="badge">BUY 2 EARN 750 MORE REWARDS POINTS</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Kikkoman Soy Sauce</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Riviera Oat Yogurt Alternative</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$5.99</div>
+    <div class="info">
+      <div class="name">Silk Plant-Based Yogurt Alternative</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">Quaker Baking Mixes or Oat Flour, 700-900 G</div>
+      <div class="meta"><span class="store">No Frills</span><span class="badge">Earn PC Optimum 1,500 pts That&#x27;s $1.50 value</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.00</div>
+    <div class="info">
+      <div class="name">Steamed Basmati or Jasmine Rice</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.44</div>
+    <div class="info">
+      <div class="name">Nescafé Flavoured, Decaffeinated or Colombian Instant Coffee, 100-170 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">Nescafé Rich Sweet &amp; Creamy, 100-170 G, 16&#x27; 18&#x27;S or Concentrates, 500 Ml Instant Coffee</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">Cake Beauty Bubble Bath, Shower Cream, Hand, Foot Cream or Body Mist</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">Cambozola Cheese</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.49</div>
+    <div class="info">
+      <div class="name">A2 Milk</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.50</div>
+    <div class="info">
+      <div class="name">Activia Yogurt, 12 x 100 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.50</div>
+    <div class="info">
+      <div class="name">Saputo Mozzarellissima Cheese Bars, 500 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$6.99</div>
+    <div class="info">
+      <div class="name">Source Creamy Yogurt</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Quaker Instant Oatmeal 232-344g or Tetley Tea 20 Pack</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Balderson Cheddar Cheese, 250/280 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Kettle Brand Potato Chips</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.00</div>
+    <div class="info">
+      <div class="name">Old Dutch Potato Chips</div>
+      <div class="meta"><span class="store">Save-On-Foods</span><span class="badge">BUY 4 EARN 900 More REWARDS POINTS</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.49</div>
+    <div class="info">
+      <div class="name">Compliments Organic Large Eggs</div>
+      <div class="meta"><span class="store">Safeway</span><span class="badge">100 Scene+ PTS when you buy 2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.49</div>
+    <div class="info">
+      <div class="name">Saputo Bocconcini Cheese</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.97</div>
+    <div class="info">
+      <div class="name">Cheese</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Butter</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Iced Coffee</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$7.99</div>
+    <div class="info">
+      <div class="name">Lactantia Butter</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.00</div>
+    <div class="info">
+      <div class="name">Tostitos Tortilla Chips</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.47</div>
+    <div class="info">
+      <div class="name">Jumbo Cereal</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Scottish Mature Cheddar</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$8.99</div>
+    <div class="info">
+      <div class="name">Kellogg&#x27;s Jumbo Cereal, 700 G - 1.05 Kg</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">Milkbone Soft &amp; Chewy Dog Treats, 708 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">Ben&#x27;s Original Bistro Express Rice, 240/250 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">Olivieri Family Pack Pasta, 500-700 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.00</div>
+    <div class="info">
+      <div class="name">Tortilla Chips 205-300 g or Kettle Chips 190-200 g</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Block Cheese</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Entremont Camembert or Double Cream Brie</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Bertolli Olive Oil, 750 ML/1 L</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Quality Basmati Rice</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$9.99</div>
+    <div class="info">
+      <div class="name">Gold Instant Coffee</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Cereal</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">PC Single Serve Coffee Pods, 12&#x27;S</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Garnier Micellar, 400 Ml, Cleanser, Naturel Moisturizer, or Active Cream</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Brust Protein Coffee</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Castello Havarti Cheese, 425 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span><span class="badge">Members Save $2</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.00</div>
+    <div class="info">
+      <div class="name">Quaker Instant Oatmeal</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.98</div>
+    <div class="info">
+      <div class="name">Chicken Broth Powder Mix</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$10.99</div>
+    <div class="info">
+      <div class="name">Smoked Cheddar</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.00</div>
+    <div class="info">
+      <div class="name">PC Single Origin Ground Coffee, 340 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.49</div>
+    <div class="info">
+      <div class="name">Rice</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.87</div>
+    <div class="info">
+      <div class="name">Roast &amp; Ground Coffee</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.88</div>
+    <div class="info">
+      <div class="name">T&amp;T Dried Shiitake Mushrooms, 454 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.88</div>
+    <div class="info">
+      <div class="name">Sekka Japanese Rice</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$11.99</div>
+    <div class="info">
+      <div class="name">Goat Cheese</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$12.99</div>
+    <div class="info">
+      <div class="name">Double Cream Brie</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$12.99</div>
+    <div class="info">
+      <div class="name">Coffee</div>
+      <div class="meta"><span class="store">Calgary Co-op</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.00</div>
+    <div class="info">
+      <div class="name">Pillsbury 100% Whole Wheat Flour Chakki Atta, 9.07 Kg</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$14.99</div>
+    <div class="info">
+      <div class="name">Premium Basmati Rice</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$15.99</div>
+    <div class="info">
+      <div class="name">Bella Casara Burrata Cheese</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$22.00</div>
+    <div class="info">
+      <div class="name">Nabob Coffee, 915/930 g</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$22.99</div>
+    <div class="info">
+      <div class="name">Mccafé Coffee Pods, 30&#x27;s</div>
+      <div class="meta"><span class="store">No Frills</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$23.99</div>
+    <div class="info">
+      <div class="name">Kabrita Goat Milk Based Infant or Toddler Formula, 400/800 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$28.99</div>
+    <div class="info">
+      <div class="name">Keurig K-Cup Pods</div>
+      <div class="meta"><span class="store">Safeway</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$29.99</div>
+    <div class="info">
+      <div class="name">Gia Milagrosa Jasmine Rice</div>
+      <div class="meta"><span class="store">Save-On-Foods</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$37.00</div>
+    <div class="info">
+      <div class="name">Enfagrow Nutritional Supplement Milk-based Powder, 907 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$37.00</div>
+    <div class="info">
+      <div class="name">Enfagrow Nutritional Supplement Milk-based Powder 1-5 Years, 907 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$47.00</div>
+    <div class="info">
+      <div class="name">Capricare Goat Milk Infant Formula, Stage 1 or Stage 2, 800 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="price">$47.00</div>
+    <div class="info">
+      <div class="name">Capricare Goat Milk Infant Formula Stage 1 or Stage 2, 800 G</div>
+      <div class="meta"><span class="store">Real Canadian Superstore</span></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+  <div class="foot">Compiled weekly by a Claude Code routine &middot; Cochrane, AB</div>
+  </div>
+</body></html>
