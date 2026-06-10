@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recipe Box</title>
+  <meta name="description" content="A personal recipe box that works offline.">
+  <meta name="theme-color" content="#c64f33">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-live="polite"></main>
+  <div id="toast" role="status"></div>
+  <input type="file" id="import-file" accept=".json,application/json" hidden>
+  <script src="app.js"></script>
+</body>
+</html>
