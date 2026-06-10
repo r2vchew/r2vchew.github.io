@@ -2,7 +2,7 @@
 
 // Bump this version whenever index.html, styles.css, or app.js change,
 // so installed clients pick up the new files.
-const CACHE = 'recipe-box-v2';
+const CACHE = 'recipe-box-v3';
 
 const ASSETS = [
   './',

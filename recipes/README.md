@@ -4,8 +4,10 @@ A personal, offline-first recipe box PWA. Lives at `https://r2vchew.github.io/re
 
 - All data is stored locally in the browser (IndexedDB) — no server, works offline.
 - Install it from Chrome on Android via "Add to Home screen" to get a standalone app.
-- **Export regularly** — the JSON backup is the only copy of your data outside the
-  browser. Clearing site data wipes the recipe box.
+- On first load the app requests **persistent storage** so the browser won't evict
+  your recipes under storage pressure (usually granted automatically once installed).
+- **Export regularly anyway** — the JSON backup is the only copy of your data outside
+  this browser. Clearing site data, or uninstalling the app, wipes the recipe box.
 
 ## Importing recipes
 

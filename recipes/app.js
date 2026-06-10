@@ -103,9 +103,22 @@ function today() {
   return new Date().toISOString().slice(0, 10);
 }
 
+// Only allow link protocols that are safe to put in an href, so a
+// scraped "javascript:" URL can't become a clickable script.
+function safeUrl(u) {
+  if (typeof u !== 'string' || !u.trim()) return null;
+  try {
+    const parsed = new URL(u, location.href);
+    return ['http:', 'https:', 'mailto:'].includes(parsed.protocol) ? u : null;
+  } catch {
+    return null;
+  }
+}
+
 function indexRecipe(r) {
   const parts = [
     r.name,
+    r.source && r.source.note,
     ...r.ingredients.map(i => [i.item, i.prep, i.unit].filter(Boolean).join(' ')),
     r.notes,
     r.tags.join(' ')
@@ -305,8 +318,9 @@ function renderDetail(id) {
   if (cook) timeBits.push(`${cook} cook`);
 
   let sourceLine = '';
-  if (r.source.type === 'link' && r.source.url) {
-    sourceLine = `Source: <a href="${esc(r.source.url)}" target="_blank" rel="noopener">${esc(r.source.note || r.source.url)}</a>`;
+  const linkUrl = r.source.type === 'link' ? safeUrl(r.source.url) : null;
+  if (linkUrl) {
+    sourceLine = `Source: <a href="${esc(linkUrl)}" target="_blank" rel="noopener noreferrer">${esc(r.source.note || r.source.url)}</a>`;
   } else if (r.source.note) {
     sourceLine = `Source: ${esc(r.source.note)}${r.source.type === 'screenshot' ? ' (screenshot)' : ''}`;
   } else if (r.source.type === 'screenshot') {
@@ -748,20 +762,32 @@ function exportRecipes() {
 
 /* ---------- Routing ---------- */
 
+// Remember how far down the list was scrolled so returning from a recipe
+// doesn't dump you back at the top of a long list.
+let lastListScroll = 0;
+const onList = () => location.hash === '' || location.hash === '#/';
+
 function route() {
   const h = location.hash;
   let m;
   if ((m = h.match(/^#\/recipe\/(.+)$/))) {
     renderDetail(decodeURIComponent(m[1]));
+    window.scrollTo(0, 0);
   } else if ((m = h.match(/^#\/edit\/(.+)$/))) {
     renderEdit(decodeURIComponent(m[1]));
+    window.scrollTo(0, 0);
   } else if (h === '#/new') {
     renderEdit(null);
+    window.scrollTo(0, 0);
   } else {
     renderListView();
+    window.scrollTo(0, lastListScroll);
   }
-  window.scrollTo(0, 0);
 }
+
+window.addEventListener('scroll', () => {
+  if (onList()) lastListScroll = window.scrollY;
+}, { passive: true });
 
 /* ---------- Global event handling ---------- */
 
@@ -826,6 +852,19 @@ window.addEventListener('hashchange', route);
 
 /* ---------- Init ---------- */
 
+// Ask the browser not to evict our IndexedDB data under storage pressure.
+// Installed PWAs on Android Chrome are typically granted this without a prompt;
+// it's the main defence against silently losing the recipe box. Export remains
+// the off-device backup.
+async function requestPersistence() {
+  try {
+    if (navigator.storage && navigator.storage.persist &&
+        !(await navigator.storage.persisted())) {
+      await navigator.storage.persist();
+    }
+  } catch { /* best-effort */ }
+}
+
 (async function init() {
   try {
     state.recipes = await dbGetAll();
@@ -834,6 +873,7 @@ window.addEventListener('hashchange', route);
     toast('Could not open the recipe database: ' + err.message, 'error', 6000);
   }
   route();
+  requestPersistence();
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => { /* offline support is best-effort */ });
   }
