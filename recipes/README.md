@@ -14,6 +14,9 @@ an array of recipes, or `{ "recipes": [...] }`. Recipes are merged by `id`: unkn
 ids are added, matching ids are overwritten. A missing `id` gets a new UUID.
 `sample-recipes.json` in this folder is a working example.
 
+To produce import files with Claude (from screenshots, links, or pasted text), see
+[`RECIPE-INGESTION.md`](../RECIPE-INGESTION.md) at the repo root.
+
 ## Recipe schema
 
 ```json
