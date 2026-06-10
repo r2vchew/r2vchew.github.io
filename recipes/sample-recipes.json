@@ -1,0 +1,77 @@
+[
+  {
+    "id": "6f1f3a52-9b1c-4e2e-8c7a-2f4d8a0e9b11",
+    "name": "Weeknight Beef Chili",
+    "source": { "type": "manual", "url": null, "note": "Family standby" },
+    "servings": 6,
+    "time": { "prep_minutes": 15, "cook_minutes": 45 },
+    "ingredients": [
+      { "amount": 2, "unit": "lb", "item": "ground beef", "prep": null },
+      { "amount": 1, "unit": null, "item": "yellow onion", "prep": "diced" },
+      { "amount": 3, "unit": "clove", "item": "garlic", "prep": "minced" },
+      { "amount": 2, "unit": "tbsp", "item": "chili powder", "prep": null },
+      { "amount": 1, "unit": "can", "item": "kidney beans (540 mL)", "prep": "drained and rinsed" },
+      { "amount": 1, "unit": "can", "item": "crushed tomatoes (796 mL)", "prep": null },
+      { "amount": null, "unit": null, "item": "olive oil", "prep": "a good glug" },
+      { "amount": 0.5, "unit": "tsp", "item": "salt", "prep": "plus more to taste" }
+    ],
+    "steps": [
+      "Heat the olive oil in a large pot over medium-high heat. Brown the beef, breaking it up as it cooks.",
+      "Add the onion and cook until softened, about 5 minutes. Stir in the garlic and chili powder and cook 1 minute more.",
+      "Add the beans, tomatoes, and salt. Bring to a simmer, then reduce heat and simmer uncovered for 35–40 minutes, stirring occasionally.",
+      "Taste and adjust seasoning. Serve with toppings of choice."
+    ],
+    "tags": ["dinner", "beef", "one-pot", "weeknight", "kid-approved"],
+    "notes": "Freezes well. For extra heat, add a diced jalapeño with the onion.",
+    "date_added": "2026-06-10"
+  },
+  {
+    "id": "b3c9d7e0-1a2b-4c3d-9e8f-7a6b5c4d3e21",
+    "name": "Lemon Garlic Roast Chicken Thighs",
+    "source": { "type": "link", "url": "https://example.com/lemon-garlic-chicken", "note": "Adapted — less butter" },
+    "servings": 4,
+    "time": { "prep_minutes": 10, "cook_minutes": 40 },
+    "ingredients": [
+      { "amount": 8, "unit": null, "item": "bone-in chicken thighs", "prep": "patted dry" },
+      { "amount": 1, "unit": null, "item": "lemon", "prep": "juiced and zested" },
+      { "amount": 4, "unit": "clove", "item": "garlic", "prep": "smashed" },
+      { "amount": 2, "unit": "tbsp", "item": "olive oil", "prep": null },
+      { "amount": 1, "unit": "tsp", "item": "dried oregano", "prep": null },
+      { "amount": 0.75, "unit": "tsp", "item": "salt", "prep": null }
+    ],
+    "steps": [
+      "Preheat the oven to 425°F (220°C).",
+      "Toss the chicken with the lemon juice and zest, garlic, oil, oregano, and salt in a baking dish.",
+      "Roast skin-side up for 35–40 minutes, until the skin is crisp and the internal temperature reaches 165°F (74°C).",
+      "Rest 5 minutes, then spoon the pan juices over before serving."
+    ],
+    "tags": ["dinner", "chicken", "weeknight"],
+    "notes": "",
+    "date_added": "2026-06-10"
+  },
+  {
+    "id": "a1e2f3d4-5b6c-4d7e-8f9a-0b1c2d3e4f55",
+    "name": "Maple Oatmeal Pancakes",
+    "source": { "type": "screenshot", "url": null, "note": "From a cooking magazine screenshot" },
+    "servings": 4,
+    "time": { "prep_minutes": 10, "cook_minutes": 15 },
+    "ingredients": [
+      { "amount": 1.5, "unit": "cup", "item": "all-purpose flour", "prep": null },
+      { "amount": 0.5, "unit": "cup", "item": "rolled oats", "prep": null },
+      { "amount": 1, "unit": "tbsp", "item": "baking powder", "prep": null },
+      { "amount": 1.25, "unit": "cup", "item": "milk", "prep": null },
+      { "amount": 2, "unit": null, "item": "eggs", "prep": null },
+      { "amount": 3, "unit": "tbsp", "item": "maple syrup", "prep": "plus more for serving" },
+      { "amount": null, "unit": null, "item": "butter", "prep": "for the pan" }
+    ],
+    "steps": [
+      "Whisk the flour, oats, and baking powder in a large bowl.",
+      "Whisk the milk, eggs, and maple syrup in a second bowl, then fold into the dry ingredients until just combined.",
+      "Cook ladlefuls on a buttered griddle over medium heat, flipping when bubbles form, about 2 minutes per side.",
+      "Serve warm with more maple syrup."
+    ],
+    "tags": ["breakfast", "kid-approved", "weekend/project"],
+    "notes": "Let the batter rest 5 minutes for fluffier pancakes.",
+    "date_added": "2026-06-10"
+  }
+]
