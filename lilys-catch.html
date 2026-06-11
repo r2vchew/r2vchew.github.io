@@ -64,6 +64,8 @@ const KEYBOARD_SPEED = 560;     // px/sec when using arrow keys / A,D
 const FOLLOW_SPEED   = 13;      // how snappily Lily follows finger/mouse (bigger = snappier)
 const CATCH_FORGIVE  = 1.0;     // good-item hitbox size multiplier (bigger = easier)
 const BAD_HIT_SHRINK = 0.62;    // bad-item hitbox multiplier (smaller = kinder)
+const CATCH_TOP      = 172;     // how high on Lily catches register, in her body units
+                                // (her feet = 0, top of her head ~= 172)
 const DESKTOP_ASPECT = 0.62;    // widest the playfield may be (width/height); wider screens get side bars
 const TOUCH_GROUND_LIFT = 0.10; // on touch devices, raise Lily this fraction of the screen height
                                 // (keeps fingers away from the phone's bottom gesture-nav zone)
@@ -1250,9 +1252,9 @@ function spawnItem() {
     t: Math.random() * 10,
   });
 }
-function basketRect() {
+function catchZone() {
   const ps = playerScale();
-  return { x: player.x, y: groundY() - 60 * ps, halfW: 40 * ps, halfH: 26 * ps };
+  return { x: player.x, top: groundY() - CATCH_TOP * ps, halfW: 40 * ps };
 }
 function onCatch(it) {
   const isBonus = (it.type === "rainbow" || it.type === "unicorn");
@@ -1319,7 +1321,7 @@ function updatePlay(dt) {
   }
 
   // falling + collisions
-  const b = basketRect();
+  const z = catchZone();
   for (let i = game.items.length - 1; i >= 0; i--) {
     const it = game.items[i];
     it.t += dt;
@@ -1327,9 +1329,11 @@ function updatePlay(dt) {
     it.x += Math.sin(it.t * 2 + it.phase) * it.sway * dt;
     it.x = clamp(it.x, it.r * 0.6, W - it.r * 0.6);
     const hitW = it.good
-      ? (b.halfW + it.r * 0.9) * CATCH_FORGIVE
-      : (b.halfW + it.r * 0.9) * BAD_HIT_SHRINK;
-    if (Math.abs(it.x - b.x) < hitW && Math.abs(it.y - b.y) < b.halfH + it.r * 0.55) {
+      ? (z.halfW + it.r * 0.9) * CATCH_FORGIVE
+      : (z.halfW + it.r * 0.9) * BAD_HIT_SHRINK;
+    // triggers the moment the item's bottom touches the top of her head
+    if (Math.abs(it.x - z.x) < hitW &&
+        it.y + it.r * 0.75 > z.top && it.y - it.r * 0.5 < groundY()) {
       game.items.splice(i, 1);
       if (it.good) onCatch(it); else onHit(it);
       continue;
