@@ -17,10 +17,13 @@ Quick orientation (details in the reference doc):
   Interac e-transfers. Those are **transfers, never spend**. Real spend comes from
   the statement's Purchases section, itemized by the per-store detail sections at
   the bottom of each PDF.
-- A `TEAM CT STORE DISCOUNT` credit posts on the last day of each period — the
-  17.5% employee discount on eligible Canadian Tire family purchases. Spend must
-  be recorded at the **discounted effective cost**, allocated per transaction per
-  the rules in the reference doc.
+- A `TEAM CT STORE DISCOUNT` credit posts at the end of most periods — the
+  employee discount: 17.5% (occasionally 35% on double-discount dates) of the
+  tax-inclusive amount charged to the card at CT-family merchants, netted
+  against returns, windowed by credit posting dates (a month can have no credit
+  and carry forward). Spend must be recorded at the **discounted effective
+  cost**, allocated per transaction per the verified formula in the reference
+  doc.
 - Every ingested statement must pass the reconciliation checklist at the end of
   the reference doc before its numbers go into the dashboard.
 

@@ -106,7 +106,10 @@ Quirks:
   fix signs accordingly.
 - Generic `MERCHANDISE` lines carry no item info — categorize by merchant.
 - Non-merchandise lines occur at Canadian Tire: `SHOP LABOUR`,
-  `ENVIRONMENTAL FEE`, `ADS` — keep them; they matter for discount math (§4).
+  `ENVIRONMENTAL FEE`, `ADS` — keep them as part of the transaction.
+- An `OTHER TENDER` line means part of the receipt was paid by gift card; the
+  amount in the Purchases section (items + tax − other tender) is what hit the
+  card, and is the base for the discount (§4).
 - Merchants outside the CT family (Petro-Canada, Shell, McDonald's, Car Wash
   Corral, Ski Louise, etc.) have **no** detail section — categorize from the
   merchant name alone.
@@ -141,57 +144,90 @@ When an item code is cryptic (e.g. `MC MOD KAYAK HOOKS`, `NM OD C6 LED 70 WW`),
 expand it with judgement — the prefix letters are house brands (MC = Mastercraft,
 NM = Noma, HBC, SF, MM, etc.) and the rest abbreviates the product.
 
-## 4. Team CT employee discount (17.5%)
+## 4. Team CT employee discount (17.5%, occasionally 35%)
 
-Vincent works for Canadian Tire. Most purchases at Canadian Tire family banners
-earn a 17.5% discount, reimbursed as one `TEAM CT STORE DISCOUNT` credit at the
-end of each statement period. Spend must be recorded at the **effective
-(discounted) cost**, not the sticker amount, or every month overstates spend and
-then shows a mystery credit.
+Vincent works for Canadian Tire. Purchases at Canadian Tire family banners are
+reimbursed via one `TEAM CT STORE DISCOUNT` credit per cycle. Spend must be
+recorded at the **effective (discounted) cost**, not the sticker amount, or
+every month overstates spend and then shows a mystery credit.
 
-### What earns the discount
+### The verified formula
 
-- **Eligible:** pre-tax *merchandise* at CT family banners — Canadian Tire
-  stores, Sport Chek (incl. sportchek.ca), Mark's/L'Équipeur, Party City,
-  Atmosphere, PartSource, Pro Hockey Life.
-- **Not eligible:** anything at non-CT merchants; gas at Petro-Canada/Gas+;
-  taxes (GST/HST/PST). Treat `ENVIRONMENTAL FEE`, `SHOP LABOUR`, and gift cards
-  as *probably not eligible* — confirm via the reconciliation below.
-- Returns at eligible banners **claw back** their discount: the credit is 17.5%
-  of *net* pre-tax eligible merchandise (purchases minus returns) for the
-  discount window.
+The credit was reverse-engineered from the Oct 2025 – May 2026 statements and
+reconciles to within $0.02 on every fully-observable window:
 
-### Verified against real statements
+> **credit = 17.5% × net amount charged to the card (tax INCLUDED) at CT-family
+> merchants, for all such transactions POSTED since the previous credit.**
 
-- Dec 2025 (`2512`): net pre-tax CT-family merchandise ≈ $1,414 → 17.5% ≈
-  $247.4; actual credit **$247.38** ✓.
-- Oct 2025 (`2510`): credit $481.76 exceeds 17.5% of that period's eligible
-  spend — the discount window is anchored on the credit's posting date, so it
-  can sweep in late-posted purchases from the *previous* cycle. Reconciliation
-  may need the adjacent statement.
+Rules that follow, each verified against a real statement:
 
-### Procedure per statement
+- **The base is the card-charged total, taxes and everything in it.** No
+  pre-tax math, no item exclusions: shop labour, environmental fees, GST/HST
+  (incl. 13% HST at Ontario stores), groceries, online sportchek.ca orders,
+  Mark's, Party City, even a Lake Louise ski card sold at Sport Chek — all
+  reconciled at 17.5% of the posted amount.
+- **Gift-card portions earn nothing.** When a receipt shows `OTHER TENDER`,
+  the credit is 17.5% of the amount actually charged to the card (verified:
+  Oct 24/Feb 3/Mar 7/Apr 17 transactions with $10–$20 OTHER TENDER).
+- **Returns claw back 17.5% of the refunded card amount** (verified: Blue Jays
+  jersey bought Oct 21, returned Oct 28, clawed back in the December credit).
+- **Window = posting dates between credit postings**, not the statement
+  period. A credit includes transactions posted up to and including its own
+  posting day (verified: Dec 23 purchase posted Dec 24 made the Dec 24 credit).
+- **Negative or no-credit months carry forward.** Nov 2025 had purchases but
+  no credit — its window netted negative (big return), so everything rolled
+  into the Dec 24 credit, which then reconciled exactly. Never assume one
+  credit ↔ one statement.
+- **Not eligible at all:** non-CT merchants, and gas at Petro-Canada/Gas+
+  (fuel earns CT Money instead, not the Team discount).
+- Rounding is per-transaction or aggregate (statements show both within 1¢);
+  treat **±$0.02** as reconciled.
 
-1. For every eligible transaction, compute `expected_discount = 0.175 ×
-   (pre-tax merchandise subtotal)` from its detail section (exclude tax lines,
-   and initially exclude environmental fees / labour).
-2. Sum expected discounts (purchases positive, returns negative) and compare to
-   the `TEAM CT STORE DISCOUNT` credit.
-3. **Within ~$1:** allocate each transaction its own expected discount.
-4. **Materially off:** first retry including/excluding fee-and-labour lines and
-   any ambiguous items; then check the previous statement for eligible
-   purchases posted after that statement's discount date. If it still doesn't
-   reconcile, allocate the actual credit pro-rata across eligible pre-tax
-   amounts and **flag the month** in the output notes — never silently force it.
-5. Record each transaction's effective cost:
-   `effective = posted_total − allocated_discount`
-   (tax stays as charged — the reimbursement covers only the pre-tax 17.5%).
-   Keep both `gross_amount` and `discount` fields so the statement still
-   reconciles to the penny.
-6. The `TEAM CT STORE DISCOUNT` credit line itself must then be **excluded**
+### Double-discount events (35%)
+
+A few times a year CT runs employee double-discount events where the rate is
+**35%** instead of 17.5%, applying to purchases made on those specific dates.
+Exact dates are not recorded anywhere in our data — they must be inferred from
+reconciliation. Verified so far:
+
+- Every window from Dec 2025 through May 2026 reconciles exactly at a flat
+  17.5% — **no double-discount purchases in Nov 25 – May 25**.
+- The Oct 24, 2025 credit ($481.76) exceeds 17.5% of its visible window by
+  **$198.31**. No combination of Oct-window transactions at 35% produces the
+  actual credit (every combination overshoots), so the excess comes from
+  September-period purchases whose statement (`2509`) is not in the folder:
+  either ≈ $1,133.19 of September net purchases at 17.5% (a carried-forward
+  September credit, like November), or ≈ $566.60 at 35% (a September
+  double-discount event), or a mix. If the September statement is ever added
+  to the folder, re-run the reconciliation and pin this down; until then the
+  October allocation stays flagged as estimated.
+
+### Procedure per credit window
+
+1. Build the window: all CT-family card transactions (purchases positive,
+   returns negative, at posted card amounts) posted after the previous
+   `TEAM CT STORE DISCOUNT` posting date through this credit's posting date.
+   Include carryover from any preceding no-credit months.
+2. Compute `0.175 × net` and compare to the credit (±$0.02 tolerance).
+3. **Matches:** allocate each transaction `discount = 0.175 × card_amount`.
+4. **Credit is larger:** solve for which transactions were at 35%:
+   `excess = credit − 0.175 × net`, so the 35%-rate subset must sum to
+   `excess / 0.175`. Prefer subsets sharing a single transaction date
+   (double-discount events are date-based) and confirm the solution is exact.
+   Apply `discount = 0.35 × card_amount` to those.
+5. **Still unreconciled:** check adjacent statements for window-boundary
+   transactions and no-credit carryovers; as a last resort allocate the actual
+   credit pro-rata across the window's card amounts and **flag the month** in
+   the output notes — never silently force it.
+6. Record each transaction's effective cost:
+   `effective = card_amount − allocated_discount` (i.e. ×0.825 normally,
+   ×0.65 on double-discount dates). Keep `gross_amount` and `discount` fields
+   so the statement still reconciles to the penny. Returns get the same
+   treatment with negative amounts.
+7. The `TEAM CT STORE DISCOUNT` credit line itself must then be **excluded**
    from spend (it has been distributed into the transactions). Double-counting
-   it as both a per-item discount and a credit is the main failure mode —
-   check for this explicitly.
+   it as both a per-transaction discount and a credit is the main failure
+   mode — check for this explicitly.
 
 ## 5. Merging into the existing spend data
 
@@ -215,7 +251,8 @@ then shows a mystery credit.
    `Total for transaction` in a detail section, and its item lines + taxes sum
    to that total.
 5. Discount allocation: sum of per-transaction discounts = `TEAM CT STORE
-   DISCOUNT` credit (or the month is explicitly flagged per §4.4).
+   DISCOUNT` credit ±$0.02, with the discount window and any no-credit
+   carryover handled per §4 (or the month is explicitly flagged).
 6. The discount credit and all payments are absent from spend totals.
 
 Report the checklist results to the user with each ingested month, along with
