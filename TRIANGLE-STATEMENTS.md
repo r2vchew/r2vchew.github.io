@@ -20,6 +20,12 @@ When asked to "process new statements", list the folder, compare `YYMM` names
 against statement months already present in the spend data, and ingest only the
 missing months (oldest first).
 
+**Already processed:** statements `2510`–`2605` have been fully extracted,
+categorized, and discount-allocated into `triangle-spend-2510-2605.json` in the
+`Claude/finance-review` Drive folder (next to the `triangle` statements folder).
+Start from that file rather than re-reading those PDFs; new ingestion begins at
+`2606`. (`2509` is the known gap — see §4 on the October discount residual.)
+
 ## 2. Anatomy of a statement
 
 Process the sections in this order. PDF text extraction is messy — descriptions
