@@ -64,11 +64,17 @@ const KEYBOARD_SPEED = 560;     // px/sec when using arrow keys / A,D
 const FOLLOW_SPEED   = 13;      // how snappily Lily follows finger/mouse (bigger = snappier)
 const CATCH_FORGIVE  = 1.0;     // good-item hitbox size multiplier (bigger = easier)
 const BAD_HIT_SHRINK = 0.62;    // bad-item hitbox multiplier (smaller = kinder)
+const DESKTOP_ASPECT = 0.62;    // widest the playfield may be (width/height); wider screens get side bars
+const TOUCH_GROUND_LIFT = 0.10; // on touch devices, raise Lily this fraction of the screen height
+                                // (keeps fingers away from the phone's bottom gesture-nav zone)
 /* ==================================================================== */
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
-let W = 1, H = 1, DPR = 1;
+let W = 1, H = 1, DPR = 1;      // playfield size (the whole game lives in these coords)
+let SW = 1, SH = 1, offX = 0;   // full screen size + letterbox offset on wide screens
+const IS_TOUCH = (typeof navigator !== "undefined" && navigator.maxTouchPoints > 0) ||
+                 ("ontouchstart" in window);
 
 const FONT = "'Comic Sans MS','Chalkboard SE','Comic Neue','Marker Felt',cursive,sans-serif";
 const OUTLINE = "#4a3528";
@@ -98,7 +104,7 @@ let bgClouds = [];
 let titleDecor = [];
 
 /* ------------------------- sizing helpers -------------------------- */
-function groundY() { return H - Math.min(H * 0.045, 36); }
+function groundY() { return H - Math.min(H * 0.045, 36) - (IS_TOUCH ? H * TOUCH_GROUND_LIFT : 0); }
 function playerScale() { return clamp(Math.min(W, H) / 640, 0.55, 1.35); }
 function itemR() { return clamp(Math.min(W, H) * 0.058, 24, 50); }
 function speedScale() { return H / 800; }
@@ -109,9 +115,12 @@ function pick(arr) { return arr[(Math.random() * arr.length) | 0]; }
 
 function resize() {
   DPR = Math.min(window.devicePixelRatio || 1, 2.5);
-  W = window.innerWidth; H = window.innerHeight;
-  canvas.width = Math.round(W * DPR);
-  canvas.height = Math.round(H * DPR);
+  SW = window.innerWidth; SH = window.innerHeight;
+  H = SH;
+  W = Math.min(SW, Math.round(SH * DESKTOP_ASPECT)); // wide screens get a vertical, phone-shaped playfield
+  offX = Math.round((SW - W) / 2);
+  canvas.width = Math.round(SW * DPR);
+  canvas.height = Math.round(SH * DPR);
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   player.x = clamp(player.x || W / 2, 60, W - 60);
   makeClouds();
@@ -185,7 +194,7 @@ function sndOver() { tone(392, 0, 0.25, "triangle", 0.14); tone(330, 0.22, 0.4, 
 /* ============================ INPUT ================================= */
 function pointerPos(e) {
   const r = canvas.getBoundingClientRect();
-  return { x: e.clientX - r.left, y: e.clientY - r.top };
+  return { x: e.clientX - r.left - offX, y: e.clientY - r.top };
 }
 function hitButton(p) {
   for (let i = 0; i < buttons.length; i++) {
@@ -1593,6 +1602,28 @@ function drawPlay(c, t) {
   }
 }
 
+/* decorated bars beside the playfield on wide (desktop/landscape) screens */
+function drawLetterbox(c) {
+  if (offX < 1) return;
+  const g = c.createLinearGradient(0, 0, 0, SH);
+  g.addColorStop(0, "#6a55a0");
+  g.addColorStop(1, "#9a6ab0");
+  c.fillStyle = g;
+  c.fillRect(0, 0, offX + 1, SH);
+  c.fillRect(SW - offX - 1, 0, offX + 1, SH);
+  c.fillStyle = "rgba(255,255,255,.07)";
+  const step = 54;
+  for (let x = step / 2; x < offX - 10; x += step) {
+    for (let y = ((x / step) % 2) * step / 2 + step / 2; y < SH + step; y += step) {
+      circle(c, x, y, 7); c.fill();
+      circle(c, SW - x, y, 7); c.fill();
+    }
+  }
+  c.fillStyle = "rgba(255,255,255,.85)";
+  c.fillRect(offX - 4, 0, 4, SH);
+  c.fillRect(SW - offX, 0, 4, SH);
+}
+
 /* ========================== MAIN LOOP =============================== */
 let lastTime = 0, lastDt = 1 / 60;
 function frame(ms) {
@@ -1606,6 +1637,9 @@ function frame(ms) {
 
   buttons.length = 0;
   ctx.save();
+  drawLetterbox(ctx);
+  ctx.translate(offX, 0);
+  ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
   if (game.shake > 0) {
     ctx.translate(rnd(-game.shake, game.shake), rnd(-game.shake, game.shake));
   }
