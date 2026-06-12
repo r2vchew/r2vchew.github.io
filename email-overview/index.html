@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Email Overview</title>
+<style>
+  :root {
+    --bg: #f4f5f7; --card: #ffffff; --text: #1a1d21; --muted: #6b7280;
+    --line: #e5e7eb; --accent: #2563eb; --chipbg: #e8eaf0; --chip-on: #1a1d21;
+    --chip-on-text: #ffffff; --up: #16a34a; --down: #dc2626; --urgent: #b45309;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101317; --card: #1a1f26; --text: #e7eaee; --muted: #9aa3af;
+      --line: #2a313b; --accent: #60a5fa; --chipbg: #232a33; --chip-on: #e7eaee;
+      --chip-on-text: #101317; --urgent: #f59e0b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    position: sticky; top: 0; z-index: 10; background: var(--bg);
+    padding: 12px 14px 8px; border-bottom: 1px solid var(--line);
+  }
+  .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  h1 { font-size: 20px; margin: 0; letter-spacing: -0.3px; }
+  .updated { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .tabs { display: flex; gap: 6px; margin-top: 10px; }
+  .tab {
+    flex: 1; text-align: center; padding: 7px 0; border-radius: 9px; font-size: 14px;
+    font-weight: 600; background: var(--chipbg); color: var(--text); border: none; cursor: pointer;
+  }
+  .tab.on { background: var(--chip-on); color: var(--chip-on-text); }
+  #search {
+    width: 100%; margin-top: 8px; padding: 8px 12px; border-radius: 9px;
+    border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: 15px;
+  }
+  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 2px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto; padding: 5px 11px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    background: var(--chipbg); color: var(--text); border: none; cursor: pointer; white-space: nowrap;
+  }
+  .chip.on { background: var(--chip-on); color: var(--chip-on-text); }
+  main { padding: 10px 14px 60px; max-width: 680px; margin: 0 auto; }
+  .day-h { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 18px 2px 6px; }
+  .sec-h { font-size: 15px; font-weight: 700; margin: 18px 2px 8px; display: flex; align-items: center; gap: 6px; }
+  .sec-h .count { color: var(--muted); font-weight: 500; font-size: 13px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 13px; margin-bottom: 8px;
+  }
+  .card.urgent { border-left: 3px solid var(--urgent); }
+  .hl { font-size: 15.5px; font-weight: 650; margin: 0 0 4px; }
+  .sum { font-size: 14px; color: var(--text); opacity: 0.88; margin: 0 0 8px; }
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .src { font-size: 12px; color: var(--muted); }
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; margin-right: 6px; }
+  .actions { display: flex; align-items: center; gap: 2px; flex: 0 0 auto; }
+  a.more { color: var(--accent); font-size: 13px; font-weight: 600; text-decoration: none; margin-right: 6px; }
+  .thumb {
+    background: none; border: none; font-size: 16px; cursor: pointer; padding: 4px 6px;
+    border-radius: 7px; opacity: 0.45; filter: grayscale(1);
+  }
+  .thumb.on { opacity: 1; filter: none; background: var(--chipbg); }
+  .toast {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    background: var(--chip-on); color: var(--chip-on-text); font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 999px; opacity: 0; transition: opacity 0.25s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+  .empty { color: var(--muted); text-align: center; padding: 40px 0; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="title-row">
+    <h1>Email Overview</h1>
+    <span class="updated">Updated Fri Jun 12, 9:22 AM MT</span>
+  </div>
+  <div class="tabs">
+    <button class="tab on" id="tab-today" onclick="setTab('today')">Today</button>
+    <button class="tab" id="tab-week" onclick="setTab('week')">This Week</button>
+  </div>
+  <input id="search" type="search" placeholder="Search headlines, topics, sources&hellip;" oninput="state.q=this.value;render()">
+  <div class="chips" id="chips"></div>
+</header>
+<main id="main"></main>
+<div class="toast" id="toast"></div>
+
+<script type="application/json" id="data">[{"build_date": "2026-06-12", "build_label": "Friday, June 12", "entries": [{"id": "spacex-ipo-2026-06-12", "section": "now", "headline": "SpaceX starts trading today in the biggest IPO ever", "summary": "Raising ~$75B US at a $1.77T valuation ($135/share), with demand running 4x the available shares. It's widely seen as the dress rehearsal for the OpenAI and Anthropic IPOs later this year - and big enough that it may pull money out of other stocks.", "link": "https://www.readthepeak.com/p/business-as-usual", "sources": ["Morning Brew", "The Peak", "The Deep View"], "source_date": "Jun 12", "tags": ["markets", "ai", "ipo"]}, {"id": "iran-deescalation-2026-06-12", "section": "now", "headline": "Trump calls off Iran strikes, says a deal is days away", "summary": "Thursday flipped from 'striking VERY HARD tonight' to cancelled strikes and a signing 'over the next few days.' Iran hasn't confirmed anything, and the US says it shot down two drones over the Strait of Hormuz overnight - but markets jumped on the de-escalation.", "link": "https://www.cnn.com/2026/06/11/world/live-news/iran-war-trump-israel-hnk", "sources": ["Morning Brew", "The Peak"], "source_date": "Jun 12", "tags": ["world", "markets"]}, {"id": "ikea-summer-sale-2026-06-12", "section": "now", "headline": "IKEA is stacking three deals, including a Warehouse event this weekend", "summary": "Summer Sale up to 50% off until Jul 15, an extra one-time 15% IKEA Family coupon (code in Thursday's email, also to Jul 15), and an in-store Warehouse event Jun 13-14 with up to 50% off self-serve furniture. If anything IKEA is on the list, this weekend is the moment.", "link": "https://www.ikea.com/ca/en/offers/", "sources": ["IKEA Canada"], "source_date": "Jun 11", "tags": ["deal", "home", "expiring"]}, {"id": "joefresh-kids-2026-06-12", "section": "now", "headline": "Joe Fresh: 20% off kids' styles through Sunday", "summary": "Regular-priced and clearance kids' apparel, online and select stores, ends end-of-day Jun 14. Easy window for a Lily summer-wardrobe top-up - they're also running 25% off women's swim separately.", "link": "https://www.joefresh.com/ca", "sources": ["Joe Fresh"], "source_date": "Jun 12", "tags": ["deal", "kids", "expiring"]}, {"id": "ctfs-payment-2026-06-12", "section": "now", "headline": "Heads up: CT Financial sent a payment reminder Wednesday", "summary": "A 'minimum payment due soon' notice landed Jun 10. If autopay isn't on, worth a 30-second check before the due date.", "link": null, "sources": ["Canadian Tire Financial"], "source_date": "Jun 10", "tags": ["money", "reminder"]}, {"id": "canada-us-trade-2026-06-12", "section": "news", "headline": "Behind the soundbites, Canada-US officials say the relationship is fine", "summary": "At the Eurasia Group summit, ambassadors and ministers from both sides struck a 'business as usual' tone - LeBlanc's line: don't kick in the cockpit door during turbulence. The counterpoint: the Gordie Howe bridge opening was just postponed 'at the request of the United States.'", "link": "https://www.ctvnews.ca/windsor/article/gordie-howe-bridge-opening-delayed/", "sources": ["The Peak"], "source_date": "Jun 12", "tags": ["canada", "trade", "politics"]}, {"id": "dollarama-q1-2026-06-12", "section": "news", "headline": "Dollarama posts a monster quarter: sales up 21%", "summary": "Q1 sales topped $1.8B (+21% YoY), earnings up 10.4%, and the stock surged 9% - leading the TSX to a one-week high. The value-retail trade is working; relevant context for anyone watching Canadian retail consolidation.", "link": "https://www.bnnbloomberg.ca/business/company-news/2026/06/11/dollarama-has-smooth-q1-bracing-for-impacts-of-iran-war-cfo/", "sources": ["The Peak", "Retail Insider"], "source_date": "Jun 12", "tags": ["retail", "markets", "canada"]}, {"id": "ct-market-share-2026-06-12", "section": "news", "headline": "Analyst report: Canadian Tire positioned to gain share as retail consolidates", "summary": "The report credits the banner portfolio, Triangle loyalty, owned brands and the True North strategy. Worth a read given it's your shop - and it pairs interestingly with the Dollarama numbers above.", "link": "https://retail-insider.com", "sources": ["Retail Insider"], "source_date": "Jun 11", "tags": ["retail", "ctc", "work"]}, {"id": "food-security-2026-06-12", "section": "news", "headline": "Ottawa unveils a $3.2B food security plan aimed at grocery competition", "summary": "Includes $1B over a decade for food terminals and hubs that sell produce to independent grocers at big-chain-competitive prices. Canada currently imports half its food from the US.", "link": "https://www.cbc.ca/news/politics/food-security-strategy-9.7231361", "sources": ["The Peak"], "source_date": "Jun 12", "tags": ["canada", "grocery", "policy"]}, {"id": "tokenmaxxing-2026-06-12", "section": "news", "headline": "Big Tech's 'more AI usage = more value' era is ending", "summary": "Nadella is reining in 'tokenmaxxing' at Microsoft, Uber burned its annual Claude Code budget by April, and the conversation is shifting to value per token. WSJ reports OpenAI and Anthropic may cut prices ahead of their IPOs.", "link": "https://www.thedeepview.com/articles/why-ai-s-tokenmaxxing-obsession-ran-out-of-steam", "sources": ["The Deep View"], "source_date": "Jun 12", "tags": ["ai", "enterprise", "work"]}, {"id": "shadow-ai-2026-06-12", "section": "news", "headline": "Two-thirds of office workers use AI tools their company never approved", "summary": "New PagerDuty/Wakefield survey: 88% have pasted work info into public chatbots - a third of those involving customer data - and most think leadership plays by different AI rules. The gap is governance, not adoption. Useful ammo for the AI-fluency pitch.", "link": "https://www.thedeepview.com/articles/enterprise-ai-gaps-are-fueling-shadow-ai", "sources": ["The Deep View"], "source_date": "Jun 12", "tags": ["ai", "enterprise", "work"]}, {"id": "google-aio-liability-2026-06-12", "section": "news", "headline": "German court: Google owns what its AI Overviews say", "summary": "A Munich court held Google directly liable for false AI Overview claims about two publishers, calling AI summaries 'the defendant's own statements.' First time a court has treated AI output as the company's own speech - a big precedent if it travels.", "link": "https://arstechnica.com/tech-policy/2026/06/nobody-needs-ai-to-search-the-internet-court-says-in-ruling-against-google/", "sources": ["The Deep View"], "source_date": "Jun 11", "tags": ["ai", "legal"]}, {"id": "anthropic-policy-2026-06-12", "section": "news", "headline": "Anthropic pairs its newest models with policy frameworks and $350M", "summary": "Two proposals: catastrophic-risk rules for frontier labs, and an economic framework with staged responses up to wage insurance and basic income. Amodei's accompanying essay argues regulation can't move at congressional speed.", "link": "https://darioamodei.com/post/policy-on-the-ai-exponential", "sources": ["The Deep View"], "source_date": "Jun 11", "tags": ["ai", "policy"]}, {"id": "bezos-prometheus-2026-06-12", "section": "news", "headline": "Bezos's Prometheus hits a $41B valuation to build an 'artificial general engineer'", "summary": "$12B in new funding for AI aimed at designing and manufacturing physical products. Bezos is reportedly looking to raise $100B more to buy industrial companies that would feed it data.", "link": null, "sources": ["Morning Brew"], "source_date": "Jun 12", "tags": ["ai", "business"]}, {"id": "ecb-rates-2026-06-12", "section": "news", "headline": "ECB raises rates for the first time in almost three years", "summary": "2% to 2.25%, driven by war-related energy inflation - the first major central bank to hike since the Iran war began. The Fed is expected to hold next week despite pressure to cut.", "link": null, "sources": ["Morning Brew"], "source_date": "Jun 12", "tags": ["markets", "economy"]}, {"id": "worldcup-betting-2026-06-12", "section": "news", "headline": "This World Cup is on track to be the biggest betting event in history", "summary": "An estimated $50B+ in global wagers (vs $35B in 2022), driven by the 48-team format and US legalization reaching 65% of the population. Polymarket's winner market alone has $1.8B riding on it.", "link": null, "sources": ["Morning Brew"], "source_date": "Jun 12", "tags": ["sports", "business"]}, {"id": "quick-hits-2026-06-12", "section": "news", "headline": "Quick hits: Koho becomes a unicorn, Canada Post cuts more home delivery, solar passes coal", "summary": "Koho raised $130M (~$1.3B valuation) and is near a banking licence; Canada Post moves 485K more homes to community mailboxes next year; Quebec banned energy drink sales to under-16s; and US solar out-generated coal for the first time ever.", "link": "https://betakit.com/koho-becomes-canadas-latest-unicorn-following-130-million-series-e-round/", "sources": ["The Peak", "Morning Brew"], "source_date": "Jun 12", "tags": ["canada", "business", "energy"]}, {"id": "cochrane-rodeo-2026-06-12", "section": "news", "headline": "Cochrane: First Nations Rodeo & Relay debuts at GMC Stadium Saturday", "summary": "A first-of-its-kind local event this Saturday (Jun 13) - candidate for a family outing if the rain holds off (forecast says 5-10mm Friday).", "link": "https://cochranenow.com/articles/first-nations-rodeo--relay-to-debut-at-gmc-stadium-saturday", "sources": ["CochraneNow"], "source_date": "Jun 11", "tags": ["local", "family", "weekend"]}, {"id": "cochrane-roundup-2026-06-12", "section": "news", "headline": "Cochrane roundup: Castle Mountain memorial vandalized, Guthrie recall petition fails", "summary": "Plaques were stolen from a Castle Mountain memorial; the recall petition against the mayor was ruled invalid after the deadline passed; AHS paused the paramedic rebrand after frontline pushback; Rocky View is consulting the public on fire services.", "link": "https://cochranenow.com", "sources": ["CochraneNow"], "source_date": "Jun 11", "tags": ["local"]}, {"id": "wirecutter-acs-2026-06-12", "section": "regulars", "headline": "Wirecutter's AC roundup - and a warning about the TikTok 'mini ACs'", "summary": "New budget small-space window-unit pick, with their quiet/efficient runner-up more than 20% off right now. The viral tiny 'AC' boxes are evaporative coolers - their HVAC expert says they can leave you stickier than before.", "link": "https://www.nytimes.com/wirecutter/reviews/best-air-conditioner/", "sources": ["NYT Wirecutter"], "source_date": "Jun 11", "tags": ["home", "products", "summer"]}, {"id": "wirecutter-quickhits-2026-06-12", "section": "regulars", "headline": "Wirecutter quick hits: stackable glasses 50% off, 44 NA beers tested, a World Cup TV tip", "summary": "The restaurant-style Bormioli Rocco stackable glasses are 50%+ off in a 12-set; they crowned winners after testing 44 non-alcoholic beers; and they recommend turning OFF motion smoothing before watching the World Cup.", "link": "https://www.nytimes.com/wirecutter/", "sources": ["NYT Wirecutter"], "source_date": "Jun 10-11", "tags": ["products", "kitchen", "sports"]}, {"id": "spark-sue-2026-06-12", "section": "regulars", "headline": "SUE the T. rex lands at Telus Spark June 27", "summary": "The most complete T. rex ever found, on display through Nov 29 - prime Lily material. Also on the calendar: a Roar & Snore overnight sleepover Aug 8-9 (spots limited) and a sensory-friendly day Jun 22.", "link": "https://www.sparkscience.ca", "sources": ["TELUS Spark"], "source_date": "Jun 11", "tags": ["family", "calgary", "events"]}, {"id": "nyt-well-sleep-2026-06-12", "section": "regulars", "headline": "NYT Well: a sleep trick, plus weight-loss drugs and alcohol-risk explainers", "summary": "Part two of their sleep series landed Thursday night. Flagging rather than summarizing - open it if sleep's been a thing lately.", "link": "https://www.nytimes.com/section/well", "sources": ["NYT Well"], "source_date": "Jun 11", "tags": ["health"]}, {"id": "regulars-also-2026-06-12", "section": "regulars", "headline": "Also in the pile: Nest monthly report, Google Gemini check-in", "summary": "Your Nest May home report and a 'thanks for your feedback' note from the Google Home team. Nothing actionable in either.", "link": null, "sources": ["Nest", "Google"], "source_date": "Jun 11", "tags": ["routine"]}, {"id": "costco-dad-2026-06-12", "section": "deals", "headline": "Costco's Father's Day push is on (Jun 21 is the day)", "summary": "Gift-focused promos in both Wednesday and Thursday sends, while-quantities-last. Useful only if you're shopping for your dad - or dropping hints.", "link": "https://www.costco.ca", "sources": ["Costco"], "source_date": "Jun 10-11", "tags": ["deal", "fathers-day"]}, {"id": "safeway-liquor-2026-06-12", "section": "deals", "headline": "Safeway: weekly liquor flyer (Jun 11-17) + Scene+ grocery offers to load", "summary": "Summer-drinks themed flyer plus the usual load-to-card Scene+ offers (one flagged 5,600+ points). Routine weekly cycle - check before a Safeway run, otherwise skip.", "link": "https://www.safeway.ca", "sources": ["Safeway Liquor", "Scene+"], "source_date": "Jun 10-11", "tags": ["deal", "grocery", "weekly"]}, {"id": "coop-flyer-2026-06-12", "section": "deals", "headline": "Calgary Co-op weekly flyer is out (wine-leaning this week)", "summary": "Standard weekly savings cycle. Nothing screamed must-buy from the preview.", "link": "https://www.calgarycoop.com", "sources": ["Calgary Co-op"], "source_date": "Jun 11", "tags": ["deal", "grocery", "weekly"]}, {"id": "nespresso-cooler-2026-06-12", "section": "deals", "headline": "Nespresso: free limited-edition cooler bag with 140 capsules", "summary": "Gift-with-purchase, not a discount - only worth it if a capsule restock was already coming.", "link": "https://www.nespresso.com/ca/en/", "sources": ["Nespresso"], "source_date": "Jun 10", "tags": ["deal", "coffee"]}, {"id": "deals-also-2026-06-12", "section": "deals", "headline": "Also arrived: Joe Fresh women's swim 25% off, Papa John's youth-hockey promo", "summary": "Joe Fresh's second email pushes $7 tanks / $12 dresses and 25% off women's swim; Papa John's is running a buy-supports-youth-hockey angle. Low urgency on both.", "link": null, "sources": ["Joe Fresh", "Papa John's"], "source_date": "Jun 10-11", "tags": ["deal"]}, {"id": "ctc-bigchek-2026-06-12", "section": "ctc", "headline": "SportChek's Big Chek Event is live", "summary": "Teased Wednesday ('flyer sneak peek'), launched Thursday - banner-wide event with Father's Day positioning and a DoorDash tie-in in the header. Skechers/PUMA/Merrell/Columbia/Saucony shoe deals featured in Friday's Mark's-adjacent send.", "link": "https://www.sportchek.ca", "sources": ["SportChek x2"], "source_date": "Jun 10-11", "tags": ["ctc", "sportchek", "event"]}, {"id": "ctc-marks-2026-06-12", "section": "ctc", "headline": "Mark's launches 'This. Is. Big.' - Jun 11-24, up to 60% off", "summary": "Two-week event with 40x bonus CT Money on Carhartt as the hero offer. Conveniently spans Father's Day. Of everything in the CTC pile this week, this is the one with genuine deal potential.", "link": "https://www.marks.com", "sources": ["Mark's x2"], "source_date": "Jun 11-12", "tags": ["ctc", "marks", "deal"]}, {"id": "ctc-ct-cadence-2026-06-12", "section": "ctc", "headline": "Canadian Tire: Big Red Sale ended Thursday; Hanes and EGO pushes followed same-day", "summary": "Three CT-banner emails inside 24 hours: an 'ending soon' for the Big Red Sale (now expired), then Hanes summer basics and EGO outdoor tools. Cadence watch: 8 total CTC-family sends in 48 hours across 4 senders.", "link": "https://www.canadiantire.ca", "sources": ["Canadian Tire x3"], "source_date": "Jun 10-11", "tags": ["ctc", "canadian-tire", "frequency"]}]}]</script>
+<script>
+const NTFY_CURATE = "https://ntfy.sh/emarifeed-k7f3qx9m2p-curate";
+const SECTIONS = {
+  now:      { label: "Now",      icon: "⚡" },
+  news:     { label: "News",     icon: "📰" },
+  regulars: { label: "Regulars", icon: "📬" },
+  deals:    { label: "Deals",    icon: "🛍️" },
+  ctc:      { label: "CTC",      icon: "🔺" }
+};
+const SECTION_ORDER = ["now", "news", "regulars", "deals", "ctc"];
+const DAYS = JSON.parse(document.getElementById("data").textContent); // newest first
+const state = { tab: "today", sec: "all", q: "" };
+const votes = JSON.parse(localStorage.getItem("eo-votes") || "{}");
+
+function setTab(t) {
+  state.tab = t;
+  document.getElementById("tab-today").classList.toggle("on", t === "today");
+  document.getElementById("tab-week").classList.toggle("on", t === "week");
+  render();
+}
+function setSec(s) { state.sec = s; render(); }
+
+function matches(e) {
+  if (state.sec !== "all" && e.section !== state.sec) return false;
+  if (!state.q) return true;
+  const hay = (e.headline + " " + e.summary + " " + (e.tags || []).join(" ") + " " + e.sources.join(" ")).toLowerCase();
+  return state.q.toLowerCase().split(/\s+/).every(w => hay.includes(w));
+}
+
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function card(e) {
+  const v = votes[e.id] || "";
+  const link = e.link ? `<a class="more" href="${e.link}" target="_blank" rel="noopener">Read more →</a>` : "";
+  return `<div class="card${e.section === "now" ? " urgent" : ""}">
+    <p class="hl">${esc(e.headline)}</p>
+    <p class="sum">${esc(e.summary)}</p>
+    <div class="meta">
+      <span class="src"><span class="badge">${SECTIONS[e.section].icon} ${SECTIONS[e.section].label}</span>${esc(e.sources.join(" + "))} · ${esc(e.source_date)}</span>
+      <span class="actions">${link}
+        <button class="thumb${v === "up" ? " on" : ""}" onclick="vote('${e.id}','up',this)">👍</button>
+        <button class="thumb${v === "down" ? " on" : ""}" onclick="vote('${e.id}','down',this)">👎</button>
+      </span>
+    </div>
+  </div>`;
+}
+
+function render() {
+  // chips with counts for current tab scope
+  const scope = state.tab === "today" ? DAYS.slice(0, 1) : DAYS;
+  const all = scope.flatMap(d => d.entries);
+  let chips = `<button class="chip${state.sec === "all" ? " on" : ""}" onclick="setSec('all')">All</button>`;
+  for (const s of SECTION_ORDER) {
+    const n = all.filter(e => e.section === s).length;
+    if (!n) continue;
+    chips += `<button class="chip${state.sec === s ? " on" : ""}" onclick="setSec('${s}')">${SECTIONS[s].icon} ${SECTIONS[s].label}</button>`;
+  }
+  document.getElementById("chips").innerHTML = chips;
+
+  let html = "";
+  if (state.tab === "today") {
+    const day = DAYS[0];
+    for (const s of SECTION_ORDER) {
+      const items = day.entries.filter(e => e.section === s && matches(e));
+      if (!items.length) continue;
+      html += `<div class="sec-h">${SECTIONS[s].icon} ${SECTIONS[s].label} <span class="count">${items.length}</span></div>`;
+      html += items.map(card).join("");
+    }
+  } else {
+    for (const day of DAYS) {
+      const items = day.entries.filter(matches);
+      if (!items.length) continue;
+      html += `<div class="day-h">${esc(day.build_label)}</div>`;
+      html += items.map(card).join("");
+    }
+  }
+  document.getElementById("main").innerHTML = html || `<div class="empty">Nothing matches. Try clearing the search or filter.</div>`;
+}
+
+function vote(id, dir, btn) {
+  const prev = votes[id];
+  const action = prev === dir ? "retract" : dir;
+  if (action === "retract") delete votes[id]; else votes[id] = dir;
+  localStorage.setItem("eo-votes", JSON.stringify(votes));
+  const entry = DAYS.flatMap(d => d.entries).find(e => e.id === id);
+  fetch(NTFY_CURATE, {
+    method: "POST",
+    headers: { "X-Title": "Email Overview feedback" },
+    body: `${action.toUpperCase()} | ${id} | ${entry ? entry.headline : ""}`
+  }).then(() => toast(action === "retract" ? "Feedback removed" : (dir === "up" ? "More like this 👍" : "Less of this 👎")))
+    .catch(() => toast("Couldn't send - no connection?"));
+  render();
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+render();
+</script>
+</body>
+</html>
