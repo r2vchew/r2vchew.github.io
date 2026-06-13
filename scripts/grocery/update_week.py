@@ -29,6 +29,12 @@ def main():
     if len(items) < MIN_ITEMS:
         sys.exit(f"only parsed {len(items)} items (expected {MIN_ITEMS}+) - aborting without writing")
 
+    # Always start from the live site (main) so the update lands where the
+    # public page is published, no matter what branch this was run on.
+    subprocess.run(['git', 'fetch', 'origin', 'main'], check=True, cwd=REPO)
+    subprocess.run(['git', 'checkout', '-B', 'grocery-weekly', 'origin/main'],
+                    check=True, cwd=REPO)
+
     week_of = meta['week_of']
     raw_path = REPO / 'data' / 'groceries' / 'raw' / f'{week_of}.md'
     raw_path.write_text(text)
@@ -45,10 +51,9 @@ def main():
         print("nothing to commit (data unchanged)")
         return
 
-    branch = subprocess.run(['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
-                             check=True, cwd=REPO, capture_output=True, text=True).stdout.strip()
-    subprocess.run(['git', 'push', '-u', 'origin', branch], check=True, cwd=REPO)
-    print(f"pushed to {branch}")
+    # Publish straight to the live site.
+    subprocess.run(['git', 'push', 'origin', 'HEAD:main'], check=True, cwd=REPO)
+    print("pushed to main (live site) - it'll be live in a minute or two")
 
 if __name__ == '__main__':
     main()
