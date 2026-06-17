@@ -18,11 +18,12 @@
   .pill[hidden]{display:none}
 
   /* Tabs */
-  .tabs{display:flex;gap:8px;margin-top:10px}
-  .tab-btn{flex:1;padding:8px 0;border:1px solid var(--line);border-radius:9px;
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:stretch}
+  .tab-btn{flex:1 1 80px;padding:8px 0;border:1px solid var(--line);border-radius:9px;
             background:var(--card);color:var(--mut);font:inherit;font-size:13px;
             font-weight:600;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
   .tab-btn.tab-active{background:#16243d;border-color:#2c4a7c;color:var(--accent)}
+  .tabs .pill{margin-top:0;flex:2 1 140px;text-align:center}
 
   .search{margin-top:12px}
   .search input{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);
@@ -53,6 +54,8 @@
   .mini{background:var(--card);border:1px solid var(--line);color:var(--mut);
         border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer}
   .mini:hover{color:var(--ink)}
+  .filters-actions{margin-top:8px}
+  .filters-actions .mini{flex:1}
 
   h2{font-size:17px;margin:28px 0 10px;font-weight:680;display:flex;align-items:center;gap:8px;
      cursor:pointer;user-select:none}
@@ -118,9 +121,9 @@
     <a class="back" href="index.html">&lsaquo; Home</a>
     <h1 style="margin-top:6px">Grocery Deals &mdash; Cochrane</h1>
     <div class="sub" id="sub">Week of 2026-06-11 &middot; deals valid Jun 11 &ndash; Jun 17 &middot; 316 deals across 5 stores &middot; via Flipp</div>
-    <button class="pill" id="weekToggle" type="button" hidden></button>
     <div class="tabs">
       <button class="tab-btn tab-active" id="dealsTabBtn">Deals</button>
+      <button class="pill" id="weekToggle" type="button" hidden></button>
       <button class="tab-btn" id="hiddenTabBtn">Hidden</button>
     </div>
     <div class="search">
@@ -145,6 +148,8 @@
         <input type="checkbox" id="bonusOnly">
         <span>Bonus offers only</span>
       </label>
+    </div>
+    <div class="filters filters-actions">
       <button class="mini" id="expandAll" type="button">Expand all</button>
       <button class="mini" id="collapseAll" type="button">Collapse all</button>
     </div>
@@ -5662,7 +5667,7 @@
   function doUnhide(key, week) {
     var list = getHiddenList(week).filter(function(h) { return h.key !== key; });
     saveHiddenList(week, list);
-    var el = document.querySelector('.item[data-key="' + key.replace(/\/g,'\\').replace(/"/g,'\"') + '"]');
+    var el = document.querySelector('.item[data-key="' + key + '"]');
     if (el) {
       el.classList.remove('user-hidden');
       applyFilters();
@@ -5740,7 +5745,7 @@
   // Restore hidden items from localStorage on page load
   weeks.forEach(function(weekEl) {
     getHiddenList(weekEl.dataset.week).forEach(function(h) {
-      var el = document.querySelector('.item[data-key="' + h.key.replace(/\/g,'\\').replace(/"/g,'\"') + '"]');
+      var el = document.querySelector('.item[data-key="' + h.key + '"]');
       if (el) el.classList.add('user-hidden');
     });
   });
