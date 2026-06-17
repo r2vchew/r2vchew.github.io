@@ -1,0 +1,2855 @@
+{
+ "week_of": "2026-06-18",
+ "valid_from": "2026-06-18",
+ "valid_to": "2026-06-24",
+ "items": [
+  {
+   "store": "Calgary Co-op",
+   "price": 1.29,
+   "unit": "lb",
+   "name": "Tomatoes on the Vine - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 2.49,
+   "unit": "100g",
+   "name": "Aysen Coho Salmon Fillet - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 2.49,
+   "unit": "",
+   "name": "Dairyland Milk 2 Go and Milk 2 Go Sport - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 2.99,
+   "unit": "",
+   "name": "Mushrooms - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 2.99,
+   "unit": "lb",
+   "name": "Green or Red Seedless Grapes - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.29,
+   "unit": "100g",
+   "name": "Whole Wild Sockeye Salmon - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.49,
+   "unit": "lb",
+   "name": "Whole Bone-In Pork Shoulder - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.87,
+   "unit": "",
+   "name": "Danone Activia Yogurt - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "",
+   "name": "Founders & Farmers Cherry or Grape Tomatoes - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "",
+   "name": "Inspired Greens Living Lettuce - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "",
+   "name": "Baby Carrots",
+   "cat": "veggie",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 15%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "100g",
+   "name": "Grimm's Whiskey Maple Thyme Ham - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "lb",
+   "name": "Pork Side Ribs Breast - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 3.99,
+   "unit": "",
+   "name": "Avocados - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 4.49,
+   "unit": "100g",
+   "name": "Lilydale Oven Roasted Turkey",
+   "cat": "chicken",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 4.49,
+   "unit": "",
+   "name": "Smoked Tofu or Soyganic Pressed Tofu - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 4.94,
+   "unit": "",
+   "name": "Häagen-Dazs Ice Cream - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 4.99,
+   "unit": "",
+   "name": "Founders & Farmers Russet Potatoes",
+   "cat": "veggie",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 15%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.0,
+   "unit": "",
+   "name": "Aylmer Tomatoes",
+   "cat": "veggie",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 20%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.0,
+   "unit": "",
+   "name": "Bush's Best Baked Beans - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.49,
+   "unit": "",
+   "name": "Olivieri Fresh Pasta or Skillet Gnocchi",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.49,
+   "unit": "lb",
+   "name": "Bone In Pork Loin Centre or Rib End Chops - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.99,
+   "unit": "",
+   "name": "Bacon, Smokies Chicken Sausage or Sliced Meats - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.99,
+   "unit": "",
+   "name": "Kellogg's Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 5.99,
+   "unit": "",
+   "name": "Armstrong Sliced or Shredded Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 6.99,
+   "unit": "",
+   "name": "Giuseppe Thin or Rising Crust and Plant Based Frozen Pizza - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 6.99,
+   "unit": "",
+   "name": "Lilydale Extra Lean Ground Chicken or Turkey - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 7.0,
+   "unit": "",
+   "name": "Restaurante, Tortilla Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 7.0,
+   "unit": "",
+   "name": "Green Giant Frozen Vegetables",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 7.99,
+   "unit": "lb",
+   "name": "Medium Ground Chuck Burgers - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 7.99,
+   "unit": "lb",
+   "name": "Marinated Boneless Skinless Chicken Thighs",
+   "cat": "chicken",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 7.99,
+   "unit": "",
+   "name": "Schneiders All Beef Wieners, Juicy Jumbo's or Smoked Sausage - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 8.49,
+   "unit": "lb",
+   "name": "Boneless Skinless Chicken Breast - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 9.0,
+   "unit": "",
+   "name": "Ben's Original Bistro Express Rice - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 9.99,
+   "unit": "",
+   "name": "Smokies, Smokies or Farmers Sausage",
+   "cat": "pork",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 11.99,
+   "unit": "",
+   "name": "Spolumbo's Pork Breakfast Sausage - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 11.99,
+   "unit": "",
+   "name": "WOOLWICH Goat Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 13.99,
+   "unit": "",
+   "name": "Montana's Pork Back Ribs, Pinty's Chicken Wings, Chicken Chunks or Gluten Free Entrées - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 14.99,
+   "unit": "",
+   "name": "Phil & Sebastian Coffee - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 14.99,
+   "unit": "lb",
+   "name": "Bottom Sirloin Tri Tip Grilling Steaks - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 19.99,
+   "unit": "lb",
+   "name": "Beef Flank Marinating Steak",
+   "cat": "beef",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS EARN 10%_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Calgary Co-op",
+   "price": 25.99,
+   "unit": "lb",
+   "name": "Prime Rib Tomahawk Rib Grilling Steak - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 1.48,
+   "unit": "",
+   "name": "Wahaha Yogurt-Flavored Drink, 4X100 mL - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 1.88,
+   "unit": "",
+   "name": "Aroy-D AROY D COCONUT MILK, 400 mL - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 2.0,
+   "unit": "",
+   "name": "BARILLA PASTA, 340/410 G - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 2.0,
+   "unit": "",
+   "name": "Maple Lodge Farms or Zabiha Halal Chicken Wieners, 450 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 2.0,
+   "unit": "",
+   "name": "Ben's Rice Cups, 62/68 g or Dainty Timewise Pasta, 250 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 2.48,
+   "unit": "",
+   "name": "ROOSTER TOFU, 454 G - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 2.48,
+   "unit": "",
+   "name": "Rooster Sweetened Condensed Milk, 300 mL - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 3.0,
+   "unit": "",
+   "name": "Yoplait Tubes, 8'S or Minigo, 6'S Yogurt - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 3.0,
+   "unit": "",
+   "name": "Nature Valley Granola Bars, 130-210 g or General Mills Cereal Treat Bars, 120-160 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 3.0,
+   "unit": "",
+   "name": "Liberté LIBERTE GREEK YOGURT, 4X100 G - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 3.5,
+   "unit": "",
+   "name": "Lactantia or Dairyland Cream - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 4.0,
+   "unit": "",
+   "name": "Activia Probiotic Yogurt, 8X100 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 4.5,
+   "unit": "",
+   "name": "Kellogg's All-Bran, Raisin Bran, Vector, Special K or Mini Wheats Cereal, 306-525 g",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Member Save 50_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "No Frills",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Spring Mix or Baby Spinach - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.0,
+   "unit": "",
+   "name": "iÖGO FROZEN YOGURT 946 mL or POPS or BARS 320/400 mL - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.0,
+   "unit": "",
+   "name": "BOURSIN CHEESE, 150/220 G - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.0,
+   "unit": "",
+   "name": "Philadelphia Cream Cheese Product, 340 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC INSTANT COFFEE, 80/100 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.48,
+   "unit": "lb",
+   "name": "Pork Belly Portions - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.5,
+   "unit": "",
+   "name": "Häagen-Dazs HAAGEN-DAZS ICE CREAM, 400-450 mL or NOVELTIES, 3/4'S - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 5.97,
+   "unit": "",
+   "name": "Kraft Peanut Butter - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 6.0,
+   "unit": "",
+   "name": "Watson Ridge Chicken Strips or Ta'aam Halal Chicken Nuggets, 800 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 6.0,
+   "unit": "",
+   "name": "PC Shredded Cheese, 320 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 6.0,
+   "unit": "",
+   "name": "Clover Leaf Sockeye Salmon 213 g or Light Tuna 3x80 g",
+   "cat": "seafood",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Earn 2,000 pts That's $2 value_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "No Frills",
+   "price": 7.0,
+   "unit": "",
+   "name": "Little Northern Bakehouse Gluten Free Bread, 320-567 g - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 10.0,
+   "unit": "",
+   "name": "Maple Leaf Prime Chicken Wings, Up to 880 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "No Frills",
+   "price": 12.0,
+   "unit": "",
+   "name": "PC Smokies or Pork Sausages, 1 kg",
+   "cat": "pork",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Earn PC Optimum 1,000 pts That's $1 value_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "No Frills",
+   "price": 34.99,
+   "unit": "",
+   "name": "Niuriss Milk-Based Infant Formula, 700 g",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Earn PC Optimum 2,000 pts, That's $2 VALUE_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 1.28,
+   "unit": "lb",
+   "name": "JUMBO CARROTS - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 1.97,
+   "unit": "",
+   "name": "BARILLA PASTA, 340-410 G - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 2.49,
+   "unit": "",
+   "name": "Mott's Fruitsations Apple Sauce, 104 ML/6X111 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 2.5,
+   "unit": "",
+   "name": "PC Tortilla Chips, 320-350 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 2.97,
+   "unit": "",
+   "name": "Catelli Gluten-Free, Supergreens or Protein + Pasta, 300/340 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 2.98,
+   "unit": "",
+   "name": "Country Harvest Bread, 600/650 g or Bagels, 6' S - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 2.98,
+   "unit": "",
+   "name": "D'Italiano Italian Bread D'ITALIANO BUNS, 6/8'S - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.0,
+   "unit": "100g",
+   "name": "Freybe Cervelat or Hungarian Dry Salami or Euro Style Bologna or Lyoner Sausage - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.0,
+   "unit": "",
+   "name": "PC Organics Oaty Bakes Cereal Bars, 160 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.27,
+   "unit": "",
+   "name": "Doritos Tortilla Chips, 210-235 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.29,
+   "unit": "",
+   "name": "Band-Aid Bandages or Polysporin Ointment",
+   "cat": "other",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | UP TO 25% OFF_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.49,
+   "unit": "lb",
+   "name": "Pork Picnic Halves - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.49,
+   "unit": "lb",
+   "name": "Pork Side Rib Portion - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.49,
+   "unit": "",
+   "name": "Tostitos Tortilla Chips, 210-295 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.99,
+   "unit": "lb",
+   "name": "Jalapeno Peppers - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.99,
+   "unit": "",
+   "name": "Core Power Protein Milk Shake, 414 mL - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 3.99,
+   "unit": "",
+   "name": "Butterball Turkey Franks, 450 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.0,
+   "unit": "",
+   "name": "PC Orange Chicken, Caribbean Chicken or Palak Paneer Entrées, 300 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.0,
+   "unit": "",
+   "name": "Ruffles Potato Chips, 190/200 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.0,
+   "unit": "",
+   "name": "Life At Home™ Ice Cream Cup - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.0,
+   "unit": "",
+   "name": "Cinnamon Raisin Bread, 550 g or Chocolate Croissants, 4'S - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.0,
+   "unit": "",
+   "name": "PC Kettle Style Cooked Tortilla Chips, 368 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.4,
+   "unit": "100g",
+   "name": "PC Splendido™ Parmigiano Reggiano Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.49,
+   "unit": "lb",
+   "name": "Breakfast Beef and Pork Sausages - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.5,
+   "unit": "",
+   "name": "PC Black Label Ice Cream, 500 mL - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.5,
+   "unit": "",
+   "name": "PC Organics Mushrooms Whole White or Cremini, 454 g - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.77,
+   "unit": "",
+   "name": "Cracker Barrel Natural Cheese Slices, 200-240 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.88,
+   "unit": "",
+   "name": "Nong Shim Shrimp Crackers 400 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.88,
+   "unit": "",
+   "name": "Lean Ground Pork, 450 g - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.92,
+   "unit": "",
+   "name": "Black Diamond Cheese Bars, 400 g or Shreds, 320 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.94,
+   "unit": "",
+   "name": "Iögo Frozen Yogurt Bar 4X 80 mL, Tubs 946 mL or Nanö Pops 8X50 mL - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.98,
+   "unit": "",
+   "name": "ROOSTER™ TOFU, 454 G - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.98,
+   "unit": "",
+   "name": "Breyers Creamery Style Ice Cream, 1.4 L - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.99,
+   "unit": "",
+   "name": "No Name Cheese Slices, 210/230 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.99,
+   "unit": "",
+   "name": "Chapman's Markdale Creamery Ice Cream, 2 L or Collection Novelties, 8' S - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 4.99,
+   "unit": "",
+   "name": "PC BACON, 375 G - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "Ben's Original BEN'S RICE CUPS, 62/68 G - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Loads of Nanaimo Bar Ice Cream Bars, 4X72 mL - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Layered Tortilla Bowls, 300 g - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "T&T BBQ Pork Steamed Buns, 540 g - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "Naturegg Simply Egg Whites or Egg Creations Fat Free or Whole Egg Original, 500 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Scoop Shop Rainbow Trail Ice Cream, 946 mL - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Portobello Mushrooms Caps, 4'S - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.0,
+   "unit": "",
+   "name": "PC Organics Peanut Butter, 500 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.19,
+   "unit": "",
+   "name": "Carbonaut Low Carb or Gluten Free Bread 544 g or Bagel, 335 g or Buns 288/315 g or Wrap, 156 g",
+   "cat": "bakery",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | UP TO 20% OFF_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.47,
+   "unit": "",
+   "name": "Kellogg's Family Size Cereal, 450-650 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.49,
+   "unit": "",
+   "name": "Asian Inspirations Entrées or Muldoon's Boneless Pork Bites, 400 g - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.88,
+   "unit": "",
+   "name": "Lee Kum Kee Soy Sauce, 1.9 L - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.88,
+   "unit": "",
+   "name": "Seaquest Bay Scallops 100-150/LB, 400 g, T&T Cooked 21-25/LB, 300 g or Raw Shrimp 30-40/LB, 400 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.96,
+   "unit": "",
+   "name": "PC Little Gems™ Ruby & Golden Potatoes, 5 lb - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.97,
+   "unit": "",
+   "name": "Kraft Peanut Butter, 750 G/1 kg - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 5.97,
+   "unit": "",
+   "name": "Black Diamond Cheestrings, 189-336 g or Kraft Shredded Parmesan Cheese, 200 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.0,
+   "unit": "",
+   "name": "Lactantia Lactose Free Milk, 2 L - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.0,
+   "unit": "",
+   "name": "Naturegg Omega Plus 12 Large White Eggs - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.0,
+   "unit": "",
+   "name": "Naturegg Omega 3, 12 Large White Eggs - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.0,
+   "unit": "",
+   "name": "PC Greenhouse Grown Strawberries, 340 g - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.47,
+   "unit": "",
+   "name": "Siggi's Skyr, 650/750 g or Iögo, 16X100 g Yogurt - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.47,
+   "unit": "",
+   "name": "Yoplait Source or Creamy Yogurt, 16X100 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.5,
+   "unit": "",
+   "name": "PC Smoked Chicken Sausages, 375 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.99,
+   "unit": "lb",
+   "name": "Pork Chops Center Cut - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 6.99,
+   "unit": "",
+   "name": "Pink Lady Apples, 5 lb - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 7.0,
+   "unit": "",
+   "name": "No Name Naturally Imperfect™ Avocados, 2.2 lb - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 7.99,
+   "unit": "",
+   "name": "Handi Chicken Momos, 300 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.0,
+   "unit": "",
+   "name": "Maynards Wine Gums, Sour Patch Kids, Swedish Berries or Fuzzy Peach Candy, 308/315 g - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.0,
+   "unit": "",
+   "name": "PC Blue Menu Ground Chicken or Turkey, 454 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.0,
+   "unit": "",
+   "name": "Greek Pasta Fetal Salad, 700 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.0,
+   "unit": "",
+   "name": "Dill Pickle Potato Salad, 750 g - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.99,
+   "unit": "",
+   "name": "Gia Indian Basmati Rice or Quality Priya Basmati Rice - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 8.99,
+   "unit": "lb",
+   "name": "Extra Lean Ground Beef - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "PC Stella Bella Green or Sweet Celebration Red Seedless Grapes, 907 g - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "Ben's Original™ Bistro Express™ Ready to Heat Rice, 240G - 250G - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "lb",
+   "name": "Halal Lean Ground Beef - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "PC Goat Cheese Logs, 300 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "PC Oaxaca Firm Cheese or Cotija Hard Cheese, 190/290 g - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "Betty Crocker Fruit By the Foot, Roll Ups, Gushers or Fruit Snacks, 128-226 g, Mott's Fruitsations, 226 g, Nature Valley Granola Bars, 130-210 g or General Mills Cereal Treat Bars, 120-160 g - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.0,
+   "unit": "",
+   "name": "Not Your Mothers or Ice Cream Hair Care - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.49,
+   "unit": "",
+   "name": "Post Jumbo Cereal, 1.2/1.24 kg",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Get PC Optimum 1,000 pts, $1 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 9.99,
+   "unit": "",
+   "name": "Kellogg's Retail Size Cereal, 269-355 g",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | PC Optimum Get 1,000 pts When you buy 3, $1 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 10.0,
+   "unit": "",
+   "name": "PC Pork Back Ribs, 500 g - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 10.99,
+   "unit": "",
+   "name": "Kicking Horse Coffee KICKING HORSE GROUND COFFEE, 284 G - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 10.99,
+   "unit": "",
+   "name": "Starbucks K-Cup Pods 10'S, Ground Coffee 311-340 g or Instant Coffee 90 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 12.0,
+   "unit": "",
+   "name": "PC Jerk Chicken Burgers, 852 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 12.0,
+   "unit": "",
+   "name": "PC Halal Chicken Breast Strips Shawarma, 300 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 12.0,
+   "unit": "",
+   "name": "PC Chicken Bites, 300 g or Chicken Breast Strips, 375 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 12.0,
+   "unit": "",
+   "name": "PC CREAM PIE, 730 G - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 12.99,
+   "unit": "",
+   "name": "PC Butterflied Black Tiger Shrimp Skewers, 360 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 13.0,
+   "unit": "",
+   "name": "PC World of Flavours Pork Roast, 730/900 g - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 13.0,
+   "unit": "",
+   "name": "PC the Sizzle Wheel Garlic & Herb or Chili Crisp Shrimp, 300 g - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 14.0,
+   "unit": "lb",
+   "name": "Fresh Atlantic Salmon Fillets - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 15.0,
+   "unit": "",
+   "name": "In-Store Made 20 Piece Chicken Wings Mini Bucket, 835 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 15.98,
+   "unit": "",
+   "name": "Heiwa Calrose Rice, 15 lb - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 16.0,
+   "unit": "",
+   "name": "Sufra Halal Chicken Breasts, 3'S, Up to 645 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 16.0,
+   "unit": "",
+   "name": "PC Boneless, Skinless Chicken Breast, 3' S, Up to 630 g - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 16.0,
+   "unit": "",
+   "name": "PC the Ultimate Atlantic Salmon Burgers, 500 g - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 18.99,
+   "unit": "lb",
+   "name": "T-BONE STEAK - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 20.0,
+   "unit": "",
+   "name": "Nanuk Smoked Coho Salmon, 300 g or Ifc Snow Crab Clusters, 5-8 Oz, 500 g - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 20.0,
+   "unit": "",
+   "name": "PC Salmon Wellington, 725 g or Herb & Garlic Seafood Bake, 810 g - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 22.99,
+   "unit": "",
+   "name": "Mccafé K-Cup Coffee Pods, 24/30' S - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 25.0,
+   "unit": "",
+   "name": "ICE CREAM CAKE, 1.2 KG - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 35.0,
+   "unit": "",
+   "name": "Niuriss Milk-Based Infant Formula 0-12 Months, 700 g",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | PC Optimum Get 10,000 pts, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 37.0,
+   "unit": "",
+   "name": "Enfagrow Milk-Based Powder Nutritional Supplement, 907 g - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Superstore",
+   "price": 38.99,
+   "unit": "",
+   "name": "Mccafé K-Cup or Van Houtte K-Cup Coffee Pods 48'S or Timothy's K-Cup Coffee Pods 60'S",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | Get PC Optimum 5,000 pts, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 1.49,
+   "unit": "100g",
+   "name": "Maple Baked Ham - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 1.79,
+   "unit": "100g",
+   "name": "Chicken Wings",
+   "cat": "chicken",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2 lb or more_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 1.99,
+   "unit": "lb",
+   "name": "Vidalia Onions - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.49,
+   "unit": "lb",
+   "name": "Broccoli Crowns - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.49,
+   "unit": "",
+   "name": "Clark Gourmet Beans",
+   "cat": "other",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 2.49,
+   "unit": "",
+   "name": "COMPLIMENTS Potato Chips 200 g or Tortilla Chips 250-280 g",
+   "cat": "snacks",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 2.99,
+   "unit": "",
+   "name": "Organic Bulk Avocados - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.99,
+   "unit": "",
+   "name": "PANACHE Dry Pasta - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.99,
+   "unit": "",
+   "name": "Sunrise Extra Firm Tofu - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.99,
+   "unit": "100g",
+   "name": "HARVEST Smoked Bologna, Beer Sausage or Smoked Salami - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 2.99,
+   "unit": "lb",
+   "name": "Red Prince Apples - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.33,
+   "unit": "",
+   "name": "DANONE Activia Yogurt 650 g or Activia Expert 4 pk - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.44,
+   "unit": "",
+   "name": "Strawberries Clamshell",
+   "cat": "fruit",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.44,
+   "unit": "",
+   "name": "COMPLIMENTS ORGANIC Whole White or Cremini Mushrooms",
+   "cat": "veggie",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.49,
+   "unit": "",
+   "name": "VILLAGGIO Bread - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.78,
+   "unit": "",
+   "name": "SILVER SWAN Soy Sauce - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.79,
+   "unit": "lb",
+   "name": "Fresh Korean BBQ Boneless Pork Sirloin Sweet & Sour Cubes - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.79,
+   "unit": "",
+   "name": "Green Giant Frozen Vegetables or Valley Selections - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.79,
+   "unit": "",
+   "name": "COMPLIMENTS Large Eggs - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.79,
+   "unit": "100g",
+   "name": "BRANDT Hot Honey Ham - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.98,
+   "unit": "lb",
+   "name": "Fresh Whole Skinless Pork Belly - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "100g",
+   "name": "Fresh Atlantic Salmon Fillets With Al Pastor Marinade - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "lb",
+   "name": "Fresh Pork Hock - dragonboat",
+   "cat": "pork",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 150 Scene+ PTS when you spend $10 or more_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "",
+   "name": "COMPLIMENTS Cheddar Flavour Slices",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "",
+   "name": "COMPLIMENTS Sour Cream",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 PTS Scene+ when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "",
+   "name": "THREE FARMERS Roasted Chickpeas 120 g or Fava Beans 140 g",
+   "cat": "other",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "lb",
+   "name": "Boneless Pork Sirloin Chops or Roasts - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "lb",
+   "name": "Fresh Chicken Legs",
+   "cat": "chicken",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you spend $20 or more_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 3.99,
+   "unit": "",
+   "name": "GENERAL MILLS | KELLOGG'S GENERAL MILLS Premium or Core Cereal 300-437 g or KELLOGG'S Cereal 210-525 g - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.0,
+   "unit": "",
+   "name": "COMPLIMENTS Instant Coffee - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.49,
+   "unit": "",
+   "name": "Siggi's Icelandic Style Skyr Yogurt",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 4.94,
+   "unit": "",
+   "name": "Nestle NESTLÉ Premium Frozen Dessert or Real Dairy Ice Cream 1.5 L, Drumstick or Selected Novelties - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Gay Lea Aerosol Whipped Cream Topping - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "SILK Plant-Based Yogurt - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Armstrong Cheese Slices",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Daiya Cheese Style Shreds, Slices or Blocks",
+   "cat": "dairy",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "COMPLIMENTS Rainbow Peppers - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Red Candy Snaps Seedless Grapes - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Greenway Farms Romaine Hearts, - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "Maple Leaf | Schneiders Bacon",
+   "cat": "pork",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | MEMBERS SAVE $1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 4.99,
+   "unit": "",
+   "name": "COMPLIMENTS Smoked Pork Sausages - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.79,
+   "unit": "",
+   "name": "Cheese Bread",
+   "cat": "bakery",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 5.98,
+   "unit": "",
+   "name": "KIKKOMAN Soy Sauce or Teriyaki Sauce",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "lb",
+   "name": "COMPLIMENTS Fresh AIR-CHILLED Boneless Skinless Chicken Thighs or Split Chicken Wings - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "Prepared In-Store Cooked or Raw Al Pastor Marinated Shrimp Grillers",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 150 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "HIIROS Cherry Tomatoes on the Vine - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "Tilda Jasmine Rice or Sticky Rice - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "BBQ Bakers Potatoes - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "French Green Beans - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "lb",
+   "name": "Fresh Pork Tenderloin Kabobs with Vegetables - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 5.99,
+   "unit": "",
+   "name": "Post Family Size Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.0,
+   "unit": "",
+   "name": "COMPLIMENTS Ground Pork - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.0,
+   "unit": "",
+   "name": "COMPLIMENTS Extra Lean Ground Chicken or Turkey - _starts 2026-06-18 | BUY MORE SAVE MORE_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.49,
+   "unit": "",
+   "name": "Carbonaut Assorted Tortillas, Bread, Buns, Bagels or Pizza Crusts",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 50 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 6.88,
+   "unit": "",
+   "name": "EIGHT TREASURES Raw Whole Head-On Shrimp - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "lb",
+   "name": "Marinated Fresh Boneless Skinless Chicken Thighs or Marinated Split Chicken Wings - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "",
+   "name": "LITTLE NORTHERN BAKEHOUSE Gluten-Free Breads or Buns - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "lb",
+   "name": "Fresh Marinated Split Chicken Wings - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "",
+   "name": "Rana Fresh Pasta - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "kg",
+   "name": "Fresh Regular Ground Beef - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 6.99,
+   "unit": "lb",
+   "name": "Fresh Pork Loin Back Ribs",
+   "cat": "pork",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 300 Scene+ PTS when you spend $20 or more_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 7.0,
+   "unit": "",
+   "name": "Al Pastor Pulled Pork or Selected Flatbreads",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 PTS Scene+ when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 7.0,
+   "unit": "",
+   "name": "CLOVER LEAF Albacore White Tuna - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 7.49,
+   "unit": "",
+   "name": "Kashi GoActive Cereal",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 150 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 7.99,
+   "unit": "lb",
+   "name": "Fresh BBQ Whiskey or Honey Garlic Marinated Pork Loin Back Ribs - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 7.99,
+   "unit": "",
+   "name": "Cedar Bay Planked Salmon - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 7.99,
+   "unit": "",
+   "name": "HIGH LINER Frozen Breaded or Battered Fish",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 150 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 7.99,
+   "unit": "",
+   "name": "COMPLIMENTS Breaded Chicken Strips, Nuggets or Burgers",
+   "cat": "frozen",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 300 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 7.99,
+   "unit": "",
+   "name": "Bagged Ambrosia or McIntosh Apples or Gala Apples",
+   "cat": "fruit",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 8.0,
+   "unit": "",
+   "name": "Tostitos Tortilla Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.78,
+   "unit": "",
+   "name": "Kikkoman Soy Sauce Light - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.98,
+   "unit": "",
+   "name": "DAINTY Jasmine Rice",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 150 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "Panache Irish, English or Scottish Cheddar or Red Leicester - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "LACTANTIA or My Country Butter Sticks - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "Kellogg's Jumbo Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "STARBUCKS Iced Coffee or Cold Brew - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "BEST BUY Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 8.99,
+   "unit": "",
+   "name": "COMPLIMENTS Raw Shrimp",
+   "cat": "other",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 9.88,
+   "unit": "",
+   "name": "Royal Asia Prawn Dumplings, Sesame Shrimp Toast or Shrimp Wonton Soup - dragonboat - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 9.99,
+   "unit": "",
+   "name": "ARMSTRONG Shredded Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 9.99,
+   "unit": "lb",
+   "name": "Fresh Extra Lean Ground Beef Family Size - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 9.99,
+   "unit": "lb",
+   "name": "Fresh Boneless Skinless Chicken Breast Stir-Fry - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 9.99,
+   "unit": "lb",
+   "name": "Fresh Boneless Beef Brisket Pot Roast - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 10.0,
+   "unit": "",
+   "name": "Earth's Own Barista Oat - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 10.0,
+   "unit": "",
+   "name": "Banana-Based Frozen Dessert - _starts 2026-06-18 | NEW_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 11.88,
+   "unit": "lb",
+   "name": "STERLING SILVER Fresh Boneless Top Sirloin Grilling Steaks Family Size or Premium Oven Roast - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 11.99,
+   "unit": "",
+   "name": "NABOB Roast & Ground Coffee",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 12.99,
+   "unit": "lb",
+   "name": "STERLING SILVER Fresh Boneless Inside Round Oven Roast or Family Size Marinating Steaks - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 13.99,
+   "unit": "",
+   "name": "Marcangelo Chicken Family Size Sliced Italian Meats",
+   "cat": "chicken",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 200 Scene+ PTS when you buy 2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 14.98,
+   "unit": "",
+   "name": "YAMAY Jasmine Rice - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 15.99,
+   "unit": "",
+   "name": "Cafe William Whole Bean Coffee",
+   "cat": "canned",
+   "badges": [
+    {
+     "text": "_starts 2026-06-18 | 100 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Safeway",
+   "price": 16.87,
+   "unit": "",
+   "name": "Folgers Roast & Ground Coffee - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 16.99,
+   "unit": "",
+   "name": "NANUK Smoked Sockeye Salmon Lox - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 24.99,
+   "unit": "lb",
+   "name": "Fresh Bone-In Tomahawk Style Rib Steak - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Safeway",
+   "price": 39.99,
+   "unit": "",
+   "name": "Tim Horton's Single Serve Coffee Pods - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 1.49,
+   "unit": "lb",
+   "name": "Tomatoes on the Vine - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 1.99,
+   "unit": "100g",
+   "name": "Jelly Belly Jelly Beans - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 2.29,
+   "unit": "100g",
+   "name": "Debrecyna BBQ Sausage - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 2.49,
+   "unit": "",
+   "name": "Western Family Potato Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 2.99,
+   "unit": "100g",
+   "name": "Feta Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 2.99,
+   "unit": "",
+   "name": "White Mushrooms - _starts 2026-06-18 | LOAD MY OFFERS - Hotter Price $2.49 ea First 2_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.29,
+   "unit": "100g",
+   "name": "Ahi Tuna Steak - _starts 2026-06-18_",
+   "cat": "seafood",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.29,
+   "unit": "100g",
+   "name": "Clean Oven Roasted Chicken - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.49,
+   "unit": "100g",
+   "name": "Kettle Fried Chicken Breast - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.49,
+   "unit": "",
+   "name": "Farm House Country Harvest Farmhouse Sourdough Bread - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.89,
+   "unit": "100g",
+   "name": "Black Forest Ham - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "100g",
+   "name": "Steelhead Fillet - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "",
+   "name": "Breyers Creamery Style Ice Cream - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "",
+   "name": "Quest Tortilla Protein Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "",
+   "name": "Quaker High Protein Oatmeal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "",
+   "name": "Takis Rolled Tortilla Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 3.99,
+   "unit": "",
+   "name": "Garlic Bread - _starts 2026-06-18_",
+   "cat": "veggie",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.19,
+   "unit": "100g",
+   "name": "Clean Oven Roasted Turkey - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.49,
+   "unit": "",
+   "name": "Cavendish Farms French Fries - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.89,
+   "unit": "100g",
+   "name": "Clean Roast Beef - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "",
+   "name": "Häagen-Dazs Ice Cream - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "",
+   "name": "Strawberries - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "lb",
+   "name": "Split Chicken Wings - _starts 2026-06-18_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "",
+   "name": "Western Family Shredded Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "lb",
+   "name": "Pork Back Ribs - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 4.99,
+   "unit": "",
+   "name": "Olymel Bacon - _starts 2026-06-18_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.0,
+   "unit": "",
+   "name": "Western Family Baked Beans - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.0,
+   "unit": "",
+   "name": "AROY-D Coconut Milk - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.49,
+   "unit": "",
+   "name": "Armstrong Shredded Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.99,
+   "unit": "",
+   "name": "Kellogg's Krave Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.99,
+   "unit": "",
+   "name": "Tre Stelle Feta Cheese Cubes - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 5.99,
+   "unit": "100g",
+   "name": "Parmigiano Reggiano Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 6.0,
+   "unit": "",
+   "name": "Avocado - _starts 2026-06-18_",
+   "cat": "fruit",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 6.0,
+   "unit": "",
+   "name": "Aylmer Accents Canned Tomatoes - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 6.0,
+   "unit": "",
+   "name": "Bush's Best Baked Beans - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 6.99,
+   "unit": "",
+   "name": "Tre Stelle Bocconcini Cheese - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 6.99,
+   "unit": "",
+   "name": "Only Goodness Organic Peanut Butter - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.0,
+   "unit": "",
+   "name": "Catelli Pasta - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.49,
+   "unit": "",
+   "name": "Stok Stök Cold Brew Coffee Beverage - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.5,
+   "unit": "",
+   "name": "Old Dutch Restaurante Tortilla Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.99,
+   "unit": "",
+   "name": "Western Family Olive Oil - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.99,
+   "unit": "",
+   "name": "High Liner Chips & Fish - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 7.99,
+   "unit": "",
+   "name": "Carbonaut Low Carb White Bread - _starts 2026-06-18_",
+   "cat": "bakery",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 8.0,
+   "unit": "",
+   "name": "Kellogg's Krave Churro Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 8.0,
+   "unit": "",
+   "name": "Dutch Crunch Potato Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 8.0,
+   "unit": "",
+   "name": "Tostitos Tortilla Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 8.99,
+   "unit": "",
+   "name": "Kellogg's Vector Jumbo Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 8.99,
+   "unit": "",
+   "name": "Kellogg's Jumbo Mini-Wheats Cereal - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 9.99,
+   "unit": "",
+   "name": "Only Goodness Organic Yogurt - _starts 2026-06-18_",
+   "cat": "dairy",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 9.99,
+   "unit": "",
+   "name": "Bakery Cream Pie - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 10.0,
+   "unit": "",
+   "name": "Lay's Potato Chips - _starts 2026-06-18_",
+   "cat": "snacks",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 11.99,
+   "unit": "",
+   "name": "Avalon Organic Ice Cream - _starts 2026-06-18_",
+   "cat": "frozen",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 12.99,
+   "unit": "",
+   "name": "Tim Hortons Ground Coffee - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 12.99,
+   "unit": "",
+   "name": "Mitchell's Heritage Maple Bacon - _starts 2026-06-18 | LOAD MY OFFERS - Hotter Price $9.99 ea First 2_",
+   "cat": "pork",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 12.99,
+   "unit": "",
+   "name": "Pinty's Chicken - _starts 2026-06-18 | LOAD MY OFFERS - Hotter Price $11.99 ea First 1_",
+   "cat": "chicken",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 15.99,
+   "unit": "",
+   "name": "Maxwell House Coffee - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 25.99,
+   "unit": "lb",
+   "name": "Strip Loin Steak - _starts 2026-06-18_",
+   "cat": "beef",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 28.99,
+   "unit": "",
+   "name": "Lavazza Coffee Pods - _starts 2026-06-18_",
+   "cat": "canned",
+   "badges": []
+  },
+  {
+   "store": "Save-On-Foods",
+   "price": 49.99,
+   "unit": "",
+   "name": "Kabrita Goat Milk Infant Formula - _starts 2026-06-18_",
+   "cat": "other",
+   "badges": []
+  }
+ ]
+}
