@@ -21,7 +21,7 @@ MIN_ITEMS = 200
 def main():
     if len(sys.argv) != 2:
         sys.exit("usage: update_week.py <path-to-doc.md|->")
-    text = sys.stdin.read() if sys.argv[1] == '-' else pathlib.Path(sys.argv[1]).read_text()
+    text = sys.stdin.read() if sys.argv[1] == '-' else pathlib.Path(sys.argv[1]).read_text(encoding='utf-8-sig')
 
     meta, items = parse(text)
     if not meta['week_of']:
@@ -37,7 +37,7 @@ def main():
 
     week_of = meta['week_of']
     raw_path = REPO / 'data' / 'groceries' / 'raw' / f'{week_of}.md'
-    raw_path.write_text(text)
+    raw_path.write_text(text, encoding='utf-8')
     print(f"wrote {raw_path} ({len(items)} items)")
 
     subprocess.run([sys.executable, 'scripts/grocery/parse_deals.py', str(raw_path)],

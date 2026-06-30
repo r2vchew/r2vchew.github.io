@@ -166,20 +166,83 @@ def split_meat(upper):
 
 # Stage 2b: split "other" into dairy / bakery / snacks / canned / other
 NONFOOD_OVERRIDE = {
-    'ENFAGROW': 'other', 'CAPRICARE': 'other', 'KABRITA': 'other',
-    'MILKBONE': 'other', 'GARNIER': 'other', 'CAKE BEAUTY': 'other',
+    'ENFAGROW': 'nonfood', 'CAPRICARE': 'nonfood', 'KABRITA': 'nonfood',
+    'MILKBONE': 'nonfood', 'GARNIER': 'nonfood', 'CAKE BEAUTY': 'nonfood',
     'CRACKER BARREL': 'dairy', 'YOPLAIT': 'dairy',
 }
-SNACKS_PAT = [r'\bCHIPS?\b', r'\bCRACKERS?\b', r'\bPRETZELS?\b', r'\bPOPCORN\b',
-              r'\bFRUIT SNACKS\b', r'\bSNACKS?\b', r'\bPORK RINDS\b', r'\bCHEETOS\b']
-BAKERY_PAT = [r'\bBREAD\b', r'\bBUNS?\b', r'\bBAGELS?\b', r'\bCROISSANTS?\b',
-              r'\bBRIOCHE\b', r'\bROLLS?\b', r'\bNAAN\b']
-CANNED_PAT = [r'\bPASTA\b', r'\bRICE\b', r'\bCEREAL\b', r'\bSOUP\b', r'\bSAUCE\b',
-              r'\bBROTH\b', r'\bFLOUR\b', r'\bOIL\b', r'\bCOFFEE\b', r'\bTEA\b',
-              r'\bKETCHUP\b', r'\bOATMEAL\b', r'\bOATS\b', r'\bCANNED\b',
-              r'\bCOCONUT MILK\b', r'\bCOCONUT CREAM\b', r'\bCONDENSED MILK\b',
-              r'\bPODS\b', r'\bK-CUP\b', r'\bTOMATO PASTE\b', r'\bCHOPPED TOMATOES\b',
-              r'\bATTA\b']
+# Items clearly not grocery food — filtered before any other categorization
+NONFOOD_PAT = [
+    # Household cleaning
+    r'\bDETERGENT\b', r'\bLAUNDRY\b', r'\bFABRIC SOFTENER\b', r'\bDRYER SHEETS?\b',
+    r'\bDISHWASHER\b', r'\bGARBAGE BAGS?\b', r'\bPAPER TOWELS?\b', r'\bTOILET PAPER\b',
+    r'\bTISSUES?\b', r'\bFEBREZE\b', r'\bLYSOL\b', r'\bMR\.?\s*CLEAN\b',
+    r'\bWINDEX\b', r'\bBLEACH\b', r'\bAIR FRESHENER\b', r'\bSCOTCH.BRITE\b',
+    r'\bMOUTHWASH\b', r'\bFLOSS\b', r'\bSHAVING\b',
+    # Personal care
+    r'\bSHAMPOO\b', r'\bCONDITIONER\b', r'\bBODY WASH\b', r'\bDEODORANT\b',
+    r'\bTOOTHPASTE\b', r'\bTOOTHBRUSH\b', r'\bSUNSCREEN\b', r'\bMOISTURIZER\b',
+    r'\bSKINCARE\b', r'\bFACE WASH\b', r'\bMASCARA\b', r'\bLIPSTICK\b',
+    r'\bFOUNDATION\b', r'\bMAKEUP\b', r'\bHAIR COLOU?R\b', r'\bDRY SHAMPOO\b',
+    # Pet food / treats
+    r'\bDOG FOOD\b', r'\bCAT FOOD\b', r'\bPET FOOD\b',
+    r'\bDOG TREATS?\b', r'\bCAT TREATS?\b',
+    r'\bPEDIGREE\b', r'\bPURINA\b', r'\bWHISKAS\b',
+    # Diapers / baby gear
+    r'\bDIAPERS?\b', r'\bPAMPERS\b', r'\bHUGGIES\b',
+    # Pharmacy / supplements (specific terms only to avoid food false-positives)
+    r'\bIBUPROFEN\b', r'\bACETAMINOPHEN\b', r'\bMELATONIN\b',
+    r'\bFISH OIL\b', r'\bPROTEIN POWDER\b', r'\bCOLLAGEN SUPPLEMENT\b',
+    r'\bOMEGA.?3\b', r'\bSUPPLEMENTS?\b',
+]
+DRINKS_PAT = [
+    r'\bCOCA.COLA\b', r'\bCOKE\b', r'\bPEPSI\b', r'\bSPRITE\b', r'\b7UP\b',
+    r'\bCANADA DRY\b', r'\bDR\.?\s*PEPPER\b', r'\bROOT BEER\b', r'\bGINGER ALE\b',
+    r'\bGINGER BEER\b', r'\bFANTA\b', r'\bMOUNTAIN DEW\b',
+    r'\bRED BULL\b', r'\bMONSTER ENERGY\b', r'\bGATORADE\b', r'\bPOWERADE\b',
+    r'\bORANGE JUICE\b', r'\bAPPLE JUICE\b', r'\bCRANBERRY JUICE\b',
+    r'\bGRAPE JUICE\b', r'\bGRAPEFRUIT JUICE\b', r'\bLEMONADE\b', r'\bICED TEA\b',
+    r'\bSPARKLING WATER\b', r'\bSELTZER\b', r'\bPERRIER\b', r'\bSAN PELLEGRINO\b',
+    r'\bKOMBUCHA\b',
+    r'\bCIDER\b',
+    r'\b(WINE|VIN BLANC|VIN ROUGE|ROSÉ|PROSECCO)\b',
+    r'\b(GIN|VODKA|RUM|WHISKY|WHISKEY|BOURBON|SCOTCH|TEQUILA|BRANDY|RYES?)\b',
+    r'\bMARGARITA MIX\b', r'\bCOCKTAIL MIX\b',
+    r'\bBEER\b',
+]
+SNACKS_PAT = [
+    r'\bCHIPS?\b', r'\bCRACKERS?\b', r'\bPRETZELS?\b', r'\bPOPCORN\b',
+    r'\bFRUIT SNACKS\b', r'\bSNACKS?\b', r'\bPORK RINDS\b', r'\bCHEETOS\b',
+    r'\bCHOCOLATE\b', r'\bCAND(Y|IES)\b', r'\bGUMMIES?\b', r'\bGUMMI\b',
+    r'\bJELLY BEANS?\b', r'\bLICORICE\b', r'\bMARSHMALLOWS?\b',
+    r'\bNUTS\b', r'\bALMONDS?\b', r'\bCASHEWS?\b', r'\bWALNUTS?\b',
+    r'\bPECANS?\b', r'\bPISTACHIOS?\b', r'\bMIXED NUTS\b', r'\bTRAIL MIX\b',
+    r'\bPEANUTS\b',
+    r'\bGRANOLA BARS?\b', r'\bPROTEIN BARS?\b', r'\bCEREAL BARS?\b',
+    r'\bJERKY\b',
+    r'\bDORITOS\b', r'\bRUFFLES\b', r'\bPRINGLES\b',
+]
+BAKERY_PAT = [
+    r'\bBREAD\b', r'\bBUNS?\b', r'\bBAGELS?\b', r'\bCROISSANTS?\b',
+    r'\bBRIOCHE\b', r'\bROLLS?\b', r'\bNAAN\b', r'\bTORTILLAS?\b',
+    r'\bDONUTS?\b', r'\bDOUGHNUTS?\b', r'\bMUFFINS?\b', r'\bSCONES?\b',
+]
+CANNED_PAT = [
+    r'\bPASTA\b', r'\bRICE\b', r'\bCEREAL\b', r'\bSOUP\b', r'\bSAUCE\b',
+    r'\bBROTH\b', r'\bFLOUR\b', r'\bOIL\b', r'\bCOFFEE\b', r'\bTEA\b',
+    r'\bKETCHUP\b', r'\bOATMEAL\b', r'\bOATS\b', r'\bCANNED\b',
+    r'\bCOCONUT MILK\b', r'\bCOCONUT CREAM\b', r'\bCONDENSED MILK\b',
+    r'\bPODS\b', r'\bK-CUP\b', r'\bTOMATO PASTE\b', r'\bCHOPPED TOMATOES\b',
+    r'\bATTA\b', r'\bNOODLES?\b',
+    # Condiments, spreads, seasonings
+    r'\bMUSTARD\b', r'\bMAYO(NNAISE)?\b', r'\bBBQ SAUCE\b', r'\bBARBECUE SAUCE\b',
+    r'\bMARINADE\b', r'\bDRESSING\b', r'\bVINAIGRETTE\b', r'\bHOT SAUCE\b',
+    r'\bSALSA\b', r'\bPEANUT BUTTER\b', r'\bNUT BUTTER\b',
+    r'\bJAM\b', r'\bJELLY\b', r'\bMARMALADE\b', r'\bHONEY\b',
+    r'\bSYRUP\b', r'\bMAPLE SYRUP\b', r'\bVINEGAR\b',
+    r'\bSEASONING\b', r'\bSPICE\b', r'\bCURRY\b',
+    r'\bSOY SAUCE\b', r'\bTERIYAKI\b', r'\bCHILI SAUCE\b',
+    r'\bBINDAL?WA\b', r'\bSPREAD\b',
+]
 DAIRY_PAT = [r'\bYOGOURT\b', r'\bYOGURT\b', r'\bCHEESE\b', r'\bCHEDDAR\b',
              r'\bBUTTER\b', r'\bCREAM\b', r'\bEGGS?\b', r'\bMILK\b',
              r'\bOAT BEVERAGE\b', r'\bOAT BARISTA\b', r'\bBRIE\b']
@@ -188,8 +251,8 @@ def split_other(upper):
     for key, cat in NONFOOD_OVERRIDE.items():
         if key in upper:
             return cat
-    for pats, cat in ((SNACKS_PAT, 'snacks'), (BAKERY_PAT, 'bakery'),
-                      (CANNED_PAT, 'canned'), (DAIRY_PAT, 'dairy')):
+    for pats, cat in ((DRINKS_PAT, 'drinks'), (SNACKS_PAT, 'snacks'),
+                      (BAKERY_PAT, 'bakery'), (CANNED_PAT, 'canned'), (DAIRY_PAT, 'dairy')):
         for pat in pats:
             if re.search(pat, upper):
                 return cat
@@ -197,6 +260,9 @@ def split_other(upper):
 
 def categorize(name):
     upper = name.upper()
+    for pat in NONFOOD_PAT:
+        if re.search(pat, upper):
+            return 'nonfood'
     cat = stage1(upper)
     if cat == 'meat':
         return split_meat(upper)
@@ -207,6 +273,8 @@ def categorize(name):
 # ---------------- parsing ----------------
 def parse(text):
     text = re.sub(r'\\(.)', r'\1', text)  # unescape markdown backslashes from Docs export
+    text = re.sub(r'\*\*', '', text)       # strip bold markers from raw inventory files
+    text = re.sub(r'~~([^~]*)~~', r'\1', text)  # strip strikethrough, keep inner text
     meta = {'week_of': None, 'valid_from': None, 'valid_to': None}
     store = None
     items = []
@@ -239,12 +307,12 @@ def parse(text):
 
 def main():
     src = pathlib.Path(sys.argv[1])
-    meta, items = parse(src.read_text())
+    meta, items = parse(src.read_text(encoding='utf-8-sig'))
     if not meta['week_of']:
         sys.exit('could not find week-of header in ' + str(src))
     meta['valid_from'] = meta['valid_from'] or meta['week_of']
     out = REPO / 'data' / 'groceries' / (meta['week_of'] + '.json')
-    out.write_text(json.dumps({**meta, 'items': items}, indent=1, ensure_ascii=False))
+    out.write_text(json.dumps({**meta, 'items': items}, indent=1, ensure_ascii=False), encoding='utf-8')
     from collections import Counter
     print(f"{len(items)} items -> {out}")
     for cat, n in Counter(i['cat'] for i in items).most_common():
