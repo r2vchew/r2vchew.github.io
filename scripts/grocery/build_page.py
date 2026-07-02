@@ -92,7 +92,7 @@ def week_block(week, hidden):
             f'\n<datalist id="sugg-{week["week_of"]}">\n{datalist}\n</datalist>\n</div>')
 
 week_files = sorted(DATA.glob('????-??-??.json'))[-2:]
-weeks      = [json.loads(p.read_text()) for p in week_files]
+weeks      = [json.loads(p.read_text(encoding='utf-8')) for p in week_files]
 dual       = len(weeks) == 2
 
 all_stores   = sorted({i['store'] for w in weeks for i in w['items']})
