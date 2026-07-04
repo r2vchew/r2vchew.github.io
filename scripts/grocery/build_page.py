@@ -593,3 +593,10 @@ OUT.write_text(html_out, encoding='utf-8')
 print(f"wrote {len(html_out)} bytes to {OUT}")
 print("weeks:", [w['week_of'] for w in weeks], "dual:", dual)
 print("stores:", STORES)
+
+# Stable pointer at a fixed filename/URL, mirroring the web page's own
+# "which week is live" logic - so any client (e.g. a mobile app) can fetch
+# data/groceries/latest.json without knowing today's dated filename.
+live = weeks[-1] if (dual and date.today() >= date.fromisoformat(weeks[-1]['valid_from'])) else weeks[0]
+(DATA / 'latest.json').write_text(json.dumps(live, indent=1, ensure_ascii=False), encoding='utf-8')
+print(f"wrote latest.json (week_of {live['week_of']})")

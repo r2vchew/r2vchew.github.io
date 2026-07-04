@@ -515,3 +515,9 @@ OUT.write_text(html_out, encoding='utf-8')
 print(f"wrote {len(html_out)} bytes to {OUT}")
 print("pulled:", snap['pulled'])
 print("stores:", STORES)
+
+# Stable pointer at a fixed filename/URL, same idea as groceries' latest.json -
+# lets a client (e.g. a mobile app) fetch data/others/latest.json without
+# knowing today's dated filename.
+(DATA / 'latest.json').write_text(json.dumps(snap, indent=1, ensure_ascii=False), encoding='utf-8')
+print("wrote latest.json")
