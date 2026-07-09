@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-"""Build other.html from the most recent file in data/others/.
+"""Build other.html from the per-week JSON files in data/others/.
 
 Same UI/UX as build_page.py (search, store filter, bonus filter, collapsible
-sections, long-press/right-click hide), but single-snapshot only - Other
-Deals doesn't have the Thu-Wed grocery cycle, so there's no dual-week preview
-toggle here, just "latest pull."
+sections, long-press/right-click hide, and - as of the week-tagging added to
+build_other_doc.ps1 - the SAME dual-week "preview next week" toggle. CT itself
+doesn't run a clean Thu-Wed cycle, but the Walmart non-food items folded into
+this doc now do, so each pull is tagged with the grocery target week
+(week_of/week_label) and we surface that the same way groceries.html does.
+
+Older docs pulled before week-tagging existed fall back to week_of=pulled,
+week_label='current' (see parse_other.py), so they still render - just
+without a meaningful preview/current distinction.
 
 Usage:
     python3 scripts/grocery/build_other_page.py [data_dir] [out_file]
@@ -61,42 +67,66 @@ def card(it):
             f'    </div>\n'
             f'  </div>')
 
+def week_block(week, hidden):
+    by_cat = {key: [] for key, _, _ in SECTIONS}
+    for it in week['items']:
+        by_cat.get(it['cat'], by_cat['other']).append(it)
+    secs = []
+    for key, label, icon in SECTIONS:
+        items = sorted(by_cat[key], key=lambda x: x['price'])
+        if not items:
+            continue
+        cards = '\n'.join(card(it) for it in items)
+        secs.append(
+            f'<section>\n'
+            f'  <h2 class="sec-head collapsed"><span class="ic">{icon}</span>{label} '
+            f'<span class="count">({len(items)})</span><span class="chev">&#9662;</span></h2>\n'
+            f'  <div class="items">\n{cards}\n  </div>\n</section>')
+    stores = sorted({i['store'] for i in week['items']})
+    week_of = week.get('week_of') or week['pulled']
+    label   = week.get('week_label') or 'current'
+    sub = (f"Week of {week_of} ({label}) &middot; pulled {nice_date(week['pulled'])}"
+           f" &middot; {len(week['items'])} deals across {len(stores)} stores &middot; via Flipp")
+    names    = sorted({i['name'] for i in week['items']})
+    datalist = '\n'.join(f'    <option value="{html.escape(n)}">' for n in names)
+    return (f'<div class="week{" hide" if hidden else ""}" data-week="{week_of}" '
+            f'data-from="{week_of}" data-sub="{sub}" data-list="sugg-{week_of}">\n'
+            + '\n\n'.join(secs) +
+            f'\n<datalist id="sugg-{week_of}">\n{datalist}\n</datalist>\n</div>')
+
 files = sorted(DATA.glob('????-??-??.json'))
 if not files:
     sys.exit(f'no data files found in {DATA}')
-snap = json.loads(files[-1].read_text(encoding='utf-8'))
+snaps = [json.loads(p.read_text(encoding='utf-8')) for p in files]
 
-by_cat = {key: [] for key, _, _ in SECTIONS}
-for it in snap['items']:
-    by_cat.get(it['cat'], by_cat['other']).append(it)
+# Dedup to one snapshot per distinct target week (week_of) - keep the most
+# recently pulled one for that week (files are sorted by pulled date, so
+# later entries overwrite earlier ones for the same week_of) - then take the
+# 2 most recent distinct weeks, same as build_page.py does for groceries.
+by_week = {}
+for s in snaps:
+    wk = s.get('week_of') or s['pulled']
+    by_week[wk] = s
+weeks = sorted(by_week.values(), key=lambda s: s.get('week_of') or s['pulled'])[-2:]
+dual  = len(weeks) == 2
 
-secs = []
-for key, label, icon in SECTIONS:
-    items = sorted(by_cat[key], key=lambda x: x['price'])
-    if not items:
-        continue
-    cards = '\n'.join(card(it) for it in items)
-    secs.append(
-        f'<section>\n'
-        f'  <h2 class="sec-head collapsed"><span class="ic">{icon}</span>{label} '
-        f'<span class="count">({len(items)})</span><span class="chev">&#9662;</span></h2>\n'
-        f'  <div class="items">\n{cards}\n  </div>\n</section>')
-
-all_stores = sorted({i['store'] for i in snap['items']})
-STORES     = [s for s in STORE_ORDER if s in all_stores] + [s for s in all_stores if s not in STORE_ORDER]
+all_stores   = sorted({i['store'] for w in weeks for i in w['items']})
+STORES       = [s for s in STORE_ORDER if s in all_stores] + [s for s in all_stores if s not in STORE_ORDER]
 store_checks = '\n'.join(
     f'      <label><input type="checkbox" value="{html.escape(s)}" checked> {html.escape(s)}</label>'
     for s in STORES)
 
-names    = sorted({i['name'] for i in snap['items']})
-datalist = '\n'.join(f'    <option value="{html.escape(n)}">' for n in names)
+body = '\n\n'.join(week_block(w, hidden=(i > 0)) for i, w in enumerate(weeks))
 
-sub = (f"Pulled {nice_date(snap['pulled'])} &middot; {len(snap['items'])} deals across "
-       f"{len(all_stores)} stores &middot; via Flipp")
+w0 = weeks[0]
+stores0 = sorted({i['store'] for i in w0['items']})
+w0_week_of = w0.get('week_of') or w0['pulled']
+w0_label   = w0.get('week_label') or 'current'
+default_sub = (f"Week of {w0_week_of} ({w0_label}) &middot; pulled {nice_date(w0['pulled'])}"
+               f" &middot; {len(w0['items'])} deals across {len(stores0)} stores &middot; via Flipp")
 
-body = (f'<div class="week" data-week="{snap["pulled"]}" data-sub="{sub}" data-list="sugg-other">\n'
-        + '\n\n'.join(secs) +
-        f'\n<datalist id="sugg-other">\n{datalist}\n</datalist>\n</div>')
+preview_btn = ('\n      <button class="pill" id="weekToggle" type="button" hidden></button>'
+               if dual else '')
 
 html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -113,12 +143,16 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   h1{{font-size:20px;margin:0;font-weight:720}}
   .sub{{color:var(--mut);font-size:12.5px;margin-top:4px}}
   a.back{{color:var(--accent);font-size:13px;text-decoration:none}}
+  .pill{{margin-top:10px;background:#16243d;border:1px solid #2c4a7c;color:var(--accent);
+        border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer}}
+  .pill[hidden]{{display:none}}
 
   .tabs{{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:stretch}}
   .tab-btn{{flex:1 1 80px;padding:8px 0;border:1px solid var(--line);border-radius:9px;
             background:var(--card);color:var(--mut);font:inherit;font-size:13px;
             font-weight:600;cursor:pointer;transition:color .15s,border-color .15s,background .15s}}
   .tab-btn.tab-active{{background:#16243d;border-color:#2c4a7c;color:var(--accent)}}
+  .tabs .pill{{margin-top:0;flex:2 1 140px;text-align:center}}
 
   .search{{margin-top:12px}}
   .search input{{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);
@@ -166,6 +200,7 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   .item.hide{{display:none}}
   .item.user-hidden{{display:none}}
   .item.user-hiding{{opacity:0;transform:scale(0.97);pointer-events:none}}
+  .week.hide{{display:none}}
   .tab-hidden{{display:none}}
   .price{{flex:0 0 auto;font-weight:720;font-variant-numeric:tabular-nums;
          color:var(--accent);min-width:58px}}
@@ -212,13 +247,13 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   <header>
     <a class="back" href="index.html">&lsaquo; Home</a>
     <h1 style="margin-top:6px">Other Deals</h1>
-    <div class="sub" id="sub">{sub}</div>
+    <div class="sub" id="sub">{default_sub}</div>
     <div class="tabs">
-      <button class="tab-btn tab-active" id="dealsTabBtn">Deals</button>
+      <button class="tab-btn tab-active" id="dealsTabBtn">Deals</button>{preview_btn}
       <button class="tab-btn" id="hiddenTabBtn">Hidden</button>
     </div>
     <div class="search">
-      <input type="search" id="searchInput" placeholder="Search items&hellip;" autocomplete="off" list="sugg-other">
+      <input type="search" id="searchInput" placeholder="Search items&hellip;" autocomplete="off">
     </div>
     <div class="filters">
       <div class="dropdown" id="storeDropdown">
@@ -276,7 +311,10 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   var storeChecks = storePanel.querySelectorAll('input[type=checkbox]');
   var bonusOnly   = document.getElementById('bonusOnly');
   var searchInput = document.getElementById('searchInput');
-  var week        = document.querySelector('.week');
+  var sub         = document.getElementById('sub');
+  var weeks       = Array.prototype.slice.call(document.querySelectorAll('.week'));
+  var weekToggle  = document.getElementById('weekToggle');
+  var activeWeek  = weeks[0];
 
   function applyFilters(){{
     var selected = {{}};
@@ -285,7 +323,7 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
     var query    = searchInput.value.trim().toLowerCase();
     var searching = query.length > 0;
     document.body.classList.toggle('searching', searching);
-    week.querySelectorAll('section').forEach(function(sec){{
+    activeWeek.querySelectorAll('section').forEach(function(sec){{
       var visible = 0;
       sec.querySelectorAll('.item').forEach(function(it){{
         if (it.classList.contains('user-hidden')) return;
@@ -297,6 +335,40 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
       sec.querySelector('.count').textContent = '(' + visible + ')';
       sec.classList.toggle('empty', visible === 0);
     }});
+  }}
+
+  function localDate(iso){{
+    var p = iso.split('-');
+    return new Date(+p[0], p[1] - 1, +p[2]);
+  }}
+
+  function setActiveWeek(w, preview){{
+    activeWeek = w;
+    weeks.forEach(function(x){{ x.classList.toggle('hide', x !== w); }});
+    sub.innerHTML = w.dataset.sub + (preview ? ' &middot; <b>preview</b>' : '');
+    searchInput.setAttribute('list', w.dataset.list);
+    restoreHidden(w);
+    applyFilters();
+  }}
+
+  if (weeks.length === 2 && weekToggle) {{
+    var next = weeks[1];
+    if (new Date() >= localDate(next.dataset.from)) {{
+      setActiveWeek(next, false);
+    }} else {{
+      setActiveWeek(weeks[0], false);
+      weekToggle.hidden = false;
+      weekToggle.innerHTML = "Preview next week's flyer &rsaquo;";
+      weekToggle.addEventListener('click', function(){{
+        var showNext = activeWeek === weeks[0];
+        setActiveWeek(showNext ? next : weeks[0], showNext);
+        weekToggle.innerHTML = showNext
+          ? '&lsaquo; Back to this week'
+          : "Preview next week's flyer &rsaquo;";
+      }});
+    }}
+  }} else {{
+    setActiveWeek(weeks[0], false);
   }}
 
   document.getElementById('storeAll').addEventListener('click', function(){{
@@ -312,16 +384,16 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   searchInput.addEventListener('input', applyFilters);
 
   document.getElementById('expandAll').addEventListener('click', function(){{
-    week.querySelectorAll('.sec-head').forEach(function(h){{ h.classList.remove('collapsed'); }});
+    activeWeek.querySelectorAll('.sec-head').forEach(function(h){{ h.classList.remove('collapsed'); }});
   }});
   document.getElementById('collapseAll').addEventListener('click', function(){{
-    week.querySelectorAll('.sec-head').forEach(function(h){{ h.classList.add('collapsed'); }});
+    activeWeek.querySelectorAll('.sec-head').forEach(function(h){{ h.classList.add('collapsed'); }});
   }});
   document.querySelectorAll('.sec-head').forEach(function(h){{
     h.addEventListener('click', function(){{ h.classList.toggle('collapsed'); }});
   }});
 
-  // ─── HIDE SYSTEM ────────────────────────────────────────────────────────────
+  // ─── HIDE SYSTEM (scoped per week, like groceries) ─────────────────────────
 
   var REASONS = {{
     price:   {{ emoji: '💸', label: "Price isn’t a deal" }},
@@ -392,20 +464,22 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   }});
   document.getElementById('ctxCancel').addEventListener('click', closeCtx);
 
-  function getHiddenList() {{
-    return JSON.parse(localStorage.getItem('od-hidden') || '[]');
+  function getHiddenList(week) {{
+    return JSON.parse(localStorage.getItem('od-hidden-' + week) || '[]');
   }}
-  function saveHiddenList(list) {{
-    localStorage.setItem('od-hidden', JSON.stringify(list));
+  function saveHiddenList(week, list) {{
+    localStorage.setItem('od-hidden-' + week, JSON.stringify(list));
   }}
 
   function doHide(el, reasonKey, reason) {{
+    var weekEl = el.closest('.week');
+    var week   = weekEl ? weekEl.dataset.week : '';
     var key    = el.dataset.key;
-    var list   = getHiddenList();
+    var list   = getHiddenList(week);
     if (list.some(function(h) {{ return h.key === key; }})) return;
 
     var entry = {{
-      key: key,
+      key: key, week: week,
       store: el.dataset.store,
       name:  el.querySelector('.name').textContent,
       price: el.dataset.price,
@@ -415,7 +489,7 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
       label:  reason.label
     }};
     list.push(entry);
-    saveHiddenList(list);
+    saveHiddenList(week, list);
 
     var log = JSON.parse(localStorage.getItem('od-hide-log') || '[]');
     log.push(Object.assign({{}}, entry, {{ ts: new Date().toISOString() }}));
@@ -430,9 +504,9 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
     }}, 150);
   }}
 
-  function doUnhide(key) {{
-    var list = getHiddenList().filter(function(h) {{ return h.key !== key; }});
-    saveHiddenList(list);
+  function doUnhide(key, week) {{
+    var list = getHiddenList(week).filter(function(h) {{ return h.key !== key; }});
+    saveHiddenList(week, list);
     var el = document.querySelector('.item[data-key="' + key + '"]');
     if (el) {{
       el.classList.remove('user-hidden');
@@ -445,6 +519,14 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   var hiddenTabBtn = document.getElementById('hiddenTabBtn');
   var hiddenPanel  = document.getElementById('hiddenPanel');
 
+  function getAllHidden() {{
+    var all = [];
+    weeks.forEach(function(w) {{
+      getHiddenList(w.dataset.week).forEach(function(h) {{ all.push(h); }});
+    }});
+    return all;
+  }}
+
   function escH(s) {{
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }}
@@ -453,7 +535,7 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   }}
 
   function syncHiddenTab() {{
-    var all   = getHiddenList();
+    var all   = getAllHidden();
     var count = all.length;
     hiddenTabBtn.textContent = count ? 'Hidden (' + count + ')' : 'Hidden';
     if (!count) {{
@@ -470,18 +552,18 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
         +   '<div class="hid-name">' + escH(h.name) + '</div>'
         +   '<div class="hid-meta">' + escH(h.store) + ' &middot; ' + priceStr + ' &middot; ' + escH(h.label) + '</div>'
         + '</div>'
-        + '<button class="hid-unhide" data-key="' + escA(h.key) + '">Unhide</button>'
+        + '<button class="hid-unhide" data-key="' + escA(h.key) + '" data-week="' + escA(h.week) + '">Unhide</button>'
         + '</div>';
     }}).join('');
     hiddenPanel.querySelectorAll('.hid-unhide').forEach(function(btn) {{
       btn.addEventListener('click', function() {{
-        doUnhide(btn.dataset.key);
+        doUnhide(btn.dataset.key, btn.dataset.week);
       }});
     }});
   }}
 
   function showDealsTab() {{
-    week.classList.remove('tab-hidden');
+    weeks.forEach(function(w) {{ w.classList.remove('tab-hidden'); }});
     hiddenPanel.classList.add('tab-hidden');
     dealsTabBtn.classList.add('tab-active');
     hiddenTabBtn.classList.remove('tab-active');
@@ -489,7 +571,7 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   }}
 
   function showHiddenTab() {{
-    week.classList.add('tab-hidden');
+    weeks.forEach(function(w) {{ w.classList.add('tab-hidden'); }});
     hiddenPanel.classList.remove('tab-hidden');
     hiddenTabBtn.classList.add('tab-active');
     dealsTabBtn.classList.remove('tab-active');
@@ -499,12 +581,14 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
   dealsTabBtn.addEventListener('click', showDealsTab);
   hiddenTabBtn.addEventListener('click', showHiddenTab);
 
-  getHiddenList().forEach(function(h) {{
-    var el = document.querySelector('.item[data-key="' + h.key + '"]');
-    if (el) el.classList.add('user-hidden');
-  }});
+  function restoreHidden(weekEl) {{
+    getHiddenList(weekEl.dataset.week).forEach(function(h) {{
+      var el = weekEl.querySelector('.item[data-key="' + h.key + '"]');
+      if (el) el.classList.add('user-hidden');
+    }});
+  }}
+  weeks.forEach(restoreHidden);
   syncHiddenTab();
-  applyFilters();
 
 }})();
 </script>
@@ -513,11 +597,12 @@ html_out = f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 
 OUT.write_text(html_out, encoding='utf-8')
 print(f"wrote {len(html_out)} bytes to {OUT}")
-print("pulled:", snap['pulled'])
+print("weeks:", [w.get('week_of') or w['pulled'] for w in weeks], "dual:", dual)
 print("stores:", STORES)
 
-# Stable pointer at a fixed filename/URL, same idea as groceries' latest.json -
+# Stable pointer at a fixed filename/URL, mirroring groceries' latest.json -
 # lets a client (e.g. a mobile app) fetch data/others/latest.json without
 # knowing today's dated filename.
-(DATA / 'latest.json').write_text(json.dumps(snap, indent=1, ensure_ascii=False), encoding='utf-8')
-print("wrote latest.json")
+live = weeks[-1] if (dual and date.today() >= date.fromisoformat(weeks[-1].get('week_of') or weeks[-1]['pulled'])) else weeks[0]
+(DATA / 'latest.json').write_text(json.dumps(live, indent=1, ensure_ascii=False), encoding='utf-8')
+print(f"wrote latest.json (week_of {live.get('week_of') or live['pulled']})")

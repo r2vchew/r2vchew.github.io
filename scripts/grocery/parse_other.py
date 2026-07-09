@@ -21,6 +21,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from parse_deals import STORE_RE, ITEM_RE, PROMO_RE, maybe_title
 
 HEAD_RE = re.compile(r'^#\s*Other deals - pulled (\d{4}-\d{2}-\d{2})')
+WEEK_RE = re.compile(r'^Week:\s*(\d{4}-\d{2}-\d{2})\s*\((current|preview)\)', re.IGNORECASE)
 
 # ---------------- categorization ----------------
 # Non-food items folded in from the grocery pull - same rough groupings as
@@ -150,7 +151,7 @@ def parse(text):
     text = re.sub(r'\\(.)', r'\1', text)
     text = re.sub(r'\*\*', '', text)
     text = re.sub(r'~~([^~]*)~~', r'\1', text)
-    meta = {'pulled': None}
+    meta = {'pulled': None, 'week_of': None, 'week_label': None}
     store = None
     items = []
     for line in text.splitlines():
@@ -158,6 +159,11 @@ def parse(text):
         m = HEAD_RE.match(line)
         if m:
             meta['pulled'] = m.group(1)
+            continue
+        m = WEEK_RE.match(line)
+        if m:
+            meta['week_of'] = m.group(1)
+            meta['week_label'] = m.group(2).lower()
             continue
         m = STORE_RE.match(line)
         if m:
@@ -185,6 +191,11 @@ def main():
     meta, items = parse(src.read_text(encoding='utf-8-sig'))
     if not meta['pulled']:
         sys.exit('could not find "pulled" header in ' + str(src))
+    if not meta['week_of']:
+        # Older docs (pre week-tagging) have no "Week: ..." line - best-effort
+        # fallback so they still render, just without preview/current distinction.
+        meta['week_of'] = meta['pulled']
+        meta['week_label'] = 'current'
     out = REPO / 'data' / 'others' / (meta['pulled'] + '.json')
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps({**meta, 'items': items}, indent=1, ensure_ascii=False), encoding='utf-8')
