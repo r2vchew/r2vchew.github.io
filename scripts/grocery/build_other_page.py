@@ -606,3 +606,11 @@ print("stores:", STORES)
 live = weeks[-1] if (dual and date.today() >= date.fromisoformat(weeks[-1].get('week_of') or weeks[-1]['pulled'])) else weeks[0]
 (DATA / 'latest.json').write_text(json.dumps(live, indent=1, ensure_ascii=False), encoding='utf-8')
 print(f"wrote latest.json (week_of {live.get('week_of') or live['pulled']})")
+
+# Second stable pointer, always the newest known pull regardless of whether
+# its week is live yet - same idea as groceries' preview.json. The Cartwise
+# app compares this against latest.json and shows a preview toggle only when
+# they differ, so the toggle self-disables at the Thursday cutover.
+preview = weeks[-1] if dual else weeks[0]
+(DATA / 'preview.json').write_text(json.dumps(preview, indent=1, ensure_ascii=False), encoding='utf-8')
+print(f"wrote preview.json (week_of {preview.get('week_of') or preview['pulled']})")
