@@ -600,3 +600,12 @@ print("stores:", STORES)
 live = weeks[-1] if (dual and date.today() >= date.fromisoformat(weeks[-1]['valid_from'])) else weeks[0]
 (DATA / 'latest.json').write_text(json.dumps(live, indent=1, ensure_ascii=False), encoding='utf-8')
 print(f"wrote latest.json (week_of {live['week_of']})")
+
+# Second stable pointer, always the newest known week regardless of whether
+# it's live yet - lets a client (e.g. the Cartwise app) build its own
+# current/preview toggle by comparing this against latest.json's week_of.
+# Identical to latest.json once the newer week goes live, so a client-side
+# toggle built on this naturally disables itself with no extra logic.
+preview = weeks[-1] if dual else weeks[0]
+(DATA / 'preview.json').write_text(json.dumps(preview, indent=1, ensure_ascii=False), encoding='utf-8')
+print(f"wrote preview.json (week_of {preview['week_of']})")
