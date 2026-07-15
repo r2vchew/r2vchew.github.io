@@ -23,7 +23,12 @@ DATA = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else REPO / 'data' / 'othe
 OUT  = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else REPO / 'other.html'
 
 SECTIONS = [
-    ('alcohol',        'Alcohol',             '&#127863;'),
+    ('beer',           'Beer &amp; Cider',    '&#127866;'),
+    ('wine',           'Wine',                '&#127863;'),
+    ('sparkling',      'Sparkling',           '&#129346;'),
+    ('spirits',        'Spirits',             '&#129347;'),
+    ('cocktails',      'Coolers &amp; Cocktails', '&#127865;'),
+    ('alcohol_other',  'Other Alcohol',       '&#127870;'),
     ('automotive',     'Automotive',          '&#128663;'),
     ('tools',          'Tools &amp; Hardware','&#128295;'),
     ('garden',         'Garden &amp; Lawn',   '&#127793;'),

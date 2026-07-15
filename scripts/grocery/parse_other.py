@@ -132,17 +132,94 @@ PEST_CLEANING_PAT = [
 ]
 
 # The three liquor stores (exact Flipp merchant names, from pull-liquor.ps1).
-# Everything they sell is booze, so we file every item from them under one
-# "alcohol" bucket by store rather than trying to keyword-match bottle names.
+# Everything they sell is booze, so items from these stores are routed to the
+# alcohol sub-categorizer below rather than the general non-food ruleset.
 LIQUOR_STORES = {
     'Sobeys & Safeway Liquor',
     'Co-op Wine Spirits Beer Liquor',
     'Real Canadian Liquor Store',
 }
 
+# ---- alcohol sub-categories (beer / wine / sparkling / spirits / coolers) ----
+# ORDER MATTERS. Ready-to-drink coolers & cocktails are checked FIRST because
+# their names almost always contain a base-spirit or beer word ("Tequila
+# Margarita", "Vodka Soda", "Pabst ... Iced Tea") that would otherwise mis-file
+# them as spirits/beer. Then cider->beer, beer, sparkling (prosecco/brut before
+# generic wine words), wine, and finally spirits. Anything from a liquor store
+# that matches nothing lands in 'alcohol_other' (never the household 'other').
+# Traps deliberately avoided: bare ESTATE (Appleton Estate rum vs Peller Estates
+# wine -> use ESTATES plural) and bare AMBER (amber rum vs amber ale).
+COCKTAIL_PAT = [
+    r'\bCOCKTAILS?\b', r'\bMARGARITAS?\b', r'\bMOJITOS?\b', r'\bCAESARS?\b', r'\bSANGRIA\b',
+    r'\bSPRITZ\b', r'\bMIMOSAS?\b', r'\bBELLINIS?\b', r'\bPALOMA\b', r'\bDAIQUIRIS?\b',
+    r'\bPINA COLADA\b', r'\bCOSMOPOLITAN\b', r'\bTRANSFUSION\b', r'\bLONG DRINK\b',
+    r'\bAPPERITIVO\b', r'\bAPERITIVO\b', r'\bSELTZER\b', r'\bCOOLERS?\b',
+    r'\bVODKA SODA\b', r'\bSODA VARIETY\b', r'\bHARD\b', r'\bSPIKED\b', r'\bICED TEA\b',
+    r'\bTWISTED TEA\b', r'\bWHITE CLAW\b', r'\bTRULY\b', r'\bNUTRL\b', r'\bVIZZY\b',
+    r'\bBUZZBALLZ\b', r'\bCUTWATER\b', r'\bSMIRNOFF ICE\b', r'\bPALM BAY\b',
+    r'\bCOTTAGE SPRINGS?\b', r'\bSVNS\b', r'\bHOOP TEA\b', r'\bHEY Y', r'\bMIKE.?S HARD\b',
+    r'\bSOCIAL LITE\b', r'\bTHE FINNISH\b', r'\bSTRONG ICED\b', r'\bLEMONADE\b',
+]
+CIDER_PAT = [
+    r'\bCIDER\b', r'\bNO BOATS ON SUNDAY\b', r'\bSTRONGBOW\b', r'\bSOMERSBY\b',
+    r'\bANGRY ORCHARD\b', r'\bGROWERS\b', r'\bTHATCHERS\b', r'\bMAGNERS\b', r'\bREKORDERLIG\b',
+]
+BEER_PAT = [
+    r'\bBEER\b', r'\bLAGERS?\b', r'\bALE\b', r'\bIPA\b', r'\bPILSN?ER\b', r'\bPILS\b',
+    r'\bSTOUT\b', r'\bPORTER\b', r'\bRADLER\b', r'\bPALE ALE\b', r'\bDRAFT\b', r'\bDRAUGHT\b',
+    r'\bBREW(ING|ERY|ED|S)?\b', r'\bHAZY\b', r'\bKOLSCH\b', r'\bSAISON\b', r'\bWITBIER\b',
+    r'\bBOCK\b', r'\bHOP\b', r'\bBUDWEISER\b', r'\bBUD LIGHT\b', r'\bCOORS\b', r'\bCORONA\b',
+    r'\bBUSCH\b', r'\bHEINEKEN\b', r'\bMICHELOB\b', r'\bMOOSEHEAD\b', r'\bOLD MILWAUKEE\b',
+    r'\bSAPPORO\b', r'\bPERONI\b', r'\bSTELLA\b', r'\bGUINNESS\b', r'\bKOKANEE\b',
+    r'\bMOLSON\b', r'\bLABATT\b', r'\bMILLER\b', r'\bMODELO\b', r'\bRED STRIPE\b',
+    r'\bKEYSTONE\b', r'\bALBERTA GENUINE\b', r'\bBAVARIA\b', r'\bSUPER BOCK\b', r'\bCARLSBERG\b',
+    r'\bBIG ROCK\b', r'\bMARDA LOOP\b', r'\bWILD ROSE\b', r'\bTOOL SHED\b', r'\bPUMPHOUSE\b',
+    r'\bPHILLIPS\b', r'\bTROLLEY 5\b', r'\bORIGINAL 16\b', r'\bDRIFTWOOD\b',
+    r'\bINNIS (&|AND) GUNN\b', r'\bPABST\b', r'\bSLEEMAN\b',
+]
+SPARKLING_PAT = [
+    r'\bPROSECCO\b', r'\bCHAMPAGNE\b', r'\bCAVA\b', r'\bBRUT\b', r'\bSPUMANTE\b',
+    r'\bSPARKLING\b', r'\bSEKT\b', r'\bCREMANT\b', r'\bFREIXENET\b', r'\bSEGURA VIUDAS\b',
+]
+WINE_PAT = [
+    r'\bCABERNET\b', r'\bSAUVIGNON\b', r'\bMERLOT\b', r'\bSHIRAZ\b', r'\bSYRAH\b',
+    r'\bMALBEC\b', r'\bPINOT\b', r'\bGRIGIO\b', r'\bGRIS\b', r'\bCHARDONNAY\b',
+    r'\bRIESLING\b', r'\bCHIANTI\b', r'\bROSSO\b', r'\bROS[EÉ]\b', r'\bBLANC\b',
+    r'\bGEW[UÜ]RZTRAMINER\b', r'\bTEMPRANILLO\b', r'\bSANGIOVESE\b', r'\bZINFANDEL\b',
+    r'\bGRENACHE\b', r'\bMOSCATO\b', r'\bMUSCAT\b', r'\bBORDEAUX\b', r'\bBURGUNDY\b',
+    r'\bCHENIN\b', r'\bVIOGNIER\b', r'\bTORRONTES\b', r'\bCARMENERE\b', r'\bPRIMITIVO\b',
+    r'\bNEBBIOLO\b', r'\bBAROLO\b', r'\bVALPOLICELLA\b', r'\bTOSCANA\b', r'\bRED BLEND\b',
+    r'\bWHITE BLEND\b', r'\bVINTNER\b', r'\bCELLARS?\b', r'\bVINEYARDS?\b', r'\bESTATES\b',
+    r'\b(RED|WHITE) WINE\b', r'\bWINE\b', r'\bRH[OÔ]NE\b', r'\bROUGE\b', r'\bGAVI\b',
+    r'\bBAROSSA\b', r'\bBODACIOUS\b', r'\bJACKSON.?TRIGGS\b', r'\bYELLOW TAIL\b',
+    r'\bCASILLERO\b', r'\bCONO SUR\b', r'\bWOLF BLASS\b', r'\bNAKED GRAPE\b', r'\bBASK\b',
+    r'\bTRIVENTO\b', r'\bMER SOLEIL\b', r'\bHONEST LOT\b', r'\bMASI\b', r'\bGRAY MONK\b',
+    r'\bSANDHILL\b', r'\bGRANT BURGE\b', r'\bMICHAEL DAVID\b', r'\bXOXO\b',
+]
+SPIRITS_PAT = [
+    r'\bVODKA\b', r'\bWHISK(E)?Y\b', r'\bRUM\b', r'\bGIN\b', r'\bTEQUILA\b', r'\bBOURBON\b',
+    r'\bSCOTCH\b', r'\bBRANDY\b', r'\bCOGNAC\b', r'\bRYE\b', r'\bLIQUEUR\b', r'\bSINGLE MALT\b',
+    r'\bMEZCAL\b', r'\bREPOSADO\b', r'\bA[NÑ]EJO\b', r'\bSCHNAPPS\b',
+    r'\bVERMOUTH\b', r'\bABSINTHE\b', r'\bGRAPPA\b', r'\bAMARETTO\b', r'\bTRIPLE SEC\b',
+    r'\bCOINTREAU\b', r'\bGRAND MARNIER\b', r'\bFIREBALL\b', r'\bMALIBU\b', r'\bJAGERMEISTER\b',
+    r'\bBAILEYS\b', r'\bCAPTAIN MORGAN\b', r'\bCROWN ROYAL\b', r'\bDEWAR', r'\bAUCHENTOSHAN\b',
+    r'\bGLENLIVET\b', r'\bGLENFIDDICH\b', r'\bMACALLAN\b', r'\bBACARDI\b', r'\bDILLON\b',
+]
+
+def categorize_alcohol(name):
+    upper = name.upper()
+    for pats, cat in (
+        (COCKTAIL_PAT, 'cocktails'), (CIDER_PAT, 'beer'), (BEER_PAT, 'beer'),
+        (SPARKLING_PAT, 'sparkling'), (WINE_PAT, 'wine'), (SPIRITS_PAT, 'spirits'),
+    ):
+        for pat in pats:
+            if re.search(pat, upper):
+                return cat
+    return 'alcohol_other'
+
 def categorize_other(name, store=None):
     if store in LIQUOR_STORES:
-        return 'alcohol'
+        return categorize_alcohol(name)
     upper = name.upper()
     for pats, cat in (
         (BABY_PAT, 'baby'), (PHARMACY_PAT, 'pharmacy'),

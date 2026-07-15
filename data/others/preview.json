@@ -18878,7 +18878,7 @@
    "price": 7.99,
    "unit": "",
    "name": "Founders & Farmers Lager, Light, Pilsner, Red Ale or IPA",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $2_",
@@ -18891,7 +18891,7 @@
    "price": 7.99,
    "unit": "",
    "name": "Peller Estates Family Vineyards",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $6, PRICE MATCH_",
@@ -18904,7 +18904,7 @@
    "price": 9.99,
    "unit": "",
    "name": "Trolley 5 Turntable Lager",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $4_",
@@ -18917,7 +18917,7 @@
    "price": 11.99,
    "unit": "",
    "name": "Super Bock Lager",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $3_",
@@ -18930,7 +18930,7 @@
    "price": 11.99,
    "unit": "",
    "name": "Co-op Private Reserve Prosecco",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_SAVE $4_",
@@ -18943,7 +18943,7 @@
    "price": 12.99,
    "unit": "",
    "name": "Idi di Marzo Chieti Rosso 2021",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $7 95 POINTS WINE_",
@@ -18956,7 +18956,7 @@
    "price": 12.99,
    "unit": "",
    "name": "Carlsberg Danish Pilsner",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $3_",
@@ -18969,7 +18969,7 @@
    "price": 13.99,
    "unit": "",
    "name": "Driftwood Fat Tug IPA",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $3.50_",
@@ -18982,7 +18982,7 @@
    "price": 13.99,
    "unit": "",
    "name": "Barossa Valley Estate Cabernet Sauvignon or Shiraz",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $7 + MEMBERS EARN $2_",
@@ -18995,7 +18995,7 @@
    "price": 13.99,
    "unit": "",
    "name": "Smirnoff Ice",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $3.50_",
@@ -19008,7 +19008,7 @@
    "price": 14.99,
    "unit": "",
    "name": "Phillips Playlist Party Pack",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $3_",
@@ -19021,7 +19021,7 @@
    "price": 14.99,
    "unit": "",
    "name": "Kim Crawford Sauvignon Blanc, Pinot Grigio or Pinot Noir",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $7, SAVE $9_",
@@ -19034,7 +19034,7 @@
    "price": 14.99,
    "unit": "",
    "name": "Pumphouse Crafty Radler Mix Pack",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $6_",
@@ -19047,7 +19047,7 @@
    "price": 16.99,
    "unit": "",
    "name": "Trapiche Malbec Medalla 2021",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -19060,7 +19060,7 @@
    "price": 18.99,
    "unit": "",
    "name": "Castellani Toscana Rosso 2024, Chianti Riserva 2021 or Chardonnay 2025",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $11_",
@@ -19073,7 +19073,7 @@
    "price": 18.99,
    "unit": "",
    "name": "Planeta Sicily Rosé",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -19086,7 +19086,7 @@
    "price": 19.99,
    "unit": "",
    "name": "Cal & Gary's Canadian Rye Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $7 + MEMBERS EARN $1_",
@@ -19099,7 +19099,7 @@
    "price": 19.99,
    "unit": "",
    "name": "Feudi di Romans Pinot Grigio",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $12_",
@@ -19112,7 +19112,7 @@
    "price": 19.99,
    "unit": "",
    "name": "Cal & Gary's Dark, Spiced, Amber or White Rum",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $7 + MEMBERS EARN $1_",
@@ -19125,7 +19125,7 @@
    "price": 20.99,
    "unit": "",
    "name": "Skyy Vodka",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $11_",
@@ -19138,7 +19138,7 @@
    "price": 23.99,
    "unit": "",
    "name": "Tool Shed Tool Box Variety Pack",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -19151,7 +19151,7 @@
    "price": 23.99,
    "unit": "",
    "name": "Pabst Blue Ribbon Strong Iced Tea",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -19164,7 +19164,7 @@
    "price": 24.99,
    "unit": "",
    "name": "San Pedro Syrah 1865 Selected Collection 2020",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $15_",
@@ -19177,7 +19177,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Budweiser or Bud Light",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -19190,7 +19190,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Kendall-Jackson Cabernet Sauvignon Vintner's Reserve",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $10 + MEMBERS EARN $2_",
@@ -19203,7 +19203,7 @@
    "price": 28.99,
    "unit": "",
    "name": "Glendalough Double Barrel Irish Whiskey",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $16_",
@@ -19216,7 +19216,7 @@
    "price": 29.99,
    "unit": "",
    "name": "Big Rock The Rock Box",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $9_",
@@ -19229,7 +19229,7 @@
    "price": 34.99,
    "unit": "",
    "name": "Buffalo Trace Kentucky Straight Bourbon",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10 *Clip_",
@@ -19242,7 +19242,7 @@
    "price": 34.99,
    "unit": "",
    "name": "El Jimador Silver or Reposado Tequila",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $13, SAVE $11_",
@@ -19255,7 +19255,7 @@
    "price": 38.99,
    "unit": "",
    "name": "Grey Goose Vodka",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $21_",
@@ -19268,7 +19268,7 @@
    "price": 39.99,
    "unit": "",
    "name": "Coors Original",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $18 *Clip_",
@@ -19281,7 +19281,7 @@
    "price": 39.99,
    "unit": "",
    "name": "Eau Claire Parlour Gin",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $15_",
@@ -19294,7 +19294,7 @@
    "price": 9.0,
    "unit": "",
    "name": "Bodacious",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19302,7 +19302,7 @@
    "price": 10.0,
    "unit": "",
    "name": "Yellow Tail",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19310,7 +19310,7 @@
    "price": 10.0,
    "unit": "",
    "name": "Honest Lot",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19318,7 +19318,7 @@
    "price": 10.0,
    "unit": "",
    "name": "Cono Sur Organic",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19326,7 +19326,7 @@
    "price": 10.0,
    "unit": "",
    "name": "Bacardi BACARDÍ MANGO",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
@@ -19339,7 +19339,7 @@
    "price": 11.0,
    "unit": "",
    "name": "Casillero Del Diablo",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19347,7 +19347,7 @@
    "price": 12.0,
    "unit": "",
    "name": "Longshot Cabernet Sauvignon or Pinot Grigio",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Members Save $4_",
@@ -19360,7 +19360,7 @@
    "price": 13.0,
    "unit": "",
    "name": "Granriviera Mimosa or Bellini",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Save $2 with digital coupon_",
@@ -19373,7 +19373,7 @@
    "price": 13.0,
    "unit": "",
    "name": "Truvari Prosecco",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
@@ -19386,7 +19386,7 @@
    "price": 13.0,
    "unit": "",
    "name": "Bavaria 86",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19399,7 +19399,7 @@
    "price": 14.0,
    "unit": "",
    "name": "Menage a'Trois MÉNAGE À TROIS RED BLEND",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Save $2 with digital coupon_",
@@ -19412,7 +19412,7 @@
    "price": 14.0,
    "unit": "",
    "name": "Luna Argenta Prosecco or Prosecco Rosé",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
@@ -19425,7 +19425,7 @@
    "price": 14.0,
    "unit": "",
    "name": "A Thousand Lives Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Save $5 with digital coupon_",
@@ -19438,7 +19438,7 @@
    "price": 14.0,
    "unit": "",
    "name": "Red Stripe Lager",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19451,7 +19451,7 @@
    "price": 14.0,
    "unit": "",
    "name": "Wyndham Bin 555 or 444 Shiraz or Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19459,7 +19459,7 @@
    "price": 15.0,
    "unit": "",
    "name": "Barossa Valley Estate Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19472,7 +19472,7 @@
    "price": 15.0,
    "unit": "",
    "name": "PC Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19485,7 +19485,7 @@
    "price": 15.0,
    "unit": "",
    "name": "Kim Crawford Pinot Grigio or Rosé",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19493,7 +19493,7 @@
    "price": 15.0,
    "unit": "",
    "name": "Babich Sauvignon Blanc",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19506,7 +19506,7 @@
    "price": 15.0,
    "unit": "",
    "name": "Barossa Valley Estate Shiraz",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19519,7 +19519,7 @@
    "price": 15.0,
    "unit": "",
    "name": "Frescobaldi Nipozzano Chianti Riserva",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Members Save $8_",
@@ -19532,7 +19532,7 @@
    "price": 17.0,
    "unit": "",
    "name": "Kim Crawford Prosecco",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
@@ -19545,7 +19545,7 @@
    "price": 17.0,
    "unit": "",
    "name": "Kim Crawford Marlborough Pinot Noir",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19558,7 +19558,7 @@
    "price": 17.0,
    "unit": "",
    "name": "Segura Viudas Reserva",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 points when you spend $60 or more on any Sparkling wine◊, $ 6 back in points_",
@@ -19571,7 +19571,7 @@
    "price": 18.0,
    "unit": "",
    "name": "Brilla Prosecco Rosé",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Save $3 with digital coupon_",
@@ -19584,7 +19584,7 @@
    "price": 18.0,
    "unit": "",
    "name": "Cottage Spring Candy Keys",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
@@ -19597,7 +19597,7 @@
    "price": 18.0,
    "unit": "",
    "name": "Stave & Steel Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19610,7 +19610,7 @@
    "price": 19.0,
    "unit": "",
    "name": "Trivento Golden Reserve",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19623,7 +19623,7 @@
    "price": 19.0,
    "unit": "",
    "name": "Josh Cellars Prosecco",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
@@ -19636,7 +19636,7 @@
    "price": 19.0,
    "unit": "",
    "name": "Sumac Ridge Gewurztraminer",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19649,7 +19649,7 @@
    "price": 19.0,
    "unit": "",
    "name": "Sumac Ridge Cabernet Merlot",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19662,7 +19662,7 @@
    "price": 21.0,
    "unit": "",
    "name": "Freixenet Italian Rosé",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊_",
@@ -19675,7 +19675,7 @@
    "price": 21.0,
    "unit": "",
    "name": "Phillips Hop Box Mixed",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger, $10 back in points_",
@@ -19688,7 +19688,7 @@
    "price": 22.0,
    "unit": "",
    "name": "Unshackled Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19701,7 +19701,7 @@
    "price": 22.0,
    "unit": "",
    "name": "Captain Morgan - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -19709,7 +19709,7 @@
    "price": 22.0,
    "unit": "",
    "name": "La Crema Monterey Chardonnay",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19722,7 +19722,7 @@
    "price": 23.0,
    "unit": "",
    "name": "Smirnoff Flavoured Vodka - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -19730,7 +19730,7 @@
    "price": 23.0,
    "unit": "",
    "name": "Hoop Tea Spiked Iced Tea",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_FREE WITH PURCHASE MASON JAR, Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
@@ -19743,7 +19743,7 @@
    "price": 23.0,
    "unit": "",
    "name": "St Remy St-Remy Vsop Brandy",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -19751,7 +19751,7 @@
    "price": 24.0,
    "unit": "",
    "name": "Mer Soleil Santa Lucia",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19764,7 +19764,7 @@
    "price": 24.0,
    "unit": "",
    "name": "Hey Y'all! Hey Y'All Hard Iced Tea",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
@@ -19777,7 +19777,7 @@
    "price": 24.0,
    "unit": "",
    "name": "La Crema Monterey Pinot Noir",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
@@ -19790,7 +19790,7 @@
    "price": 24.0,
    "unit": "",
    "name": "Snapple Spiked 7%",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
@@ -19803,7 +19803,7 @@
    "price": 25.0,
    "unit": "",
    "name": "Canonita Apperitivo",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": []
   },
   {
@@ -19811,7 +19811,7 @@
    "price": 25.0,
    "unit": "",
    "name": "Dillons Dillon's Gin or Vodka Cocktail",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
@@ -19824,7 +19824,7 @@
    "price": 25.0,
    "unit": "",
    "name": "Svns Hard 7 Up",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
@@ -19837,7 +19837,7 @@
    "price": 25.0,
    "unit": "",
    "name": "Original 16 Canadian Pale Ale, Copper Ale or Ultra",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Members Save $9, Earn PC Optimum 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19850,7 +19850,7 @@
    "price": 25.0,
    "unit": "",
    "name": "WILD ROSE THE HERD - _Get 10,000 when you spend $100 or more on any beer 4 pack or larger_",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": []
   },
   {
@@ -19858,7 +19858,7 @@
    "price": 27.0,
    "unit": "",
    "name": "Peroni Nastro Azzuro Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": []
   },
   {
@@ -19866,7 +19866,7 @@
    "price": 27.0,
    "unit": "",
    "name": "Sapporo Premium Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19879,7 +19879,7 @@
    "price": 32.0,
    "unit": "",
    "name": "El Jimador Tequila Reposado",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
@@ -19892,7 +19892,7 @@
    "price": 36.0,
    "unit": "",
    "name": "Keystone Light Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19905,7 +19905,7 @@
    "price": 37.0,
    "unit": "",
    "name": "Medallion Dry Gin",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Save $5 with digital coupon_",
@@ -19918,7 +19918,7 @@
    "price": 37.0,
    "unit": "",
    "name": "Oak Ranch Cabernet Sauvignon, Pinot Grigio or Chardonnay",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_Get PC Optimum 1,000 pts, $1 back in points_",
@@ -19931,7 +19931,7 @@
    "price": 39.0,
    "unit": "",
    "name": "Courvoisier V. S COURVOISIER V.S. COGNAC",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Save $3 with digital coupon_",
@@ -19944,7 +19944,7 @@
    "price": 39.0,
    "unit": "",
    "name": "Jackson-Triggs",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -19952,7 +19952,7 @@
    "price": 39.0,
    "unit": "",
    "name": "Buzzballz Biggies Tequila",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": []
   },
   {
@@ -19960,7 +19960,7 @@
    "price": 42.0,
    "unit": "",
    "name": "Alberta Pure Vodka - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -19968,7 +19968,7 @@
    "price": 43.0,
    "unit": "",
    "name": "Alberta Genuine Draft Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Members Save $3, Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -19981,7 +19981,7 @@
    "price": 44.0,
    "unit": "",
    "name": "Auchentoshan 12 Year Old - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -19989,7 +19989,7 @@
    "price": 45.0,
    "unit": "",
    "name": "Olé Cocktail Co OLÉ COCKTAIL TEQUILA",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Save $4 with digital coupon_",
@@ -20002,7 +20002,7 @@
    "price": 45.0,
    "unit": "",
    "name": "Jameson Irish Whiskey - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20010,7 +20010,7 @@
    "price": 46.0,
    "unit": "",
    "name": "Smirnoff Ice Original",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": []
   },
   {
@@ -20018,7 +20018,7 @@
    "price": 46.0,
    "unit": "",
    "name": "Maker's Mark Bourbon Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20026,7 +20026,7 @@
    "price": 47.0,
    "unit": "",
    "name": "Pilsner Beer",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": []
   },
   {
@@ -20034,7 +20034,7 @@
    "price": 47.0,
    "unit": "",
    "name": "Tanqueray London Dry Gin",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Members Save $10_",
@@ -20047,7 +20047,7 @@
    "price": 48.0,
    "unit": "",
    "name": "The Glenlivet Caribbean Reserve - _bonus on Pack 50 mL Bottle_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20055,7 +20055,7 @@
    "price": 49.0,
    "unit": "",
    "name": "Dewar's White Label",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20063,7 +20063,7 @@
    "price": 49.0,
    "unit": "",
    "name": "Bacardi Bacardí Superior Rum",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20071,7 +20071,7 @@
    "price": 54.0,
    "unit": "",
    "name": "Forty Creek Copper Bold Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Members Save $11_",
@@ -20084,7 +20084,7 @@
    "price": 55.0,
    "unit": "",
    "name": "Crown Royal Fine De Luxe - _free with Purchase 355 mL Crown Royal Whisky Lemonade_",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20092,7 +20092,7 @@
    "price": 55.0,
    "unit": "",
    "name": "Casa Noble Tequila Añejo",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
@@ -20105,7 +20105,7 @@
    "price": 59.0,
    "unit": "",
    "name": "Heineken Lager",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
@@ -20118,7 +20118,7 @@
    "price": 59.0,
    "unit": "",
    "name": "Jack Daniel's Tennessee Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": []
   },
   {
@@ -20126,7 +20126,7 @@
    "price": 59.0,
    "unit": "",
    "name": "Don Julio Tequila Blanco",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
@@ -20139,7 +20139,7 @@
    "price": 75.0,
    "unit": "",
    "name": "Cutwater Cocktail Variety Pack",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_Save $10 with digital coupon_",
@@ -20152,7 +20152,7 @@
    "price": 89.0,
    "unit": "",
    "name": "Grey Goose Vodka",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Save $5 with digital coupon_",
@@ -20165,7 +20165,7 @@
    "price": 99.0,
    "unit": "",
    "name": "Patrón Tequila Reposado or Silver",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_Spend $100 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
@@ -20178,7 +20178,7 @@
    "price": 8.99,
    "unit": "",
    "name": "Bodacious",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $3.50, MIX & MATCH_",
@@ -20191,7 +20191,7 @@
    "price": 9.99,
    "unit": "",
    "name": "Casillero del Diablo",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -20204,7 +20204,7 @@
    "price": 10.99,
    "unit": "",
    "name": "Bask",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $4, 50 Scene+ PTS when you buy 1_",
@@ -20217,7 +20217,7 @@
    "price": 10.99,
    "unit": "",
    "name": "Yellow Tail",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $6, MIX & MATCH_",
@@ -20230,7 +20230,7 @@
    "price": 11.99,
    "unit": "",
    "name": "Wolf Blass Red Label Shiraz Cabernet or Unwooded Chardonnay",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $5, MIX & MATCH_",
@@ -20243,7 +20243,7 @@
    "price": 12.99,
    "unit": "",
    "name": "Matua Hawke's Bay Sauvignon Blanc or Lighter Sauvignon Blanc",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $5, MIX & MATCH_",
@@ -20256,7 +20256,7 @@
    "price": 13.99,
    "unit": "",
    "name": "Marda Loop Brewing Co.",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $3_",
@@ -20269,7 +20269,7 @@
    "price": 13.99,
    "unit": "",
    "name": "La Gioiosa Prosecco DOC Brut",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_SAVE $4, 100 Scene+ PTS when you buy 1_",
@@ -20282,7 +20282,7 @@
    "price": 13.99,
    "unit": "",
    "name": "Don David Malbec or Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $6_",
@@ -20295,7 +20295,7 @@
    "price": 15.99,
    "unit": "",
    "name": "Deinhard Piesporter Riesling",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $5 when you buy 1_",
@@ -20308,7 +20308,7 @@
    "price": 17.99,
    "unit": "",
    "name": "Innis & Gunn The Original or Caribbean Rum Cask",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $5 when you buy 1_",
@@ -20321,7 +20321,7 @@
    "price": 17.99,
    "unit": "",
    "name": "Sumac Ridge Cabernet Merlot or Gewürztraminer",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $5, 100 Scene+ PTS when you buy 1_",
@@ -20334,7 +20334,7 @@
    "price": 18.99,
    "unit": "",
    "name": "The Finnish Long Drink",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $5 when you buy 1_",
@@ -20347,7 +20347,7 @@
    "price": 18.99,
    "unit": "",
    "name": "No Boats on Sunday",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $5 when you buy 1_",
@@ -20360,7 +20360,7 @@
    "price": 19.99,
    "unit": "",
    "name": "Alberta Premium or Alberta Pure Canadian Rye Whisky or Vodka",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $7_",
@@ -20373,7 +20373,7 @@
    "price": 21.99,
    "unit": "",
    "name": "Segura Viudas Brut Reserva",
-   "cat": "alcohol",
+   "cat": "sparkling",
    "badges": [
     {
      "text": "_SAVE $7 when you buy 1_",
@@ -20386,7 +20386,7 @@
    "price": 21.99,
    "unit": "",
    "name": "Unshackled Cabernet Sauvignon",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
@@ -20399,7 +20399,7 @@
    "price": 21.99,
    "unit": "",
    "name": "Peroni Nastro Azzurro Capri",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $6 when you buy 1_",
@@ -20412,7 +20412,7 @@
    "price": 22.99,
    "unit": "",
    "name": "Fireball Blazin' Apple Liqueur",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $9_",
@@ -20425,7 +20425,7 @@
    "price": 22.99,
    "unit": "",
    "name": "Take it to the Grave Shiraz",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $8 when you buy 1_",
@@ -20438,7 +20438,7 @@
    "price": 22.99,
    "unit": "",
    "name": "La Crema Monterey Pinot Noir or Chardonnay - _SAVE UP TO $10, MIX & MATCH_",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": []
   },
   {
@@ -20446,7 +20446,7 @@
    "price": 23.99,
    "unit": "",
    "name": "Budweiser or Bud Light",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $11_",
@@ -20459,7 +20459,7 @@
    "price": 23.99,
    "unit": "",
    "name": "Old Milwaukee",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -20472,7 +20472,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Suntory, -196 Vodka Soda Variety Pack",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -20485,7 +20485,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Dillon's",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
@@ -20498,7 +20498,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Peter Lehmann The Barossan Shiraz",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $9 when you buy 1_",
@@ -20511,7 +20511,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Pabst Beer Pabst Blue Ribbon Strong Iced Tea or Lemonade",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
@@ -20524,7 +20524,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Hoop Tea Original Spiked Iced Tea",
-   "cat": "alcohol",
+   "cat": "cocktails",
    "badges": [
     {
      "text": "_SAVE $6_",
@@ -20537,7 +20537,7 @@
    "price": 24.99,
    "unit": "",
    "name": "Luca Malbec",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $12, MIX & MATCH_",
@@ -20550,7 +20550,7 @@
    "price": 29.99,
    "unit": "",
    "name": "Moosehead Lager",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $8, 250 Scene+ PTS when you buy 1_",
@@ -20563,7 +20563,7 @@
    "price": 29.99,
    "unit": "",
    "name": "Heineken",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $8_",
@@ -20576,7 +20576,7 @@
    "price": 33.99,
    "unit": "",
    "name": "Appleton Estate 8-Year-Old Reserve Jamaica Rum",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10, 300 Scene+ PTS when you buy 1_",
@@ -20589,7 +20589,7 @@
    "price": 34.99,
    "unit": "",
    "name": "Busch",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -20602,7 +20602,7 @@
    "price": 34.99,
    "unit": "",
    "name": "Michelob Ultra",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $11_",
@@ -20615,7 +20615,7 @@
    "price": 35.99,
    "unit": "",
    "name": "Malibu Coconut Rum Liqueur",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $8, 200 Scene+ PTS when you buy 1_",
@@ -20628,7 +20628,7 @@
    "price": 35.99,
    "unit": "",
    "name": "Sauza Tequila, Hornitos Reposado or Plata",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10, 300 Scene+ PTS when you buy 1_",
@@ -20641,7 +20641,7 @@
    "price": 37.99,
    "unit": "",
    "name": "Bruichladdich The Botanist Islay Dry Gin",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $17_",
@@ -20654,7 +20654,7 @@
    "price": 38.99,
    "unit": "",
    "name": "Havana Club Amber 7-Year-Old Rum",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10 when you buy 1_",
@@ -20667,7 +20667,7 @@
    "price": 39.99,
    "unit": "",
    "name": "Black Cellar",
-   "cat": "alcohol",
+   "cat": "wine",
    "badges": [
     {
      "text": "_SAVE $7, MIX & MATCH_",
@@ -20680,7 +20680,7 @@
    "price": 42.99,
    "unit": "",
    "name": "Knob Creek 9-Year-Old Kentucky Straight Bourbon Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $14_",
@@ -20693,7 +20693,7 @@
    "price": 45.99,
    "unit": "",
    "name": "Smirnoff Vodka",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -20706,7 +20706,7 @@
    "price": 49.99,
    "unit": "",
    "name": "Jameson Irish Whiskey",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $8, 300 Scene+ PTS when you buy 1_",
@@ -20719,7 +20719,7 @@
    "price": 51.99,
    "unit": "",
    "name": "Tanqueray London Dry Gin",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $10_",
@@ -20732,7 +20732,7 @@
    "price": 51.99,
    "unit": "",
    "name": "Bruichladdich The Classic Laddie Islay Single Malt Scotch Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $20_",
@@ -20745,7 +20745,7 @@
    "price": 52.99,
    "unit": "",
    "name": "Crown Royal Reserve 12-Year-Old Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $15 when you buy 1_",
@@ -20758,7 +20758,7 @@
    "price": 53.99,
    "unit": "",
    "name": "Corona Extra",
-   "cat": "alcohol",
+   "cat": "beer",
    "badges": [
     {
      "text": "_SAVE $20_",
@@ -20771,7 +20771,7 @@
    "price": 64.99,
    "unit": "",
    "name": "The Glenlivet Caribbean Reserve Single Malt Scotch Whisky",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $15 when you buy 1_",
@@ -20784,7 +20784,7 @@
    "price": 81.99,
    "unit": "",
    "name": "Don Julio Blanco Tequila",
-   "cat": "alcohol",
+   "cat": "spirits",
    "badges": [
     {
      "text": "_SAVE $30 when you buy 1_",
