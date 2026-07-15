@@ -131,7 +131,18 @@ PEST_CLEANING_PAT = [
     r'\bWASP\b', r'\bHORNET\b', r'\bRAID\b', r"\bOFF!\b", r'\bBUG SPRAY\b',
 ]
 
-def categorize_other(name):
+# The three liquor stores (exact Flipp merchant names, from pull-liquor.ps1).
+# Everything they sell is booze, so we file every item from them under one
+# "alcohol" bucket by store rather than trying to keyword-match bottle names.
+LIQUOR_STORES = {
+    'Sobeys & Safeway Liquor',
+    'Co-op Wine Spirits Beer Liquor',
+    'Real Canadian Liquor Store',
+}
+
+def categorize_other(name, store=None):
+    if store in LIQUOR_STORES:
+        return 'alcohol'
     upper = name.upper()
     for pats, cat in (
         (BABY_PAT, 'baby'), (PHARMACY_PAT, 'pharmacy'),
@@ -183,7 +194,7 @@ def parse(text):
                                'bonus': not re.match(r'(?i)^save (up to )?\d+%$', tail.strip())})
         name = maybe_title(rest)
         items.append({'store': store, 'price': price, 'unit': unit.replace(' ', ''),
-                      'name': name, 'cat': categorize_other(name), 'badges': badges})
+                      'name': name, 'cat': categorize_other(name, store), 'badges': badges})
     return meta, items
 
 def main():

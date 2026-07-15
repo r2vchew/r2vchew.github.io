@@ -23,6 +23,7 @@ DATA = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else REPO / 'data' / 'othe
 OUT  = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else REPO / 'other.html'
 
 SECTIONS = [
+    ('alcohol',        'Alcohol',             '&#127863;'),
     ('automotive',     'Automotive',          '&#128663;'),
     ('tools',          'Tools &amp; Hardware','&#128295;'),
     ('garden',         'Garden &amp; Lawn',   '&#127793;'),
@@ -37,7 +38,8 @@ SECTIONS = [
     ('pharmacy',       'Pharmacy',            '&#128138;'),
     ('other',          'Everything Else',     '&#128722;'),
 ]
-STORE_ORDER = ['Canadian Tire']
+STORE_ORDER = ['Canadian Tire', 'Sobeys & Safeway Liquor',
+               'Co-op Wine Spirits Beer Liquor', 'Real Canadian Liquor Store']
 
 def nice_date(iso):
     d = date.fromisoformat(iso)
