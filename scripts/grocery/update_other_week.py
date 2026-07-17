@@ -14,6 +14,7 @@ import subprocess, sys, pathlib
 REPO = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / 'scripts' / 'grocery'))
 from parse_other import parse
+from repo_worktree import fresh_worktree, build, commit_and_push
 
 MIN_ITEMS = 100
 
@@ -28,29 +29,21 @@ def main():
     if len(items) < MIN_ITEMS:
         sys.exit(f"only parsed {len(items)} items (expected {MIN_ITEMS}+) - aborting without writing")
 
-    subprocess.run(['git', 'fetch', 'origin', 'main'], check=True, cwd=REPO)
-    subprocess.run(['git', 'checkout', '-B', 'other-deals-weekly', 'origin/main'],
-                    check=True, cwd=REPO)
-
+    # Isolated worktree off origin/main - see repo_worktree.py for why this
+    # can't run in the shared clone.
     pulled = meta['pulled']
-    raw_path = REPO / 'data' / 'others' / 'raw' / f'{pulled}.md'
-    raw_path.parent.mkdir(parents=True, exist_ok=True)
-    raw_path.write_text(text, encoding='utf-8')
-    print(f"wrote {raw_path} ({len(items)} items)")
+    with fresh_worktree() as work:
+        raw_path = work / 'data' / 'others' / 'raw' / f'{pulled}.md'
+        raw_path.parent.mkdir(parents=True, exist_ok=True)
+        raw_path.write_text(text, encoding='utf-8')
+        print(f"wrote {raw_path} ({len(items)} items)")
 
-    subprocess.run([sys.executable, 'scripts/grocery/parse_other.py', str(raw_path)],
-                    check=True, cwd=REPO)
-    subprocess.run([sys.executable, 'scripts/grocery/build_other_page.py'], check=True, cwd=REPO)
+        subprocess.run([sys.executable, 'scripts/grocery/parse_other.py', str(raw_path)],
+                        check=True, cwd=work)
+        build(work, 'scripts/grocery/build_other_page.py')
 
-    subprocess.run(['git', 'add', 'data/others', 'other.html'], check=True, cwd=REPO)
-    commit = subprocess.run(['git', 'commit', '-m', f'Update other deals for {pulled}'],
-                             cwd=REPO)
-    if commit.returncode != 0:
-        print("nothing to commit (data unchanged)")
-        return
-
-    subprocess.run(['git', 'push', 'origin', 'HEAD:main'], check=True, cwd=REPO)
-    print("pushed to main (live site) - it'll be live in a minute or two")
+        commit_and_push(work, ['data/others', 'other.html'],
+                        f'Update other deals for {pulled}')
 
 if __name__ == '__main__':
     main()
