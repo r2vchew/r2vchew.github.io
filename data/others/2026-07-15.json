@@ -18872,6 +18872,1925 @@
    "name": "Purina ONE wet dog food variety pack",
    "cat": "pet",
    "badges": []
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 7.99,
+   "unit": "",
+   "name": "Founders & Farmers Lager, Light, Pilsner, Red Ale or IPA",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 7.99,
+   "unit": "",
+   "name": "Peller Estates Family Vineyards",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $6, PRICE MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 9.99,
+   "unit": "",
+   "name": "Trolley 5 Turntable Lager",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $4_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 11.99,
+   "unit": "",
+   "name": "Super Bock Lager",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $3_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 11.99,
+   "unit": "",
+   "name": "Co-op Private Reserve Prosecco",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_SAVE $4_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 12.99,
+   "unit": "",
+   "name": "Idi di Marzo Chieti Rosso 2021",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $7 95 POINTS WINE_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 12.99,
+   "unit": "",
+   "name": "Carlsberg Danish Pilsner",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $3_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "Driftwood Fat Tug IPA",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $3.50_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "Barossa Valley Estate Cabernet Sauvignon or Shiraz",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $7 + MEMBERS EARN $2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "Smirnoff Ice",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $3.50_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 14.99,
+   "unit": "",
+   "name": "Phillips Playlist Party Pack",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $3_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 14.99,
+   "unit": "",
+   "name": "Kim Crawford Sauvignon Blanc, Pinot Grigio or Pinot Noir",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $7, SAVE $9_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 14.99,
+   "unit": "",
+   "name": "Pumphouse Crafty Radler Mix Pack",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $6_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 16.99,
+   "unit": "",
+   "name": "Trapiche Malbec Medalla 2021",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 18.99,
+   "unit": "",
+   "name": "Castellani Toscana Rosso 2024, Chianti Riserva 2021 or Chardonnay 2025",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 18.99,
+   "unit": "",
+   "name": "Planeta Sicily Rosé",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 19.99,
+   "unit": "",
+   "name": "Cal & Gary's Canadian Rye Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $7 + MEMBERS EARN $1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 19.99,
+   "unit": "",
+   "name": "Feudi di Romans Pinot Grigio",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $12_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 19.99,
+   "unit": "",
+   "name": "Cal & Gary's Dark, Spiced, Amber or White Rum",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $7 + MEMBERS EARN $1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 20.99,
+   "unit": "",
+   "name": "Skyy Vodka",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 23.99,
+   "unit": "",
+   "name": "Tool Shed Tool Box Variety Pack",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 23.99,
+   "unit": "",
+   "name": "Pabst Blue Ribbon Strong Iced Tea",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "San Pedro Syrah 1865 Selected Collection 2020",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $15_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Budweiser or Bud Light",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Kendall-Jackson Cabernet Sauvignon Vintner's Reserve",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $10 + MEMBERS EARN $2_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 28.99,
+   "unit": "",
+   "name": "Glendalough Double Barrel Irish Whiskey",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $16_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 29.99,
+   "unit": "",
+   "name": "Big Rock The Rock Box",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $9_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 34.99,
+   "unit": "",
+   "name": "Buffalo Trace Kentucky Straight Bourbon",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10 *Clip_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 34.99,
+   "unit": "",
+   "name": "El Jimador Silver or Reposado Tequila",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $13, SAVE $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 38.99,
+   "unit": "",
+   "name": "Grey Goose Vodka",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $21_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 39.99,
+   "unit": "",
+   "name": "Coors Original",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $18 *Clip_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Co-op Wine Spirits Beer Liquor",
+   "price": 39.99,
+   "unit": "",
+   "name": "Eau Claire Parlour Gin",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $15_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 9.0,
+   "unit": "",
+   "name": "Bodacious",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 10.0,
+   "unit": "",
+   "name": "Yellow Tail",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 10.0,
+   "unit": "",
+   "name": "Honest Lot",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 10.0,
+   "unit": "",
+   "name": "Cono Sur Organic",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 10.0,
+   "unit": "",
+   "name": "Bacardi BACARDÍ MANGO",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 11.0,
+   "unit": "",
+   "name": "Casillero Del Diablo",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 12.0,
+   "unit": "",
+   "name": "Longshot Cabernet Sauvignon or Pinot Grigio",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Members Save $4_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 13.0,
+   "unit": "",
+   "name": "Granriviera Mimosa or Bellini",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Save $2 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 13.0,
+   "unit": "",
+   "name": "Truvari Prosecco",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 13.0,
+   "unit": "",
+   "name": "Bavaria 86",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 14.0,
+   "unit": "",
+   "name": "Menage a'Trois MÉNAGE À TROIS RED BLEND",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Save $2 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 14.0,
+   "unit": "",
+   "name": "Luna Argenta Prosecco or Prosecco Rosé",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 14.0,
+   "unit": "",
+   "name": "A Thousand Lives Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Save $5 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 14.0,
+   "unit": "",
+   "name": "Red Stripe Lager",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 14.0,
+   "unit": "",
+   "name": "Wyndham Bin 555 or 444 Shiraz or Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "Barossa Valley Estate Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "PC Beer",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "Kim Crawford Pinot Grigio or Rosé",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "Babich Sauvignon Blanc",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "Barossa Valley Estate Shiraz",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 15.0,
+   "unit": "",
+   "name": "Frescobaldi Nipozzano Chianti Riserva",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Members Save $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 17.0,
+   "unit": "",
+   "name": "Kim Crawford Prosecco",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 17.0,
+   "unit": "",
+   "name": "Kim Crawford Marlborough Pinot Noir",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 17.0,
+   "unit": "",
+   "name": "Segura Viudas Reserva",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 points when you spend $60 or more on any Sparkling wine◊, $ 6 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 18.0,
+   "unit": "",
+   "name": "Brilla Prosecco Rosé",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Save $3 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 18.0,
+   "unit": "",
+   "name": "Cottage Spring Candy Keys",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 18.0,
+   "unit": "",
+   "name": "Stave & Steel Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 19.0,
+   "unit": "",
+   "name": "Trivento Golden Reserve",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 19.0,
+   "unit": "",
+   "name": "Josh Cellars Prosecco",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊, $6 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 19.0,
+   "unit": "",
+   "name": "Sumac Ridge Gewurztraminer",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 19.0,
+   "unit": "",
+   "name": "Sumac Ridge Cabernet Merlot",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 21.0,
+   "unit": "",
+   "name": "Freixenet Italian Rosé",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 6,000 pts points when you spend $60 or more on any Sparkling wine◊_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 21.0,
+   "unit": "",
+   "name": "Phillips Hop Box Mixed",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 22.0,
+   "unit": "",
+   "name": "Unshackled Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 22.0,
+   "unit": "",
+   "name": "Captain Morgan - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 22.0,
+   "unit": "",
+   "name": "La Crema Monterey Chardonnay",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 23.0,
+   "unit": "",
+   "name": "Smirnoff Flavoured Vodka - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 23.0,
+   "unit": "",
+   "name": "Hoop Tea Spiked Iced Tea",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_FREE WITH PURCHASE MASON JAR, Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 23.0,
+   "unit": "",
+   "name": "St Remy St-Remy Vsop Brandy",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 24.0,
+   "unit": "",
+   "name": "Mer Soleil Santa Lucia",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 24.0,
+   "unit": "",
+   "name": "Hey Y'all! Hey Y'All Hard Iced Tea",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 24.0,
+   "unit": "",
+   "name": "La Crema Monterey Pinot Noir",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 10,000 pts when you buy any 4 of these select wines◊, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 24.0,
+   "unit": "",
+   "name": "Snapple Spiked 7%",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 6 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 25.0,
+   "unit": "",
+   "name": "Canonita Apperitivo",
+   "cat": "cocktails",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 25.0,
+   "unit": "",
+   "name": "Dillons Dillon's Gin or Vodka Cocktail",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 25.0,
+   "unit": "",
+   "name": "Svns Hard 7 Up",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Earn PC Optimum 5,000 pts when you spend $40* or more on any Pre-made Cocktails, 4 pack or larger, $5 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 25.0,
+   "unit": "",
+   "name": "Original 16 Canadian Pale Ale, Copper Ale or Ultra",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Members Save $9, Earn PC Optimum 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 25.0,
+   "unit": "",
+   "name": "WILD ROSE THE HERD - _Get 10,000 when you spend $100 or more on any beer 4 pack or larger_",
+   "cat": "beer",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 27.0,
+   "unit": "",
+   "name": "Peroni Nastro Azzuro Beer",
+   "cat": "beer",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 27.0,
+   "unit": "",
+   "name": "Sapporo Premium Beer",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 32.0,
+   "unit": "",
+   "name": "El Jimador Tequila Reposado",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 36.0,
+   "unit": "",
+   "name": "Keystone Light Beer",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 37.0,
+   "unit": "",
+   "name": "Medallion Dry Gin",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Save $5 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 37.0,
+   "unit": "",
+   "name": "Oak Ranch Cabernet Sauvignon, Pinot Grigio or Chardonnay",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_Get PC Optimum 1,000 pts, $1 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 39.0,
+   "unit": "",
+   "name": "Courvoisier V. S COURVOISIER V.S. COGNAC",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Save $3 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 39.0,
+   "unit": "",
+   "name": "Jackson-Triggs",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 39.0,
+   "unit": "",
+   "name": "Buzzballz Biggies Tequila",
+   "cat": "cocktails",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 42.0,
+   "unit": "",
+   "name": "Alberta Pure Vodka - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 43.0,
+   "unit": "",
+   "name": "Alberta Genuine Draft Beer",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Members Save $3, Earn 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 44.0,
+   "unit": "",
+   "name": "Auchentoshan 12 Year Old - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 45.0,
+   "unit": "",
+   "name": "Olé Cocktail Co OLÉ COCKTAIL TEQUILA",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Save $4 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 45.0,
+   "unit": "",
+   "name": "Jameson Irish Whiskey - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 46.0,
+   "unit": "",
+   "name": "Smirnoff Ice Original",
+   "cat": "cocktails",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 46.0,
+   "unit": "",
+   "name": "Maker's Mark Bourbon Whisky",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 47.0,
+   "unit": "",
+   "name": "Pilsner Beer",
+   "cat": "beer",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 47.0,
+   "unit": "",
+   "name": "Tanqueray London Dry Gin",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Members Save $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 48.0,
+   "unit": "",
+   "name": "The Glenlivet Caribbean Reserve - _bonus on Pack 50 mL Bottle_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 49.0,
+   "unit": "",
+   "name": "Dewar's White Label",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 49.0,
+   "unit": "",
+   "name": "Bacardi Bacardí Superior Rum",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 54.0,
+   "unit": "",
+   "name": "Forty Creek Copper Bold Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Members Save $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 55.0,
+   "unit": "",
+   "name": "Crown Royal Fine De Luxe - _free with Purchase 355 mL Crown Royal Whisky Lemonade_",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 55.0,
+   "unit": "",
+   "name": "Casa Noble Tequila Añejo",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 59.0,
+   "unit": "",
+   "name": "Heineken Lager",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_Get 10,000 pts when you spend $100 or more on any beer 4 pack or larger_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 59.0,
+   "unit": "",
+   "name": "Jack Daniel's Tennessee Whisky",
+   "cat": "spirits",
+   "badges": []
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 59.0,
+   "unit": "",
+   "name": "Don Julio Tequila Blanco",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Spend $100 Wednesday, July 15th to Sunday, July 19th, 2026 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 75.0,
+   "unit": "",
+   "name": "Cutwater Cocktail Variety Pack",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_Save $10 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 89.0,
+   "unit": "",
+   "name": "Grey Goose Vodka",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Save $5 with digital coupon_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Real Canadian Liquor Store",
+   "price": 99.0,
+   "unit": "",
+   "name": "Patrón Tequila Reposado or Silver",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_Spend $100 Get 10,000 pts When you spend $100* or more on any Tequila brand, $10 back in points_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 8.99,
+   "unit": "",
+   "name": "Bodacious",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $3.50, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 9.99,
+   "unit": "",
+   "name": "Casillero del Diablo",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 10.99,
+   "unit": "",
+   "name": "Bask",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $4, 50 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 10.99,
+   "unit": "",
+   "name": "Yellow Tail",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $6, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 11.99,
+   "unit": "",
+   "name": "Wolf Blass Red Label Shiraz Cabernet or Unwooded Chardonnay",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $5, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 12.99,
+   "unit": "",
+   "name": "Matua Hawke's Bay Sauvignon Blanc or Lighter Sauvignon Blanc",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $5, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "Marda Loop Brewing Co.",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $3_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "La Gioiosa Prosecco DOC Brut",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_SAVE $4, 100 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 13.99,
+   "unit": "",
+   "name": "Don David Malbec or Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $6_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 15.99,
+   "unit": "",
+   "name": "Deinhard Piesporter Riesling",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $5 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 17.99,
+   "unit": "",
+   "name": "Innis & Gunn The Original or Caribbean Rum Cask",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $5 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 17.99,
+   "unit": "",
+   "name": "Sumac Ridge Cabernet Merlot or Gewürztraminer",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $5, 100 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 18.99,
+   "unit": "",
+   "name": "The Finnish Long Drink",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $5 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 18.99,
+   "unit": "",
+   "name": "No Boats on Sunday",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $5 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 19.99,
+   "unit": "",
+   "name": "Alberta Premium or Alberta Pure Canadian Rye Whisky or Vodka",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $7_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 21.99,
+   "unit": "",
+   "name": "Segura Viudas Brut Reserva",
+   "cat": "sparkling",
+   "badges": [
+    {
+     "text": "_SAVE $7 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 21.99,
+   "unit": "",
+   "name": "Unshackled Cabernet Sauvignon",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 21.99,
+   "unit": "",
+   "name": "Peroni Nastro Azzurro Capri",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $6 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 22.99,
+   "unit": "",
+   "name": "Fireball Blazin' Apple Liqueur",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $9_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 22.99,
+   "unit": "",
+   "name": "Take it to the Grave Shiraz",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $8 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 22.99,
+   "unit": "",
+   "name": "La Crema Monterey Pinot Noir or Chardonnay - _SAVE UP TO $10, MIX & MATCH_",
+   "cat": "wine",
+   "badges": []
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 23.99,
+   "unit": "",
+   "name": "Budweiser or Bud Light",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 23.99,
+   "unit": "",
+   "name": "Old Milwaukee",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Suntory, -196 Vodka Soda Variety Pack",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Dillon's",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Peter Lehmann The Barossan Shiraz",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $9 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Pabst Beer Pabst Blue Ribbon Strong Iced Tea or Lemonade",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $7, 200 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Hoop Tea Original Spiked Iced Tea",
+   "cat": "cocktails",
+   "badges": [
+    {
+     "text": "_SAVE $6_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 24.99,
+   "unit": "",
+   "name": "Luca Malbec",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $12, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 29.99,
+   "unit": "",
+   "name": "Moosehead Lager",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $8, 250 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 29.99,
+   "unit": "",
+   "name": "Heineken",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $8_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 33.99,
+   "unit": "",
+   "name": "Appleton Estate 8-Year-Old Reserve Jamaica Rum",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10, 300 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 34.99,
+   "unit": "",
+   "name": "Busch",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 34.99,
+   "unit": "",
+   "name": "Michelob Ultra",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $11_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 35.99,
+   "unit": "",
+   "name": "Malibu Coconut Rum Liqueur",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $8, 200 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 35.99,
+   "unit": "",
+   "name": "Sauza Tequila, Hornitos Reposado or Plata",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10, 300 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 37.99,
+   "unit": "",
+   "name": "Bruichladdich The Botanist Islay Dry Gin",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $17_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 38.99,
+   "unit": "",
+   "name": "Havana Club Amber 7-Year-Old Rum",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 39.99,
+   "unit": "",
+   "name": "Black Cellar",
+   "cat": "wine",
+   "badges": [
+    {
+     "text": "_SAVE $7, MIX & MATCH_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 42.99,
+   "unit": "",
+   "name": "Knob Creek 9-Year-Old Kentucky Straight Bourbon Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $14_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 45.99,
+   "unit": "",
+   "name": "Smirnoff Vodka",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 49.99,
+   "unit": "",
+   "name": "Jameson Irish Whiskey",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $8, 300 Scene+ PTS when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 51.99,
+   "unit": "",
+   "name": "Tanqueray London Dry Gin",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $10_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 51.99,
+   "unit": "",
+   "name": "Bruichladdich The Classic Laddie Islay Single Malt Scotch Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $20_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 52.99,
+   "unit": "",
+   "name": "Crown Royal Reserve 12-Year-Old Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $15 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 53.99,
+   "unit": "",
+   "name": "Corona Extra",
+   "cat": "beer",
+   "badges": [
+    {
+     "text": "_SAVE $20_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 64.99,
+   "unit": "",
+   "name": "The Glenlivet Caribbean Reserve Single Malt Scotch Whisky",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $15 when you buy 1_",
+     "bonus": true
+    }
+   ]
+  },
+  {
+   "store": "Sobeys & Safeway Liquor",
+   "price": 81.99,
+   "unit": "",
+   "name": "Don Julio Blanco Tequila",
+   "cat": "spirits",
+   "badges": [
+    {
+     "text": "_SAVE $30 when you buy 1_",
+     "bonus": true
+    }
+   ]
   }
  ]
 }
