@@ -1,2 +1,10 @@
-__pycache__/
-*.pyc
+# Local tooling and machine-specific files
+.DS_Store
+Thumbs.db
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+build/
+
