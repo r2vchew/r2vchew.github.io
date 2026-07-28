@@ -1,8 +1,7 @@
-# Status
+﻿# Status
 
-Last updated: 2026-07-25
+Last updated: 2026-07-28
 
-The workspace has been reset and is ready for its first new project.
+The workspace now hosts a public, privacy-safe Email Overview companion at `email-overview/`.
 
-Next useful action: choose and create the first top-level project folder.
-
+Next useful action: open the site on a phone and confirm the mobile experience.

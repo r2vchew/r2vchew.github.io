@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Morning Briefing - Email Overview</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Life Hub / Email overview</p>
+        <h1>Morning briefing.</h1>
+        <p class="masthead-copy" id="brief-deck">A quick read on what needs you and what is worth knowing.</p>
+      </div>
+      <div class="date-block">
+        <span class="prototype-pill">Public companion</span>
+        <strong id="brief-date">Sunday, July 26</strong>
+        <span id="brief-window">Rolling 7-day context</span>
+      </div>
+    </header>
+
+    <section class="scan-strip" aria-label="Briefing summary">
+      <div><strong id="scan-time">2 min</strong><span>scan</span></div>
+      <div><strong id="item-count">0</strong><span>items today</span></div>
+      <div><strong id="action-count">0</strong><span>need you</span></div>
+      <p id="scan-note">Expand freely. Nothing is saved unless you tap Save.</p>
+    </section>
+
+    <nav class="view-tabs" aria-label="Dashboard views">
+      <button class="view-tab is-active" data-view="today" aria-selected="true">Morning brief</button>
+      <button class="view-tab" data-view="regulars" aria-selected="false">
+        Email Review <span class="tab-count" id="regulars-count">0</span>
+      </button>
+      <button class="view-tab" data-view="learning" aria-selected="false">
+        AI Learning <span class="tab-count" id="learning-count">0</span>
+      </button>
+      <button class="view-tab" data-view="saved" aria-selected="false">
+        Saved <span class="tab-count" id="saved-count">0</span>
+      </button>
+      <button class="export-button" id="export-feedback" type="button">Feedback on this device</button>
+    </nav>
+
+    <main id="today-view" class="dashboard-view"></main>
+
+    <main id="regulars-view" class="dashboard-view" hidden>
+      <div id="regulars-list"></div>
+    </main>
+
+    <main id="learning-view" class="dashboard-view" hidden>
+      <section class="saved-intro">
+        <p class="section-kicker">Practical guides from your newsletters</p>
+        <h2>AI Learning</h2>
+        <p>Self-contained instructions for things you might want to learn or try. Mark an item done when it is no longer useful, or save it for your permanent shelf.</p>
+      </section>
+      <div id="learning-list"></div>
+    </main>
+
+    <main id="saved-view" class="dashboard-view" hidden>
+      <section class="saved-intro">
+        <p class="section-kicker">Your interest shelf</p>
+        <h2>Saved</h2>
+        <p>Items land here only when you explicitly save them. Opening Show more does not count.</p>
+      </section>
+      <div id="saved-list"></div>
+    </main>
+
+    <footer>
+      <p>This public companion has no Gmail access and contains no account-specific cards. Save, Done, and Flag stay in this browser; export feedback if you want to bring it back to the private local dashboard.</p>
+    </footer>
+  </div>
+
+  <dialog id="flag-dialog">
+    <form id="flag-form">
+      <button class="dialog-close cancel-flag" type="button" aria-label="Close">&times;</button>
+      <p class="section-kicker">Teach the briefing</p>
+      <h2 id="flag-title">Flag this item</h2>
+      <p class="dialog-help">Explain naturally why this was wrong, useful, repetitive, misplaced, or unexpectedly important.</p>
+      <textarea id="flag-note" rows="5" placeholder="For example: I care about family science events, but not gift-shop promotions." required></textarea>
+      <div class="dialog-actions">
+        <button class="text-button cancel-flag" type="button">Cancel</button>
+        <button class="primary-button" id="save-flag" type="submit">Save feedback</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/daily-brief.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
+

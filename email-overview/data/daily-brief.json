@@ -1,0 +1,552 @@
+﻿{
+    "schema_version":  "1.0",
+    "briefing_id":  "live-2026-07-28",
+    "mode":  "public-static",
+    "generated_at":  "2026-07-28T13:20:16.8555949Z",
+    "display_date":  "Tuesday, July 28",
+    "context_window":  "Published from the local Morning Briefing",
+    "scan_time":  "2 min",
+    "deck":  "A public, privacy-safe view of the latest news and AI learning from your local Morning Briefing.",
+    "source_message_count":  24,
+    "sections":  [
+                     {
+                         "id":  "general-news",
+                         "title":  "News",
+                         "items":  [
+                                       {
+                                           "id":  "open-model-policy",
+                                           "title":  "Tech companies push Washington to protect open-weight AI",
+                                           "summary":  "A broad coalition led by Nvidia, Microsoft, Meta, and others argues that downloadable models are important for competition and U.S. AI leadership, while the policy debate remains split over safety and access.",
+                                           "context":  "Four current newsletters covered the same dispute. This card combines the shared facts while preserving the competing safety, competition, and geopolitical frames.",
+                                           "details":  [
+                                                           "Open-weight models can be downloaded, modified, and run locally",
+                                                           "Supporters say restrictions would raise costs and slow smaller companies",
+                                                           "The opposing case focuses on misuse risks and rapidly narrowing capability gaps"
+                                                       ],
+                                           "reason":  "Combined from multiple sources",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "open-weight AI",
+                                                                  "Nvidia",
+                                                                  "Microsoft",
+                                                                  "Meta",
+                                                                  "AI policy"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Morning Brew"
+                                                           },
+                                                           {
+                                                               "name":  "The Peak"
+                                                           },
+                                                           {
+                                                               "name":  "The Rundown AI"
+                                                           },
+                                                           {
+                                                               "name":  "The Neuron"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "canadian-retail-roundup",
+                                           "title":  "Canadian retailers expand services and familiar brands",
+                                           "summary":  "Esprit has returned to Canada through Walmart, Amazon introduced shared Family benefits and easier order additions, Roots opened at Vancouver airport, and The Keg launched delivery through DoorDash.",
+                                           "context":  "Retail Insider\u0027s separate articles are condensed into one Canadian retail-development card; advertisements and trade-event promotions are excluded.",
+                                           "details":  [
+                                                           "Esprit returns exclusively through Walmart",
+                                                           "Amazon Family lets Prime members share selected benefits",
+                                                           "The Keg\u0027s first delivery service is an exclusive DoorDash partnership"
+                                                       ],
+                                           "reason":  "News",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Canadian retail",
+                                                                  "Esprit",
+                                                                  "Walmart",
+                                                                  "Amazon",
+                                                                  "Roots",
+                                                                  "The Keg"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Retail Insider"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "ai-news",
+                         "title":  "AI",
+                         "items":  [
+                                       {
+                                           "id":  "claude-opus-5",
+                                           "title":  "Claude Opus 5 targets near-frontier performance at lower cost",
+                                           "summary":  "Anthropic\u0027s new Opus model is positioned close to Fable-level capability at half the price, with strong early results in coding, knowledge work, search, and computer-use tasks.",
+                                           "context":  "Four newsletters covered the launch. Benchmark and alignment claims remain vendor-reported or early testing, so the card separates the release facts from broader interpretation.",
+                                           "details":  [
+                                                           "Priced at $5 per million input tokens and $25 per million output tokens",
+                                                           "Anthropic says it improves verification and persistence over Opus 4.8",
+                                                           "The crowded Claude lineup may make model selection less obvious"
+                                                       ],
+                                           "reason":  "Combined from multiple sources",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Anthropic",
+                                                                  "Claude Opus 5",
+                                                                  "AI models"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI"
+                                                           },
+                                                           {
+                                                               "name":  "The Deep View"
+                                                           },
+                                                           {
+                                                               "name":  "TAAFT"
+                                                           },
+                                                           {
+                                                               "name":  "The Neuron"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "flux-3-multimodal",
+                                           "title":  "FLUX 3 unifies video, audio, images, and robot actions",
+                                           "summary":  "Black Forest Labs introduced a multimodal model that generates short video with native audio and also powers a robotics variant trained on physical tasks.",
+                                           "context":  "The broader significance is the shared representation of appearance, motion, sound, and action. Early performance comparisons are company-run and should be treated as preliminary.",
+                                           "details":  [
+                                                           "Generates clips up to 20 seconds from text, images, video, or keyframes",
+                                                           "Supports dialogue, sound effects, typography, and chained clips",
+                                                           "FLUX-mimic is being tested on Audi production tasks"
+                                                       ],
+                                           "reason":  "AI news",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Black Forest Labs",
+                                                                  "FLUX 3",
+                                                                  "multimodal AI",
+                                                                  "robotics"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Neuron"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "openai-compute-spree",
+                                           "title":  "OpenAI\u0027s large compute bets look less excessive as agent demand grows",
+                                           "summary":  "The Deep View argues that OpenAI\u0027s aggressive data-centre commitments are becoming strategically valuable as agent workloads increase and rivals compete for constrained capacity.",
+                                           "context":  "This is analysis from one source, not a confirmed measure of future demand or financial return.",
+                                           "details":  [
+                                                           "Agent workloads increase inference demand",
+                                                           "Competitors are also trying to secure long-term capacity",
+                                                           "Large commitments still carry execution and cost risk"
+                                                       ],
+                                           "reason":  "Analysis",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "OpenAI",
+                                                                  "compute",
+                                                                  "data centres",
+                                                                  "AI agents"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Deep View"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "kimi-k3-open-model",
+                                           "title":  "Kimi K3 adds another very large open-weight AI model",
+                                           "summary":  "Moonshot released Kimi K3 as an open-weight model, extending the fast-moving competition around capable models that can be downloaded and run outside a single vendor platform.",
+                                           "context":  "The Rundown AI and The Neuron both highlighted the release. The practical takeaway is broader model choice; capability and safety claims need independent testing.",
+                                           "details":  [
+                                                           "Moonshotâ€™s Kimi K3 is presented as a large open-weight release",
+                                                           "Open-weight availability gives teams more deployment and tuning options",
+                                                           "Compare independent benchmarks, licensing, cost, and hosting requirements before adopting it"
+                                                       ],
+                                           "reason":  "Combined from multiple sources",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Moonshot AI",
+                                                                  "Kimi K3",
+                                                                  "open-weight AI"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI"
+                                                           },
+                                                           {
+                                                               "name":  "The Neuron"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "microsoft-mythos-security",
+                                           "title":  "Microsoft highlights Mythos protection for enterprise AI",
+                                           "summary":  "Microsoftâ€™s enterprise-focused Mythos announcement puts AI security and governance back in focus as organisations deploy more capable models and agents.",
+                                           "context":  "This is a single-source product report, so the card keeps the claim narrow rather than treating it as independent evidence of protection quality.",
+                                           "details":  [
+                                                           "The update is framed for enterprise AI deployments",
+                                                           "Security controls matter most when models can access internal tools or data",
+                                                           "Treat vendor claims as a prompt to review your own permissions and data boundaries"
+                                                       ],
+                                           "reason":  "AI news",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Microsoft",
+                                                                  "enterprise AI",
+                                                                  "AI security"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Deep View"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "opus-5-practical-review",
+                                           "title":  "Claude Opus 5 coverage shifts from launch claims to everyday use",
+                                           "summary":  "Two new reads focus on where Claude Opus 5 fits in a working model mix and how it behaves in ordinary chat, rather than only on release benchmarks.",
+                                           "context":  "Staying Ahead tested it with fresh-chat prompts and found it more verbose but generally firm about obvious errors. AI Daily Brief frames the same choice as model-rotation guidance. These are editorial assessments, not controlled benchmarks.",
+                                           "details":  [
+                                                           "Use a clean, simple setup before blaming a model for legacy tooling or prompt scaffolding",
+                                                           "Match effort and model choice to the task instead of assuming the newest model is always best",
+                                                           "Treat independent, repeatable testing as more useful than launch-day claims"
+                                                       ],
+                                           "reason":  "Analysis",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Claude Opus 5",
+                                                                  "Anthropic",
+                                                                  "AI model selection"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Staying Ahead"
+                                                           },
+                                                           {
+                                                               "name":  "AI Daily Brief"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "kimi-k3-open-model",
+                                           "title":  "Kimi K3 adds another very large open-weight AI model",
+                                           "summary":  "Moonshot released Kimi K3 as an open-weight model, extending the fast-moving competition around capable models that can be downloaded and run outside a single vendor platform.",
+                                           "context":  "The Rundown AI and The Neuron both highlighted the release. The practical takeaway is broader model choice; capability and safety claims need independent testing.",
+                                           "details":  [
+                                                           "Moonshotâ€™s Kimi K3 is presented as a large open-weight release",
+                                                           "Open-weight availability gives teams more deployment and tuning options",
+                                                           "Compare independent benchmarks, licensing, cost, and hosting requirements before adopting it"
+                                                       ],
+                                           "reason":  "Combined from multiple sources",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Moonshot AI",
+                                                                  "Kimi K3",
+                                                                  "open-weight AI"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI"
+                                                           },
+                                                           {
+                                                               "name":  "The Neuron"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "microsoft-mythos-security",
+                                           "title":  "Microsoft highlights Mythos protection for enterprise AI",
+                                           "summary":  "Microsoftâ€™s enterprise-focused Mythos announcement puts AI security and governance back in focus as organisations deploy more capable models and agents.",
+                                           "context":  "This is a single-source product report, so the card keeps the claim narrow rather than treating it as independent evidence of protection quality.",
+                                           "details":  [
+                                                           "The update is framed for enterprise AI deployments",
+                                                           "Security controls matter most when models can access internal tools or data",
+                                                           "Treat vendor claims as a prompt to review your own permissions and data boundaries"
+                                                       ],
+                                           "reason":  "AI news",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Microsoft",
+                                                                  "enterprise AI",
+                                                                  "AI security"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Deep View"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "opus-5-practical-review",
+                                           "title":  "Claude Opus 5 coverage shifts from launch claims to everyday use",
+                                           "summary":  "Two new reads focus on where Claude Opus 5 fits in a working model mix and how it behaves in ordinary chat, rather than only on release benchmarks.",
+                                           "context":  "Staying Ahead tested it with fresh-chat prompts and found it more verbose but generally firm about obvious errors. AI Daily Brief frames the same choice as model-rotation guidance. These are editorial assessments, not controlled benchmarks.",
+                                           "details":  [
+                                                           "Use a clean, simple setup before blaming a model for legacy tooling or prompt scaffolding",
+                                                           "Match effort and model choice to the task instead of assuming the newest model is always best",
+                                                           "Treat independent, repeatable testing as more useful than launch-day claims"
+                                                       ],
+                                           "reason":  "Analysis",
+                                           "timing":  "Current",
+                                           "urgency":  "informational",
+                                           "actionable":  false,
+                                           "topic_entities":  [
+                                                                  "Claude Opus 5",
+                                                                  "Anthropic",
+                                                                  "AI model selection"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Staying Ahead"
+                                                           },
+                                                           {
+                                                               "name":  "AI Daily Brief"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "ai-learning",
+                         "title":  "AI Learning",
+                         "description":  "Self-contained instructions for useful things to learn or try.",
+                         "items":  [
+                                       {
+                                           "id":  "rundown-edit-videos-with-ai",
+                                           "title":  "Edit videos faster with AI",
+                                           "summary":  "Use Descript\u0027s cleanup tools, then connect the workflow to ChatGPT or Codex for more hands-free editing.",
+                                           "context":  "Included because it is a self-contained instructional guide with a concrete outcome, required tool, and repeatable steps.",
+                                           "details":  [
+                                                           "Record and duplicate the project in Descript",
+                                                           "Remove filler words and long gaps, then run Edit for Clarity",
+                                                           "Connect the Descript plugin and teach the assistant your editing process"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-24",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "rundown-ai-seo-specialist",
+                                           "title":  "Build an AI SEO specialist",
+                                           "summary":  "Create a small team of Gumloop agents that audits a site and organizes technical, backlink, and content findings in Google Sheets.",
+                                           "context":  "This is instructional rather than AI news: it teaches a bounded workflow that can be reproduced later.",
+                                           "details":  [
+                                                           "Create an audit workbook with a Gumloop agent",
+                                                           "Connect Firecrawl and run technical, backlink, and content-refresh agents",
+                                                           "Have a coordinator agent audit the first 25 pages and consolidate the results"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-23",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "rundown-ai-workflow-audit",
+                                           "title":  "Turn AI knowledge into a workflow audit",
+                                           "summary":  "Use Claude to choose a narrow consulting problem, assess a prospect, identify a high-return workflow, and build a one-page opportunity brief.",
+                                           "context":  "The commercial framing is secondary; the useful part is a repeatable method for finding and explaining a worthwhile AI workflow.",
+                                           "details":  [
+                                                           "Choose a narrow problem based on work and tools you know",
+                                                           "Build and score a prospect assessment",
+                                                           "Research the highest-return bottleneck and present practical next steps"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-22",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "rundown-captains-log",
+                                           "title":  "Build an AI Captain\u0027s Log",
+                                           "summary":  "Capture quick Granola voice notes and have ChatGPT turn them into a daily summary and running task list.",
+                                           "context":  "Included because it teaches a complete personal workflow, not merely a product announcement or collection of tips.",
+                                           "details":  [
+                                                           "Create fast voice notes with Granola",
+                                                           "Connect Granola to a dedicated ChatGPT project",
+                                                           "Generate an end-of-day summary and update open tasks automatically"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-21",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "rundown-mini-saas-sites",
+                                           "title":  "Deploy a mini app with ChatGPT Sites",
+                                           "summary":  "Turn a public API into a small hosted web app by planning the product, building the MVP in Codex, and deploying it with Sites.",
+                                           "context":  "This is a clear build-along lesson with a concrete result and reusable sequence.",
+                                           "details":  [
+                                                           "Choose a public API and define a narrow app idea",
+                                                           "Create a product plan and build the MVP in Codex",
+                                                           "Deploy privately or publicly with Sites"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-20",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "staying-ahead-concrete-prompts",
+                                           "title":  "Write better prompts with concrete constraints",
+                                           "summary":  "Improve an AI result by naming a small number of specific, verifiable requirements instead of piling on vague instructions.",
+                                           "context":  "This Staying Ahead article qualifies without an AI Training label because it teaches a complete prompting method that can be applied immediately.",
+                                           "details":  [
+                                                           "Describe the result in terms you can check",
+                                                           "Name the required output format up front",
+                                                           "When revising, add one concrete boundary instead of general extra wording"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-22",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Staying Ahead"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "ai-daily-brief-frontier-models",
+                                           "title":  "Get more from frontier AI models",
+                                           "summary":  "Use explicit boundaries, iterative follow-ups, and leaner instruction sets when working with newer, more persistent models.",
+                                           "context":  "This AI Daily Brief edition is instructional rather than ordinary model news and collects a practical method from several concrete recommendations.",
+                                           "details":  [
+                                                           "State source and action boundaries explicitly",
+                                                           "Iterate through follow-up messages instead of forcing a one-shot prompt",
+                                                           "Remove repeated legacy instructions and match model effort to the task"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-20",
+                                           "sources":  [
+                                                           {
+                                                               "name":  "AI Daily Brief"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "record-a-skill",
+                                           "title":  "Turn a repeated task into a Claude skill",
+                                           "summary":  "Record yourself completing a task while narrating the decisions, then save and test the resulting reusable skill.",
+                                           "context":  "The Rundown AI\u0027s training block provides a concrete four-step workflow and a clear result.",
+                                           "details":  [
+                                                           "Install Claude in Chrome and choose a repeatable task",
+                                                           "In Claude Cowork, select Record a Skill and complete the task normally",
+                                                           "Narrate why you take each action, then save and test the skill on fresh work"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-27",
+                                           "topic_entities":  [
+                                                                  "Claude",
+                                                                  "skills",
+                                                                  "automation"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "The Rundown AI - AI Training"
+                                                           }
+                                                       ]
+                                       },
+                                       {
+                                           "id":  "parallel-coding-agents",
+                                           "title":  "Run parallel coding agents without merge hell",
+                                           "summary":  "Use Git worktrees, explicit file ownership, separate ports, and a deliberate merge order so unrelated agent tasks can run safely at the same time.",
+                                           "context":  "Staying Ahead qualifies without an AI Training label because the whole edition teaches a self-contained, repeatable engineering workflow.",
+                                           "details":  [
+                                                           "Assign each agent a non-overlapping file ownership map before work begins",
+                                                           "Create one Git worktree per task and supply its own environment and port",
+                                                           "Review and merge the least risky branch first, then resolve the remaining integration deliberately"
+                                                       ],
+                                           "reason":  "Learn something",
+                                           "timing":  "Anytime",
+                                           "urgency":  "optional",
+                                           "actionable":  false,
+                                           "content_type":  "instructional",
+                                           "published_at":  "2026-07-27",
+                                           "topic_entities":  [
+                                                                  "Git worktrees",
+                                                                  "coding agents",
+                                                                  "parallel development"
+                                                              ],
+                                           "sources":  [
+                                                           {
+                                                               "name":  "Staying Ahead"
+                                                           }
+                                                       ]
+                                       }
+                                   ]
+                     }
+                 ]
+}
