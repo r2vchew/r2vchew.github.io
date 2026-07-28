@@ -2,6 +2,6 @@
 
 Last updated: 2026-07-28
 
-The workspace now hosts a public, privacy-safe Email Overview companion at `email-overview/`.
+The public, privacy-safe Email Overview companion is committed on `main` in `email-overview/`. GitHub Pages still needs to be enabled from the `main` branch before the site can be served.
 
-Next useful action: open the site on a phone and confirm the mobile experience.
+Next useful action: enable GitHub Pages, then open the mobile site.
