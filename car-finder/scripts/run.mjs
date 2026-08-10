@@ -19,6 +19,7 @@ import carpages from './sources/carpages.mjs';
 
 import { dedupe, looksLikeVehicle, normalize } from './lib/normalize.mjs';
 import { bandFor, buildMarket, rejectReason, scoreListing } from './lib/score.mjs';
+import { estimateInitialCost } from './lib/costs.mjs';
 import { enhanceWithClaude, writeCommentary } from './lib/commentary.mjs';
 import { proxyEnabled } from './lib/http.mjs';
 
@@ -163,12 +164,14 @@ async function main() {
   const nowIso = startedAt.toISOString();
 
   let cars = kept.map((listing) => {
-    const scored = scoreListing(listing, criteria, market);
+    const costs = estimateInitialCost(listing);
+    const scored = scoreListing(listing, criteria, market, costs);
     const previous = state.seen[listing.id];
     return {
       ...listing,
       score: scored.score,
       band: bandFor(scored.score),
+      costs,
       scoreParts: scored.parts,
       commentary: writeCommentary(listing, scored, criteria, market),
       firstSeen: previous?.firstSeen || nowIso,
@@ -194,7 +197,8 @@ async function main() {
   const topBand = cars.filter((c) => c.band === 'shortlist').length;
   console.log(`\n${cars.length} candidates after her past decisions; ${topBand} in the shortlist band; ${cars.filter((c) => c.isNew).length} new since last run`);
   for (const car of cars.slice(0, 10)) {
-    console.log(`   ${String(car.score).padStart(3)}  ${[car.year, car.make, car.model].filter(Boolean).join(' ').padEnd(30)} $${(car.price ?? 0).toLocaleString().padStart(7)}  ${car.odometerKm ? `${Math.round(car.odometerKm / 1000)}k km` : '?'}  ${car.source}`);
+    const allIn = car.costs ? ` -> $${car.costs.total.toLocaleString()} all-in` : '';
+    console.log(`   ${String(car.score).padStart(3)}  ${[car.year, car.make, car.model].filter(Boolean).join(' ').padEnd(28)} $${(car.price ?? 0).toLocaleString().padStart(7)}${allIn.padEnd(22)}  ${car.odometerKm ? `${Math.round(car.odometerKm / 1000)}k km` : '?'}  ${car.source}`);
   }
 
   // ---- Publish ------------------------------------------------------------

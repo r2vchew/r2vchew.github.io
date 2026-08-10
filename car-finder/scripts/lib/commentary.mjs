@@ -16,16 +16,76 @@ export function writeCommentary(listing, scored, criteria, market) {
   const body = scored.bodyNote;
   const closing = closingLine(listing, scored);
 
-  const paragraphs = [opening, [price, wear].filter(Boolean).join(' '), risk, body, closing]
-    .filter((p) => p && p.trim());
+  const cost = costLine(scored.costs);
+  const safety = safetyLine(listing);
+
+  const paragraphs = [
+    opening,
+    [price, wear].filter(Boolean).join(' '),
+    cost,
+    risk,
+    safety,
+    body,
+    closing,
+  ].filter((p) => p && p.trim());
 
   return {
     headline: headlineFor(listing, scored),
     body: paragraphs,
+    costs: scored.costs,
     pros: prosFor(listing, scored),
     cons: consFor(listing, scored),
     checks: checksFor(listing, scored),
   };
+}
+
+/**
+ * The number that actually matters. Sticker price is what she searches on;
+ * this is what leaves the bank account before the car is on the road.
+ */
+function costLine(costs) {
+  if (!costs || !costs.extras) return null;
+
+  // Only what the seller actually wrote counts as something the listing
+  // raised. Tax and registration are simply what everyone pays, and saying
+  // the listing flagged them would be untrue.
+  const pick = (kind) => costs.items
+    .filter((i) => i.kind === kind && i.amount > 0)
+    .map((i) => i.label.toLowerCase());
+  const flagged = pick('listing');
+  const assumed = pick('assumed');
+
+  const parts = [
+    `Realistically about ${money(costs.total)} to get it on the road`,
+    `— roughly ${money(costs.extras)} on top of the asking price.`,
+  ];
+
+  if (flagged.length) parts.push(`The seller has already flagged ${listJoin(flagged)}.`);
+  if (assumed.length) parts.push(`I have allowed for ${listJoin(assumed)}.`);
+  parts.push('Insurance is not in that figure.');
+
+  return parts.join(' ');
+}
+
+/**
+ * Stability control became mandatory on Canadian passenger vehicles from the
+ * 2012 model year, and backup cameras from May 2018. Both matter more for a
+ * new driver than they would for an experienced one.
+ */
+function safetyLine(listing) {
+  if (!listing.year) return null;
+  if (listing.year < 2012) {
+    return 'Worth knowing: stability control only became mandatory on the 2012 model year, so this one may not have it. On an icy Calgary morning that is the feature that quietly saves a new driver, and it is worth checking the specific trim before deciding.';
+  }
+  if (listing.year < 2018) {
+    return 'It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control.';
+  }
+  return null;
+}
+
+function listJoin(items) {
+  if (items.length === 1) return items[0];
+  return `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
 }
 
 /**
@@ -75,7 +135,7 @@ function openingLine(listing, scored, criteria) {
   const budget = criteria.hard.maxPrice;
   const underBudget = listing.price != null && budget != null && listing.price <= budget * 0.8;
   if (underBudget) {
-    return `${name} at ${money(listing.price)}, which leaves a useful cushion under the ${money(budget)} ceiling for insurance, tires and the first round of maintenance.`;
+    return `${name} at ${money(listing.price)}, comfortably under the ${money(budget)} ceiling.`;
   }
   return `${name} at ${money(listing.price)}.`;
 }
@@ -108,7 +168,7 @@ function closingLine(listing, scored) {
   if (listing.sellerType === 'private') {
     bits.push('It is a private sale, so there is usually more negotiating room, but no dealer warranty and she should meet somewhere public.');
   } else if (listing.sellerType === 'dealer') {
-    bits.push('Dealer listing, so expect documentation fees on top of the advertised price — ask for the all-in number before going in.');
+    bits.push('Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable.');
   }
   if (scored.score >= 62 && scored.modelNote?.verdict !== 'avoid') {
     bits.push('Worth booking an out-of-province-style inspection at an independent shop before any money changes hands.');

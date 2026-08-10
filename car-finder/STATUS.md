@@ -17,6 +17,12 @@ commented shortlist.
 | Carpages.ca | Degraded | Its cards are read by the positional fallback scanner, which on the real page finds prices but no mileage. Since an uncorroborated price is a likely misread, those rows are now dropped rather than shown — so Carpages currently contributes nothing. Needs its real markup inspected before it is useful. |
 | CarGurus.ca | Blocked | Refuses GitHub's runners on every entry point tried (403/406/404). Skipped unless a scraping proxy is configured, so it does not sit permanently red. |
 
+### Current scope
+
+$3,000–$13,000 asking price, 2010 or newer, under 180,000 km, automatic only,
+within 150 km of Calgary. The realistic drive-away cost is estimated on top and
+shown per car; insurance is excluded.
+
 ### Verified
 
 - Filtering, scoring, dedupe, and the local price model.
@@ -40,8 +46,6 @@ commented shortlist.
 ## Open questions for Vince
 
 - Her email address for the digest.
-- Whether $16,000 is the right ceiling — the research put a Calgary first car
-  at roughly $15,000–$20,000, so this sits deliberately at the low end.
 - Whether she will use a free GitHub account for feedback, or whether the
   button should post to a form endpoint instead.
 

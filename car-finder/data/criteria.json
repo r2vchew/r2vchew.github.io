@@ -1,10 +1,10 @@
 {
   "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
   "updatedAt": "2026-08-10",
-  "updatedBy": "initial defaults",
+  "updatedBy": "Vince: wider year range, $13k sticker cap",
   "buyer": {
     "label": "First car for a new driver in Calgary",
-    "notes": "Priorities in order: affordable to buy and run, automatic only, recent enough to have modern safety kit, reliable through Alberta winters."
+    "notes": "Priorities in order: affordable all-in rather than cheap on the sticker, automatic only, reliable through Alberta winters. The $13,000 cap is the asking price; the realistic drive-away cost is estimated separately and excludes insurance."
   },
   "location": {
     "city": "Calgary",
@@ -12,21 +12,44 @@
     "radiusKm": 150
   },
   "hard": {
-    "minPrice": 3500,
-    "maxPrice": 16000,
-    "minYear": 2016,
+    "minPrice": 3000,
+    "maxPrice": 13000,
+    "minYear": 2010,
     "maxOdometerKm": 180000,
     "transmission": "automatic",
-    "excludeTitles": ["salvage", "rebuilt", "damaged", "as-is", "parts only", "not running"],
+    "excludeTitles": [
+      "salvage",
+      "rebuilt",
+      "damaged",
+      "as-is",
+      "parts only",
+      "not running"
+    ],
     "excludeMakes": [],
     "excludeModels": []
   },
   "soft": {
-    "idealPriceMax": 13000,
-    "idealOdometerKm": 130000,
-    "preferMakes": ["Toyota", "Honda", "Mazda", "Hyundai", "Kia", "Subaru"],
-    "preferBodyTypes": ["Sedan", "Hatchback", "SUV", "Wagon"],
-    "avoidBodyTypes": ["Pickup", "Convertible", "Coupe"],
+    "idealPriceMax": 10000,
+    "idealOdometerKm": 140000,
+    "preferMakes": [
+      "Toyota",
+      "Honda",
+      "Mazda",
+      "Hyundai",
+      "Kia",
+      "Subaru"
+    ],
+    "preferBodyTypes": [
+      "Sedan",
+      "Hatchback",
+      "SUV",
+      "Wagon"
+    ],
+    "avoidBodyTypes": [
+      "Pickup",
+      "Convertible",
+      "Coupe"
+    ],
     "wantAwd": false,
     "maxAnnualFuelCostHint": null
   },

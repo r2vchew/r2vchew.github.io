@@ -311,3 +311,29 @@ button.ghost {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---------- drive-away cost ---------- */
+.specs .allin {
+  color: var(--accent); font-weight: 640;
+  border-left: 1px solid var(--line); padding-left: .9rem;
+}
+.costs { margin-top: .9rem; }
+.costs h4 {
+  margin: 0 0 .35rem; font-size: .74rem; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--ink-3);
+}
+.cost-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.cost-table td { padding: .22rem 0; vertical-align: top; color: var(--ink-2); }
+.cost-table .amount {
+  text-align: right; white-space: nowrap; padding-left: .6rem;
+  font-variant-numeric: tabular-nums; color: var(--ink);
+}
+.cost-table .why { color: var(--ink-3); font-size: .78rem; padding-left: .8rem; }
+.cost-table tfoot td { border-top: 1px solid var(--line); padding-top: .4rem; }
+.guess {
+  font-size: .66rem; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--ink-3); border: 1px solid var(--line);
+  border-radius: 4px; padding: 0 .22rem;
+}
+/* The "why" column is the first thing to go when space is tight. */
+@media (max-width: 560px) { .cost-table .why { display: none; } }

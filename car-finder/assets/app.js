@@ -216,6 +216,7 @@ function visibleCars() {
   const by = {
     score: (a, b) => b.score - a.score,
     price: (a, b) => (a.price ?? Infinity) - (b.price ?? Infinity),
+    allin: (a, b) => (a.costs?.total ?? a.price ?? Infinity) - (b.costs?.total ?? b.price ?? Infinity),
     km: (a, b) => (a.odometerKm ?? Infinity) - (b.odometerKm ?? Infinity),
     year: (a, b) => (b.year ?? 0) - (a.year ?? 0),
   }[sort];
@@ -295,6 +296,7 @@ function cardHtml(car) {
 
     <div class="specs">
       <span><b>${money(car.price)}</b></span>
+      ${car.costs ? `<span class="allin" title="Asking price plus tax, fees, tires and likely first repairs. Insurance not included.">~${money(car.costs.total)} on the road</span>` : ''}
       <span><b>${car.odometerKm != null ? `${fmt.format(car.odometerKm)} km` : '— km'}</b></span>
       ${bodyLabel(car) ? `<span>${esc(bodyLabel(car))}</span>` : ''}
       ${car.location ? `<span>${esc(car.location)}</span>` : ''}
@@ -311,6 +313,7 @@ function cardHtml(car) {
         ${pm('In its favour', cm.pros)}
         ${pm('Against it', cm.cons)}
       </div>
+      ${costBreakdown(car)}
       ${cm.checks?.length ? `<div class="checks"><h4>Check before buying</h4><ul>${cm.checks.map((c) => `<li>${esc(c)}</li>`).join('')}</ul></div>` : ''}
     </details>
 
@@ -321,6 +324,37 @@ function cardHtml(car) {
       <a class="view" href="${escAttr(car.url)}" target="_blank" rel="noopener noreferrer">View listing</a>
     </div>
   </article>`;
+}
+
+/**
+ * The itemised drive-away estimate. Every line says why it is there, so she
+ * can strike out any assumption she disagrees with rather than having to
+ * trust a single number.
+ */
+function costBreakdown(car) {
+  const c = car.costs;
+  if (!c || !c.items.length) return '';
+
+  const rows = c.items.map((i) => `
+    <tr>
+      <td>${esc(i.label)}${i.certain ? '' : ' <span class="guess">est.</span>'}</td>
+      <td class="amount">${i.amount ? money(i.amount) : '—'}</td>
+      <td class="why">${esc(i.why)}</td>
+    </tr>`).join('');
+
+  return `
+  <div class="costs">
+    <h4>Realistic cost to get it on the road</h4>
+    <table class="cost-table">
+      <tbody>
+        <tr><td>Asking price</td><td class="amount">${money(c.price)}</td><td class="why">what the seller is advertising</td></tr>
+        ${rows}
+      </tbody>
+      <tfoot>
+        <tr><td><b>Realistic total</b></td><td class="amount"><b>${money(c.total)}</b></td><td class="why">insurance not included</td></tr>
+      </tfoot>
+    </table>
+  </div>`;
 }
 
 function priceDrop(car) {

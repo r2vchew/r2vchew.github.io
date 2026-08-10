@@ -7,6 +7,7 @@ import { decodeEntities, parseMoney, parseOdometer, parseTransmission } from './
 import { looksLikeVehicle, normalize } from './lib/normalize.mjs';
 import { rejectReason } from './lib/score.mjs';
 import { interpret } from './lib/interpret.mjs';
+import { estimateInitialCost } from './lib/costs.mjs';
 import carpages from './sources/carpages.mjs';
 
 let failures = 0;
@@ -29,11 +30,11 @@ function group(title, fn) {
 
 const criteria = {
   hard: {
-    minPrice: 3500, maxPrice: 16000, minYear: 2016, maxOdometerKm: 180000,
+    minPrice: 3000, maxPrice: 13000, minYear: 2010, maxOdometerKm: 180000,
     transmission: 'automatic', excludeMakes: [], excludeModels: [],
   },
   soft: {
-    idealPriceMax: 13000, idealOdometerKm: 130000,
+    idealPriceMax: 10000, idealOdometerKm: 140000,
     preferMakes: ['Toyota', 'Honda'], preferBodyTypes: ['Sedan'],
     avoidBodyTypes: ['Pickup'], wantAwd: false,
   },
@@ -123,7 +124,8 @@ group('hard filters', () => {
   check("mechanic's special rejected", rejectReason({ ...base, title: "2018 Kia Sportage Mechanic's Special" }, criteria), 'salvage, rebuilt or as-is title');
   check('manual rejected', rejectReason({ ...base, transmission: 'manual', title: 'x' }, criteria), 'manual transmission');
   check('over budget rejected', rejectReason({ ...base, price: 25000, title: 'x' }, criteria), 'over budget at $25,000');
-  check('too old rejected', rejectReason({ ...base, year: 2011, title: 'x' }, criteria), 'too old (2011)');
+  check('2011 now in scope', rejectReason({ ...base, year: 2011, title: 'x' }, criteria), null);
+  check('too old rejected', rejectReason({ ...base, year: 2008, title: 'x' }, criteria), 'too old (2008)');
 });
 
 group('plain-English feedback', () => {
@@ -134,6 +136,50 @@ group('plain-English feedback', () => {
   check('exclude a make', paths('no nissans').some((p) => p.startsWith('hard.excludeMakes=') && p.includes('Nissan')), true);
   check('inflected verbs understood', interpret('she wants a hatchback', criteria).understood, true);
   check('unrelated note flagged', interpret('I do not like the blue one', criteria).unmatched, true);
+});
+
+group('what it really costs', () => {
+  const base = { price: 10000, year: 2018, odometerKm: 90000 };
+
+  // Alberta: no GST on a private sale, 5% plus a doc fee at a dealer. Same
+  // car, materially different cheque.
+  const priv = estimateInitialCost({ ...base, sellerType: 'private', title: '2018 Corolla' });
+  const dealer = estimateInitialCost({ ...base, sellerType: 'dealer', title: '2018 Corolla' });
+  check('private sale is not taxed', priv.items.some((i) => i.label === 'GST (5%)'), false);
+  check('dealer sale is taxed', dealer.items.find((i) => i.label === 'GST (5%)')?.amount, 500);
+  check('dealer costs more all-in', dealer.total > priv.total, true);
+
+  // Winter tires are assumed unless the listing says otherwise.
+  const noTires = estimateInitialCost({ ...base, sellerType: 'private', title: '2018 Corolla' });
+  check('budgets for winter tires', noTires.items.some((i) => i.label === 'Winter tires'), true);
+  const withTires = estimateInitialCost({
+    ...base, sellerType: 'private', title: '2018 Corolla', description: 'Comes with 2 sets of tires',
+  });
+  check('winter tires included is recognised', withTires.tiresIncluded, true);
+  check('and then not budgeted for', withTires.items.some((i) => i.label === 'Winter tires'), false);
+
+  // Stated problems are treated as certain; inferred ones as estimates.
+  const needy = estimateInitialCost({
+    ...base, sellerType: 'private', title: '2018 Corolla', description: 'Needs new tires and brakes soon',
+  });
+  check('reads stated tire need', needy.items.some((i) => i.label === 'Replacement tires'), true);
+  check('and flags work needed', needy.needsWork, true);
+  check('needy car costs more than a clean one', needy.total > priv.total, true);
+
+  // High kilometres with no service history implies catch-up work.
+  const tired = estimateInitialCost({ ...base, odometerKm: 165000, sellerType: 'private', title: '2013 Corolla' });
+  check('assumes brakes on a high-km car', tired.items.some((i) => i.label === 'Brake work'), true);
+  const serviced = estimateInitialCost({
+    ...base, odometerKm: 165000, sellerType: 'private', title: '2013 Corolla',
+    description: 'Brakes just done, full service records',
+  });
+  check('service history removes that assumption', serviced.items.some((i) => i.label === 'Brake work'), false);
+  check('recent service recognised', serviced.recentlyServiced, true);
+
+  // The total must equal the sticker plus every line.
+  const sum = dealer.items.reduce((s, i) => s + i.amount, 0);
+  check('total is sticker plus the itemised extras', dealer.total, dealer.price + sum);
+  check('no price means no estimate', estimateInitialCost({ price: null }), null);
 });
 
 console.log(`\n${checks - failures}/${checks} checks passed`);

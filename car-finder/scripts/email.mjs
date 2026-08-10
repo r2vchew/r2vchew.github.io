@@ -47,6 +47,10 @@ function carBlock(car) {
           ${car.location ? ` · ${esc(car.location)}` : ''}
           ${car.sellerType ? ` · ${esc(car.sellerType)}` : ''}
         </p>
+        ${car.costs ? `<p style="margin:0 0 8px;font:600 14px/1.4 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f5d4c;">
+          ~${money(car.costs.total)} to get it on the road
+          <span style="font-weight:400;color:#86827a;">(tax, fees, tires and likely first repairs — not insurance)</span>
+        </p>` : ''}
         ${headline ? `<p style="margin:0 0 6px;font:600 14px/1.45 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1f5d4c;">${esc(headline)}</p>` : ''}
         <p style="margin:0 0 12px;font:400 14px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#56534c;">${esc(line)}</p>
         <a href="${esc(car.url)}"

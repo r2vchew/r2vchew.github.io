@@ -46,6 +46,7 @@ without anyone having to read hundreds of listings.
 | `scripts/lib/cards.mjs` | Last-resort HTML card scanner for when markup changes. |
 | `scripts/lib/knowledge.mjs` | What the finder knows about specific models. The commentary's substance. |
 | `scripts/lib/score.mjs` | Hard filters, 0–100 scoring, and the local price model. |
+| `scripts/lib/costs.mjs` | The realistic drive-away estimate: tax, fees, tires, likely first repairs. |
 | `scripts/lib/commentary.mjs` | Writes the human-readable note per car. |
 | `scripts/lib/interpret.mjs` | Turns plain English into changes to `criteria.json`. |
 | `scripts/apply-feedback.mjs` | Reads feedback issues, applies them, replies, closes them. |
@@ -148,6 +149,28 @@ Or just say what you want on the dashboard. `"I'd go to $18k for something
 A source returning zero does not fail the run: the site keeps its last good
 data and the dashboard says which sources came up empty.
 
+## What a car really costs
+
+The `$13,000` ceiling is the **asking price**. What leaves the bank account is
+estimated separately by `scripts/lib/costs.mjs` and shown on every card, because
+in Alberta the gap is wide and lopsided:
+
+- **Private sales attract no GST or PST. Dealer sales attract 5% GST plus a
+  documentation fee.** On a $12,000 car that is roughly $1,200 for the same
+  vehicle.
+- **Calgary needs winter tires.** If a listing does not mention a set, that is
+  about $1,100 in her first month.
+- **A high-kilometre car with no service history** is very likely due for brakes
+  and a catch-up service.
+
+Every line in the breakdown says where it came from — something the seller
+wrote, a cost everyone pays, or an assumption marked `est.` — so any of it can
+be argued with. **Insurance is deliberately excluded**: it varies far too much
+by driver to estimate honestly.
+
+The estimate deliberately errs high. An estimate that is usually a little
+pessimistic is kinder than one that is usually a little optimistic.
+
 ## Notes and limits
 
 - Prices are asking prices, scraped from public search pages. They go stale.
@@ -155,3 +178,5 @@ data and the dashboard says which sources came up empty.
   degrades to "fewer sources" rather than breaking.
 - The commentary is a starting point for conversations with a mechanic, not a
   substitute for an inspection.
+- The cost estimate uses flat Calgary rates from `COST_ASSUMPTIONS`, not quotes
+  for the specific car. Treat it as a planning figure.

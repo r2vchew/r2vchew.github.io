@@ -38,7 +38,7 @@ export function rejectReason(listing, criteria) {
  * priorities: price first, then the mechanical risk of the specific model,
  * then wear, then fit.
  */
-export function scoreListing(listing, criteria, market) {
+export function scoreListing(listing, criteria, market, costs = null) {
   const s = criteria.soft;
   const h = criteria.hard;
   const parts = [];
@@ -101,11 +101,24 @@ export function scoreListing(listing, criteria, market) {
     parts.push({ label: 'kilometres not stated', delta: -4 });
   }
 
-  // --- Age --------------------------------------------------------------------
+  // --- Age and safety kit -----------------------------------------------------
+  // Rebanded for a 2010-onwards search: with sixteen model years in scope,
+  // a single "9 or older" cutoff put almost everything in the same bucket.
   if (listing.year != null) {
     const age = new Date().getFullYear() - listing.year;
-    if (age <= 5) { score += 8; parts.push({ label: 'recent model year', delta: 8 }); }
-    else if (age >= 9) { score -= 5; parts.push({ label: 'getting on in years', delta: -5 }); }
+    if (age <= 6) { score += 8; parts.push({ label: 'recent model year', delta: 8 }); }
+    else if (age <= 10) { score += 2; parts.push({ label: 'middle-aged but not old', delta: 2 }); }
+    else if (age <= 13) { score -= 4; parts.push({ label: 'getting on in years', delta: -4 }); }
+    else { score -= 8; parts.push({ label: 'quite old now', delta: -8 }); }
+
+    // Electronic stability control only became mandatory on Canadian passenger
+    // vehicles from the 2012 model year. For a newly licensed driver on
+    // Alberta winter roads that is a real safety difference, not a spec-sheet
+    // nicety, so it costs more than a year or two of age would.
+    if (listing.year < 2012) {
+      score -= 6;
+      parts.push({ label: 'predates mandatory stability control', delta: -6 });
+    }
   }
 
   // --- Body style fit ---------------------------------------------------------
@@ -126,6 +139,32 @@ export function scoreListing(listing, criteria, market) {
     if (awd) { score += 8; parts.push({ label: 'all-wheel drive', delta: 8 }); }
   }
 
+  // --- What it really costs ---------------------------------------------------
+  // The sticker is what she filters on; the drive-away figure is what she
+  // pays. A cheap car needing tires and brakes can cost more than a dearer
+  // one that needs nothing.
+  if (costs) {
+    if (costs.uplift >= 0.22) {
+      score -= 10;
+      parts.push({ label: `extras add about ${Math.round(costs.uplift * 100)}% before she can drive it`, delta: -10 });
+    } else if (costs.uplift >= 0.14) {
+      score -= 5;
+      parts.push({ label: 'a few hundred in extras before it is road-ready', delta: -5 });
+    }
+    if (costs.tiresIncluded) {
+      score += 5;
+      parts.push({ label: 'winter tires already sorted', delta: 5 });
+    }
+    if (costs.recentlyServiced) {
+      score += 5;
+      parts.push({ label: 'recent service history mentioned', delta: 5 });
+    }
+    if (costs.needsWork) {
+      score -= 6;
+      parts.push({ label: 'the seller has flagged work needed', delta: -6 });
+    }
+  }
+
   // --- Data quality -----------------------------------------------------------
   if (!listing.imageUrl) { score -= 3; parts.push({ label: 'no photo in the listing', delta: -3 }); }
   if (listing.sellerType === 'private') {
@@ -136,6 +175,7 @@ export function scoreListing(listing, criteria, market) {
   return {
     score: Math.max(0, Math.min(100, Math.round(score))),
     parts: parts.filter((p) => p.delta !== 0),
+    costs,
     modelNote: note,
     bodyNote: lookupBodyNote(listing),
   };
