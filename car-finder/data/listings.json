@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T11:38:11.639Z",
+  "generatedAt": "2026-08-10T11:42:26.986Z",
   "criteria": {
     "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
     "updatedAt": "2026-08-10",
@@ -78,7 +78,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 4.3
+      "elapsedSeconds": 4.6
     },
     {
       "id": "kijiji",
@@ -87,7 +87,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 5.3
+      "elapsedSeconds": 7.1
     },
     {
       "id": "carpages",
@@ -96,24 +96,24 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 0.9
+      "elapsedSeconds": 0.4
     }
   ],
   "stats": {
     "rawRecords": 133,
-    "nonVehiclesDropped": 12,
-    "uniqueCars": 119,
-    "passedFilters": 86,
+    "nonVehiclesDropped": 13,
+    "uniqueCars": 116,
+    "passedFilters": 83,
     "filteredOut": 33,
     "filterReasons": {
       "manual transmission": 2,
-      "too many kilometres (N km)": 28,
-      "salvage, rebuilt or as-is title": 2,
+      "too many kilometres (N km)": 27,
+      "salvage, rebuilt or as-is title": 3,
       "too old (N)": 1
     },
-    "candidates": 86,
-    "newSinceLastRun": 29,
-    "previousRunAt": "2026-08-10T05:39:24.273Z"
+    "candidates": 83,
+    "newSinceLastRun": 15,
+    "previousRunAt": "2026-08-10T11:38:11.639Z"
   },
   "cars": [
     {
@@ -123,7 +123,7 @@
       "title": "2018 Kia Rio 5-door LX+",
       "year": 2018,
       "make": "Kia",
-      "model": "Othrmdl",
+      "model": "Rio",
       "trim": "LX+",
       "price": 8888,
       "odometerKm": 95040,
@@ -138,7 +138,7 @@
       "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/fa/fae69fcb-b52d-4896-9b8a-f3f9f216afd6?rule=kijijica-200-jpg",
       "vin": "3KPA25AB0JE040468",
       "description": "Thanks for viewing our House Of Cars Olympic Park inventory! AMVIC licensed dealer! House of Cars Olympic Park An AMVIC licensed automotive retail dealer Location: 8525 Bowfort Rd. N.W Call: ...",
-      "id": "81039c4d1845364c",
+      "id": "71818a205198c945",
       "alsoOn": [],
       "score": 83,
       "band": "shortlist",
@@ -163,7 +163,7 @@
       "commentary": {
         "headline": "One of the stronger options on the list right now.",
         "body": [
-          "2018 Kia Othrmdl at $8,888, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2018 Kia Rio at $8,888, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 95,040 km, well under the 160,000 km an average Alberta car of that age would have.",
           "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -182,12 +182,12 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T11:38:11.639Z",
+          "at": "2026-08-10T11:42:26.986Z",
           "price": 8888
         }
       ]
@@ -253,7 +253,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -323,7 +323,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -400,7 +400,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -469,8 +469,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -555,7 +555,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -570,7 +570,7 @@
       "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-volkswagen-beetle-coupe-trendline-panoramic-sunroof/1740107048",
       "title": "2016 Volkswagen Beetle Coupe Trendline | PANORAMIC SUNROOF",
       "year": 2016,
-      "make": "Volkwagen",
+      "make": "Volkswagen",
       "model": "Beetle",
       "trim": "Trendline | PANORAMIC SUNROOF",
       "price": 9488,
@@ -586,7 +586,7 @@
       "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/8f/8f60dbce-c578-4eb9-8a44-8deaae7531e8?rule=kijijica-200-jpg",
       "vin": "3VWJ07AT4GM629609",
       "description": "We review the used vehicle market and adjust our prices constantly to make sure our customers are paying a fair price for their vehicle. *We reserve the right to decline cash payments* Northland ...",
-      "id": "9433bf68ffa1d1bb",
+      "id": "8e54de750c12616a",
       "alsoOn": [],
       "score": 67,
       "band": "worth a look",
@@ -611,7 +611,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2016 Volkwagen Beetle at $9,488, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Volkswagen Beetle at $9,488, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 127,006 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -630,12 +630,12 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T05:15:33.629Z",
+          "at": "2026-08-10T11:42:26.986Z",
           "price": 9488
         }
       ]
@@ -709,7 +709,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -774,7 +774,7 @@
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
           "2016 Hyundai Tucson at $13,988.",
-          "That is right about what similar ones are asking ($13,998 typical). It shows 126,250 km, well under the 200,000 km an average Alberta car of that age would have.",
+          "It shows 126,250 km, well under the 200,000 km an average Alberta car of that age would have.",
           "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -796,7 +796,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -812,7 +812,7 @@
       "title": "2018 Hyundai Elantra GT Sport",
       "year": 2018,
       "make": "Hyundai",
-      "model": "Othrmdl",
+      "model": "Elantra",
       "trim": "Sport",
       "price": 15694,
       "odometerKm": 110706,
@@ -827,7 +827,7 @@
       "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/61/61e9ca5b-2dbe-45b1-b50a-0ca5048d372e?rule=kijijica-200-jpg",
       "vin": "KMHH55LC6JU028611",
       "description": "AMVIC Licensed Dealer 2018 Hyundai Elantra GT AMVIC Licensed Dealer Kijiji Engine: 1.6L TURBO L/100Km City: 10.7 L/100Km Hwy: 8.1 Safety Equipment Electronic Stability Control (ESC) ABS And Driveline ...",
-      "id": "131ed5cec18a7149",
+      "id": "cb65eb6ef440f63a",
       "alsoOn": [],
       "score": 66,
       "band": "worth a look",
@@ -856,7 +856,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2018 Hyundai Othrmdl at $15,694.",
+          "2018 Hyundai Elantra at $15,694.",
           "It shows 110,706 km, well under the 160,000 km an average Alberta car of that age would have.",
           "The well-publicised Theta II engine failures affected the larger 2.4L cars (Sonata, Santa Fe), not the Elantra's 2.0L Nu engine. Often thousands cheaper than an equivalent Civic. Remaining factory powertrain warranty may still apply.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -877,12 +877,12 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T05:15:33.629Z",
+          "at": "2026-08-10T11:42:26.986Z",
           "price": 15694
         }
       ]
@@ -964,7 +964,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1035,7 +1035,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1106,7 +1106,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1188,7 +1188,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1270,7 +1270,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1286,7 +1286,7 @@
       "title": "2018 Hyundai Santa Fe Sport Luxury",
       "year": 2018,
       "make": "Hyundai",
-      "model": "Othrmdl",
+      "model": "Santa",
       "trim": "Luxury",
       "price": 14888,
       "odometerKm": 129573,
@@ -1301,7 +1301,7 @@
       "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/d9/d9726301-90ff-4eae-8ddf-c22629bf77f0?rule=kijijica-200-jpg",
       "vin": "5NMZUDLB9JH090721",
       "description": "Thanks for viewing our House Of Cars Chinook Inventory! AMVIC licensed dealer! The 2018 Hyundai Santa Fe Sport Luxury AWD 2.4L is a versatile and well-equipped SUV designed to offer both comfort and ...",
-      "id": "fdd0668438dee8f1",
+      "id": "9b7d219707f8b747",
       "alsoOn": [],
       "score": 60,
       "band": "maybe",
@@ -1326,7 +1326,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2018 Hyundai Othrmdl at $14,888.",
+          "2018 Hyundai Santa at $14,888.",
           "It shows 129,573 km, about normal for its age here."
         ],
         "pros": [
@@ -1344,13 +1344,99 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T11:38:11.639Z",
+          "at": "2026-08-10T11:42:26.986Z",
           "price": 14888
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "KM8J3CA22HU527471",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-hyundai-tucson-ultimate-panorama-navi-leather/1738998975",
+      "title": "2017 Hyundai Tucson Ultimate - PANORAMA! NAVI! LEATHER!",
+      "year": 2017,
+      "make": "Hyundai",
+      "model": "Tucson",
+      "trim": "Ultimate - PANORAMA! NAVI! LEATHER!",
+      "price": 15977,
+      "odometerKm": 129007,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/42/42ccac08-7ae4-4f2d-b814-322f389611a3?rule=kijijica-200-jpg",
+      "vin": "KM8J3CA22HU527471",
+      "description": "ENJOY PREMIUM COMFORT, MODERN STYLE, AND VERSATILE PERFORMANCE WITH THIS 2017 HYUNDAI TUCSON ULTIMATE. THIS WELLEQUIPPED SUV OFFERS A SMOOTH RIDE, RESPONSIVE HANDLING, AND A COMFORTABLE, FEATURERICH ...",
+      "id": "7b2ace91d0827860",
+      "alsoOn": [],
+      "score": 60,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
+          "delta": 10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "2017 Hyundai Tucson at $15,977.",
+          "It shows 129,007 km, about normal for its age here.",
+          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
+        ],
+        "pros": [
+          "Reasonable small SUV, but avoid the 2.4L in older ones.",
+          "reasonable kilometres",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 15977
         }
       ]
     },
@@ -1415,82 +1501,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 9500
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/hyundai-tucson-limited-navigation-backup-camera-panoramic-roof-he-gasoline-silver-cat_ma33gr18493tr11398-22896db0-87e3-423f-a8a3-de9aa2128fee",
-      "title": "Hyundai TUCSON Limited NAVIGATION BACKUP CAMERA PANORAMIC ROOF HE",
-      "year": null,
-      "make": "Hyundai",
-      "model": "TUCSON",
-      "trim": "Limited NAVIGATION BACKUP CAMERA PANORAMIC ROOF HE",
-      "price": 14988,
-      "odometerKm": 120987,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "Auto House",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/22896db0-87e3-423f-a8a3-de9aa2128fee_947030bc-ef5f-4d84-931b-0b903931b9f6.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "3be3aa61b893d021",
-      "alsoOn": [],
-      "score": 59,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -7
-        },
-        {
-          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "delta": 10
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Hyundai TUCSON at $14,988.",
-          "That is about 7% above the $13,988 that comparable ones are asking, so there should be room to negotiate. It shows 120,987 km.",
-          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
-        ],
-        "pros": [
-          "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:29:52.719Z",
-          "price": 14988
         }
       ]
     },
@@ -1564,8 +1580,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -1644,7 +1660,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1724,7 +1740,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1799,8 +1815,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -1879,12 +1895,97 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 13977
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "KM8SNDHF2HU196243",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-hyundai-santa-fe-xl-premium-awd-7-passenger-no/1741305241",
+      "title": "2017 Hyundai Santa Fe XL Premium AWD | 7 Passenger | No",
+      "year": 2017,
+      "make": "Hyundai",
+      "model": "Santa",
+      "trim": "Premium AWD | 7 Passenger | No Accidents",
+      "price": 15650,
+      "odometerKm": 113585,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "black",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/ae/ae137ba4-ce9d-4f2b-969c-e6cb4f08a29f?rule=kijijica-200-jpg",
+      "vin": "KM8SNDHF2HU196243",
+      "description": "Crowfoot Hyundai, AMVIC Licensed Dealer Mileage: 113,586 km History: No accidents, One Owner Elevate your family's daily routine and weekend road trips with this beautifully maintained 2017 Hyundai ...",
+      "id": "7602d2b4d30cdda5",
+      "alsoOn": [],
+      "score": 57,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -9
+        },
+        {
+          "label": "from a make with a good reliability record",
+          "delta": 6
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "2017 Hyundai Santa at $15,650.",
+          "It shows 113,585 km, well under the 180,000 km an average Alberta car of that age would have."
+        ],
+        "pros": [
+          "from a make with a good reliability record",
+          "reasonable kilometres",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 15650
         }
       ]
     },
@@ -1955,7 +2056,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2042,7 +2143,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2111,8 +2212,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2182,103 +2283,12 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
           "price": 15888
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "KM8J3CA22HU527471",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-hyundai-tucson-ultimate-panorama-navi-leather/1738998975",
-      "title": "2017 Hyundai Tucson Ultimate - PANORAMA! NAVI! LEATHER!",
-      "year": 2017,
-      "make": "Hyundai",
-      "model": "Tucson",
-      "trim": "Ultimate - PANORAMA! NAVI! LEATHER!",
-      "price": 15977,
-      "odometerKm": 129007,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/42/42ccac08-7ae4-4f2d-b814-322f389611a3?rule=kijijica-200-jpg",
-      "vin": "KM8J3CA22HU527471",
-      "description": "ENJOY PREMIUM COMFORT, MODERN STYLE, AND VERSATILE PERFORMANCE WITH THIS 2017 HYUNDAI TUCSON ULTIMATE. THIS WELLEQUIPPED SUV OFFERS A SMOOTH RIDE, RESPONSIVE HANDLING, AND A COMFORTABLE, FEATURERICH ...",
-      "id": "7b2ace91d0827860",
-      "alsoOn": [],
-      "score": 56,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -10
-        },
-        {
-          "label": "slightly above market",
-          "delta": -4
-        },
-        {
-          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "delta": 10
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "driven less than average for its age",
-          "delta": 5
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Fine car, but you would be paying over the odds.",
-        "body": [
-          "2017 Hyundai Tucson at $15,977.",
-          "That is about 14% above the $13,988 that comparable ones are asking, so there should be room to negotiate. It shows 129,007 km, about normal for its age here.",
-          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
-        ],
-        "pros": [
-          "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "reasonable kilometres",
-          "driven less than average for its age",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "slightly above market",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 15977
         }
       ]
     },
@@ -2344,7 +2354,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2414,12 +2424,82 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 15000
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/chevrolet-trax-lt-gasoline-blue-cat_ma19gr200246tr5174-85f3d3ee-9a58-4fb8-89fb-736bda3329ad",
+      "title": "Chevrolet Trax LT",
+      "year": null,
+      "make": "Chevrolet",
+      "model": "Trax",
+      "trim": "LT",
+      "price": 10607,
+      "odometerKm": 124119,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Northland Kia",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/85f3d3ee-9a58-4fb8-89fb-736bda3329ad_bf955d90-4592-4a42-b6d6-1b7fe53279a5.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "cf35423505404b88",
+      "alsoOn": [],
+      "score": 54,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 10
+        },
+        {
+          "label": "Acceptable, but outclassed by the Korean and Japanese equivalents.",
+          "delta": -12
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "Chevrolet Trax at $10,607, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "It shows 124,119 km.",
+          "Nothing disastrous, just noisier, slower and less reliable than a Rio or Accent for similar money."
+        ],
+        "pros": [
+          "comfortably inside budget",
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "Acceptable, but outclassed by the Korean and Japanese equivalents."
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Coolant system and water pump history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 10607
         }
       ]
     },
@@ -2490,7 +2570,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2576,7 +2656,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2646,8 +2726,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2709,8 +2789,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2778,8 +2858,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2842,8 +2922,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2918,8 +2998,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -2930,25 +3010,25 @@
     {
       "source": "autotrader",
       "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/ford-f-150-sport-gasoline-white-cat_ma29gr16518-293bd0a4-126e-49a8-9825-c53a98a5ee39",
-      "title": "Ford F 150 SPORT",
+      "url": "https://www.autotrader.ca/offers/volkswagen-tiguan-tsi-4motion-navigation-backup-camera-panoramic-roo-gasoline-black-cat_ma74gr100158-8aae0c5e-d5c1-4bb9-a654-f3fc5132be7b",
+      "title": "Volkswagen Tiguan TSI 4MOTION NAVIGATION BACKUP CAMERA PANORAMIC ROO",
       "year": null,
-      "make": "Ford",
-      "model": "F 150",
-      "trim": "SPORT",
-      "price": 12500,
-      "odometerKm": 160604,
+      "make": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "TSI 4MOTION NAVIGATION BACKUP CAMERA PANORAMIC ROO",
+      "price": 11988,
+      "odometerKm": 158527,
       "transmission": "automatic",
       "drivetrain": null,
       "fuel": "Gasoline",
       "exteriorColour": null,
       "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/293bd0a4-126e-49a8-9825-c53a98a5ee39_27af5f7c-bef7-4848-a148-5bea11b49c17.jpg/250x188.webp",
+      "sellerType": null,
+      "sellerName": "Auto House",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/8aae0c5e-d5c1-4bb9-a654-f3fc5132be7b_e39066af-8d9f-460b-9f0f-9c7df36b277f.jpg/250x188.webp",
       "vin": null,
       "description": null,
-      "id": "9ee5ec84f3c69373",
+      "id": "21cc146fd9f77465",
       "alsoOn": [],
       "score": 51,
       "band": "maybe",
@@ -2965,9 +3045,8 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "Ford F 150 at $12,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "It shows 160,604 km.",
-          "Dealer listing, so expect documentation fees on top of the advertised price — ask for the all-in number before going in."
+          "Volkswagen Tiguan at $11,988, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "It shows 158,527 km."
         ],
         "pros": [
           "comfortably inside budget"
@@ -2978,158 +3057,18 @@
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
           "Timing belt or chain service, if due",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 12500
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/hyundai-tucson-1-6t-awd-backup-camera-heated-leather-seats-pano-r-gasoline-blue-cat_ma33gr18493tr11403-3c94db62-0e38-441e-a265-d9b6ff32c43c",
-      "title": "Hyundai TUCSON 1.6T AWD BACKUP CAMERA HEATED LEATHER SEATS PANO R",
-      "year": null,
-      "make": "Hyundai",
-      "model": "TUCSON",
-      "trim": "1.6T AWD BACKUP CAMERA HEATED LEATHER SEATS PANO R",
-      "price": 13988,
-      "odometerKm": 144998,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "Auto House",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/3c94db62-0e38-441e-a265-d9b6ff32c43c_04800b2a-d2a3-4d33-b247-cbd23351f937.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "e729df88e2646dac",
-      "alsoOn": [],
-      "score": 51,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "delta": 10
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Hyundai TUCSON at $13,988.",
-          "That is right about what similar ones are asking ($13,998 typical). It shows 144,998 km.",
-          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
-        ],
-        "pros": [
-          "Reasonable small SUV, but avoid the 2.4L in older ones."
-        ],
-        "cons": [
-          "at the top of the budget",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 13988
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/hyundai-tucson-se-gasoline-black-cat_ma33gr18493tr11403-dc074593-bef2-449a-b2b7-ef8a4ac25cac",
-      "title": "Hyundai TUCSON SE",
-      "year": null,
-      "make": "Hyundai",
-      "model": "TUCSON",
-      "trim": "SE",
-      "price": 13998,
-      "odometerKm": 163628,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "Go Airdrie Honda",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/dc074593-bef2-449a-b2b7-ef8a4ac25cac_3d147d74-c422-425a-a074-1aa596a8d68a.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "6e92721758ee539f",
-      "alsoOn": [],
-      "score": 51,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "delta": 10
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Hyundai TUCSON at $13,998.",
-          "That is right about what similar ones are asking ($13,988 typical). It shows 163,628 km.",
-          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
-        ],
-        "pros": [
-          "Reasonable small SUV, but avoid the 2.4L in older ones."
-        ],
-        "cons": [
-          "at the top of the budget",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 13998
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 11988
         }
       ]
     },
@@ -3193,12 +3132,76 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 12875
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/dodge-grand-caravan-gt-backup-camera-third-row-seat-heated-leather-sea-gasoline-black-cat_ma2152gr200446tr12848-df03e4cc-0bfe-4d8e-ab95-1a40654144bd",
+      "title": "Dodge Grand Caravan GT BACKUP CAMERA THIRD ROW SEAT HEATED LEATHER SEA",
+      "year": null,
+      "make": "Dodge",
+      "model": "Grand Caravan",
+      "trim": "GT BACKUP CAMERA THIRD ROW SEAT HEATED LEATHER SEA",
+      "price": 12988,
+      "odometerKm": 172231,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Auto House",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/df03e4cc-0bfe-4d8e-ab95-1a40654144bd_0800c497-2bb5-4cfe-ae51-b5331e28356c.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "cf5a061480dff8f1",
+      "alsoOn": [],
+      "score": 50,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 6
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "Dodge Grand Caravan at $12,988.",
+          "It shows 172,231 km."
+        ],
+        "pros": [
+          "comfortably inside budget"
+        ],
+        "cons": [
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 12988
         }
       ]
     },
@@ -3254,7 +3257,7 @@
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
           "2017 Hyundai Tucson at $13,977.",
-          "That is right about what similar ones are asking ($13,998 typical). It shows 179,729 km, about normal for its age here.",
+          "It shows 179,729 km, about normal for its age here.",
           "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
         ],
         "pros": [
@@ -3275,76 +3278,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 13977
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/ford-focus-titanium-gasoline-cat_ma29gr15537tr7872-ecbb6131-e326-46f1-9bca-3829ef147159",
-      "title": "Ford Focus Titanium",
-      "year": null,
-      "make": "Ford",
-      "model": "Focus",
-      "trim": "Titanium",
-      "price": 14900,
-      "odometerKm": 110203,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "Eastside Dodge Chrysler",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/ecbb6131-e326-46f1-9bca-3829ef147159_b31bf023-1079-4f46-a237-8fd297945a40.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "00e91c818e544e7c",
-      "alsoOn": [],
-      "score": 50,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -6
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Ford Focus at $14,900.",
-          "It shows 110,203 km."
-        ],
-        "pros": [
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Transmission clutch replacement history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 14900
         }
       ]
     },
@@ -3415,8 +3354,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -3500,7 +3439,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3586,7 +3525,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3651,7 +3590,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3714,12 +3653,76 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 15799
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/dodge-charger-gasoline-black-cat_ma2152gr200438tr11799-e12ae980-e572-4800-8758-433bdf0be575",
+      "title": "Dodge Charger",
+      "year": null,
+      "make": "Dodge",
+      "model": "Charger",
+      "trim": null,
+      "price": 15900,
+      "odometerKm": 128529,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/e12ae980-e572-4800-8758-433bdf0be575_399c5a31-37fb-4b1c-a287-5f40954f6134.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "914347987286a896",
+      "alsoOn": [],
+      "score": 46,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "Dodge Charger at $15,900.",
+          "It shows 128,529 km.",
+          "Dealer listing, so expect documentation fees on top of the advertised price — ask for the all-in number before going in."
+        ],
+        "pros": [
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "at the top of the budget"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 15900
         }
       ]
     },
@@ -3779,7 +3782,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3850,8 +3853,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -3920,7 +3923,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3991,7 +3994,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4068,7 +4071,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4148,7 +4151,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4160,71 +4163,63 @@
     {
       "source": "autotrader",
       "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/audi-q3-progressiv-gasoline-white-cat_ma9gr19715tr10762-3874bea5-75b5-4923-81ab-2bb7304983e9",
-      "title": "Audi Q3 PROGRESSIV",
+      "url": "https://www.autotrader.ca/offers/nissan-kicks-sv-backup-camera-bluetooth-push-button-start-gasoline-grey-cat_ma52gr202188tr17437-73e119b2-5a83-4782-b2bc-5ec8ec5f5778",
+      "title": "Nissan Kicks SV BACKUP CAMERA BLUETOOTH PUSH BUTTON START /",
       "year": null,
-      "make": "Audi",
-      "model": "Q3",
-      "trim": "PROGRESSIV",
-      "price": 13900,
-      "odometerKm": 122809,
+      "make": "Nissan",
+      "model": "Kicks",
+      "trim": "SV BACKUP CAMERA BLUETOOTH PUSH BUTTON START /",
+      "price": 13488,
+      "odometerKm": 138998,
       "transmission": "automatic",
       "drivetrain": null,
       "fuel": "Gasoline",
       "exteriorColour": null,
       "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/3874bea5-75b5-4923-81ab-2bb7304983e9_03415080-206b-4ad7-b068-1d6ba1c573e3.jpg/250x188.webp",
+      "sellerType": null,
+      "sellerName": "Auto House",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/73e119b2-5a83-4782-b2bc-5ec8ec5f5778_d3d1a473-9216-47ce-a4b5-fc7eb139594c.jpg/250x188.webp",
       "vin": null,
       "description": null,
-      "id": "a1222d58be2de08f",
+      "id": "22f0355384493147",
       "alsoOn": [],
-      "score": 41,
+      "score": 42,
       "band": "probably not",
       "scoreParts": [
         {
           "label": "at the top of the budget",
-          "delta": -3
+          "delta": -2
         },
         {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
+          "label": "high kilometres",
+          "delta": -6
         }
       ],
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "Audi Q3 at $13,900.",
-          "It shows 122,809 km.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
-          "Dealer listing, so expect documentation fees on top of the advertised price — ask for the all-in number before going in."
+          "Nissan Kicks at $13,488.",
+          "It shows 138,998 km."
         ],
-        "pros": [
-          "reasonable kilometres"
-        ],
+        "pros": [],
         "cons": [
           "at the top of the budget",
-          "A cheap German or British luxury car is an expensive car with a low sticker."
+          "high kilometres"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
+          "CVT fluid service history",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T05:29:52.719Z",
-          "price": 13900
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 13488
         }
       ]
     },
@@ -4283,8 +4278,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -4354,8 +4349,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -4439,84 +4434,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 10977
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/mitsubishi-outlander-es-awd-cvt-no-accident-or-claim-financing-a-gasoline-white-cat_ma50gr201018tr11803-bc220d79-3ee0-4e74-9d93-d5ec38c5e3ee",
-      "title": "Mitsubishi Outlander ES | AWD | CVT| NO ACCIDENT OR CLAIM | FINANCING A",
-      "year": null,
-      "make": "Mitsubishi",
-      "model": "Outlander",
-      "trim": "ES | AWD | CVT| NO ACCIDENT OR CLAIM | FINANCING A",
-      "price": 11999,
-      "odometerKm": 165018,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "SHIV MOTORS LTD.",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/bc220d79-3ee0-4e74-9d93-d5ec38c5e3ee_dbc7d5db-4b10-4109-9306-15bf27c044e5.png/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "8e77c377f7a25a3d",
-      "alsoOn": [],
-      "score": 39,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 7
-        },
-        {
-          "label": "Long warranty is the main draw; the driving experience is not.",
-          "delta": -12
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "Mitsubishi Outlander at $11,999, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "It shows 165,018 km.",
-          "Mitsubishi's 10-year powertrain warranty drops to 5 years/100,000 km for a second owner, so check the in-service date. The Mirage in particular is very slow, which is a genuine safety consideration merging onto Deerfoot.",
-          "Dealer listing, so expect documentation fees on top of the advertised price — ask for the all-in number before going in."
-        ],
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "Long warranty is the main draw; the driving experience is not.",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 11999
         }
       ]
     },
@@ -4527,7 +4450,7 @@
       "title": "2016 Hyundai Santa Fe XL Luxury Adventure Edition",
       "year": 2016,
       "make": "Hyundai",
-      "model": "Othrmdl",
+      "model": "Santa",
       "trim": "Luxury Adventure Edition",
       "price": 15888,
       "odometerKm": 172466,
@@ -4542,7 +4465,7 @@
       "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/32/3221dced-c900-493e-adab-a9225bebaf39?rule=kijijica-200-jpg",
       "vin": "KM8SNDHF9GU147846",
       "description": "Thanks for viewing our House Of Cars 52nd Street inventory! House of Cars 52nd STREET An AMVIC licensed automotive retail dealer Location: 5205 76 Ave SE Call: 403-250-5858 ...",
-      "id": "7d20d8c1f7748fcb",
+      "id": "98ce229e679d416a",
       "alsoOn": [],
       "score": 39,
       "band": "probably not",
@@ -4571,7 +4494,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2016 Hyundai Othrmdl at $15,888.",
+          "2016 Hyundai Santa at $15,888.",
           "It shows 172,466 km, about normal for its age here."
         ],
         "pros": [
@@ -4591,12 +4514,12 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T11:38:11.639Z",
+          "at": "2026-08-10T11:42:26.986Z",
           "price": 15888
         }
       ]
@@ -4672,8 +4595,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -4742,7 +4665,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4828,7 +4751,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4910,7 +4833,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4980,7 +4903,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4990,158 +4913,65 @@
       ]
     },
     {
-      "source": "kijiji",
-      "sourceId": "3N1CN8EV3ML875618",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2021-nissan-versa-sv-heated-seats-bluetooth-parking-sensors/1739160369",
-      "title": "2021 Nissan Versa SV Heated Seats | Bluetooth | Parking Sensors",
-      "year": 2021,
-      "make": "Nissan",
-      "model": "Versa",
-      "trim": "SV",
-      "price": 13898,
-      "odometerKm": 117731,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "sedan",
-      "exteriorColour": "beige",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/52/52ccb0a3-5f5d-465c-92e4-621ca47cd52e?rule=kijijica-200-jpg",
-      "vin": "3N1CN8EV3ML875618",
-      "description": "Brand New Tires!Experience the stylish 2021 Nissan Versa SV in a sophisticated gray finish and enjoy the ease of front-wheel drive handling. This sedan offers a smooth, responsive drive that makes ...",
-      "id": "18f1c360bfb18c08",
-      "alsoOn": [],
-      "score": 35,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "recent model year",
-          "delta": 8
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2021 Nissan Versa at $13,898. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 117,731 km, about normal for its age here.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "reasonable kilometres",
-          "recent model year",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car."
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 13898
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
+      "source": "autotrader",
       "sourceId": null,
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/suv-for-sale/1741711161",
-      "title": "SUV",
-      "year": 2017,
-      "make": "Jeep",
-      "model": "Cherokee",
-      "trim": "trailhawk",
-      "price": 15500,
-      "odometerKm": 147000,
+      "url": "https://www.autotrader.ca/offers/ford-edge-titanium-awd-3-5l-v6-engine-gasoline-red-cat_ma29gr18913tr7883-06fb75d7-00a1-4ca3-9ac0-0f2218d17e6d",
+      "title": "Ford Edge Titanium AWD- 3.5L V6 ENGINE",
+      "year": null,
+      "make": "Ford",
+      "model": "Edge",
+      "trim": "Titanium AWD- 3.5L V6 ENGINE",
+      "price": 14999,
+      "odometerKm": 159825,
       "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": "white",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
       "location": null,
       "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/f6/f65fd6c2-e93e-4e72-8b22-cbb165ec6b25?rule=kijijica-200-jpg",
+      "sellerName": "Fornest Automotive",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/06fb75d7-00a1-4ca3-9ac0-0f2218d17e6d_77acf1e6-7a26-4289-9328-6c727933c12b.jpg/250x188.webp",
       "vin": null,
-      "description": "2017 Jeep Cherokee Trailhawk great shape, everything works, panoramic roof, leather interior, new front and rear brakes and rotors , regular oil changes with synthetic oil, heated and cooled seats, ...",
-      "id": "3cd17231c851b50f",
+      "description": null,
+      "id": "dd833bbd6a2a5da3",
       "alsoOn": [],
-      "score": 35,
+      "score": 37,
       "band": "probably not",
       "scoreParts": [
         {
           "label": "at the top of the budget",
-          "delta": -8
+          "delta": -7
         },
         {
           "label": "high kilometres",
           "delta": -6
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
         }
       ],
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2017 Jeep Cherokee at $15,500.",
-          "It shows 147,000 km, about normal for its age here."
+          "Ford Edge at $14,999.",
+          "It shows 159,825 km."
         ],
-        "pros": [
-          "practical body style"
-        ],
+        "pros": [],
         "cons": [
           "at the top of the budget",
-          "high kilometres",
-          "getting on in years"
+          "high kilometres"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
-          "CVT fluid service history",
+          "Timing belt or chain service, if due",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 15500
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 14999
         }
       ]
     },
@@ -5200,7 +5030,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5270,8 +5100,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -5350,7 +5180,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5413,82 +5243,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 15999
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/nissan-micra-s-auto-gasoline-cat_ma52gr201056tr14458-f8161f7f-40d0-4a19-8104-e4e56ceda1a3",
-      "title": "Nissan Micra S Auto",
-      "year": null,
-      "make": "Nissan",
-      "model": "Micra",
-      "trim": "S Auto",
-      "price": 12995,
-      "odometerKm": 92602,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "House Of Cars Lethbridge",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f8161f7f-40d0-4a19-8104-e4e56ceda1a3_d88956d7-9b0a-4354-a0d0-355b9b9df2bf.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "cfb3d86fc96e63d7",
-      "alsoOn": [],
-      "score": 32,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 6
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "Nissan Micra at $12,995. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 92,602 km.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "comfortably inside budget",
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "The CVT is the problem, and replacing it costs more than the car."
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 12995
         }
       ]
     },
@@ -5560,98 +5320,12 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
           "price": 12995
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": null,
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-rogue-sv-awd-special-edition/1741781700",
-      "title": "2016 NISSAN ROGUE SV AWD SPECIAL EDITION",
-      "year": 2016,
-      "make": "Nissan",
-      "model": "Rogue",
-      "trim": "SV Special Edition",
-      "price": 14900,
-      "odometerKm": 50606,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": "blue",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/38/383c7552-7e40-4c0a-877d-5c64b2ac2903?rule=kijijica-200-jpg",
-      "vin": null,
-      "description": "Senior lady, original owner, can no longer drive due to medical conditions. Vehicle is in near new condition with some body scrapes and chips & some minor damage on right rear quarter panel. ...",
-      "id": "debef773a12dfc55",
-      "alsoOn": [],
-      "score": 30,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -6
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "low kilometres",
-          "delta": 12
-        },
-        {
-          "label": "driven less than average for its age",
-          "delta": 5
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2016 Nissan Rogue at $14,900. The price looks tempting, but this is a model I would steer her away from.",
-          "That is about 7% above the $13,890 that comparable ones are asking, so there should be room to negotiate. It shows 50,606 km, well under the 200,000 km an average Alberta car of that age would have.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "low kilometres",
-          "driven less than average for its age",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 14900
         }
       ]
     },
@@ -5716,7 +5390,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5798,8 +5472,8 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
@@ -5880,7 +5554,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5962,12 +5636,88 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 13995
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/nissan-rogue-sv-awd-heated-seats-backup-camera-gasoline-grey-cat_ma52gr201103tr11833-e08f8bdb-8a17-4110-961d-24799e3ab846",
+      "title": "Nissan Rogue SV AWD | Heated Seats | Backup Camera",
+      "year": null,
+      "make": "Nissan",
+      "model": "Rogue",
+      "trim": "SV AWD | Heated Seats | Backup Camera",
+      "price": 11998,
+      "odometerKm": 161193,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Eastside Kia",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/e08f8bdb-8a17-4110-961d-24799e3ab846_7bd5807b-8669-4679-8710-68c308d579c4.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "39e51a654d0b9673",
+      "alsoOn": [],
+      "score": 27,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 7
+        },
+        {
+          "label": "priced below similar cars",
+          "delta": 6
+        },
+        {
+          "label": "The CVT is the problem, and replacing it costs more than the car.",
+          "delta": -30
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        }
+      ],
+      "commentary": {
+        "headline": "Cheap for a reason — I would keep looking.",
+        "body": [
+          "Nissan Rogue at $11,998. The price looks tempting, but this is a model I would steer her away from.",
+          "That is roughly 14% below the $14,000 that comparable ones are asking, which is worth a phone call on its own. It shows 161,193 km.",
+          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
+        ],
+        "pros": [
+          "comfortably inside budget",
+          "priced below similar cars"
+        ],
+        "cons": [
+          "The CVT is the problem, and replacing it costs more than the car.",
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 11998
         }
       ]
     },
@@ -6047,12 +5797,103 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 13977
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": null,
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-rogue-sv-awd-special-edition/1741781700",
+      "title": "2016 NISSAN ROGUE SV AWD SPECIAL EDITION",
+      "year": 2016,
+      "make": "Nissan",
+      "model": "Rogue",
+      "trim": "SV Special Edition",
+      "price": 14900,
+      "odometerKm": 50606,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "blue",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/38/383c7552-7e40-4c0a-877d-5c64b2ac2903?rule=kijijica-200-jpg",
+      "vin": null,
+      "description": "Senior lady, original owner, can no longer drive due to medical conditions. Vehicle is in near new condition with some body scrapes and chips & some minor damage on right rear quarter panel. ...",
+      "id": "debef773a12dfc55",
+      "alsoOn": [],
+      "score": 26,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -6
+        },
+        {
+          "label": "slightly above market",
+          "delta": -4
+        },
+        {
+          "label": "The CVT is the problem, and replacing it costs more than the car.",
+          "delta": -30
+        },
+        {
+          "label": "low kilometres",
+          "delta": 12
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Cheap for a reason — I would keep looking.",
+        "body": [
+          "2016 Nissan Rogue at $14,900. The price looks tempting, but this is a model I would steer her away from.",
+          "That is about 8% above the $13,779 that comparable ones are asking, so there should be room to negotiate. It shows 50,606 km, well under the 200,000 km an average Alberta car of that age would have.",
+          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
+        ],
+        "pros": [
+          "low kilometres",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "slightly above market",
+          "The CVT is the problem, and replacing it costs more than the car.",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 14900
         }
       ]
     },
@@ -6129,168 +5970,12 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
           "price": 9888
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/jeep-compass-high-altitude-4wd-security-cargo-convenience-gasoline-black-cat_ma38gr200720tr13554-a1a4f777-d3ed-4a7c-905c-ccdf448ef608",
-      "title": "Jeep Compass High Altitude 4WD * Security & Cargo Convenience *",
-      "year": null,
-      "make": "Jeep",
-      "model": "Compass",
-      "trim": "High Altitude 4WD * Security & Cargo Convenience *",
-      "price": 9995,
-      "odometerKm": 149130,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "South Trail Nissan",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/a1a4f777-d3ed-4a7c-905c-ccdf448ef608_50385dd7-452d-45fe-8e71-8973ddc1bedf.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "0d0934f24328d64d",
-      "alsoOn": [],
-      "score": 24,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 10
-        },
-        {
-          "label": "Poor reliability and a weak CVT, despite looking like a winter car.",
-          "delta": -30
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "Jeep Compass at $9,995. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 149,130 km.",
-          "Sits high and looks rugged, but the older Compass/Patriot CVT is fragile and interior and electrical complaints are common. A Crosstrek does the winter job far better."
-        ],
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "Poor reliability and a weak CVT, despite looking like a winter car.",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 9995
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "JN8AF5MV5GT660537",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-juke-nismo-awd-1-6l-turbo-360cam-navi-r-start-warran/1726741088",
-      "title": "2016 Nissan Juke NISMO AWD 1.6L TURBO 360CAM/NAVI/R.START/WARRAN",
-      "year": 2016,
-      "make": "Nissan",
-      "model": "Juke",
-      "trim": "NISMO AWD 1.6L TURBO 360CAM/NAVI/R.START/WARRANTY INLCUDED",
-      "price": 14995,
-      "odometerKm": 109181,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": "black",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/fc/fc435b18-1982-47b1-ac1c-3ab36c593e1b?rule=kijijica-200-jpg",
-      "vin": "JN8AF5MV5GT660537",
-      "description": "Thanks for viewing our South View Motors Inventory! 2016 Nissan Juke NISMO AWD 1.6L Turbo | Sport Performance Crossover This 2016 Nissan Juke NISMO AWD is a bold and sporty compact crossover that ...",
-      "id": "c508fb7234447656",
-      "alsoOn": [],
-      "score": 23,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -7
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "driven less than average for its age",
-          "delta": 5
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2016 Nissan Juke at $14,995. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 109,181 km, well under the 200,000 km an average Alberta car of that age would have.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "reasonable kilometres",
-          "driven less than average for its age",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:39:24.273Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:39:24.273Z",
-          "price": 14995
         }
       ]
     },
@@ -6367,7 +6052,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6377,30 +6062,29 @@
       ]
     },
     {
-      "source": "kijiji",
-      "sourceId": "5UXWX9C52G0D71609",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-bmw-x3-xdrive28i-leather-panorama/1740196835",
-      "title": "2016 BMW X3 xDrive28i - LEATHER! PANORAMA!",
-      "year": 2016,
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/bmw-3-series-330i-xdrive-backup-camera-sunroof-bluetooth-gasoline-silver-cat_ma13gr100038mt122tr478933-61bfeee1-b400-4dba-af75-0aa91e7552c3",
+      "title": "BMW 3 Series 330i xDrive BACKUP CAMERA SUNROOF BLUETOOTH /",
+      "year": null,
       "make": "BMW",
-      "model": "x3",
-      "trim": "xDrive28i - LEATHER! PANORAMA!",
-      "price": 15977,
-      "odometerKm": 163909,
+      "model": "3 Series",
+      "trim": "330i xDrive BACKUP CAMERA SUNROOF BLUETOOTH /",
+      "price": 15988,
+      "odometerKm": 149452,
       "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
+      "drivetrain": null,
+      "fuel": "Gasoline",
       "exteriorColour": null,
       "location": null,
       "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f6/f652ffd5-35b6-4879-8240-9f78ad41215e?rule=kijijica-200-jpg",
-      "vin": "5UXWX9C52G0D71609",
-      "description": "Check out this premium pre-owned 2016 BMW X3 xDrive28i now available at Auto Avenue Airdrie. The BMW X3 is the perfect blend of luxury, performance, and everyday practicality. Known for its refined ...",
-      "id": "dee8cf42346b03c5",
+      "sellerName": "Auto House",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/61bfeee1-b400-4dba-af75-0aa91e7552c3_13d27f9a-36c9-4a00-8490-7da56a280dfe.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "9f6e47e22bc36d17",
       "alsoOn": [],
-      "score": 21,
+      "score": 22,
       "band": "probably not",
       "scoreParts": [
         {
@@ -6414,47 +6098,35 @@
         {
           "label": "high kilometres",
           "delta": -6
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
         }
       ],
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2016 BMW x3 at $15,977.",
-          "It shows 163,909 km, about normal for its age here.",
+          "BMW 3 Series at $15,988.",
+          "It shows 149,452 km.",
           "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context."
         ],
-        "pros": [
-          "practical body style"
-        ],
+        "pros": [],
         "cons": [
           "at the top of the budget",
           "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "high kilometres",
-          "getting on in years"
+          "high kilometres"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
           "Service records from a specialist, not just oil changes",
-          "Timing belt or chain service, if due",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 15977
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 15988
         }
       ]
     },
@@ -6506,7 +6178,7 @@
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
           "2019 Nissan Rogue at $14,000. The price looks tempting, but this is a model I would steer her away from.",
-          "That is right about what similar ones are asking ($14,340 typical). It shows 179,250 km, about normal for its age here.",
+          "That is right about what similar ones are asking ($13,779 typical). It shows 179,250 km, about normal for its age here.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
         "pros": [
@@ -6526,7 +6198,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6559,12 +6231,16 @@
       "description": "This outstanding example of a 2019 Nissan Rogue SV is proudly offered by Auto Avenue Airdrie. This versatile SUV delivers the perfect balance of comfort, practicality, and modern design, making every ...",
       "id": "43a6037d9441301f",
       "alsoOn": [],
-      "score": 11,
+      "score": 7,
       "band": "probably not",
       "scoreParts": [
         {
           "label": "at the top of the budget",
           "delta": -7
+        },
+        {
+          "label": "slightly above market",
+          "delta": -4
         },
         {
           "label": "The CVT is the problem, and replacing it costs more than the car.",
@@ -6583,7 +6259,7 @@
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
           "2019 Nissan Rogue at $14,977. The price looks tempting, but this is a model I would steer her away from.",
-          "That is about 8% above the $13,890 that comparable ones are asking, so there should be room to negotiate. It shows 173,155 km, about normal for its age here.",
+          "That is about 9% above the $13,779 that comparable ones are asking, so there should be room to negotiate. It shows 173,155 km, about normal for its age here.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
         "pros": [
@@ -6591,6 +6267,7 @@
         ],
         "cons": [
           "at the top of the budget",
+          "slightly above market",
           "The CVT is the problem, and replacing it costs more than the car.",
           "high kilometres"
         ],
@@ -6603,12 +6280,82 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T11:38:11.639Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T11:38:11.639Z",
           "price": 14977
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/jeep-compass-limited-moonroof-navi-blind-spot-tow-pkg-gasoline-cat_ma38gr200720tr5007-fa6c5b5b-8852-40f5-b555-cfbeed670811",
+      "title": "Jeep Compass Limited MOONROOF| NAVI| BLIND SPOT| TOW PKG",
+      "year": null,
+      "make": "Jeep",
+      "model": "Compass",
+      "trim": "Limited MOONROOF| NAVI| BLIND SPOT| TOW PKG",
+      "price": 15899,
+      "odometerKm": 175296,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Innisfail Chrysler Dodge Jeep Ram",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/fa6c5b5b-8852-40f5-b555-cfbeed670811_733d704b-06a8-4a3e-b663-6400a1f4173e.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "1f3bbc846e3a9adc",
+      "alsoOn": [],
+      "score": 4,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "Poor reliability and a weak CVT, despite looking like a winter car.",
+          "delta": -30
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        }
+      ],
+      "commentary": {
+        "headline": "Cheap for a reason — I would keep looking.",
+        "body": [
+          "Jeep Compass at $15,899. The price looks tempting, but this is a model I would steer her away from.",
+          "It shows 175,296 km.",
+          "Sits high and looks rugged, but the older Compass/Patriot CVT is fragile and interior and electrical complaints are common. A Crosstrek does the winter job far better."
+        ],
+        "pros": [],
+        "cons": [
+          "at the top of the budget",
+          "Poor reliability and a weak CVT, despite looking like a winter car.",
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T11:42:26.986Z",
+      "lastSeen": "2026-08-10T11:42:26.986Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T11:42:26.986Z",
+          "price": 15899
         }
       ]
     }
@@ -6685,7 +6432,7 @@
       "rejectReason": "too many kilometres (186,500 km)"
     },
     {
-      "id": "5d2c969fb61dd643",
+      "id": "448d7bc32b9c4234",
       "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-honda-civic-no-gst/1741808924",
       "title": "2016 Honda Civic - No GST!",
       "price": 9400,
