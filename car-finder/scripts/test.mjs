@@ -107,6 +107,8 @@ group('what counts as a car', () => {
   check('year from url slug', v('Kia Forte EX', { url: 'https://www.autotrader.ca/offers/kia-forte-ex-2018-black' }).year, 2018);
   // A listing id that merely starts with 20xx is not a model year.
   check('listing id is not a year', v('Kia Forte EX', { url: 'https://www.autotrader.ca/offers/kia-forte-ex-black-20194837' }).year, null);
+  check('lowercase model capitalised', v('Kia forte EX').model, 'Forte');
+  check('model with digits left alone', v('Mazda CX-5 GS').model, 'CX-5');
   check('query string ids ignored', v('Kia Forte EX', { url: 'https://x.ca/vdp.action?listingId=201948371' }).year, null);
 });
 

@@ -51,6 +51,18 @@ function yearFromSlug(url) {
   return null;
 }
 
+/**
+ * Kijiji's structured data reports models in lower case ("forte"), so titles
+ * come out as "Kia forte". Capitalise words, but leave anything already
+ * containing a capital or a digit alone so CX-5, RAV4 and F-150 survive.
+ */
+function tidyModel(model) {
+  return model
+    .split(/\s+/)
+    .map((word) => (/[A-Z0-9]/.test(word) ? word : word.replace(/^[a-z]/, (c) => c.toUpperCase())))
+    .join(' ');
+}
+
 /** Trim the boilerplate aggregators wrap around a title. */
 function tidyTitle(title) {
   if (!title) return null;
@@ -196,7 +208,7 @@ export function normalize(raw) {
     ?? parseYear(listing.description)
     ?? yearFromSlug(listing.url);
   listing.make = canonicalMake(fromTitle.make);
-  listing.model = fromTitle.model ? decodeEntities(fromTitle.model) : null;
+  listing.model = fromTitle.model ? tidyModel(decodeEntities(fromTitle.model)) : null;
   listing.trim = fromTitle.trim ? decodeEntities(fromTitle.trim) : null;
 
   listing.transmission = parseTransmission(listing.transmission)
