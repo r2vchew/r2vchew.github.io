@@ -105,6 +105,9 @@ group('what counts as a car', () => {
   check('make without year still counts', looksLikeVehicle(v('Kia Forte EX')), true);
   check('title tidied', v('Used 2016 Mazda CX-5 for sale in Calgary, AB').title, '2016 Mazda CX-5');
   check('year from url slug', v('Kia Forte EX', { url: 'https://www.autotrader.ca/offers/kia-forte-ex-2018-black' }).year, 2018);
+  // A listing id that merely starts with 20xx is not a model year.
+  check('listing id is not a year', v('Kia Forte EX', { url: 'https://www.autotrader.ca/offers/kia-forte-ex-black-20194837' }).year, null);
+  check('query string ids ignored', v('Kia Forte EX', { url: 'https://x.ca/vdp.action?listingId=201948371' }).year, null);
 });
 
 group('hard filters', () => {

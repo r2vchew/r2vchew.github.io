@@ -27,6 +27,30 @@ export function looksLikeVehicle(listing) {
   return Boolean(listing.year) || Boolean(listing.make);
 }
 
+/**
+ * Recover a model year from a URL slug, but only when it stands alone as its
+ * own hyphenated word. Scanning the whole URL for four digits happily reads
+ * "2019" out of a listing id like 20194837, and a wrong year on the card is
+ * worse than a blank one.
+ */
+function yearFromSlug(url) {
+  if (!url) return null;
+  let path;
+  try {
+    path = new URL(url).pathname;
+  } catch {
+    path = String(url);
+  }
+  const ceiling = new Date().getFullYear() + 1;
+  const words = path.split(/[^0-9a-z]+/i);
+  for (const word of words) {
+    if (!/^(19|20)\d{2}$/.test(word)) continue;
+    const year = Number.parseInt(word, 10);
+    if (year >= 1990 && year <= ceiling) return year;
+  }
+  return null;
+}
+
 /** Trim the boilerplate aggregators wrap around a title. */
 function tidyTitle(title) {
   if (!title) return null;
@@ -170,7 +194,7 @@ export function normalize(raw) {
     // AutoTrader's structured data often omits the year from the name, so fall
     // back to the description and the URL slug before giving up on it.
     ?? parseYear(listing.description)
-    ?? parseYear((listing.url || '').replace(/\D(19|20)(\d{2})\D/, ' $1$2 '));
+    ?? yearFromSlug(listing.url);
   listing.make = canonicalMake(fromTitle.make);
   listing.model = fromTitle.model ? decodeEntities(fromTitle.model) : null;
   listing.trim = fromTitle.trim ? decodeEntities(fromTitle.trim) : null;
