@@ -60,6 +60,7 @@ async function boot() {
   renderPending();
   render();
   wire();
+  applyIncomingLink();
 }
 
 /* ---------------------------------------------------------------- header */
@@ -258,6 +259,39 @@ function render() {
   }
 }
 
+/**
+ * The morning email links straight at a car, and its "Save to my shortlist"
+ * link carries ?save=<id>. Marks live in this browser's storage, so the email
+ * cannot write them directly — it hands the instruction to the page instead.
+ *
+ * A link scanner fetching the URL cannot trigger this: applying the mark needs
+ * JavaScript to run in her browser.
+ */
+function applyIncomingLink() {
+  const params = new URLSearchParams(window.location.search);
+  const saveId = params.get('save');
+
+  if (saveId) {
+    const car = data.cars.find((c) => c.id === saveId);
+    if (car && !marks.saved[saveId]) {
+      marks.saved[saveId] = label(car);
+      saveMarks();
+      show(`Saved ${label(car)} to your shortlist.`);
+    }
+    // Drop the parameter so a refresh does not re-announce it.
+    const clean = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', clean);
+  }
+
+  const id = (window.location.hash.match(/^#car-(.+)$/) || [])[1];
+  if (!id) return;
+  const el = document.getElementById(`car-${id}`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.classList.add('is-linked');
+  setTimeout(() => el.classList.remove('is-linked'), 2600);
+}
+
 function scoreClass(score) {
   if (score >= 78) return 'good';
   if (score >= 55) return 'mid';
@@ -291,7 +325,7 @@ function cardHtml(car) {
     : '');
 
   return `
-  <article class="card ${car.band === 'shortlist' ? 'is-top' : ''} ${saved ? 'is-saved' : ''}">
+  <article id="car-${car.id}" class="card ${car.band === 'shortlist' ? 'is-top' : ''} ${saved ? 'is-saved' : ''}">
     <div class="photo">${photo}<div class="flags">${flags.join('')}</div></div>
 
     <div class="card-head">

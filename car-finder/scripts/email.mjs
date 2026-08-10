@@ -63,6 +63,11 @@ function carBlock(car) {
                   padding:9px 16px;border-radius:8px;font:600 14px -apple-system,Segoe UI,Roboto,Arial,sans-serif;">
           See the listing
         </a>
+        <a href="${esc(SITE)}?save=${esc(car.id)}#car-${esc(car.id)}"
+           style="display:inline-block;margin-left:10px;color:#1f5d4c;text-decoration:none;
+                  padding:9px 4px;font:600 14px -apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+          Save to my shortlist →
+        </a>
       </td></tr>
     </table>
   </td></tr>`;
@@ -98,8 +103,13 @@ async function main() {
                 letter-spacing:.08em;text-transform:uppercase;color:#86827a;">Calgary &amp; area</p>
       <h1 style="margin:0 0 8px;font:700 24px/1.2 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1b1a17;">
         The car shortlist</h1>
-      <p style="margin:0;font:400 15px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#56534c;">
+      <p style="margin:0 0 14px;font:400 15px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#56534c;">
         ${esc(intro)}</p>
+      <a href="${esc(SITE)}"
+         style="display:inline-block;background:#1b1a17;color:#ffffff;text-decoration:none;
+                padding:10px 18px;border-radius:9px;font:600 14px -apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+        Open the dashboard
+      </a>
     </td></tr>
 
     ${featured.map(carBlock).join('')}

@@ -337,3 +337,13 @@ button.ghost {
 }
 /* The "why" column is the first thing to go when space is tight. */
 @media (max-width: 560px) { .cost-table .why { display: none; } }
+
+/* A card arrived at from the morning email. */
+.card.is-linked {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+  animation: linked-flash 2.6s ease-out;
+}
+@keyframes linked-flash {
+  0%, 60% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 18%, transparent); }
+  100% { box-shadow: var(--shadow); }
+}
