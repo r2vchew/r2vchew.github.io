@@ -17,7 +17,8 @@ const BUILD = join(ROOT, 'build');
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
-const minScore = Number(args[args.indexOf('--min-score') + 1]) || 62;
+// Matches the 'worth a look' band in score.mjs.
+const minScore = Number(args[args.indexOf('--min-score') + 1]) || 54;
 
 const SITE = process.env.SITE_URL || 'https://r2vchew.github.io/car-finder/';
 const fmt = new Intl.NumberFormat('en-CA');

@@ -181,10 +181,24 @@ export function scoreListing(listing, criteria, market, costs = null) {
   };
 }
 
+/**
+ * Band thresholds, calibrated against a real Calgary scan.
+ *
+ * These are tied to the scoring weights above and have to be rechecked
+ * whenever those change. Widening the search to 2010 and adding the
+ * drive-away-cost penalties moved the whole distribution down about fifteen
+ * points — the top car scored 76 against an old shortlist cutoff of 78 — so
+ * the dashboard cheerfully announced that nothing had cleared the bar while
+ * showing seventy-one cars.
+ *
+ * On the scan used to set these: max 76, 90th percentile 57, median 39.
+ */
+export const BANDS = { shortlist: 68, worthALook: 54, maybe: 40 };
+
 export function bandFor(score) {
-  if (score >= 78) return 'shortlist';
-  if (score >= 62) return 'worth a look';
-  if (score >= 48) return 'maybe';
+  if (score >= BANDS.shortlist) return 'shortlist';
+  if (score >= BANDS.worthALook) return 'worth a look';
+  if (score >= BANDS.maybe) return 'maybe';
   return 'probably not';
 }
 

@@ -5,7 +5,7 @@
 import { cardScan } from './lib/cards.mjs';
 import { decodeEntities, parseMoney, parseOdometer, parseTransmission } from './lib/extract.mjs';
 import { looksLikeVehicle, normalize } from './lib/normalize.mjs';
-import { rejectReason } from './lib/score.mjs';
+import { BANDS, bandFor, rejectReason } from './lib/score.mjs';
 import { interpret } from './lib/interpret.mjs';
 import { estimateInitialCost } from './lib/costs.mjs';
 import carpages from './sources/carpages.mjs';
@@ -126,6 +126,17 @@ group('hard filters', () => {
   check('over budget rejected', rejectReason({ ...base, price: 25000, title: 'x' }, criteria), 'over budget at $25,000');
   check('2011 now in scope', rejectReason({ ...base, year: 2011, title: 'x' }, criteria), null);
   check('too old rejected', rejectReason({ ...base, year: 2008, title: 'x' }, criteria), 'too old (2008)');
+});
+
+group('score bands', () => {
+  // A real scan topped out at 76. If the shortlist cutoff drifts above what
+  // the scoring can actually produce, the page claims nothing qualified while
+  // listing dozens of cars.
+  check('shortlist is reachable', BANDS.shortlist <= 76, true);
+  check('bands descend', BANDS.shortlist > BANDS.worthALook && BANDS.worthALook > BANDS.maybe, true);
+  check('top of a real scan makes the shortlist', bandFor(76), 'shortlist');
+  check('mid scan is worth a look', bandFor(57), 'worth a look');
+  check('median scan is not', bandFor(39), 'probably not');
 });
 
 group('plain-English feedback', () => {

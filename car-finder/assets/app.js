@@ -64,6 +64,11 @@ async function boot() {
 
 /* ---------------------------------------------------------------- header */
 
+/** Cars in the top two bands. The thresholds live in score.mjs. */
+function worthALook() {
+  return data.cars.filter((x) => x.band === 'shortlist' || x.band === 'worth a look');
+}
+
 function renderHeader() {
   const s = data.stats;
   const c = data.criteria.hard;
@@ -79,7 +84,7 @@ function renderHeader() {
 
   const prices = data.cars.map((x) => x.price).filter((p) => p != null);
   const cells = [
-    { label: 'Worth a look', value: fmt.format(data.cars.filter((x) => x.score >= 62).length) },
+    { label: 'Worth a look', value: fmt.format(worthALook().length) },
     { label: 'New since yesterday', value: fmt.format(s.newSinceLastRun) },
     { label: 'Filtered out for you', value: fmt.format(s.filteredOut) },
     { label: 'Cheapest pick', value: prices.length ? money(Math.min(...prices)) : '—' },
