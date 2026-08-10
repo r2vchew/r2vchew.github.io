@@ -16,7 +16,7 @@ import carpages from './sources/carpages.mjs';
 
 import { request } from './lib/http.mjs';
 import { extractPage, fromJsonLd, fromState } from './lib/pipeline.mjs';
-import { jsonLdBlocks, embeddedState } from './lib/extract.mjs';
+import { jsonLdBlocks, embeddedState, vehicleNodes } from './lib/extract.mjs';
 import { cardScan } from './lib/cards.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -134,6 +134,16 @@ async function main() {
     } else {
       console.log('  NO ROWS. Anchor candidates in the raw HTML:');
       for (const href of firstHrefs(html, 12)) console.log(`    ${href}`);
+    }
+
+    // The mapped row hides which keys the site actually publishes, which is
+    // exactly what you need when a field like the model year comes back null.
+    const rawVehicle = vehicleNodes(html)[0];
+    if (rawVehicle) {
+      console.log(`  raw JSON-LD keys: ${Object.keys(rawVehicle).join(', ')}`);
+      const yearish = Object.entries(rawVehicle)
+        .filter(([k, v]) => /year|date|model|name|sku/i.test(k) && typeof v !== 'object');
+      console.log(`  year candidates: ${JSON.stringify(Object.fromEntries(yearish))}`);
     }
 
     if (dump) {

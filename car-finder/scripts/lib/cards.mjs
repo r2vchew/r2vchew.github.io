@@ -37,11 +37,15 @@ export function cardScan(html, { linkPattern, baseUrl, windowSize = 2600 }) {
     const end = Math.min(html.length, Math.max(index + windowSize, nextIndex));
     const chunk = html.slice(start, end);
     const text = textOf(chunk);
+    // Where the listing link sits inside the flattened text. The asking price
+    // is the money figure nearest it; other figures in the window usually
+    // belong to neighbouring cards or to financing blurb.
+    const anchorAt = textOf(html.slice(start, index)).length;
 
     const card = {
       url,
       title: pickTitle(chunk, text),
-      price: pickPrice(text),
+      price: pickPrice(text, anchorAt),
       odometerKm: pickOdometer(text),
       year: parseYear(text.slice(0, 220)),
       imageUrl: pickImage(chunk, baseUrl),
@@ -77,7 +81,7 @@ function pickTitle(chunk, text) {
 
 const PAYMENT_CONTEXT = /(bi-?weekly|weekly|monthly|per month|\/mo\b|\/wk\b|payment|finance|financing|o\.?a\.?c|apr|down)/i;
 
-function pickPrice(text) {
+function pickPrice(text, anchorAt = 0) {
   const candidates = [];
   const re = /\$\s?([\d][\d,\s]{2,10})(?:\.\d{2})?/g;
   let m;
@@ -86,17 +90,22 @@ function pickPrice(text) {
     if (value == null || value < 1000 || value > 200000) continue;
     // "$149 bi-weekly" is a financing figure, not what the car costs.
     const context = text.slice(Math.max(0, m.index - 30), m.index + m[0].length + 30);
-    candidates.push({ value, isPayment: PAYMENT_CONTEXT.test(context) });
+    candidates.push({ value, at: m.index, isPayment: PAYMENT_CONTEXT.test(context) });
   }
 
   const real = candidates.filter((c) => !c.isPayment);
   const pool = real.length ? real : candidates;
   if (!pool.length) return null;
 
-  // Cards commonly show a struck-through "was" price beside the asking price.
-  // The lower of the two is what the seller actually wants today.
-  const values = pool.map((c) => c.value).sort((a, b) => a - b);
-  return values[0];
+  // Nearest to the listing link wins. Taking the largest misreads financing
+  // blurb; taking the smallest picks up a cheaper neighbouring card.
+  const nearest = pool.reduce((best, c) =>
+    (Math.abs(c.at - anchorAt) < Math.abs(best.at - anchorAt) ? c : best));
+
+  // A struck-through "was" price sits immediately beside the real one. When
+  // two are that close together, the seller wants the lower.
+  const twin = pool.find((c) => c !== nearest && Math.abs(c.at - nearest.at) < 25);
+  return twin ? Math.min(nearest.value, twin.value) : nearest.value;
 }
 
 function pickOdometer(text) {
