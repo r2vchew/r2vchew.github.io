@@ -1,7 +1,18 @@
-﻿# Status
+# Status
 
-Last updated: 2026-07-28
+Last updated: 2026-08-10
 
-The public, privacy-safe Email Overview companion is committed on `main` in `email-overview/`. GitHub Pages still needs to be enabled from the `main` branch before the site can be served.
+GitHub Pages is enabled and serving from `main`. The site is at
+https://r2vchew.github.io/ — anything on `main` is public.
 
-Next useful action: enable GitHub Pages, then open the mobile site.
+## What is live
+
+| Folder | What it is | Status |
+| --- | --- | --- |
+| `car-finder/` | Used-car shortlist for Calgary, scored and commented, with an email digest and a feedback loop. See `car-finder/STATUS.md`. | Scanning twice a day |
+| `email-overview/` | Privacy-safe Email Overview companion. | Published |
+
+## Next useful action
+
+Add the `MAIL_*` repository secrets to switch on the car-finder email digest.
+Everything else runs without them.

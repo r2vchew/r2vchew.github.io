@@ -81,8 +81,10 @@ node scripts/run.mjs --fixture path/to/fixture.json --dry
 
 ### 1. GitHub Pages
 
-Settings → Pages → build from the `main` branch, root. The dashboard then lives
-at `/car-finder/`.
+Already enabled, serving from `main` at the repository root, so the dashboard
+lives at `/car-finder/`. Nothing to do — but note the consequence: the code
+has to be **on `main`** to be served. While it sat on a feature branch the URL
+returned 404, which is easy to mistake for Pages being switched off.
 
 ### 2. Email digest (optional)
 
