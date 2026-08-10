@@ -160,12 +160,39 @@ export function canonicalMake(value) {
   return hit || String(value).trim().replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export function inferSellerType(value, fallbackText = '') {
-  const t = `${value || ''} ${fallbackText}`.toLowerCase();
-  if (/\b(private|for sale by owner|owner|fsbo)\b/.test(t)) return 'private';
-  if (/\b(dealer|dealership|inc\.?|ltd\.?|motors|auto\s*(group|sales|centre|center)|sales)\b/.test(t)) {
-    return 'dealer';
-  }
+// Dealers give themselves away in the ad copy long before they say "dealer":
+// AMVIC licensing text, financing offers, stock numbers, and the giveaway
+// "thanks for viewing our inventory".
+const DEALER_SIGNALS = /\b(amvic|dealer|dealership|our (inventory|dealership|lot|showroom)|financ(e|ing)|lease|trade[- ]?in|warranty available|extended warranty|(no|bad|good) credit|stock\s*#|doc(umentation)?\s*fee|admin\s*fee|certified pre-?owned|book (a|your) test drive|view(ing)? our)\b/i;
+
+// Private sellers write like people, and often advertise the tax saving.
+const PRIVATE_SIGNALS = /\b(private sale|private seller|selling my|my (car|vehicle|daughter'?s|son'?s|wife'?s|husband'?s)|no dealers|first owner|one owner since new|no gst|no tax|for sale by owner|fsbo)\b/i;
+
+// A business name, as opposed to a person's name.
+const BUSINESS_NAME = /\b(inc\.?|ltd\.?|llc|corp|motors?|auto|autos|automotive|dealership|group|sales|centre|center|imports?|cars?|garage|superstore|nissan|toyota|honda|ford|hyundai|kia|mazda|subaru|volkswagen|chevrolet|gmc|dodge|chrysler|jeep|bmw|audi|mercedes|lexus|acura|infiniti|volvo|mitsubishi)\b/i;
+
+/**
+ * Work out whether a car is being sold by a dealer or by its owner.
+ *
+ * This matters more than it looks: in Alberta a dealer sale carries 5% GST and
+ * a documentation fee that a private sale does not, so getting it wrong moves
+ * the real cost by four figures. Where the evidence is genuinely ambiguous this
+ * returns null rather than guessing, and the cost estimate says so.
+ */
+export function inferSellerType(listing = {}) {
+  const name = listing.sellerName || '';
+  const text = `${listing.title || ''} ${listing.description || ''}`;
+
+  // What the seller says about themselves beats anything inferred.
+  if (PRIVATE_SIGNALS.test(text)) return 'private';
+  if (DEALER_SIGNALS.test(text) || DEALER_SIGNALS.test(name)) return 'dealer';
+
+  // A named seller on a dealer-inventory site is a dealer. AutoTrader and
+  // Carpages are overwhelmingly dealer stock; Kijiji is genuinely mixed, so
+  // a name alone is not enough there.
+  if (name && BUSINESS_NAME.test(name)) return 'dealer';
+  if (name && ['autotrader', 'carpages', 'cargurus'].includes(listing.source)) return 'dealer';
+
   return null;
 }
 
@@ -242,8 +269,7 @@ export function normalize(raw) {
     ?? parseTransmission(listing.title)
     ?? parseTransmission(listing.description);
 
-  listing.sellerType = listing.sellerType
-    ?? inferSellerType(listing.sellerName, listing.location);
+  listing.sellerType = listing.sellerType ?? inferSellerType(listing);
 
   if (!listing.title && listing.year && listing.make) {
     listing.title = [listing.year, listing.make, listing.model, listing.trim]

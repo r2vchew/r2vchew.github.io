@@ -76,6 +76,17 @@ export function estimateInitialCost(listing) {
       certain: true,
       kind: 'always',
     });
+  } else {
+    // We could not tell who is selling. Rather than quietly assume the
+    // cheaper answer, budget for the tax and say the assumption out loud.
+    items.push({
+      label: 'GST, if this is a dealer',
+      amount: Math.round(price * GST_RATE),
+      why: 'could not tell dealer from private seller — a private sale in Alberta pays no GST, '
+        + 'so ask, and take this line off if it is a private sale',
+      certain: false,
+      kind: 'assumed',
+    });
   }
 
   items.push({
@@ -169,6 +180,7 @@ export function estimateInitialCost(listing) {
     // Extras as a share of the sticker — the number that says "this cheap car
     // is not actually cheap".
     uplift: price > 0 ? extras / price : 0,
+    sellerTypeKnown: listing.sellerType === 'dealer' || listing.sellerType === 'private',
     tiresIncluded: SAYS_TIRES_INCLUDED.test(text) && !SAYS_TIRES_NEEDED.test(text),
     needsWork: SAYS_WORK_NEEDED.test(text) || SAYS_TIRES_NEEDED.test(text),
     recentlyServiced: serviced,

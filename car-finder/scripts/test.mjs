@@ -180,6 +180,22 @@ group('what it really costs', () => {
   const sum = dealer.items.reduce((s, i) => s + i.amount, 0);
   check('total is sticker plus the itemised extras', dealer.total, dealer.price + sum);
   check('no price means no estimate', estimateInitialCost({ price: null }), null);
+
+  // An unknown seller must not silently get the cheaper answer.
+  const unknown = estimateInitialCost({ ...base, title: '2018 Corolla' });
+  check('unknown seller still budgets tax', unknown.items.some((i) => i.label === 'GST, if this is a dealer'), true);
+  check('and says the seller is unknown', unknown.sellerTypeKnown, false);
+});
+
+group('who is selling', () => {
+  const seller = (extra) => normalize({ source: 'kijiji', url: 'u', title: '2018 Corolla', ...extra }).sellerType;
+  check('dealer name on autotrader', normalize({ source: 'autotrader', url: 'u', title: 'Elantra', sellerName: 'Northland Volkswagen' }).sellerType, 'dealer');
+  check('plain dealer name on autotrader', normalize({ source: 'autotrader', url: 'u', title: 'Elantra', sellerName: 'Cardeals4u' }).sellerType, 'dealer');
+  check('kijiji dealer copy', seller({ description: 'Thanks for viewing our House Of Cars inventory!' }), 'dealer');
+  check('kijiji financing copy', seller({ description: 'Can FINANCE or LEASE this unit today' }), 'dealer');
+  check('kijiji private copy', seller({ description: 'Selling my daughters car, runs great' }), 'private');
+  check('amvic disclosure is a dealer', seller({ description: 'AMVIC licensed business' }), 'dealer');
+  check('bare kijiji ad stays unknown', seller({ description: 'Runs and drives good, needs tie rod ends' }), null);
 });
 
 console.log(`\n${checks - failures}/${checks} checks passed`);
