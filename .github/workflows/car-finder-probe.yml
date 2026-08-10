@@ -21,6 +21,10 @@ on:
         description: 'Include a raw HTML excerpt around the first price'
         type: boolean
         default: false
+      variants:
+        description: 'Try candidate search URLs instead of the configured one'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -41,4 +45,6 @@ jobs:
         run: |
           node scripts/probe.mjs \
             ${{ inputs.source && format('--source {0}', inputs.source) || '' }} \
-            ${{ inputs.dump && '--dump' || '' }}
+            ${{ inputs.dump && '--dump' || '' }} \
+            ${{ inputs.variants && '--variants' || '' }} \
+            ${{ github.event_name == 'push' && '--variants' || '' }}

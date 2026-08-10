@@ -24,7 +24,8 @@ export default {
     return harvest({
       sourceId: 'carpages',
       baseUrl: BASE,
-      linkPattern: /^\/(alberta|used-cars)\/[^"'?#]*\/\d+\/?$/i,
+      // Detail pages look like /used-cars/alberta/calgary/2010-acura-mdx-14578881/
+      linkPattern: /^\/used-cars\/[a-z-]+\/[a-z-]+\/[^"'?#]+-\d{5,}\/?$/i,
       buildUrl: this.buildUrl,
       criteria,
       ...opts,
