@@ -52,6 +52,7 @@ without anyone having to read hundreds of listings.
 | `scripts/email.mjs` | Builds the digest and decides whether it is worth sending. |
 | `scripts/send-mail.mjs` | Small SMTP client, so the mail password stays out of third-party actions. |
 | `scripts/probe.mjs` | Diagnostic for when a source stops returning cars. |
+| `scripts/test.mjs` | Regression tests for the parsing that live scans proved fragile. |
 | `data/criteria.json` | The search scope. Safe to edit by hand. |
 | `data/verdicts.json` | Her saves and rejections. Rejected cars never come back. |
 | `data/listings.json` | Generated output the dashboard reads. |
@@ -63,6 +64,7 @@ No npm dependencies. Node 22+ only.
 ```bash
 cd car-finder
 
+node scripts/test.mjs                   # regression tests, no network
 node scripts/run.mjs --dry              # scan without writing
 node scripts/run.mjs --source kijiji    # one source
 node scripts/probe.mjs --source kijiji  # diagnose a source that returns nothing

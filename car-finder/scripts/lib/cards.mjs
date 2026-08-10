@@ -31,16 +31,23 @@ export function cardScan(html, { linkPattern, baseUrl, windowSize = 2600 }) {
     if (seen.has(dedupeKey)) continue;
     seen.add(dedupeKey);
 
-    // Look backwards a little (image alt, title) and forwards a lot (specs).
-    const start = Math.max(0, index - Math.floor(windowSize / 4));
-    const nextIndex = anchors[i + 1]?.index ?? html.length;
-    const end = Math.min(html.length, Math.max(index + windowSize, nextIndex));
+    // A card owns the markup from its own link up to the next card's link.
+    // Reaching backwards for an image alt seems helpful but pulls in the
+    // previous card's title and price — the alt lives inside this anchor
+    // anyway. A card usually links to the same car twice (image, then
+    // heading), so the boundary is the next *different* listing.
+    const start = index;
+    const nextCard = anchors.slice(i + 1).find((a) => {
+      const key = absoluteUrl(a.href, baseUrl)?.split('?')[0];
+      return key && key !== dedupeKey;
+    });
+    const end = Math.min(html.length, nextCard?.index ?? index + windowSize);
     const chunk = html.slice(start, end);
     const text = textOf(chunk);
     // Where the listing link sits inside the flattened text. The asking price
     // is the money figure nearest it; other figures in the window usually
     // belong to neighbouring cards or to financing blurb.
-    const anchorAt = textOf(html.slice(start, index)).length;
+    const anchorAt = 0; // the link opens the card, so the price is measured from its start
 
     const card = {
       url,
@@ -81,9 +88,18 @@ function pickTitle(chunk, text) {
 
 const PAYMENT_CONTEXT = /(bi-?weekly|weekly|monthly|per month|\/mo\b|\/wk\b|payment|finance|financing|o\.?a\.?c|apr|down)/i;
 
+// One number, and only one.
+//
+// The thousands separator must not include an ordinary space. If it does,
+// "$8,100 162,000 km" chains into a single match ("8,100 162,000"), fails the
+// sanity check, and the card silently loses both its price and its mileage.
+// A non-breaking space is a genuine separator in some markup; a plain space is
+// the gap between two different numbers.
+const NUMBER = String.raw`\d{1,3}(?:[,\u00a0]\d{3})+|\d+`;
+
 function pickPrice(text, anchorAt = 0) {
   const candidates = [];
-  const re = /\$\s?([\d][\d,\s]{2,10})(?:\.\d{2})?/g;
+  const re = new RegExp(String.raw`\$\s?(${NUMBER})(?:\.\d{2})?`, 'g');
   let m;
   while ((m = re.exec(text)) !== null) {
     const value = parseMoney(m[1]);
@@ -110,9 +126,9 @@ function pickPrice(text, anchorAt = 0) {
 
 function pickOdometer(text) {
   const patterns = [
-    /([\d][\d,\s]{2,9})\s*(?:km|kms|kilometres|kilometers)\b/i,
-    /(?:mileage|odometer)\s*:?\s*([\d][\d,\s]{2,9})/i,
-    /([\d][\d,\s]{2,9})\s*(?:mi|miles)\b/i,
+    new RegExp(String.raw`(${NUMBER})\s*(?:km|kms|kilometres|kilometers)\b`, 'i'),
+    new RegExp(String.raw`(?:mileage|odometer)\s*:?\s*(${NUMBER})`, 'i'),
+    new RegExp(String.raw`(${NUMBER})\s*(?:mi|miles)\b`, 'i'),
   ];
   for (const re of patterns) {
     const m = text.match(re);

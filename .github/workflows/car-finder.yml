@@ -53,6 +53,10 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Tests
+        working-directory: car-finder
+        run: node scripts/test.mjs
+
       # Her decisions are applied before the scan, so a rejected car never
       # reappears in the very run that follows the rejection.
       - name: Apply feedback
