@@ -117,7 +117,9 @@ export function scoreListing(listing, criteria, market) {
   }
 
   if (s.wantAwd) {
-    const awd = /\b(awd|4wd|4x4|all[- ]wheel|quattro|4motion|xdrive|s-?awc)\b/i
+    // Kijiji reports drivetrain as a schema.org URL ("AllWheelDriveConfiguration"),
+    // so the separator between "all" and "wheel" has to be optional.
+    const awd = /\b(awd|4wd|4x4|all[-\s]?wheel|four[-\s]?wheel|quattro|4motion|xdrive|s-?awc)/i
       .test(`${listing.title} ${listing.drivetrain} ${listing.description}`);
     if (awd) { score += 8; parts.push({ label: 'all-wheel drive', delta: 8 }); }
   }

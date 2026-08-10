@@ -243,14 +243,16 @@ function renderNearMisses() {
 
 function renderSources() {
   $('#source-list').innerHTML = (data.sourceHealth || []).map((s) => {
-    const cls = s.count > 0 ? 'ok' : (s.blocked ? 'bad' : 'warn');
-    const detail = s.count > 0
-      ? `${fmt.format(s.count)} listings read`
-      : (s.blocked ? 'blocked the scan this time' : 'returned nothing');
+    const cls = s.count > 0 ? 'ok' : (s.skipped ? 'warn' : (s.blocked ? 'bad' : 'warn'));
+    let detail;
+    if (s.count > 0) detail = `${fmt.format(s.count)} listings read`;
+    else if (s.skipped) detail = 'not checked — this site blocks automated visits';
+    else if (s.blocked) detail = 'blocked the scan this time';
+    else detail = 'returned nothing';
     return `<li><span class="dot ${cls}"></span><b>${esc(s.label)}</b><span class="muted">${detail}</span></li>`;
   }).join('');
 
-  const down = (data.sourceHealth || []).filter((s) => s.count === 0);
+  const down = (data.sourceHealth || []).filter((s) => s.count === 0 && !s.skipped);
   $('#source-note').textContent = down.length
     ? 'A site returning nothing usually means it served a bot check rather than that it has no cars. The next scan retries automatically.'
     : '';

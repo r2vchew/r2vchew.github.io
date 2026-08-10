@@ -8,6 +8,9 @@ export default {
   homepage: BASE,
   note: 'Smaller Canadian aggregator; picks up independent Calgary lots the big sites miss.',
 
+  // Detail pages: /used-cars/alberta/calgary/2010-acura-mdx-14578881/
+  linkPattern: /^\/used-cars\/[a-z-]+\/[a-z-]+\/[^"'?#]+-\d{5,}\/?$/i,
+
   buildUrl(criteria, page = 0) {
     const params = new URLSearchParams({
       price_to: String(criteria.maxPrice ?? 20000),
@@ -22,10 +25,9 @@ export default {
 
   fetchListings(criteria, opts = {}) {
     return harvest({
-      sourceId: 'carpages',
+      sourceId: this.id,
       baseUrl: BASE,
-      // Detail pages look like /used-cars/alberta/calgary/2010-acura-mdx-14578881/
-      linkPattern: /^\/used-cars\/[a-z-]+\/[a-z-]+\/[^"'?#]+-\d{5,}\/?$/i,
+      linkPattern: this.linkPattern,
       buildUrl: this.buildUrl,
       criteria,
       ...opts,

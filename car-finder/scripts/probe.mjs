@@ -21,12 +21,11 @@ import { cardScan } from './lib/cards.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SOURCES = { autotrader, kijiji, cargurus, carpages };
-const LINK_PATTERNS = {
-  autotrader: /^\/a\/[^"'?#]+/i,
-  kijiji: /^\/v-cars-trucks\/[^"'?#]+/i,
-  cargurus: /vdp\.action\?[^"']*listingId=/i,
-  carpages: /^\/(alberta|used-cars)\/[^"'?#]*\/\d+\/?$/i,
-};
+
+// Patterns live on the source modules so the probe can never drift from what
+// the scraper actually uses — an earlier duplicated copy did exactly that and
+// made a working fix look broken.
+const patternFor = (id) => SOURCES[id].linkPattern;
 
 const args = process.argv.slice(2);
 const only = args[args.indexOf('--source') + 1];
@@ -36,35 +35,31 @@ const variants = args.includes('--variants');
 // Candidate search URLs to try when a source is returning the wrong region or
 // refusing outright. Testing them in one CI run beats guessing one at a time.
 const VARIANTS = {
+  // Confirming the canonical path form keeps the location, and finding how
+  // AutoTrader paginates — a single page is only 20 cars.
   autotrader: [
-    'https://www.autotrader.ca/cars/ab/calgary/?rcp=15&rcs=0&srt=35&prx=150&prv=Alberta&loc=T2P1J9&hprc=True&wcp=True&sts=Used',
-    'https://www.autotrader.ca/cars/ab/calgary/?prx=150&loc=T2P1J9&priceto=16000&modelyearfrom=2016&kmto=180000',
-    'https://www.autotrader.ca/cars/?prx=150&loc=T2P1J9&priceto=16000&modelyearfrom=2016&kmto=180000&sts=Used',
-    'https://www.autotrader.ca/cars/ab/calgary/?prx=150&loc=Calgary%2C%20AB&priceto=16000&modelyearfrom=2016',
-    'https://www.autotrader.ca/cars/ab/calgary/',
-  ],
-  cargurus: [
-    'https://www.cargurus.ca/Cars/inventorylisting/viewDetailsFilterViewInventoryListing.action?zip=T2P1J9&distance=150&maxPrice=16000',
-    'https://www.cargurus.ca/Cars/spt_used_cars-calgary-ab',
-    'https://www.cargurus.ca/Cars/inventorylisting/ajaxFetchSubsetInventoryListing.action?zip=T2P1J9&distance=150&maxPrice=16000&outputFormat=JSON',
+    'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000?modelyearfrom=2016&kmto=180000',
+    'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000?modelyearfrom=2016&kmto=180000&page=2',
+    'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000?modelyearfrom=2016&kmto=180000&rcs=20&rcp=100',
+    'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000/page_2?modelyearfrom=2016',
   ],
   carpages: [
     'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016',
-    'https://www.carpages.ca/used-cars/alberta/calgary/?price_to=16000&year_from=2016',
+    'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016&p=2',
   ],
   kijiji: [
     'https://www.kijiji.ca/b-cars-trucks/calgary/c174l1700199?sort=dateDesc&price=3500__16000',
-    'https://www.kijiji.ca/b-cars-trucks/calgary/page-2/c174l1700199?sort=dateDesc&price=3500__16000',
+    'https://www.kijiji.ca/b-cars-trucks/calgary/page-3/c174l1700199?sort=dateDesc&price=3500__16000',
   ],
 };
 
-/** Where do the results actually come from? Catches a search that ignored the location filter. */
+// Dealer names and slugs rarely contain a city, so an automated in-province
+// check gives false negatives. Print the evidence and judge it by eye instead.
 function regionSample(rows) {
   const places = rows
-    .map((r) => [r.location, r.sellerName, r.url].filter(Boolean).join(' '))
+    .map((r) => [r.location, r.sellerName, r.title, r.url].filter(Boolean).join(' · '))
     .slice(0, 6);
-  const alberta = places.filter((p) => /calgary|alberta|\bab\b|airdrie|okotoks|cochrane|red deer|edmonton/i.test(p)).length;
-  return { alberta, of: places.length, samples: places.map((p) => p.slice(0, 78)) };
+  return { samples: places.map((p) => p.slice(0, 110)) };
 }
 
 async function probeVariants() {
@@ -79,12 +74,11 @@ async function probeVariants() {
         continue;
       }
       const blocked = BLOCK_SIGNS.test(res.body.slice(0, 6000));
-      const out = extractPage(res.body, { baseUrl: source.homepage, linkPattern: LINK_PATTERNS[id] });
+      const out = extractPage(res.body, { baseUrl: source.homepage, linkPattern: patternFor(id) });
       const region = regionSample(out.rows);
       console.log(`\n${out.rows.length ? '✓' : '·'} ${res.status}  ${url}`);
       console.log(`    final:    ${res.url}`);
       console.log(`    rows:     ${out.rows.length} via ${out.strategy}  ${JSON.stringify(out.breakdown)}${blocked ? '  [BOT CHECK]' : ''}`);
-      console.log(`    Alberta:  ${region.alberta}/${region.of} of the first rows`);
       for (const s of region.samples.slice(0, 3)) console.log(`      ${s}`);
     }
   }
@@ -122,7 +116,7 @@ async function main() {
     console.log(`__NEXT_DATA__ present: ${/__NEXT_DATA__/.test(html)}`);
 
     // How many listings does each strategy find?
-    const pattern = LINK_PATTERNS[id];
+    const pattern = patternFor(id);
     const anchors = countAnchors(html, pattern);
     console.log(`links matching ${pattern}: ${anchors.total} (${anchors.unique} unique)`);
     if (anchors.samples.length) {

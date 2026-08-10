@@ -11,6 +11,9 @@ export default {
   homepage: BASE,
   note: 'Strongest source of private-seller cars, which is where the cheap ones are.',
 
+  // Detail pages: /v-cars-trucks/<city>/<slug>/<id>
+  linkPattern: /^\/v-cars-trucks\/[^"'?#]+/i,
+
   buildUrl(criteria, page = 0) {
     const params = new URLSearchParams({ sort: 'dateDesc' });
     const min = criteria.minPrice ?? 0;
@@ -25,9 +28,9 @@ export default {
 
   fetchListings(criteria, opts = {}) {
     return harvest({
-      sourceId: 'kijiji',
+      sourceId: this.id,
       baseUrl: BASE,
-      linkPattern: /^\/v-cars-trucks\/[^"'?#]+/i,
+      linkPattern: this.linkPattern,
       buildUrl: this.buildUrl,
       criteria,
       ...opts,

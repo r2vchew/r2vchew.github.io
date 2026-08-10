@@ -8,6 +8,13 @@ export default {
   homepage: BASE,
   note: 'Publishes a deal rating per car, which is a useful second opinion on price.',
 
+  linkPattern: /vdp\.action\?[^"']*listingId=/i,
+
+  // Confirmed refusing GitHub's datacentre IPs (403/406/404 on every entry
+  // point tried). Skipped unless a scraping proxy is configured, so it does
+  // not sit permanently red on the dashboard.
+  requiresProxy: true,
+
   buildUrl(criteria, page = 0) {
     const params = new URLSearchParams({
       sourceContext: 'carGurusHomePageModel',
@@ -29,9 +36,9 @@ export default {
 
   fetchListings(criteria, opts = {}) {
     return harvest({
-      sourceId: 'cargurus',
+      sourceId: this.id,
       baseUrl: BASE,
-      linkPattern: /vdp\.action\?[^"']*listingId=/i,
+      linkPattern: this.linkPattern,
       buildUrl: this.buildUrl,
       criteria,
       ...opts,

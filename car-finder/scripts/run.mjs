@@ -75,8 +75,24 @@ async function main() {
     console.log(`\nLoaded ${raw.length} records from fixture ${fixture}`);
   } else {
     const only = value('source');
-    const active = only ? SOURCES.filter((s) => s.id === only) : SOURCES;
+    let active = only ? SOURCES.filter((s) => s.id === only) : SOURCES;
     const params = searchParams(criteria);
+
+    // Some sources refuse GitHub's datacentre IPs outright. Rather than let
+    // them fail every run and clutter the dashboard, they sit out until a
+    // scraping proxy is configured.
+    if (!only) {
+      const skipped = active.filter((s) => s.requiresProxy && !proxyEnabled());
+      for (const s of skipped) {
+        console.log(`\n── ${s.label}: skipped (needs a scraping proxy; set SCRAPINGBEE_API_KEY or SCRAPERAPI_KEY)`);
+        sourceHealth.push({
+          id: s.id, label: s.label, count: 0, blocked: true, skipped: true,
+          errors: ['needs a scraping proxy to reach this site from CI'],
+          strategy: null, elapsedSeconds: 0,
+        });
+      }
+      active = active.filter((s) => !skipped.includes(s));
+    }
 
     for (const source of active) {
       console.log(`\n── ${source.label}`);
