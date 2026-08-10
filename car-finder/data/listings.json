@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T05:36:27.107Z",
+  "generatedAt": "2026-08-10T05:39:24.273Z",
   "criteria": {
     "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
     "updatedAt": "2026-08-10",
@@ -78,7 +78,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 4.7
+      "elapsedSeconds": 4.1
     },
     {
       "id": "kijiji",
@@ -87,33 +87,34 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 7.9
+      "elapsedSeconds": 6.5
     },
     {
       "id": "carpages",
       "label": "Carpages.ca",
-      "count": 1,
+      "count": 0,
       "blocked": false,
-      "errors": [],
-      "strategy": "jsonld",
-      "elapsedSeconds": 0.4
+      "errors": [
+        "page 0: timeout after 30000ms"
+      ],
+      "strategy": null,
+      "elapsedSeconds": 95.3
     }
   ],
   "stats": {
-    "rawRecords": 133,
+    "rawRecords": 132,
     "nonVehiclesDropped": 11,
-    "uniqueCars": 120,
-    "passedFilters": 89,
-    "filteredOut": 31,
+    "uniqueCars": 116,
+    "passedFilters": 87,
+    "filteredOut": 29,
     "filterReasons": {
       "manual transmission": 4,
-      "too many kilometres (N km)": 24,
-      "salvage, rebuilt or as-is title": 2,
-      "too old (N)": 1
+      "too many kilometres (N km)": 23,
+      "salvage, rebuilt or as-is title": 2
     },
-    "candidates": 89,
-    "newSinceLastRun": 25,
-    "previousRunAt": "2026-08-10T05:33:11.451Z"
+    "candidates": 87,
+    "newSinceLastRun": 2,
+    "previousRunAt": "2026-08-10T05:36:27.107Z"
   },
   "cars": [
     {
@@ -139,16 +140,12 @@
       "description": null,
       "id": "4314d3a6140bdb3b",
       "alsoOn": [],
-      "score": 87,
-      "band": "shortlist",
+      "score": 75,
+      "band": "worth a look",
       "scoreParts": [
         {
           "label": "comfortably inside budget",
           "delta": 9
-        },
-        {
-          "label": "priced well below similar cars",
-          "delta": 12
         },
         {
           "label": "Undervalued, and the long factory warranty may still have time left.",
@@ -160,16 +157,15 @@
         }
       ],
       "commentary": {
-        "headline": "Priced under the going rate for one of these.",
+        "headline": "Worth a look if the inspection comes back clean.",
         "body": [
           "Kia Forte at $10,888, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "That is roughly 16% below the $12,923 that comparable ones are asking, which is worth a phone call on its own. It shows 85,901 km.",
+          "It shows 85,901 km.",
           "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
         "pros": [
           "comfortably inside budget",
-          "priced well below similar cars",
           "Undervalued, and the long factory warranty may still have time left.",
           "reasonable kilometres"
         ],
@@ -182,171 +178,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 10888
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "3KPF54AD1KE008722",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-kia-forte/1741801215",
-      "title": "2019 Kia Forte",
-      "year": 2019,
-      "make": "Kia",
-      "model": "forte",
-      "trim": "EX Limited",
-      "price": 10900,
-      "odometerKm": 168140,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "sedan",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/9e/9e8d6db4-b2b3-43c3-ac31-8c81295a7059?rule=kijijica-200-jpg",
-      "vin": "3KPF54AD1KE008722",
-      "description": "2019 Kia Forte EX Limited with 168140 kms. This car is in great shape inside and out. Fully loaded and runs and drives very well. Fuel efficient and reliable. Includes heated seats, leather, power ...",
-      "id": "9ada1ebe6ab8cf00",
-      "alsoOn": [],
-      "score": 79,
-      "band": "shortlist",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 9
-        },
-        {
-          "label": "priced well below similar cars",
-          "delta": 12
-        },
-        {
-          "label": "Undervalued, and the long factory warranty may still have time left.",
-          "delta": 10
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Priced under the going rate for one of these.",
-        "body": [
-          "2019 Kia forte at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "That is roughly 16% below the $12,923 that comparable ones are asking, which is worth a phone call on its own. It shows 168,140 km, about normal for its age here.",
-          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
-          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
-        ],
-        "pros": [
-          "comfortably inside budget",
-          "priced well below similar cars",
-          "Undervalued, and the long factory warranty may still have time left.",
-          "practical body style"
-        ],
-        "cons": [
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 10900
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "3KPFK4A7XJE229771",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2018-kia-forte-ex/1739452227",
-      "title": "2018 Kia Forte EX",
-      "year": 2018,
-      "make": "Kia",
-      "model": "forte",
-      "trim": "EX",
-      "price": 11995,
-      "odometerKm": 121796,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "sedan",
-      "exteriorColour": "brown",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/eb/ebd8fd0d-bb01-4858-adc9-db7e94ba2a72?rule=kijijica-200-jpg",
-      "vin": "3KPFK4A7XJE229771",
-      "description": "2018 Kia Forte EX is a dependable and practical compact sedan designed for both daily commuting and modern connectivity. Equipped with a fuel-efficient 4-cylinder engine and a spacious, ...",
-      "id": "ef0b571437d8f557",
-      "alsoOn": [],
-      "score": 77,
-      "band": "worth a look",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 7
-        },
-        {
-          "label": "Undervalued, and the long factory warranty may still have time left.",
-          "delta": 10
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Worth a look if the inspection comes back clean.",
-        "body": [
-          "2018 Kia forte at $11,995, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "That is right about what similar ones are asking ($12,375 typical). It shows 121,796 km, about normal for its age here.",
-          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
-          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
-        ],
-        "pros": [
-          "comfortably inside budget",
-          "Undervalued, and the long factory warranty may still have time left.",
-          "reasonable kilometres",
-          "practical body style"
-        ],
-        "cons": [],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 11995
         }
       ]
     },
@@ -417,7 +254,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -433,7 +270,7 @@
       "title": "2021 Kia Rio 5-door LX Plus",
       "year": 2021,
       "make": "Kia",
-      "model": "rio",
+      "model": "Rio",
       "trim": "LX Plus",
       "price": 14213,
       "odometerKm": 129620,
@@ -473,7 +310,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2021 Kia rio at $14,213.",
+          "2021 Kia Rio at $14,213.",
           "It shows 129,620 km, about normal for its age here.",
           "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -494,7 +331,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -570,7 +407,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -586,7 +423,7 @@
       "title": "2017 Hyundai Elantra GL | AUTO | FUEL EFFICIENT | HEATED SEATS",
       "year": 2017,
       "make": "Hyundai",
-      "model": "elantra",
+      "model": "Elantra",
       "trim": "GL | AUTO | FUEL EFFICIENT | HEATED SEATS",
       "price": 11300,
       "odometerKm": 136606,
@@ -634,7 +471,7 @@
       "commentary": {
         "headline": "Decently priced — worth a call.",
         "body": [
-          "2017 Hyundai elantra at $11,300, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2017 Hyundai Elantra at $11,300, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "That is roughly 6% below the $12,050 that comparable ones are asking, which is worth a phone call on its own. It shows 136,606 km, about normal for its age here.",
           "The well-publicised Theta II engine failures affected the larger 2.4L cars (Sonata, Santa Fe), not the Elantra's 2.0L Nu engine. Often thousands cheaper than an equivalent Civic. Remaining factory powertrain warranty may still apply.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -657,7 +494,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -673,7 +510,7 @@
       "title": "2016 Hyundai Veloster Turbo",
       "year": 2016,
       "make": "Hyundai",
-      "model": "veloster",
+      "model": "Veloster",
       "trim": "Turbo",
       "price": 7995,
       "odometerKm": 139027,
@@ -721,7 +558,7 @@
       "commentary": {
         "headline": "Good buy if the kilometres do not put you off.",
         "body": [
-          "2016 Hyundai veloster at $7,995, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Hyundai Veloster at $7,995, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 139,027 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -743,7 +580,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -759,7 +596,7 @@
       "title": "2016 Volkswagen Beetle Coupe Trendline | PANORAMIC SUNROOF",
       "year": 2016,
       "make": "Volkwagen",
-      "model": "beetle",
+      "model": "Beetle",
       "trim": "Trendline | PANORAMIC SUNROOF",
       "price": 9488,
       "odometerKm": 127006,
@@ -799,7 +636,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2016 Volkwagen beetle at $9,488, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Volkwagen Beetle at $9,488, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 127,006 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -819,7 +656,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -830,12 +667,90 @@
     },
     {
       "source": "kijiji",
+      "sourceId": "3KPF54AD1KE008722",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-kia-forte/1741801215",
+      "title": "2019 Kia Forte",
+      "year": 2019,
+      "make": "Kia",
+      "model": "Forte",
+      "trim": "EX Limited",
+      "price": 10900,
+      "odometerKm": 168140,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/9e/9e8d6db4-b2b3-43c3-ac31-8c81295a7059?rule=kijijica-200-jpg",
+      "vin": "3KPF54AD1KE008722",
+      "description": "2019 Kia Forte EX Limited with 168140 kms. This car is in great shape inside and out. Fully loaded and runs and drives very well. Fuel efficient and reliable. Includes heated seats, leather, power ...",
+      "id": "9ada1ebe6ab8cf00",
+      "alsoOn": [],
+      "score": 67,
+      "band": "worth a look",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 9
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Good buy if the kilometres do not put you off.",
+        "body": [
+          "2019 Kia Forte at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "It shows 168,140 km, about normal for its age here.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
+          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
+        ],
+        "pros": [
+          "comfortably inside budget",
+          "Undervalued, and the long factory warranty may still have time left.",
+          "practical body style"
+        ],
+        "cons": [
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 10900
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
       "sourceId": "KM8J3CA40GU081434",
       "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-hyundai-tucson-premium-clean-carfax-bluetooth-connect/1741033757",
       "title": "2016 Hyundai Tucson Premium | Clean Carfax! | Bluetooth Connect",
       "year": 2016,
       "make": "Hyundai",
-      "model": "tucson",
+      "model": "Tucson",
       "trim": "Premium | Clean Carfax! | Bluetooth Connect",
       "price": 13988,
       "odometerKm": 126250,
@@ -883,7 +798,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2016 Hyundai tucson at $13,988.",
+          "2016 Hyundai Tucson at $13,988.",
           "It shows 126,250 km, well under the 200,000 km an average Alberta car of that age would have.",
           "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -906,7 +821,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -922,7 +837,7 @@
       "title": "2018 Hyundai Elantra GT Sport",
       "year": 2018,
       "make": "Hyundai",
-      "model": "othrmdl",
+      "model": "Othrmdl",
       "trim": "Sport",
       "price": 15694,
       "odometerKm": 110706,
@@ -966,7 +881,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2018 Hyundai othrmdl at $15,694.",
+          "2018 Hyundai Othrmdl at $15,694.",
           "It shows 110,706 km, well under the 160,000 km an average Alberta car of that age would have.",
           "The well-publicised Theta II engine failures affected the larger 2.4L cars (Sonata, Santa Fe), not the Elantra's 2.0L Nu engine. Often thousands cheaper than an equivalent Civic. Remaining factory powertrain warranty may still apply.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
@@ -988,7 +903,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1004,7 +919,7 @@
       "title": "2016 Kia Sorento 2.4L LX",
       "year": 2016,
       "make": "Kia",
-      "model": "sorento",
+      "model": "Sorento",
       "trim": "2.4L LX",
       "price": 13210,
       "odometerKm": 113230,
@@ -1052,7 +967,7 @@
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2016 Kia sorento at $13,210.",
+          "2016 Kia Sorento at $13,210.",
           "It shows 113,230 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -1074,7 +989,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1090,7 +1005,7 @@
       "title": "2018 Hyundai Sonata",
       "year": 2018,
       "make": "Hyundai",
-      "model": "sonata",
+      "model": "Sonata",
       "trim": "GL 2.4L GL",
       "price": 10599,
       "odometerKm": 169433,
@@ -1130,7 +1045,7 @@
       "commentary": {
         "headline": "Good buy if the kilometres do not put you off.",
         "body": [
-          "2018 Hyundai sonata at $10,599, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2018 Hyundai Sonata at $10,599, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 169,433 km, about normal for its age here.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -1151,7 +1066,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1214,12 +1129,83 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 11500
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/kia-forte-ex-gasoline-cat_ma39gr202109-f2023d4e-3310-48fb-a901-909f904f840e",
+      "title": "Kia Forte EX",
+      "year": null,
+      "make": "Kia",
+      "model": "Forte",
+      "trim": "EX",
+      "price": 13855,
+      "odometerKm": 90288,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Honda Magic",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f2023d4e-3310-48fb-a901-909f904f840e_17167f67-9b8f-4a42-82e6-dd2103b82730.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "1d878864c91a661d",
+      "alsoOn": [],
+      "score": 63,
+      "band": "worth a look",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -3
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        }
+      ],
+      "commentary": {
+        "headline": "Worth a look if the inspection comes back clean.",
+        "body": [
+          "Kia Forte at $13,855.",
+          "It shows 90,288 km.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
+          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
+        ],
+        "pros": [
+          "Undervalued, and the long factory warranty may still have time left.",
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "at the top of the budget"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:36:27.107Z",
+          "price": 13855
         }
       ]
     },
@@ -1230,7 +1216,7 @@
       "title": "2016 KIA OPTIMA",
       "year": 2016,
       "make": "Kia",
-      "model": "optima",
+      "model": "Optima",
       "trim": "LX",
       "price": 8300,
       "odometerKm": 175100,
@@ -1274,7 +1260,7 @@
       "commentary": {
         "headline": "Good buy if the kilometres do not put you off.",
         "body": [
-          "2016 Kia optima at $8,300, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Kia Optima at $8,300, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 175,100 km, about normal for its age here.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
@@ -1296,7 +1282,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1312,7 +1298,7 @@
       "title": "2016 Subaru Impreza 2.0i - AWD, BACKUP CAMERA, POWERED WINDOWS",
       "year": 2016,
       "make": "Subaru",
-      "model": "impreza",
+      "model": "Impreza",
       "trim": "2.0i - AWD",
       "price": 11977,
       "odometerKm": 166850,
@@ -1356,7 +1342,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Subaru impreza at $11,977, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Subaru Impreza at $11,977, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 166,850 km, about normal for its age here.",
           "Genuinely better in Calgary snow than anything front-wheel drive. Trade-offs: worse fuel economy, more expensive maintenance, and the CVT is fine but not cheap if it does fail. Check for oil consumption history."
         ],
@@ -1378,7 +1364,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1394,7 +1380,7 @@
       "title": "2017 Chevrolet Cruze LT",
       "year": 2017,
       "make": "Chevrolet",
-      "model": "cruze",
+      "model": "Cruze",
       "trim": "LT",
       "price": 12989,
       "odometerKm": 117992,
@@ -1446,7 +1432,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Chevrolet cruze at $12,989.",
+          "2017 Chevrolet Cruze at $12,989.",
           "That is roughly 7% below the $13,977 that comparable ones are asking, which is worth a phone call on its own. It shows 117,992 km, well under the 180,000 km an average Alberta car of that age would have.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
@@ -1468,7 +1454,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1484,7 +1470,7 @@
       "title": "2017 Hyundai Tucson Ultimate - PANORAMA! NAVI! LEATHER!",
       "year": 2017,
       "make": "Hyundai",
-      "model": "tucson",
+      "model": "Tucson",
       "trim": "Ultimate - PANORAMA! NAVI! LEATHER!",
       "price": 15977,
       "odometerKm": 129007,
@@ -1532,7 +1518,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Hyundai tucson at $15,977.",
+          "2017 Hyundai Tucson at $15,977.",
           "It shows 129,007 km, about normal for its age here.",
           "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
         ],
@@ -1554,7 +1540,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1570,7 +1556,7 @@
       "title": "2018 GMC Acadia SLE V6 4WD",
       "year": 2018,
       "make": "GMC",
-      "model": "acadia",
+      "model": "Acadia",
       "trim": "SLE",
       "price": 9500,
       "odometerKm": 177266,
@@ -1606,7 +1592,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2018 GMC acadia at $9,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2018 GMC Acadia at $9,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 177,266 km, about normal for its age here."
         ],
         "pros": [
@@ -1624,7 +1610,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1694,7 +1680,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1710,7 +1696,7 @@
       "title": "2016 Jeep Cherokee 4WD 4dr North",
       "year": 2016,
       "make": "Jeep",
-      "model": "cherokee",
+      "model": "Cherokee",
       "trim": "4WD 4dr North",
       "price": 13500,
       "odometerKm": 104690,
@@ -1754,7 +1740,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Jeep cherokee at $13,500.",
+          "2016 Jeep Cherokee at $13,500.",
           "It shows 104,690 km, well under the 200,000 km an average Alberta car of that age would have."
         ],
         "pros": [
@@ -1774,7 +1760,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1790,7 +1776,7 @@
       "title": "Jeep Cherokee 2016 2.4 L4 4x4",
       "year": 2016,
       "make": "Jeep",
-      "model": "cherokee",
+      "model": "Cherokee",
       "trim": "Sport",
       "price": 15500,
       "odometerKm": 64100,
@@ -1834,7 +1820,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Jeep cherokee at $15,500.",
+          "2016 Jeep Cherokee at $15,500.",
           "It shows 64,100 km, well under the 200,000 km an average Alberta car of that age would have."
         ],
         "pros": [
@@ -1854,7 +1840,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1870,7 +1856,7 @@
       "title": "2022 Chevrolet Spark 1LT CVT 1LT, 1.4L, ACCIDENT FREE, CERTIF...",
       "year": 2022,
       "make": "Chevrolet",
-      "model": "spark",
+      "model": "Spark",
       "trim": "1LT CVT",
       "price": 15751,
       "odometerKm": 54718,
@@ -1918,7 +1904,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2022 Chevrolet spark at $15,751.",
+          "2022 Chevrolet Spark at $15,751.",
           "It shows 54,718 km, well under the 80,000 km an average Alberta car of that age would have.",
           "Nothing disastrous, just noisier, slower and less reliable than a Rio or Accent for similar money."
         ],
@@ -1940,7 +1926,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1956,7 +1942,7 @@
       "title": "2017 Chevrolet Malibu LT - BLUETOOTH, BACKUP CAMERA, CRUISE CONT",
       "year": 2017,
       "make": "Chevrolet",
-      "model": "malibu",
+      "model": "Malibu",
       "trim": "LT - BLUETOOTH",
       "price": 13977,
       "odometerKm": 118760,
@@ -2000,7 +1986,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Chevrolet malibu at $13,977.",
+          "2017 Chevrolet Malibu at $13,977.",
           "It shows 118,760 km, well under the 180,000 km an average Alberta car of that age would have."
         ],
         "pros": [
@@ -2020,7 +2006,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2036,7 +2022,7 @@
       "title": "2017 Nissan Pathfinder S - 3.5L, V6, 7 Seats, Heated Seats",
       "year": 2017,
       "make": "Nissan",
-      "model": "pathfinder",
+      "model": "Pathfinder",
       "trim": "S",
       "price": 8500,
       "odometerKm": 166210,
@@ -2076,7 +2062,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Nissan pathfinder at $8,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2017 Nissan Pathfinder at $8,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 166,210 km, about normal for its age here."
         ],
         "pros": [
@@ -2096,7 +2082,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2112,7 +2098,7 @@
       "title": "Chevrolet Cruze",
       "year": 2017,
       "make": "Chevrolet",
-      "model": "cruze",
+      "model": "Cruze",
       "trim": null,
       "price": 8500,
       "odometerKm": 159887,
@@ -2160,7 +2146,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Chevrolet cruze at $8,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2017 Chevrolet Cruze at $8,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "That is roughly 39% below the $13,977 that comparable ones are asking, which is worth a phone call on its own. It shows 159,887 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
@@ -2183,12 +2169,93 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 8500
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": null,
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/hyundai-santa-fe-xl-2016/1740840086",
+      "title": "Hyundai Santa Fe XL 2016",
+      "year": 2016,
+      "make": "Hyundai",
+      "model": "Santafe",
+      "trim": null,
+      "price": 11999,
+      "odometerKm": 170000,
+      "transmission": null,
+      "drivetrain": null,
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/fd/fdeec628-f164-4245-8ece-babc54279c81?rule=kijijica-200-jpg",
+      "vin": null,
+      "description": "2016 Hyundai Santa Fe XL - seven seats -Alberta active - fully loaded - keyless entry - push start - 170 000km - always maintained up to date - new windshield full tune up - front brakes and rotors ...",
+      "id": "3e0937e846275dd9",
+      "alsoOn": [],
+      "score": 56,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 7
+        },
+        {
+          "label": "from a make with a good reliability record",
+          "delta": 6
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "2016 Hyundai Santafe at $11,999, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "It shows 170,000 km, about normal for its age here."
+        ],
+        "pros": [
+          "comfortably inside budget",
+          "from a make with a good reliability record",
+          "practical body style"
+        ],
+        "cons": [
+          "high kilometres",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:39:24.273Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:39:24.273Z",
+          "price": 11999
         }
       ]
     },
@@ -2248,7 +2315,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2264,7 +2331,7 @@
       "title": "2018 Chevrolet Equinox LT | No Accidents | Heated Seats",
       "year": 2018,
       "make": "Chevrolet",
-      "model": "equinox",
+      "model": "Equinox",
       "trim": "LT | No Accidents | Heated Seats | Backup Cam |",
       "price": 11999,
       "odometerKm": 178631,
@@ -2300,7 +2367,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2018 Chevrolet equinox at $11,999, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2018 Chevrolet Equinox at $11,999, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 178,631 km, about normal for its age here."
         ],
         "pros": [
@@ -2319,7 +2386,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2389,7 +2456,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2405,7 +2472,7 @@
       "title": "2016 Kia Sedona LX - 8 Seats",
       "year": 2016,
       "make": "Kia",
-      "model": "sedona",
+      "model": "Sedona",
       "trim": "LX",
       "price": 10900,
       "odometerKm": 177000,
@@ -2445,7 +2512,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Kia sedona at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Kia Sedona at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 177,000 km, about normal for its age here."
         ],
         "pros": [
@@ -2465,7 +2532,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2481,7 +2548,7 @@
       "title": "2017 Ford Fusion SE | AUTOMATIC | TOUCH SCREEN | PUSH BUTTON STA",
       "year": 2017,
       "make": "Ford",
-      "model": "fusion",
+      "model": "Fusion",
       "trim": "SE | AUTOMATIC | TOUCH SCREEN | PUSH BUTTON START | POWER SEATS | POWER WINDOWS AND LOCKS | ECONOMICAL | BLUETOOTH | STEERING WH",
       "price": 12900,
       "odometerKm": 108499,
@@ -2529,7 +2596,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Ford fusion at $12,900.",
+          "2017 Ford Fusion at $12,900.",
           "It shows 108,499 km, well under the 180,000 km an average Alberta car of that age would have.",
           "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla."
         ],
@@ -2550,87 +2617,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 12900
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/kia-forte-ex-gasoline-cat_ma39gr202109-f2023d4e-3310-48fb-a901-909f904f840e",
-      "title": "Kia Forte EX",
-      "year": null,
-      "make": "Kia",
-      "model": "Forte",
-      "trim": "EX",
-      "price": 13855,
-      "odometerKm": 90288,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": "Honda Magic",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f2023d4e-3310-48fb-a901-909f904f840e_17167f67-9b8f-4a42-82e6-dd2103b82730.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "1d878864c91a661d",
-      "alsoOn": [],
-      "score": 53,
-      "band": "maybe",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "priced above similar cars",
-          "delta": -10
-        },
-        {
-          "label": "Undervalued, and the long factory warranty may still have time left.",
-          "delta": 10
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        }
-      ],
-      "commentary": {
-        "headline": "Fine car, but you would be paying over the odds.",
-        "body": [
-          "Kia Forte at $13,855.",
-          "That is about 21% above the $11,448 that comparable ones are asking, so there should be room to negotiate. It shows 90,288 km.",
-          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price."
-        ],
-        "pros": [
-          "Undervalued, and the long factory warranty may still have time left.",
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "priced above similar cars"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 13855
         }
       ]
     },
@@ -2641,7 +2633,7 @@
       "title": "2018 Nissan Qashqai",
       "year": 2018,
       "make": "Nissan",
-      "model": "qashqai",
+      "model": "Qashqai",
       "trim": null,
       "price": 15408,
       "odometerKm": 123444,
@@ -2677,7 +2669,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2018 Nissan qashqai at $15,408.",
+          "2018 Nissan Qashqai at $15,408.",
           "It shows 123,444 km, about normal for its age here."
         ],
         "pros": [
@@ -2695,7 +2687,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2711,7 +2703,7 @@
       "title": "2016 Volkswagen Tiguan",
       "year": 2016,
       "make": "Volkwagen",
-      "model": "tiguan",
+      "model": "Tiguan",
       "trim": null,
       "price": 11361,
       "odometerKm": 168469,
@@ -2751,7 +2743,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Volkwagen tiguan at $11,361, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Volkwagen Tiguan at $11,361, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 168,469 km, about normal for its age here."
         ],
         "pros": [
@@ -2771,7 +2763,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2836,7 +2828,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2905,7 +2897,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2969,8 +2961,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -2985,7 +2977,7 @@
       "title": "2017 Hyundai Tucson Premium - HEATED BUCKET SEATS",
       "year": 2017,
       "make": "Hyundai",
-      "model": "tucson",
+      "model": "Tucson",
       "trim": "Premium - HEATED BUCKET SEATS",
       "price": 13977,
       "odometerKm": 179729,
@@ -3029,7 +3021,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2017 Hyundai tucson at $13,977.",
+          "2017 Hyundai Tucson at $13,977.",
           "It shows 179,729 km, about normal for its age here.",
           "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing."
         ],
@@ -3051,7 +3043,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3067,7 +3059,7 @@
       "title": "2016 Kia Sorento EX - V6",
       "year": 2016,
       "make": "Kia",
-      "model": "sorento",
+      "model": "Sorento",
       "trim": "EX",
       "price": 14500,
       "odometerKm": 131000,
@@ -3115,7 +3107,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Kia sorento at $14,500.",
+          "2016 Kia Sorento at $14,500.",
           "It shows 131,000 km, well under the 200,000 km an average Alberta car of that age would have."
         ],
         "pros": [
@@ -3136,7 +3128,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3152,7 +3144,7 @@
       "title": "2018 Subaru Impreza",
       "year": 2018,
       "make": "Subaru",
-      "model": "impreza",
+      "model": "Impreza",
       "trim": "2.0i Touring 4-door Auto",
       "price": 14500,
       "odometerKm": 158259,
@@ -3188,7 +3180,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2018 Subaru impreza at $14,500.",
+          "2018 Subaru Impreza at $14,500.",
           "It shows 158,259 km, about normal for its age here.",
           "Genuinely better in Calgary snow than anything front-wheel drive. Trade-offs: worse fuel economy, more expensive maintenance, and the CVT is fine but not cheap if it does fail. Check for oil consumption history."
         ],
@@ -3208,7 +3200,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3272,7 +3264,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3288,7 +3280,7 @@
       "title": "2016 Chevrolet Trax",
       "year": 2016,
       "make": "Chevrolet",
-      "model": "trax",
+      "model": "Trax",
       "trim": "LT",
       "price": 8900,
       "odometerKm": 135012,
@@ -3336,7 +3328,7 @@
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "2016 Chevrolet trax at $8,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "2016 Chevrolet Trax at $8,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
           "It shows 135,012 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Nothing disastrous, just noisier, slower and less reliable than a Rio or Accent for similar money."
         ],
@@ -3358,7 +3350,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3423,8 +3415,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -3486,7 +3478,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3550,8 +3542,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -3615,83 +3607,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 15995
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "2C4RDGBG0GR346435",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-dodge-grand-caravan-se-with-carplay-android-auto/1741388716",
-      "title": "2016 Dodge Grand Caravan SE with CarPlay / Android Auto",
-      "year": 2016,
-      "make": "Dodge",
-      "model": "grndcrvn",
-      "trim": "Canada Value Package",
-      "price": 13000,
-      "odometerKm": 168000,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "vanminicomma",
-      "exteriorColour": "white",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/55/553504bb-3a44-4810-a51d-d96390ef0216?rule=kijijica-200-jpg",
-      "vin": "2C4RDGBG0GR346435",
-      "description": "Are you ready to impress your friends with the most practical vehicle of all time? Seats up to seven people, can haul a couch and has sliding side doors which pretty much makes it a Lamborghini. For ...",
-      "id": "2a1fff4b1a4e60e1",
-      "alsoOn": [],
-      "score": 45,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 6
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2016 Dodge grndcrvn at $13,000.",
-          "It shows 168,000 km, about normal for its age here."
-        ],
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "high kilometres",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Oil-dilution service bulletin completed (1.5L turbo only)",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:33:11.451Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:33:11.451Z",
-          "price": 13000
         }
       ]
     },
@@ -3756,8 +3677,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -3827,8 +3748,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -3898,7 +3819,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3975,7 +3896,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3991,7 +3912,7 @@
       "title": "2017 Chevrolet Cruze LT - SUNROOOF, BLUETOOTH, HEATED SEATS",
       "year": 2017,
       "make": "Chevrolet",
-      "model": "cruze",
+      "model": "Cruze",
       "trim": "LT - SUNROOOF",
       "price": 12977,
       "odometerKm": 153576,
@@ -4039,7 +3960,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2017 Chevrolet cruze at $12,977.",
+          "2017 Chevrolet Cruze at $12,977.",
           "That is roughly 7% below the $13,977 that comparable ones are asking, which is worth a phone call on its own. It shows 153,576 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
@@ -4062,7 +3983,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4078,7 +3999,7 @@
       "title": "2018 Jaguar XE",
       "year": 2018,
       "make": "Jaguar",
-      "model": "xe",
+      "model": "Xe",
       "trim": "25t 2.0L AWD Premium",
       "price": 15998,
       "odometerKm": 114588,
@@ -4122,7 +4043,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2018 Jaguar xe at $15,998.",
+          "2018 Jaguar Xe at $15,998.",
           "It shows 114,588 km, about normal for its age here.",
           "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context."
         ],
@@ -4142,7 +4063,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4205,8 +4126,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -4269,8 +4190,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -4340,7 +4261,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4356,7 +4277,7 @@
       "title": "2018 Volkswagen Tiguan Trendline 2.0 184HP - BACKUP CAMERA! HEAT",
       "year": 2018,
       "make": "Volkwagen",
-      "model": "tiguan",
+      "model": "Tiguan",
       "trim": "Trendline 2.0 184HP - BACKUP CAMERA! HEATED SEATS!",
       "price": 14977,
       "odometerKm": 164610,
@@ -4392,7 +4313,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2018 Volkwagen tiguan at $14,977.",
+          "2018 Volkwagen Tiguan at $14,977.",
           "It shows 164,610 km, about normal for its age here."
         ],
         "pros": [
@@ -4411,8 +4332,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -4427,7 +4348,7 @@
       "title": "2016 Dodge Journey Canada Value Pkg - TOUCHSCREEN, PUSH-BUTTON S",
       "year": 2016,
       "make": "Dodge",
-      "model": "journey",
+      "model": "Journey",
       "trim": "Canada Value Pkg - TOUCHSCREEN",
       "price": 10977,
       "odometerKm": 111798,
@@ -4475,7 +4396,7 @@
       "commentary": {
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
-          "2016 Dodge journey at $10,977. The price looks tempting, but this is a model I would steer her away from.",
+          "2016 Dodge Journey at $10,977. The price looks tempting, but this is a model I would steer her away from.",
           "It shows 111,798 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Cheap and roomy, but electrical gremlins, brake wear and transmission complaints are the norm rather than the exception."
         ],
@@ -4496,7 +4417,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4568,8 +4489,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -4584,7 +4505,7 @@
       "title": "2020 FORD FUSION SE, 4 DOOR SEDAN",
       "year": 2020,
       "make": "Ford",
-      "model": "fusion",
+      "model": "Fusion",
       "trim": "SE",
       "price": 15550,
       "odometerKm": 107650,
@@ -4624,7 +4545,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2020 Ford fusion at $15,550.",
+          "2020 Ford Fusion at $15,550.",
           "It shows 107,650 km, about normal for its age here.",
           "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla."
         ],
@@ -4643,81 +4564,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 15550
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "1GKKNKLA2KZ176464",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-gmc-acadia-sle-no-accidents-one-owner-carplay/1736711822",
-      "title": "2019 GMC Acadia SLE | No Accidents | One Owner | Carplay",
-      "year": 2019,
-      "make": "GMC",
-      "model": "acadia",
-      "trim": "SLE | No Accidents | One Owner | Carplay |",
-      "price": 15700,
-      "odometerKm": 140420,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/c1/c1ef9ec5-334e-4a4a-ae45-a4fcad73be9a?rule=kijijica-200-jpg",
-      "vin": "1GKKNKLA2KZ176464",
-      "description": "Navigate Calgary's bustling streets and expansive open roads with confidence in the 2019 GMC Acadia SLE. This versatile Sport Utility offers spacious 3rd-row seating, making it the perfect vehicle ...",
-      "id": "c6a4682bbb88e389",
-      "alsoOn": [],
-      "score": 39,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -9
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2019 GMC acadia at $15,700.",
-          "It shows 140,420 km, about normal for its age here."
-        ],
-        "pros": [
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:36:27.107Z",
-          "price": 15700
         }
       ]
     },
@@ -4768,7 +4620,7 @@
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
           "Nissan Rogue at $12,950. The price looks tempting, but this is a model I would steer her away from.",
-          "That is roughly 10% below the $14,450 that comparable ones are asking, which is worth a phone call on its own. It shows 90,385 km.",
+          "That is roughly 7% below the $13,890 that comparable ones are asking, which is worth a phone call on its own. It shows 90,385 km.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
         "pros": [
@@ -4787,8 +4639,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -4857,7 +4709,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4873,7 +4725,7 @@
       "title": "2016 Nissan Altima 2.5 | Clean Carfax | Remote Start",
       "year": 2016,
       "make": "Nissan",
-      "model": "altima",
+      "model": "Altima",
       "trim": "2.5 | Clean Carfax | Remote Start",
       "price": 11988,
       "odometerKm": 128867,
@@ -4921,7 +4773,7 @@
       "commentary": {
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
-          "2016 Nissan altima at $11,988. The price looks tempting, but this is a model I would steer her away from.",
+          "2016 Nissan Altima at $11,988. The price looks tempting, but this is a model I would steer her away from.",
           "It shows 128,867 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
@@ -4943,7 +4795,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5013,8 +4865,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5077,8 +4929,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5140,7 +4992,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5156,7 +5008,7 @@
       "title": "SUV",
       "year": 2017,
       "make": "Jeep",
-      "model": "cherokee",
+      "model": "Cherokee",
       "trim": "trailhawk",
       "price": 15500,
       "odometerKm": 147000,
@@ -5196,7 +5048,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2017 Jeep cherokee at $15,500.",
+          "2017 Jeep Cherokee at $15,500.",
           "It shows 147,000 km, about normal for its age here."
         ],
         "pros": [
@@ -5215,8 +5067,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5231,7 +5083,7 @@
       "title": "2018 Mitsubishi Outlander ES 4WD : Backup Camera",
       "year": 2018,
       "make": "Mitsubishi",
-      "model": "outlander",
+      "model": "Outlander",
       "trim": "ES 4WD : Backup Camera",
       "price": 13697,
       "odometerKm": 165013,
@@ -5271,7 +5123,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2018 Mitsubishi outlander at $13,697.",
+          "2018 Mitsubishi Outlander at $13,697.",
           "It shows 165,013 km, about normal for its age here.",
           "Mitsubishi's 10-year powertrain warranty drops to 5 years/100,000 km for a second owner, so check the in-service date. The Mirage in particular is very slow, which is a genuine safety consideration merging onto Deerfoot."
         ],
@@ -5292,7 +5144,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5356,8 +5208,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5436,8 +5288,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5499,8 +5351,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5515,7 +5367,7 @@
       "title": "2016 Ford Edge TITANIUM / PANO ROOF / LOADED",
       "year": 2016,
       "make": "Ford",
-      "model": "edge",
+      "model": "Edge",
       "trim": "TITANIUM / PANO ROOF / LOADED",
       "price": 15900,
       "odometerKm": 158737,
@@ -5555,7 +5407,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2016 Ford edge at $15,900.",
+          "2016 Ford Edge at $15,900.",
           "It shows 158,737 km, about normal for its age here."
         ],
         "pros": [
@@ -5574,7 +5426,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5644,8 +5496,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
@@ -5714,98 +5566,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 12995
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": null,
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-rogue-sv-awd-special-edition/1741781700",
-      "title": "2016 NISSAN ROGUE SV AWD SPECIAL EDITION",
-      "year": 2016,
-      "make": "Nissan",
-      "model": "rogue",
-      "trim": "SV Special Edition",
-      "price": 14900,
-      "odometerKm": 50606,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": "blue",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/38/383c7552-7e40-4c0a-877d-5c64b2ac2903?rule=kijijica-200-jpg",
-      "vin": null,
-      "description": "Senior lady, original owner, can no longer drive due to medical conditions. Vehicle is in near new condition with some body scrapes and chips & some minor damage on right rear quarter panel. ...",
-      "id": "debef773a12dfc55",
-      "alsoOn": [],
-      "score": 30,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -6
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "low kilometres",
-          "delta": 12
-        },
-        {
-          "label": "driven less than average for its age",
-          "delta": 5
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2016 Nissan rogue at $14,900. The price looks tempting, but this is a model I would steer her away from.",
-          "That is about 7% above the $13,890 that comparable ones are asking, so there should be room to negotiate. It shows 50,606 km, well under the 200,000 km an average Alberta car of that age would have.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "low kilometres",
-          "driven less than average for its age",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 14900
         }
       ]
     },
@@ -5816,7 +5582,7 @@
       "title": "2019 Chevrolet Cruze LS - APPLE CARPLAY, ANDROID AUTO, 7 INCH TO",
       "year": 2019,
       "make": "Chevrolet",
-      "model": "cruze",
+      "model": "Cruze",
       "trim": "LS - APPLE CARPLAY",
       "price": 13977,
       "odometerKm": 147887,
@@ -5852,7 +5618,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2019 Chevrolet cruze at $13,977.",
+          "2019 Chevrolet Cruze at $13,977.",
           "That is about 8% above the $12,989 that comparable ones are asking, so there should be room to negotiate. It shows 147,887 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
@@ -5870,7 +5636,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5952,7 +5718,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6034,7 +5800,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6050,7 +5816,7 @@
       "title": "2016 Dodge Journey CROSSROAD - AWD! SUNROOF! TOUCH SCREEN!",
       "year": 2016,
       "make": "Dodge",
-      "model": "journey",
+      "model": "Journey",
       "trim": "CROSSROAD - AWD! SUNROOF! TOUCH SCREEN!",
       "price": 13977,
       "odometerKm": 127690,
@@ -6098,7 +5864,7 @@
       "commentary": {
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
-          "2016 Dodge journey at $13,977. The price looks tempting, but this is a model I would steer her away from.",
+          "2016 Dodge Journey at $13,977. The price looks tempting, but this is a model I would steer her away from.",
           "It shows 127,690 km, well under the 200,000 km an average Alberta car of that age would have.",
           "Cheap and roomy, but electrical gremlins, brake wear and transmission complaints are the norm rather than the exception."
         ],
@@ -6119,7 +5885,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6130,12 +5896,103 @@
     },
     {
       "source": "kijiji",
+      "sourceId": null,
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-rogue-sv-awd-special-edition/1741781700",
+      "title": "2016 NISSAN ROGUE SV AWD SPECIAL EDITION",
+      "year": 2016,
+      "make": "Nissan",
+      "model": "Rogue",
+      "trim": "SV Special Edition",
+      "price": 14900,
+      "odometerKm": 50606,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "blue",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/38/383c7552-7e40-4c0a-877d-5c64b2ac2903?rule=kijijica-200-jpg",
+      "vin": null,
+      "description": "Senior lady, original owner, can no longer drive due to medical conditions. Vehicle is in near new condition with some body scrapes and chips & some minor damage on right rear quarter panel. ...",
+      "id": "debef773a12dfc55",
+      "alsoOn": [],
+      "score": 26,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -6
+        },
+        {
+          "label": "slightly above market",
+          "delta": -4
+        },
+        {
+          "label": "The CVT is the problem, and replacing it costs more than the car.",
+          "delta": -30
+        },
+        {
+          "label": "low kilometres",
+          "delta": 12
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Cheap for a reason — I would keep looking.",
+        "body": [
+          "2016 Nissan Rogue at $14,900. The price looks tempting, but this is a model I would steer her away from.",
+          "That is about 11% above the $13,387 that comparable ones are asking, so there should be room to negotiate. It shows 50,606 km, well under the 200,000 km an average Alberta car of that age would have.",
+          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
+        ],
+        "pros": [
+          "low kilometres",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "slightly above market",
+          "The CVT is the problem, and replacing it costs more than the car.",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 14900
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
       "sourceId": "3GNCJPSB4HL130435",
       "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-chevrolet-trax-lt/1741770540",
       "title": "2017 Chevrolet Trax LT",
       "year": 2017,
       "make": "Chevrolet",
-      "model": "trax",
+      "model": "Trax",
       "trim": "LT",
       "price": 14887,
       "odometerKm": 159889,
@@ -6179,7 +6036,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2017 Chevrolet trax at $14,887.",
+          "2017 Chevrolet Trax at $14,887.",
           "It shows 159,889 km, about normal for its age here.",
           "Nothing disastrous, just noisier, slower and less reliable than a Rio or Accent for similar money."
         ],
@@ -6201,7 +6058,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6271,12 +6128,98 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:36:27.107Z",
           "price": 9995
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "JN8AF5MV5GT660537",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-nissan-juke-nismo-awd-1-6l-turbo-360cam-navi-r-start-warran/1726741088",
+      "title": "2016 Nissan Juke NISMO AWD 1.6L TURBO 360CAM/NAVI/R.START/WARRAN",
+      "year": 2016,
+      "make": "Nissan",
+      "model": "Juke",
+      "trim": "NISMO AWD 1.6L TURBO 360CAM/NAVI/R.START/WARRANTY INLCUDED",
+      "price": 14995,
+      "odometerKm": 109181,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "black",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/fc/fc435b18-1982-47b1-ac1c-3ab36c593e1b?rule=kijijica-200-jpg",
+      "vin": "JN8AF5MV5GT660537",
+      "description": "Thanks for viewing our South View Motors Inventory! 2016 Nissan Juke NISMO AWD 1.6L Turbo | Sport Performance Crossover This 2016 Nissan Juke NISMO AWD is a bold and sporty compact crossover that ...",
+      "id": "c508fb7234447656",
+      "alsoOn": [],
+      "score": 23,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "The CVT is the problem, and replacing it costs more than the car.",
+          "delta": -30
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Cheap for a reason — I would keep looking.",
+        "body": [
+          "2016 Nissan Juke at $14,995. The price looks tempting, but this is a model I would steer her away from.",
+          "It shows 109,181 km, well under the 200,000 km an average Alberta car of that age would have.",
+          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
+        ],
+        "pros": [
+          "reasonable kilometres",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "The CVT is the problem, and replacing it costs more than the car.",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:39:24.273Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:39:24.273Z",
+          "price": 14995
         }
       ]
     },
@@ -6353,7 +6296,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6369,7 +6312,7 @@
       "title": "2017 Mini Clubman Cooper S LEATHER | AWD | HEATED SEATS | 3M...",
       "year": 2017,
       "make": "Mini",
-      "model": "clubman",
+      "model": "Clubman",
       "trim": "Cooper S",
       "price": 15826,
       "odometerKm": 140154,
@@ -6413,7 +6356,7 @@
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2017 Mini clubman at $15,826.",
+          "2017 Mini Clubman at $15,826.",
           "It shows 140,154 km, about normal for its age here.",
           "Timing chain, cooling and turbo repairs are all expensive. Not a good match for a first-time owner on a budget."
         ],
@@ -6433,7 +6376,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6502,7 +6445,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6573,7 +6516,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6589,7 +6532,7 @@
       "title": "2020 Nissan Sentra SV",
       "year": 2020,
       "make": "Nissan",
-      "model": "sentra",
+      "model": "Sentra",
       "trim": "SV",
       "price": 15698,
       "odometerKm": 120525,
@@ -6629,7 +6572,7 @@
       "commentary": {
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
-          "2020 Nissan sentra at $15,698. The price looks tempting, but this is a model I would steer her away from.",
+          "2020 Nissan Sentra at $15,698. The price looks tempting, but this is a model I would steer her away from.",
           "It shows 120,525 km, about normal for its age here.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
@@ -6649,7 +6592,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6665,7 +6608,7 @@
       "title": "2019 Nissan Rogue SV AWD | Active Status",
       "year": 2019,
       "make": "Nissan",
-      "model": "rogue",
+      "model": "Rogue",
       "trim": "SV",
       "price": 14000,
       "odometerKm": 179250,
@@ -6705,8 +6648,8 @@
       "commentary": {
         "headline": "Cheap for a reason — I would keep looking.",
         "body": [
-          "2019 Nissan rogue at $14,000. The price looks tempting, but this is a model I would steer her away from.",
-          "That is right about what similar ones are asking ($14,340 typical). It shows 179,250 km, about normal for its age here.",
+          "2019 Nissan Rogue at $14,000. The price looks tempting, but this is a model I would steer her away from.",
+          "That is right about what similar ones are asking ($13,387 typical). It shows 179,250 km, about normal for its age here.",
           "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
         ],
         "pros": [
@@ -6726,89 +6669,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
+      "lastSeen": "2026-08-10T05:39:24.273Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 14000
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "5N1AT2MV1KC740733",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-nissan-rogue-sv-panorama-navi/1741050091",
-      "title": "2019 Nissan Rogue SV - PANORAMA! NAVI!",
-      "year": 2019,
-      "make": "Nissan",
-      "model": "rogue",
-      "trim": "SV - PANORAMA! NAVI!",
-      "price": 14977,
-      "odometerKm": 173155,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/13/1302b1e6-813f-4093-8dc8-5bc1bd435c8e?rule=kijijica-200-jpg",
-      "vin": "5N1AT2MV1KC740733",
-      "description": "This outstanding example of a 2019 Nissan Rogue SV is proudly offered by Auto Avenue Airdrie. This versatile SUV delivers the perfect balance of comfort, practicality, and modern design, making every ...",
-      "id": "43a6037d9441301f",
-      "alsoOn": [],
-      "score": 11,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -7
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2019 Nissan rogue at $14,977. The price looks tempting, but this is a model I would steer her away from.",
-          "That is about 8% above the $13,890 that comparable ones are asking, so there should be room to negotiate. It shows 173,155 km, about normal for its age here.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T05:36:27.107Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:29:52.719Z",
-          "price": 14977
         }
       ]
     }
@@ -6905,16 +6771,6 @@
       "rejectReason": "too many kilometres (310,000 km)"
     },
     {
-      "id": "8b2ac09db13693f7",
-      "url": "https://www.carpages.ca/used-cars/alberta/calgary/2010-acura-mdx-14578881/",
-      "title": "Cars",
-      "price": 9888,
-      "odometerKm": null,
-      "year": 2010,
-      "source": "carpages",
-      "rejectReason": "too old (2010)"
-    },
-    {
       "id": "aa6241fd3c5e9f69",
       "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-toyota-corolla-ce-bluetooth-lane-departure-heated-sea/1738092695",
       "title": "2017 Toyota Corolla CE | BLUETOOTH | LANE DEPARTURE | HEATED SEA",
@@ -6933,6 +6789,16 @@
       "year": 2017,
       "source": "kijiji",
       "rejectReason": "too many kilometres (258,160 km)"
+    },
+    {
+      "id": "db1aaf77699dd9af",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-jeep-patriot-high-altitude-edition/1741443679",
+      "title": "2016 Jeep Patriot High Altitude Edition",
+      "price": 10888,
+      "odometerKm": 205707,
+      "year": 2016,
+      "source": "kijiji",
+      "rejectReason": "too many kilometres (205,707 km)"
     }
   ]
 }
