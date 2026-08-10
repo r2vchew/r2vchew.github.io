@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T05:15:33.629Z",
+  "generatedAt": "2026-08-10T05:19:43.359Z",
   "criteria": {
     "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
     "updatedAt": "2026-08-10",
@@ -78,7 +78,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 3.6
+      "elapsedSeconds": 4
     },
     {
       "id": "kijiji",
@@ -87,7 +87,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 7
+      "elapsedSeconds": 7.6
     },
     {
       "id": "carpages",
@@ -98,26 +98,26 @@
         "page 1: identical to the previous page, pagination ignored"
       ],
       "strategy": "cards",
-      "elapsedSeconds": 2.6
+      "elapsedSeconds": 3.5
     }
   ],
   "stats": {
     "rawRecords": 151,
-    "nonVehiclesDropped": 12,
+    "nonVehiclesDropped": 13,
     "uniqueCars": 134,
     "passedFilters": 76,
     "filteredOut": 58,
     "filterReasons": {
       "too old (N)": 20,
       "manual transmission": 4,
-      "too many kilometres (N km)": 23,
-      "salvage, rebuilt or as-is title": 2,
+      "salvage, rebuilt or as-is title": 3,
+      "too many kilometres (N km)": 22,
       "over budget at N": 5,
       "under N (likely a parts car or a typo)": 4
     },
     "candidates": 76,
-    "newSinceLastRun": 76,
-    "previousRunAt": null
+    "newSinceLastRun": 3,
+    "previousRunAt": "2026-08-10T05:15:33.629Z"
   },
   "cars": [
     {
@@ -143,12 +143,16 @@
       "description": null,
       "id": "f75d6cf036a5d1da",
       "alsoOn": [],
-      "score": 83,
+      "score": 95,
       "band": "shortlist",
       "scoreParts": [
         {
           "label": "comfortably inside budget",
           "delta": 9
+        },
+        {
+          "label": "priced well below similar cars",
+          "delta": 12
         },
         {
           "label": "Undervalued, and the long factory warranty may still have time left.",
@@ -164,18 +168,18 @@
         }
       ],
       "commentary": {
-        "headline": "One of the stronger options on the list right now.",
+        "headline": "Priced under the going rate for one of these.",
         "body": [
           "2021 Kia Forte at $10,888, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "It shows 85,901 km, about normal for its age here.",
+          "That is roughly 16% below the $12,923 that comparable ones are asking, which is worth a phone call on its own. It shows 85,901 km, about normal for its age here.",
           "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
         "pros": [
           "comfortably inside budget",
+          "priced well below similar cars",
           "Undervalued, and the long factory warranty may still have time left.",
-          "reasonable kilometres",
-          "recent model year"
+          "reasonable kilometres"
         ],
         "cons": [],
         "checks": [
@@ -186,12 +190,95 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 10888
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "3KPF54AD1KE008722",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-kia-forte/1741801215",
+      "title": "2019 Kia Forte",
+      "year": 2019,
+      "make": "Kia",
+      "model": "forte",
+      "trim": "EX Limited",
+      "price": 10900,
+      "odometerKm": 168140,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/9e/9e8d6db4-b2b3-43c3-ac31-8c81295a7059?rule=kijijica-200-jpg",
+      "vin": "3KPF54AD1KE008722",
+      "description": "2019 Kia Forte EX Limited with 168140 kms. This car is in great shape inside and out. Fully loaded and runs and drives very well. Fuel efficient and reliable. Includes heated seats, leather, power ...",
+      "id": "9ada1ebe6ab8cf00",
+      "alsoOn": [],
+      "score": 79,
+      "band": "shortlist",
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 9
+        },
+        {
+          "label": "priced well below similar cars",
+          "delta": 12
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Priced under the going rate for one of these.",
+        "body": [
+          "2019 Kia forte at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "That is roughly 16% below the $12,923 that comparable ones are asking, which is worth a phone call on its own. It shows 168,140 km, about normal for its age here.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
+          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
+        ],
+        "pros": [
+          "comfortably inside budget",
+          "priced well below similar cars",
+          "Undervalued, and the long factory warranty may still have time left.",
+          "practical body style"
+        ],
+        "cons": [
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 10900
         }
       ]
     },
@@ -256,8 +343,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -266,34 +353,35 @@
       ]
     },
     {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/kia-forte-ex-gasoline-cat_ma39gr202109-f2023d4e-3310-48fb-a901-909f904f840e",
-      "title": "Kia Forte EX",
-      "year": 2021,
+      "source": "kijiji",
+      "sourceId": "3KPFK4A7XJE229771",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2018-kia-forte-ex/1739452227",
+      "title": "2018 Kia Forte EX",
+      "year": 2018,
       "make": "Kia",
-      "model": "Forte",
+      "model": "forte",
       "trim": "EX",
-      "price": 13855,
-      "odometerKm": 90288,
+      "price": 11995,
+      "odometerKm": 121796,
       "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": "brown",
       "location": null,
       "sellerType": null,
-      "sellerName": "Honda Magic",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f2023d4e-3310-48fb-a901-909f904f840e_17167f67-9b8f-4a42-82e6-dd2103b82730.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "ae1b3b2b30fcaee9",
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/eb/ebd8fd0d-bb01-4858-adc9-db7e94ba2a72?rule=kijijica-200-jpg",
+      "vin": "3KPFK4A7XJE229771",
+      "description": "2018 Kia Forte EX is a dependable and practical compact sedan designed for both daily commuting and modern connectivity. Equipped with a fuel-efficient 4-cylinder engine and a spacious, ...",
+      "id": "ef0b571437d8f557",
       "alsoOn": [],
-      "score": 71,
+      "score": 77,
       "band": "worth a look",
       "scoreParts": [
         {
-          "label": "at the top of the budget",
-          "delta": -3
+          "label": "comfortably inside budget",
+          "delta": 7
         },
         {
           "label": "Undervalued, and the long factory warranty may still have time left.",
@@ -304,26 +392,25 @@
           "delta": 6
         },
         {
-          "label": "recent model year",
-          "delta": 8
+          "label": "practical body style",
+          "delta": 4
         }
       ],
       "commentary": {
         "headline": "Worth a look if the inspection comes back clean.",
         "body": [
-          "2021 Kia Forte at $13,855.",
-          "It shows 90,288 km, about normal for its age here.",
+          "2018 Kia forte at $11,995, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
+          "That is right about what similar ones are asking ($12,375 typical). It shows 121,796 km, about normal for its age here.",
           "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
           "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
         ],
         "pros": [
+          "comfortably inside budget",
           "Undervalued, and the long factory warranty may still have time left.",
           "reasonable kilometres",
-          "recent model year"
+          "practical body style"
         ],
-        "cons": [
-          "at the top of the budget"
-        ],
+        "cons": [],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
@@ -331,13 +418,13 @@
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
+      "firstSeen": "2026-08-10T05:19:43.359Z",
+      "lastSeen": "2026-08-10T05:19:43.359Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 13855
+          "at": "2026-08-10T05:19:43.359Z",
+          "price": 11995
         }
       ]
     },
@@ -409,8 +496,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -486,8 +573,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -555,8 +642,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -642,8 +729,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -728,8 +815,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -804,90 +891,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 9488
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "3KPF54AD1KE008722",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-kia-forte/1741801215",
-      "title": "2019 Kia Forte",
-      "year": 2019,
-      "make": "Kia",
-      "model": "forte",
-      "trim": "EX Limited",
-      "price": 10900,
-      "odometerKm": 168140,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "sedan",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/9e/9e8d6db4-b2b3-43c3-ac31-8c81295a7059?rule=kijijica-200-jpg",
-      "vin": "3KPF54AD1KE008722",
-      "description": "2019 Kia Forte EX Limited with 168140 kms. This car is in great shape inside and out. Fully loaded and runs and drives very well. Fuel efficient and reliable. Includes heated seats, leather, power ...",
-      "id": "9ada1ebe6ab8cf00",
-      "alsoOn": [],
-      "score": 67,
-      "band": "worth a look",
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 9
-        },
-        {
-          "label": "Undervalued, and the long factory warranty may still have time left.",
-          "delta": 10
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Good buy if the kilometres do not put you off.",
-        "body": [
-          "2019 Kia forte at $10,900, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "It shows 168,140 km, about normal for its age here.",
-          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
-          "Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
-        ],
-        "pros": [
-          "comfortably inside budget",
-          "Undervalued, and the long factory warranty may still have time left.",
-          "practical body style"
-        ],
-        "cons": [
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 10900
         }
       ]
     },
@@ -969,8 +978,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1051,8 +1060,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1137,8 +1146,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1214,8 +1223,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1296,8 +1305,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1378,12 +1387,92 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 11977
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/kia-forte-ex-gasoline-cat_ma39gr202109-f2023d4e-3310-48fb-a901-909f904f840e",
+      "title": "Kia Forte EX",
+      "year": 2021,
+      "make": "Kia",
+      "model": "Forte",
+      "trim": "EX",
+      "price": 13855,
+      "odometerKm": 90288,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": "Honda Magic",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f2023d4e-3310-48fb-a901-909f904f840e_17167f67-9b8f-4a42-82e6-dd2103b82730.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "ae1b3b2b30fcaee9",
+      "alsoOn": [],
+      "score": 61,
+      "band": "maybe",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -3
+        },
+        {
+          "label": "priced above similar cars",
+          "delta": -10
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "recent model year",
+          "delta": 8
+        }
+      ],
+      "commentary": {
+        "headline": "Fine car, but you would be paying over the odds.",
+        "body": [
+          "2021 Kia Forte at $13,855.",
+          "That is about 21% above the $11,448 that comparable ones are asking, so there should be room to negotiate. It shows 90,288 km, about normal for its age here.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price."
+        ],
+        "pros": [
+          "Undervalued, and the long factory warranty may still have time left.",
+          "reasonable kilometres",
+          "recent model year"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "priced above similar cars"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:15:33.629Z",
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:15:33.629Z",
+          "price": 13855
         }
       ]
     },
@@ -1464,8 +1553,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1534,8 +1623,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1614,8 +1703,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1694,8 +1783,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1780,8 +1869,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1860,8 +1949,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -1936,8 +2025,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2001,7 +2090,7 @@
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
           "2017 Chevrolet cruze at $8,500, which leaves a useful cushion under the $16,000 ceiling for insurance, tires and the first round of maintenance.",
-          "That is roughly 37% below the $13,483 that comparable ones are asking, which is worth a phone call on its own. It shows 159,887 km, about normal for its age here.",
+          "That is roughly 35% below the $12,989 that comparable ones are asking, which is worth a phone call on its own. It shows 159,887 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
         "pros": [
@@ -2023,8 +2112,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2088,8 +2177,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2159,8 +2248,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2229,8 +2318,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2305,8 +2394,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2390,8 +2479,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2455,7 +2544,7 @@
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
           "2017 Chevrolet cruze at $12,989.",
-          "That is right about what similar ones are asking ($13,477 typical). It shows 117,992 km, well under the 180,000 km an average Alberta car of that age would have.",
+          "That is right about what similar ones are asking ($12,977 typical). It shows 117,992 km, well under the 180,000 km an average Alberta car of that age would have.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
         "pros": [
@@ -2476,8 +2565,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2546,8 +2635,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2622,8 +2711,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2687,8 +2776,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2752,8 +2841,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2821,8 +2910,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2903,8 +2992,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -2967,8 +3056,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3052,8 +3141,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3124,8 +3213,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3188,8 +3277,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3274,8 +3363,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3337,8 +3426,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3402,8 +3491,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3473,8 +3562,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3547,8 +3636,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3618,8 +3707,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3695,8 +3784,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3775,8 +3864,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -3851,12 +3940,83 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 8100
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "3VV0B7AX9JM217075",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2018-volkswagen-tiguan-trendline-2-0-184hp-backup-camera-heat/1741049704",
+      "title": "2018 Volkswagen Tiguan Trendline 2.0 184HP - BACKUP CAMERA! HEAT",
+      "year": 2018,
+      "make": "Volkwagen",
+      "model": "tiguan",
+      "trim": "Trendline 2.0 184HP - BACKUP CAMERA! HEATED SEATS!",
+      "price": 14977,
+      "odometerKm": 164610,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/19/19b2b739-8086-44a5-a61d-1fa916e1a61b?rule=kijijica-200-jpg",
+      "vin": "3VV0B7AX9JM217075",
+      "description": "This outstanding example of a 2018 Volkswagen Tiguan Trendline 2.0T AWD is proudly offered by Auto Avenue Airdrie. Designed to meet the demands of modern families, the Volkswagen Tiguan combines ...",
+      "id": "abc3bf364866dbab",
+      "alsoOn": [],
+      "score": 41,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "2018 Volkwagen tiguan at $14,977.",
+          "It shows 164,610 km, about normal for its age here."
+        ],
+        "pros": [
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "high kilometres"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:19:43.359Z",
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:19:43.359Z",
+          "price": 14977
         }
       ]
     },
@@ -3931,8 +4091,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4016,81 +4176,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 10977
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "1GKKNKLA2KZ176464",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-gmc-acadia-sle-no-accidents-one-owner-carplay/1736711822",
-      "title": "2019 GMC Acadia SLE | No Accidents | One Owner | Carplay",
-      "year": 2019,
-      "make": "GMC",
-      "model": "acadia",
-      "trim": "SLE | No Accidents | One Owner | Carplay |",
-      "price": 15700,
-      "odometerKm": 140420,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/c1/c1ef9ec5-334e-4a4a-ae45-a4fcad73be9a?rule=kijijica-200-jpg",
-      "vin": "1GKKNKLA2KZ176464",
-      "description": "Navigate Calgary's bustling streets and expansive open roads with confidence in the 2019 GMC Acadia SLE. This versatile Sport Utility offers spacious 3rd-row seating, making it the perfect vehicle ...",
-      "id": "c6a4682bbb88e389",
-      "alsoOn": [],
-      "score": 39,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -9
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2019 GMC acadia at $15,700.",
-          "It shows 140,420 km, about normal for its age here."
-        ],
-        "pros": [
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "high kilometres"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 15700
         }
       ]
     },
@@ -4155,8 +4246,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4241,8 +4332,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4302,7 +4393,7 @@
         "headline": "Included for completeness rather than because I like it.",
         "body": [
           "2017 Chevrolet cruze at $12,977.",
-          "That is right about what similar ones are asking ($13,483 typical). It shows 153,576 km, about normal for its age here.",
+          "That is right about what similar ones are asking ($12,989 typical). It shows 153,576 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
         "pros": [
@@ -4323,8 +4414,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4386,8 +4477,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4461,8 +4552,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4548,93 +4639,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 9984
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "3N1CN8EV3ML875618",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2021-nissan-versa-sv-heated-seats-bluetooth-parking-sensors/1739160369",
-      "title": "2021 Nissan Versa SV Heated Seats | Bluetooth | Parking Sensors",
-      "year": 2021,
-      "make": "Nissan",
-      "model": "versa",
-      "trim": "SV",
-      "price": 13898,
-      "odometerKm": 117731,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "sedan",
-      "exteriorColour": "beige",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/52/52ccb0a3-5f5d-465c-92e4-621ca47cd52e?rule=kijijica-200-jpg",
-      "vin": "3N1CN8EV3ML875618",
-      "description": "Brand New Tires!Experience the stylish 2021 Nissan Versa SV in a sophisticated gray finish and enjoy the ease of front-wheel drive handling. This sedan offers a smooth, responsive drive that makes ...",
-      "id": "18f1c360bfb18c08",
-      "alsoOn": [],
-      "score": 35,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "recent model year",
-          "delta": 8
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "2021 Nissan versa at $13,898. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 117,731 km, about normal for its age here.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history."
-        ],
-        "pros": [
-          "reasonable kilometres",
-          "recent model year",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car."
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 13898
         }
       ]
     },
@@ -4706,12 +4716,98 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 13697
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "1G1BE5SM1H7192127",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2017-chevrolet-cruze-lt/1741070119",
+      "title": "2017 Chevrolet Cruze LT",
+      "year": 2017,
+      "make": "Chevrolet",
+      "model": "cruze",
+      "trim": "LT",
+      "price": 13990,
+      "odometerKm": 131266,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": "black",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/df/df976fe7-f0ff-46e6-ba4f-a87edcdf1d48?rule=kijijica-200-jpg",
+      "vin": "1G1BE5SM1H7192127",
+      "description": "AMVIC Licensed Dealer | LT | 1.4L DOHC DI Turbo I4 | Front-Wheel Drive | 6-Speed Automatic | LT Convenience Package | Technology Package | Power Sunroof | Bose Audio | Finished in Mosaic Black ...",
+      "id": "b89cff497892dfaf",
+      "alsoOn": [],
+      "score": 33,
+      "band": "probably not",
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -3
+        },
+        {
+          "label": "Cheap to buy for a reason.",
+          "delta": -12
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -5
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "2017 Chevrolet cruze at $13,990.",
+          "That is about 8% above the $12,977 that comparable ones are asking, so there should be room to negotiate. It shows 131,266 km, about normal for its age here.",
+          "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
+        ],
+        "pros": [
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "Cheap to buy for a reason.",
+          "high kilometres",
+          "getting on in years"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Coolant system and water pump history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T05:19:43.359Z",
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T05:19:43.359Z",
+          "price": 13990
         }
       ]
     },
@@ -4781,8 +4877,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4851,8 +4947,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4928,8 +5024,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -4981,7 +5077,7 @@
         "headline": "Included for completeness rather than because I like it.",
         "body": [
           "2019 Chevrolet cruze at $13,977.",
-          "That is about 8% above the $12,983 that comparable ones are asking, so there should be room to negotiate. It shows 147,887 km, about normal for its age here.",
+          "That is about 8% above the $12,989 that comparable ones are asking, so there should be room to negotiate. It shows 147,887 km, about normal for its age here.",
           "The 1.4L turbo has a well-known appetite for coolant leaks, water pumps, PCV diaphragms and thermostat housings. None of it is catastrophic, but it adds up to steady small bills."
         ],
         "pros": [],
@@ -4998,8 +5094,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5080,8 +5176,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5162,8 +5258,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5247,8 +5343,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5338,8 +5434,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5420,8 +5516,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5502,8 +5598,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5582,8 +5678,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5651,8 +5747,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5722,8 +5818,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
@@ -5798,94 +5894,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 15698
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "5UXWX9C52G0D71609",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-bmw-x3-xdrive28i-leather-panorama/1740196835",
-      "title": "2016 BMW X3 xDrive28i - LEATHER! PANORAMA!",
-      "year": 2016,
-      "make": "BMW",
-      "model": "x3",
-      "trim": "xDrive28i - LEATHER! PANORAMA!",
-      "price": 15977,
-      "odometerKm": 163909,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f6/f652ffd5-35b6-4879-8240-9f78ad41215e?rule=kijijica-200-jpg",
-      "vin": "5UXWX9C52G0D71609",
-      "description": "Check out this premium pre-owned 2016 BMW X3 xDrive28i now available at Auto Avenue Airdrie. The BMW X3 is the perfect blend of luxury, performance, and everyday practicality. Known for its refined ...",
-      "id": "dee8cf42346b03c5",
-      "alsoOn": [],
-      "score": 21,
-      "band": "probably not",
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -10
-        },
-        {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "getting on in years",
-          "delta": -5
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2016 BMW x3 at $15,977.",
-          "It shows 163,909 km, about normal for its age here.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context."
-        ],
-        "pros": [
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "high kilometres",
-          "getting on in years"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T05:15:33.629Z",
-          "price": 15977
         }
       ]
     },
@@ -5957,8 +5971,8 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T05:15:33.629Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T05:19:43.359Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
