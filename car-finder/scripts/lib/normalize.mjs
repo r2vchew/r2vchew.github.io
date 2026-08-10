@@ -81,8 +81,29 @@ const KNOWN_MAKES = [
   'Subaru', 'Suzuki', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo',
 ];
 
+/**
+ * Sites use filler values when a seller did not pick from the dropdown.
+ * Kijiji's is "othrmdl", which rendered as "2018 Kia Othrmdl LX+" — while the
+ * listing title said "2018 Kia Rio 5-door LX+" all along. Treating these as
+ * absent lets the title parser supply the real model.
+ */
+const PLACEHOLDER = /^(othrmdl|othr|other|others|unknown|unspecified|n\/?a|none|misc|various|model|make)$/i;
+
+export function isPlaceholder(value) {
+  return value == null || PLACEHOLDER.test(String(value).trim());
+}
+
 const MAKE_ALIASES = new Map([
   ['vw', 'Volkswagen'],
+  // Misspellings common enough in seller-typed titles to be worth catching;
+  // otherwise "Volkwagen" becomes a make of its own alongside Volkswagen.
+  ['volkwagen', 'Volkswagen'],
+  ['volkswagon', 'Volkswagen'],
+  ['hundai', 'Hyundai'],
+  ['hyndai', 'Hyundai'],
+  ['toyata', 'Toyota'],
+  ['mistubishi', 'Mitsubishi'],
+  ['chevorlet', 'Chevrolet'],
   ['chevy', 'Chevrolet'],
   ['mercedes', 'Mercedes-Benz'],
   ['mercedes benz', 'Mercedes-Benz'],
@@ -195,6 +216,12 @@ export function normalize(raw) {
   listing.description = listing.description ? decodeEntities(listing.description) : null;
   listing.sellerName = listing.sellerName ? decodeEntities(listing.sellerName) : null;
   listing.location = listing.location ? decodeEntities(listing.location) : null;
+
+  // Drop filler values before seeding the title parser, or it treats
+  // "othrmdl" as a real model and never looks at the title.
+  for (const field of ['make', 'model', 'trim']) {
+    if (isPlaceholder(listing[field])) listing[field] = null;
+  }
 
   const fromTitle = parseTitle(listing.title, {
     year: listing.year,

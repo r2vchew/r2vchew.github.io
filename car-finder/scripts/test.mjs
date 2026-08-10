@@ -109,6 +109,11 @@ group('what counts as a car', () => {
   check('listing id is not a year', v('Kia Forte EX', { url: 'https://www.autotrader.ca/offers/kia-forte-ex-black-20194837' }).year, null);
   check('lowercase model capitalised', v('Kia forte EX').model, 'Forte');
   check('model with digits left alone', v('Mazda CX-5 GS').model, 'CX-5');
+  // Kijiji sends "othrmdl" when the seller skipped the model dropdown; the
+  // real model is in the title.
+  check('placeholder model falls back to the title',
+    normalize({ source: 'kijiji', url: 'u', title: '2018 Kia Rio 5-door LX+', make: 'kia', model: 'othrmdl' }).model, 'Rio');
+  check('misspelled make canonicalised', v('2016 Volkwagen Beetle Trendline').make, 'Volkswagen');
   check('query string ids ignored', v('Kia Forte EX', { url: 'https://x.ca/vdp.action?listingId=201948371' }).year, null);
 });
 
