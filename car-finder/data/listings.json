@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T16:28:07.985Z",
+  "generatedAt": "2026-08-10T16:32:08.278Z",
   "criteria": {
     "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
     "updatedAt": "2026-08-10",
@@ -78,7 +78,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 7
+      "elapsedSeconds": 4.4
     },
     {
       "id": "kijiji",
@@ -87,7 +87,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 5.9
+      "elapsedSeconds": 5.8
     },
     {
       "id": "carpages",
@@ -96,23 +96,23 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 0.4
+      "elapsedSeconds": 0.8
     }
   ],
   "stats": {
     "rawRecords": 133,
     "nonVehiclesDropped": 11,
-    "uniqueCars": 119,
+    "uniqueCars": 121,
     "passedFilters": 71,
-    "filteredOut": 48,
+    "filteredOut": 50,
     "filterReasons": {
       "manual transmission": 8,
-      "too many kilometres (N km)": 35,
+      "too many kilometres (N km)": 37,
       "salvage, rebuilt or as-is title": 5
     },
     "candidates": 71,
-    "newSinceLastRun": 2,
-    "previousRunAt": "2026-08-10T16:23:13.497Z"
+    "newSinceLastRun": 1,
+    "previousRunAt": "2026-08-10T16:28:07.985Z"
   },
   "cars": [
     {
@@ -140,7 +140,7 @@
       "id": "39eec8d4e3539a07",
       "alsoOn": [],
       "score": 76,
-      "band": "worth a look",
+      "band": "shortlist",
       "costs": {
         "price": 3500,
         "extras": 2420,
@@ -317,7 +317,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -350,7 +350,7 @@
       "id": "45beef1fe0f3d0d3",
       "alsoOn": [],
       "score": 74,
-      "band": "worth a look",
+      "band": "shortlist",
       "costs": {
         "price": 9811,
         "extras": 2435,
@@ -497,7 +497,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -530,7 +530,7 @@
       "id": "14ba480c5408fd1b",
       "alsoOn": [],
       "score": 72,
-      "band": "worth a look",
+      "band": "shortlist",
       "costs": {
         "price": 4950,
         "extras": 3092,
@@ -706,7 +706,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -740,7 +740,7 @@
       "id": "71818a205198c945",
       "alsoOn": [],
       "score": 71,
-      "band": "worth a look",
+      "band": "shortlist",
       "costs": {
         "price": 8888,
         "extras": 2738,
@@ -905,7 +905,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:42:26.986Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1108,7 +1108,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1142,7 +1142,7 @@
       "id": "8e54de750c12616a",
       "alsoOn": [],
       "score": 60,
-      "band": "maybe",
+      "band": "worth a look",
       "costs": {
         "price": 9488,
         "extras": 2719,
@@ -1302,7 +1302,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:42:26.986Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1336,7 +1336,7 @@
       "id": "438c84e8554ca698",
       "alsoOn": [],
       "score": 57,
-      "band": "maybe",
+      "band": "worth a look",
       "costs": {
         "price": 9900,
         "extras": 3339,
@@ -1516,7 +1516,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1549,7 +1549,7 @@
       "id": "ef53091fb81ec150",
       "alsoOn": [],
       "score": 57,
-      "band": "maybe",
+      "band": "worth a look",
       "costs": {
         "price": 11950,
         "extras": 3442,
@@ -1719,7 +1719,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1753,7 +1753,7 @@
       "id": "803325804e0fe2d5",
       "alsoOn": [],
       "score": 55,
-      "band": "maybe",
+      "band": "worth a look",
       "costs": {
         "price": 6750,
         "extras": 2245,
@@ -1924,7 +1924,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1957,7 +1957,7 @@
       "id": "2907b45d6565c4da",
       "alsoOn": [],
       "score": 54,
-      "band": "maybe",
+      "band": "worth a look",
       "costs": {
         "price": 8995,
         "extras": 3294,
@@ -2121,7 +2121,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2325,12 +2325,210 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 8900
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "1C3CCCFB5GN119825",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-chrysler-200-lx-keyless-access-bluetooth-push-to-start/1739638045",
+      "title": "2016 Chrysler 200 LX - KEYLESS ACCESS! BLUETOOTH! PUSH TO START!",
+      "year": 2016,
+      "make": "Chrysler",
+      "model": "200series",
+      "trim": "LX - KEYLESS ACCESS! BLUETOOTH! PUSH TO START!",
+      "price": 8977,
+      "odometerKm": 148749,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/6b/6bc4ceea-26bc-4a26-b825-de9814ee485b?rule=kijijica-200-jpg",
+      "vin": "1C3CCCFB5GN119825",
+      "description": "This outstanding example of a 2016 Chrysler 200 LX is proudly offered by Auto Avenue Airdrie. Combining sleek styling, everyday practicality, and impressive comfort, the Chrysler 200 LX is a sedan ...",
+      "id": "69e6ebc94a898f4c",
+      "alsoOn": [],
+      "score": 53,
+      "band": "maybe",
+      "costs": {
+        "price": 8977,
+        "extras": 2694,
+        "total": 11671,
+        "low": 9072,
+        "high": 11671,
+        "items": [
+          {
+            "label": "GST, if this is a dealer",
+            "amount": 449,
+            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "149k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.3001002562103153,
+        "sellerTypeKnown": false,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 8
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "middle-aged but not old",
+          "delta": 2
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 30% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "2016 Chrysler 200series at $8,977, comfortably under the $13,000 ceiling.",
+          "It shows 148,749 km, about normal for its age here.",
+          "Realistically about $11,671 to get it on the road — roughly $2,694 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control."
+        ],
+        "costs": {
+          "price": 8977,
+          "extras": 2694,
+          "total": 11671,
+          "low": 9072,
+          "high": 11671,
+          "items": [
+            {
+              "label": "GST, if this is a dealer",
+              "amount": 449,
+              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "149k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.3001002562103153,
+          "sellerTypeKnown": false,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget",
+          "driven less than average for its age",
+          "middle-aged but not old",
+          "practical body style"
+        ],
+        "cons": [
+          "high kilometres",
+          "extras add about 30% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T16:32:08.278Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T16:32:08.278Z",
+          "price": 8977
         }
       ]
     },
@@ -2500,7 +2698,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2711,7 +2909,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -2895,7 +3093,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3115,7 +3313,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3320,7 +3518,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3518,7 +3716,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3733,8 +3931,8 @@
         ]
       },
       "firstSeen": "2026-08-10T16:28:07.985Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T16:32:08.278Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T16:28:07.985Z",
@@ -3941,7 +4139,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:29:52.719Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4121,7 +4319,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4155,7 +4353,7 @@
       "id": "00498d749d70aa37",
       "alsoOn": [],
       "score": 47,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 9500,
         "extras": 2720,
@@ -4314,7 +4512,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4348,7 +4546,7 @@
       "id": "08b3b39a39133888",
       "alsoOn": [],
       "score": 47,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 10888,
         "extras": 3388,
@@ -4529,7 +4727,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4563,7 +4761,7 @@
       "id": "9ada1ebe6ab8cf00",
       "alsoOn": [],
       "score": 47,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 10900,
         "extras": 2790,
@@ -4729,7 +4927,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4762,7 +4960,7 @@
       "id": "dc15a9d7f738607e",
       "alsoOn": [],
       "score": 47,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 10999,
         "extras": 2494,
@@ -4903,7 +5101,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4937,7 +5135,7 @@
       "id": "56172d2db61c2f17",
       "alsoOn": [],
       "score": 44,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 10300,
         "extras": 3359,
@@ -5116,7 +5314,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5149,7 +5347,7 @@
       "id": "56383b9dc45b4e04",
       "alsoOn": [],
       "score": 44,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 11988,
         "extras": 2543,
@@ -5284,7 +5482,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5318,7 +5516,7 @@
       "id": "d6b053c23f4ebda8",
       "alsoOn": [],
       "score": 43,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 8888,
         "extras": 2738,
@@ -5495,7 +5693,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5528,7 +5726,7 @@
       "id": "727b1b56a444857e",
       "alsoOn": [],
       "score": 43,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 10899,
         "extras": 2839,
@@ -5678,7 +5876,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5711,7 +5909,7 @@
       "id": "cbdb30bb72f42852",
       "alsoOn": [],
       "score": 42,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 8950,
         "extras": 3292,
@@ -5875,7 +6073,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -5908,7 +6106,7 @@
       "id": "de5e12e07592e30d",
       "alsoOn": [],
       "score": 42,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 8995,
         "extras": 3294,
@@ -6078,7 +6276,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:36:27.107Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6111,7 +6309,7 @@
       "id": "7ef968175e5a230b",
       "alsoOn": [],
       "score": 42,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 12995,
         "extras": 3494,
@@ -6280,7 +6478,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6313,7 +6511,7 @@
       "id": "189387385d189633",
       "alsoOn": [],
       "score": 42,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 12999,
         "extras": 2944,
@@ -6468,12 +6666,226 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T16:23:13.497Z",
           "price": 12999
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "1FMCU9D73BKA76781",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2011-ford-escape-xlt/1740517147",
+      "title": "2011 Ford Escape XLT",
+      "year": 2011,
+      "make": "Ford",
+      "model": "Escape",
+      "trim": "XLT",
+      "price": 7555,
+      "odometerKm": 166725,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "black",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/b7/b7f178f9-050e-492a-8b44-a584f4225f32?rule=kijijica-200-jpg",
+      "vin": "1FMCU9D73BKA76781",
+      "description": "With fuel-conscious practicality at the forefront, the 2011 Ford Escape XLT offers a smart SUV choice for drivers who want everyday usefulness without unnecessary complexity. Powered by a 4-cylinder ...",
+      "id": "4042eeecfb02ddad",
+      "alsoOn": [],
+      "score": 40,
+      "band": "maybe",
+      "costs": {
+        "price": 7555,
+        "extras": 2623,
+        "total": 10178,
+        "low": 7650,
+        "high": 10178,
+        "items": [
+          {
+            "label": "GST, if this is a dealer",
+            "amount": 378,
+            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "167k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.3471872931833223,
+        "sellerTypeKnown": false,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 11
+        },
+        {
+          "label": "priced well below similar cars",
+          "delta": 12
+        },
+        {
+          "label": "Decent value, but check transmission and coolant history.",
+          "delta": -12
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "quite old now",
+          "delta": -8
+        },
+        {
+          "label": "predates mandatory stability control",
+          "delta": -6
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 35% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "2011 Ford Escape at $7,555, comfortably under the $13,000 ceiling.",
+          "That is roughly 17% below the $9,048 that comparable ones are asking, which is worth a phone call on its own. It shows 166,725 km, well under the 300,000 km an average Alberta car of that age would have.",
+          "Realistically about $10,178 to get it on the road — roughly $2,623 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
+          "Worth knowing: stability control only became mandatory on the 2012 model year, so this one may not have it. On an icy Calgary morning that is the feature that quietly saves a new driver, and it is worth checking the specific trim before deciding."
+        ],
+        "costs": {
+          "price": 7555,
+          "extras": 2623,
+          "total": 10178,
+          "low": 7650,
+          "high": 10178,
+          "items": [
+            {
+              "label": "GST, if this is a dealer",
+              "amount": 378,
+              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "167k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.3471872931833223,
+          "sellerTypeKnown": false,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget",
+          "priced well below similar cars",
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "Decent value, but check transmission and coolant history.",
+          "high kilometres",
+          "quite old now",
+          "predates mandatory stability control"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-10T16:23:13.497Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
+      "isNew": false,
+      "priceHistory": [
+        {
+          "at": "2026-08-10T16:23:13.497Z",
+          "price": 7555
         }
       ]
     },
@@ -6501,7 +6913,7 @@
       "id": "8d7bac431c123a83",
       "alsoOn": [],
       "score": 40,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 11920,
         "extras": 3440,
@@ -6665,7 +7077,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6699,7 +7111,7 @@
       "id": "30da0107153ae9c5",
       "alsoOn": [],
       "score": 40,
-      "band": "probably not",
+      "band": "maybe",
       "costs": {
         "price": 12989,
         "extras": 2344,
@@ -6856,7 +7268,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -7051,7 +7463,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -7061,44 +7473,50 @@
       ]
     },
     {
-      "source": "kijiji",
+      "source": "autotrader",
       "sourceId": null,
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/hyundai-santa-fe-xl-2016/1740840086",
-      "title": "Hyundai Santa Fe XL 2016",
-      "year": 2016,
-      "make": "Hyundai",
-      "model": "Santafe",
-      "trim": null,
-      "price": 11999,
-      "odometerKm": 170000,
-      "transmission": null,
+      "url": "https://www.autotrader.ca/offers/ford-escape-se-gasoline-white-cat_ma29gr18589tr11412-daeece78-8e9d-49cf-af8d-3b98fc28cbab",
+      "title": "Ford Escape SE",
+      "year": null,
+      "make": "Ford",
+      "model": "Escape",
+      "trim": "SE",
+      "price": 8100,
+      "odometerKm": 153292,
+      "transmission": "automatic",
       "drivetrain": null,
-      "fuel": null,
-      "bodyType": "suvcrossover",
+      "fuel": "Gasoline",
       "exteriorColour": null,
       "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/fd/fdeec628-f164-4245-8ece-babc54279c81?rule=kijijica-200-jpg",
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/daeece78-8e9d-49cf-af8d-3b98fc28cbab_5fdde908-8844-4c3b-9932-a123eb922e08.jpg/250x188.webp",
       "vin": null,
-      "description": "2016 Hyundai Santa Fe XL - seven seats -Alberta active - fully loaded - keyless entry - push start - 170 000km - always maintained up to date - new windshield full tune up - front brakes and rotors ...",
-      "id": "3e0937e846275dd9",
+      "description": null,
+      "id": "74057d6a119f038a",
       "alsoOn": [],
-      "score": 39,
+      "score": 38,
       "band": "probably not",
       "costs": {
-        "price": 11999,
-        "extras": 2845,
-        "total": 14844,
-        "low": 12094,
-        "high": 14844,
+        "price": 8100,
+        "extras": 3249,
+        "total": 11349,
+        "low": 8600,
+        "high": 11349,
         "items": [
           {
-            "label": "GST, if this is a dealer",
-            "amount": 600,
-            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "label": "GST (5%)",
+            "amount": 405,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
             "certain": false,
-            "kind": "assumed"
+            "kind": "always"
           },
           {
             "label": "Registration and plates",
@@ -7124,7 +7542,7 @@
           {
             "label": "Brake work",
             "amount": 550,
-            "why": "170k km with no service history mentioned",
+            "why": "153k km with no service history mentioned",
             "certain": false,
             "kind": "assumed"
           },
@@ -7136,59 +7554,63 @@
             "kind": "assumed"
           }
         ],
-        "uplift": 0.23710309192432702,
-        "sellerTypeKnown": false,
+        "uplift": 0.4011111111111111,
+        "sellerTypeKnown": true,
         "tiresIncluded": false,
         "needsWork": false,
         "recentlyServiced": false
       },
       "scoreParts": [
         {
-          "label": "at the top of the budget",
-          "delta": -7
+          "label": "comfortably inside budget",
+          "delta": 10
         },
         {
-          "label": "from a make with a good reliability record",
+          "label": "priced below similar cars",
           "delta": 6
+        },
+        {
+          "label": "Decent value, but check transmission and coolant history.",
+          "delta": -12
         },
         {
           "label": "high kilometres",
           "delta": -6
         },
         {
-          "label": "middle-aged but not old",
-          "delta": 2
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        },
-        {
-          "label": "extras add about 24% before she can drive it",
+          "label": "extras add about 40% before she can drive it",
           "delta": -10
         }
       ],
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "2016 Hyundai Santafe at $11,999.",
-          "It shows 170,000 km, about normal for its age here.",
-          "Realistically about $14,844 to get it on the road — roughly $2,845 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control."
+          "Ford Escape at $8,100, comfortably under the $13,000 ceiling.",
+          "That is roughly 8% below the $8,775 that comparable ones are asking, which is worth a phone call on its own. It shows 153,292 km.",
+          "Realistically about $11,349 to get it on the road — roughly $3,249 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
         ],
         "costs": {
-          "price": 11999,
-          "extras": 2845,
-          "total": 14844,
-          "low": 12094,
-          "high": 14844,
+          "price": 8100,
+          "extras": 3249,
+          "total": 11349,
+          "low": 8600,
+          "high": 11349,
           "items": [
             {
-              "label": "GST, if this is a dealer",
-              "amount": 600,
-              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "label": "GST (5%)",
+              "amount": 405,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
               "certain": false,
-              "kind": "assumed"
+              "kind": "always"
             },
             {
               "label": "Registration and plates",
@@ -7214,7 +7636,7 @@
             {
               "label": "Brake work",
               "amount": 550,
-              "why": "170k km with no service history mentioned",
+              "why": "153k km with no service history mentioned",
               "certain": false,
               "kind": "assumed"
             },
@@ -7226,37 +7648,35 @@
               "kind": "assumed"
             }
           ],
-          "uplift": 0.23710309192432702,
-          "sellerTypeKnown": false,
+          "uplift": 0.4011111111111111,
+          "sellerTypeKnown": true,
           "tiresIncluded": false,
           "needsWork": false,
           "recentlyServiced": false
         },
         "pros": [
-          "from a make with a good reliability record",
-          "middle-aged but not old",
-          "practical body style"
+          "comfortably inside budget",
+          "priced below similar cars"
         ],
         "cons": [
-          "at the top of the budget",
+          "Decent value, but check transmission and coolant history.",
           "high kilometres",
-          "extras add about 24% before she can drive it"
+          "extras add about 40% before she can drive it"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
           "Timing belt or chain service, if due",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "firstSeen": "2026-08-10T11:38:11.639Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
-          "at": "2026-08-10T16:23:13.497Z",
-          "price": 11999
+          "at": "2026-08-10T11:38:11.639Z",
+          "price": 8100
         }
       ]
     },
@@ -7455,7 +7875,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -7659,7 +8079,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -7867,226 +8287,12 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T16:23:13.497Z",
           "price": 10999
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "1FMCU9D73BKA76781",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2011-ford-escape-xlt/1740517147",
-      "title": "2011 Ford Escape XLT",
-      "year": 2011,
-      "make": "Ford",
-      "model": "Escape",
-      "trim": "XLT",
-      "price": 7555,
-      "odometerKm": 166725,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": null,
-      "bodyType": "suvcrossover",
-      "exteriorColour": "black",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/b7/b7f178f9-050e-492a-8b44-a584f4225f32?rule=kijijica-200-jpg",
-      "vin": "1FMCU9D73BKA76781",
-      "description": "With fuel-conscious practicality at the forefront, the 2011 Ford Escape XLT offers a smart SUV choice for drivers who want everyday usefulness without unnecessary complexity. Powered by a 4-cylinder ...",
-      "id": "4042eeecfb02ddad",
-      "alsoOn": [],
-      "score": 34,
-      "band": "probably not",
-      "costs": {
-        "price": 7555,
-        "extras": 2623,
-        "total": 10178,
-        "low": 7650,
-        "high": 10178,
-        "items": [
-          {
-            "label": "GST, if this is a dealer",
-            "amount": 378,
-            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "167k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.3471872931833223,
-        "sellerTypeKnown": false,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 11
-        },
-        {
-          "label": "priced below similar cars",
-          "delta": 6
-        },
-        {
-          "label": "Decent value, but check transmission and coolant history.",
-          "delta": -12
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "driven less than average for its age",
-          "delta": 5
-        },
-        {
-          "label": "quite old now",
-          "delta": -8
-        },
-        {
-          "label": "predates mandatory stability control",
-          "delta": -6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        },
-        {
-          "label": "extras add about 35% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2011 Ford Escape at $7,555, comfortably under the $13,000 ceiling.",
-          "That is roughly 7% below the $8,100 that comparable ones are asking, which is worth a phone call on its own. It shows 166,725 km, well under the 300,000 km an average Alberta car of that age would have.",
-          "Realistically about $10,178 to get it on the road — roughly $2,623 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
-          "Worth knowing: stability control only became mandatory on the 2012 model year, so this one may not have it. On an icy Calgary morning that is the feature that quietly saves a new driver, and it is worth checking the specific trim before deciding."
-        ],
-        "costs": {
-          "price": 7555,
-          "extras": 2623,
-          "total": 10178,
-          "low": 7650,
-          "high": 10178,
-          "items": [
-            {
-              "label": "GST, if this is a dealer",
-              "amount": 378,
-              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "167k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.3471872931833223,
-          "sellerTypeKnown": false,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "comfortably inside budget",
-          "priced below similar cars",
-          "driven less than average for its age",
-          "practical body style"
-        ],
-        "cons": [
-          "Decent value, but check transmission and coolant history.",
-          "high kilometres",
-          "quite old now",
-          "predates mandatory stability control"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T16:23:13.497Z",
-          "price": 7555
         }
       ]
     },
@@ -8274,7 +8480,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -8468,215 +8674,12 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T05:15:33.629Z",
           "price": 11999
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/ford-escape-se-gasoline-white-cat_ma29gr18589tr11412-daeece78-8e9d-49cf-af8d-3b98fc28cbab",
-      "title": "Ford Escape SE",
-      "year": null,
-      "make": "Ford",
-      "model": "Escape",
-      "trim": "SE",
-      "price": 8100,
-      "odometerKm": 153292,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/daeece78-8e9d-49cf-af8d-3b98fc28cbab_5fdde908-8844-4c3b-9932-a123eb922e08.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "74057d6a119f038a",
-      "alsoOn": [],
-      "score": 32,
-      "band": "probably not",
-      "costs": {
-        "price": 8100,
-        "extras": 3249,
-        "total": 11349,
-        "low": 8600,
-        "high": 11349,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 405,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "153k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.4011111111111111,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 10
-        },
-        {
-          "label": "Decent value, but check transmission and coolant history.",
-          "delta": -12
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "extras add about 40% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "Ford Escape at $8,100, comfortably under the $13,000 ceiling.",
-          "That is about 7% above the $7,555 that comparable ones are asking, so there should be room to negotiate. It shows 153,292 km.",
-          "Realistically about $11,349 to get it on the road — roughly $3,249 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 8100,
-          "extras": 3249,
-          "total": 11349,
-          "low": 8600,
-          "high": 11349,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 405,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "153k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.4011111111111111,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "Decent value, but check transmission and coolant history.",
-          "high kilometres",
-          "extras add about 40% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T11:38:11.639Z",
-          "price": 8100
         }
       ]
     },
@@ -8845,7 +8848,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9070,7 +9073,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9275,7 +9278,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9470,7 +9473,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9673,7 +9676,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9870,7 +9873,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10064,7 +10067,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10193,7 +10196,7 @@
         "headline": "Included for completeness rather than because I like it.",
         "body": [
           "2013 Ford Escape at $10,888.",
-          "That is about 44% above the $7,555 that comparable ones are asking, so there should be room to negotiate. It shows 96,476 km, well under the 260,000 km an average Alberta car of that age would have.",
+          "That is about 39% above the $7,828 that comparable ones are asking, so there should be room to negotiate. It shows 96,476 km, well under the 260,000 km an average Alberta car of that age would have.",
           "Realistically about $13,726 to get it on the road — roughly $2,838 on top of the asking price. I have allowed for pre-purchase inspection, winter tires and catch-up service. Insurance is not in that figure.",
           "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
           "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control.",
@@ -10273,7 +10276,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10469,7 +10472,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10651,7 +10654,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10854,7 +10857,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11043,7 +11046,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11232,7 +11235,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11437,7 +11440,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11636,7 +11639,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11839,7 +11842,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -12048,7 +12051,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -12252,7 +12255,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -12468,7 +12471,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -12669,8 +12672,8 @@
         ]
       },
       "firstSeen": "2026-08-10T16:28:07.985Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
-      "isNew": true,
+      "lastSeen": "2026-08-10T16:32:08.278Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T16:28:07.985Z",
@@ -12872,7 +12875,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -12995,7 +12998,7 @@
         "headline": "Included for completeness rather than because I like it.",
         "body": [
           "Ford Escape at $12,596.",
-          "That is about 67% above the $7,555 that comparable ones are asking, so there should be room to negotiate. It shows 134,782 km.",
+          "That is about 61% above the $7,828 that comparable ones are asking, so there should be room to negotiate. It shows 134,782 km.",
           "Realistically about $16,070 to get it on the road — roughly $3,474 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
           "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
           "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
@@ -13079,7 +13082,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -13202,7 +13205,7 @@
         "headline": "Included for completeness rather than because I like it.",
         "body": [
           "Ford Escape at $12,875.",
-          "That is about 70% above the $7,555 that comparable ones are asking, so there should be room to negotiate. It shows 129,770 km.",
+          "That is about 64% above the $7,828 that comparable ones are asking, so there should be room to negotiate. It shows 129,770 km.",
           "Realistically about $16,363 to get it on the road — roughly $3,488 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
           "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
           "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
@@ -13286,7 +13289,7 @@
         ]
       },
       "firstSeen": "2026-08-10T05:15:33.629Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -13461,7 +13464,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -13664,7 +13667,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -13873,7 +13876,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -14061,7 +14064,7 @@
         ]
       },
       "firstSeen": "2026-08-10T16:23:13.497Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -14268,7 +14271,7 @@
         ]
       },
       "firstSeen": "2026-08-10T11:38:11.639Z",
-      "lastSeen": "2026-08-10T16:28:07.985Z",
+      "lastSeen": "2026-08-10T16:32:08.278Z",
       "isNew": false,
       "priceHistory": [
         {
