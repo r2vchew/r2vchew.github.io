@@ -50,6 +50,7 @@ without anyone having to read hundreds of listings.
 | `scripts/lib/interpret.mjs` | Turns plain English into changes to `criteria.json`. |
 | `scripts/apply-feedback.mjs` | Reads feedback issues, applies them, replies, closes them. |
 | `scripts/email.mjs` | Builds the digest and decides whether it is worth sending. |
+| `scripts/send-mail.mjs` | Small SMTP client, so the mail password stays out of third-party actions. |
 | `scripts/probe.mjs` | Diagnostic for when a source stops returning cars. |
 | `data/criteria.json` | The search scope. Safe to edit by hand. |
 | `data/verdicts.json` | Her saves and rejections. Rejected cars never come back. |

@@ -98,30 +98,23 @@ jobs:
             done
           fi
 
-      - name: Check email is configured
-        id: mail
-        run: |
-          if [ -n "${{ secrets.MAIL_SERVER }}" ] && [ -n "${{ secrets.MAIL_TO }}" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Email secrets not set; skipping the digest. See car-finder/README.md."
-          fi
-
+      # Sent by our own SMTP client rather than a third-party action, so the
+      # mailbox password never leaves code in this repository. It no-ops
+      # quietly when the secrets are not configured.
       - name: Send digest
-        if: steps.digest.outputs.send == 'true' && steps.mail.outputs.ready == 'true'
-        uses: dawidd6/action-send-mail@6063705cefe50cb915fc53bb5edffb600f4e0c8e # v3.12.0
-        with:
-          server_address: ${{ secrets.MAIL_SERVER }}
-          server_port: ${{ secrets.MAIL_PORT || 465 }}
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: Car finder <${{ secrets.MAIL_USERNAME }}>
-          to: ${{ secrets.MAIL_TO }}
-          subject: ${{ steps.digest.outputs.subject }}
-          html_body: file://car-finder/build/digest.html
-          convert_markdown: false
+        id: mail
+        if: steps.digest.outputs.send == 'true'
+        working-directory: car-finder
+        env:
+          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
+          MAIL_PORT: ${{ secrets.MAIL_PORT }}
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: |
+          node scripts/send-mail.mjs \
+            --html build/digest.html \
+            --subject "${{ steps.digest.outputs.subject }}"
 
       - name: Summary
         if: always()
@@ -130,7 +123,7 @@ jobs:
             echo "### Car finder scan"
             echo ""
             echo "- New cars worth a look: **${{ steps.digest.outputs.new_count || '0' }}**"
-            echo "- Digest sent: **${{ steps.digest.outputs.send == 'true' && steps.mail.outputs.ready == 'true' }}**"
+            echo "- Digest step: **${{ steps.mail.outcome || 'skipped' }}**"
             echo ""
             echo "Dashboard: https://${{ github.repository_owner }}.github.io/car-finder/"
           } >> "$GITHUB_STEP_SUMMARY"
