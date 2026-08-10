@@ -1,6 +1,6 @@
 # Car finder — Calgary
 
-Scans the main Canadian used-car sites twice a day, throws out everything that
+Scans the main Canadian used-car sites each morning, throws out everything that
 does not fit, and publishes a short, commented shortlist to a web page plus an
 email digest. Feedback from the page — including plain-English notes — feeds
 back into the search scope automatically.
@@ -14,7 +14,7 @@ without anyone having to read hundreds of listings.
 
 ```
                   ┌──────────────────────────────────────────┐
-  twice a day ───▶│ .github/workflows/car-finder.yml         │
+  every morning ─▶│ .github/workflows/car-finder.yml         │
   or on feedback  └──────────────────────────────────────────┘
                         │
                         ├─ 1. apply-feedback.mjs ── reads feedback issues,
@@ -124,7 +124,7 @@ Everything works without it.
 If a source starts reporting *"blocked the scan"*, it is refusing GitHub's
 datacentre IPs rather than running out of cars. Setting `SCRAPINGBEE_API_KEY` or
 `SCRAPERAPI_KEY` routes requests through a residential proxy. Both have free
-tiers that comfortably cover two scans a day.
+tiers that comfortably cover a daily scan.
 
 ## Tuning the search
 

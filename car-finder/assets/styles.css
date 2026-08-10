@@ -73,10 +73,35 @@ body {
 h1 { margin: 0 0 .5rem; font-size: clamp(1.7rem, 5vw, 2.4rem); letter-spacing: -.02em; line-height: 1.15; }
 .lede { margin: 0 0 1.2rem; color: var(--ink-2); max-width: 60ch; }
 
-.stats { display: flex; flex-wrap: wrap; gap: 1.6rem; margin: 0; }
-.stats div { margin: 0; }
-.stats dt { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
-.stats dd { margin: .1rem 0 0; font-size: 1.35rem; font-weight: 660; font-variant-numeric: tabular-nums; }
+/* Four figures plus two panel openers, filling two even rows. */
+.board {
+  display: grid; gap: .6rem; margin: 0;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 620px) { .board { grid-template-columns: repeat(3, 1fr); } }
+
+.tile {
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .65rem .8rem; border-radius: 11px;
+  background: var(--surface-2); border: 1px solid transparent;
+  text-align: left; min-height: 3.9rem; justify-content: center;
+}
+.tile-label {
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ink-3); line-height: 1.25;
+}
+.tile-value {
+  font-size: 1.3rem; font-weight: 660; font-variant-numeric: tabular-nums;
+  color: var(--ink); line-height: 1.15;
+}
+
+.tile-action {
+  font: inherit; cursor: pointer;
+  background: var(--surface); border-color: var(--line);
+  transition: border-color .15s, background .15s;
+}
+.tile-action .tile-value { font-size: 1.02rem; color: var(--accent); }
+.tile-action:hover { border-color: var(--accent); background: var(--surface-2); }
 
 /* ---------- toolbar ---------- */
 .toolbar {
@@ -97,7 +122,34 @@ h1 { margin: 0 0 .5rem; font-size: clamp(1.7rem, 5vw, 2.4rem); letter-spacing: -
 }
 .chip:hover { border-color: var(--ink-3); }
 .chip.is-active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.toolbar-right { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
 .sort { display: flex; align-items: center; gap: .45rem; font-size: .88rem; color: var(--ink-2); }
+.chip-filters { display: inline-flex; align-items: center; gap: .35rem; }
+.badge {
+  background: var(--accent); color: var(--accent-ink);
+  border-radius: 999px; min-width: 1.15rem; padding: 0 .32rem;
+  font-size: .7rem; font-weight: 700; line-height: 1.15rem; text-align: center;
+}
+.chip-filters.is-active .badge { background: var(--accent-ink); color: var(--accent); }
+
+/* Filter panel */
+.filters { padding: .2rem 0 .9rem; }
+/* Eight fields laid out as two even rows, matching the board above. */
+.filter-grid { display: grid; gap: .6rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 620px) { .filter-grid { grid-template-columns: repeat(4, 1fr); } }
+.field { display: flex; flex-direction: column; gap: .2rem; font-size: .78rem; color: var(--ink-3); }
+.field span { text-transform: uppercase; letter-spacing: .05em; font-weight: 600; }
+.field select { width: 100%; font-size: .88rem; padding: .4rem .5rem; }
+.field select:disabled { opacity: .45; }
+.filter-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-top: .8rem; flex-wrap: wrap;
+}
+.filter-foot p { margin: 0; max-width: 46ch; }
+.result-count {
+  margin: 1.4rem 0 -.4rem; font-size: .82rem; color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: .05em; font-weight: 600;
+}
 select, textarea, button { font: inherit; }
 select {
   background: var(--surface); color: var(--ink);
@@ -105,7 +157,7 @@ select {
 }
 
 /* ---------- cards ---------- */
-.cards { display: grid; gap: 1.1rem; padding: 1.6rem 0; }
+.cards { display: grid; gap: 1.1rem; padding: 1rem 0 1.6rem; }
 @media (min-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 
 .card {
@@ -212,11 +264,25 @@ h2 { font-size: 1.2rem; margin: 2.2rem 0 .5rem; letter-spacing: -.01em; }
 .dot.bad { background: var(--bad); }
 
 /* ---------- feedback ---------- */
-.feedback {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 1.2rem; margin: 2.2rem 0 1rem;
+/* Panels opened from the board. */
+.panel {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0 1.6rem;
 }
-.feedback h2 { margin-top: 0; }
+.panel-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+}
+.panel-head h2 { margin: 0 0 .4rem; }
+.panel-close {
+  background: transparent; border: 1px solid var(--line); color: var(--ink-2);
+  border-radius: 8px; padding: .32rem .7rem; font-size: .82rem; cursor: pointer;
+}
+.panel-close:hover { border-color: var(--ink-3); color: var(--ink); }
+.linkish {
+  background: none; border: 0; padding: 0; font: inherit;
+  color: var(--accent); text-decoration: underline; cursor: pointer;
+}
 textarea {
   width: 100%; margin-top: .7rem; padding: .7rem .8rem;
   background: var(--bg); color: var(--ink);

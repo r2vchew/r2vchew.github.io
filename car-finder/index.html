@@ -13,47 +13,22 @@
 
     <header class="masthead">
       <div class="wrap">
-        <p class="eyebrow">Calgary &amp; area · updated twice a day</p>
+        <p class="eyebrow">Calgary &amp; area · updated every morning</p>
         <h1>The car shortlist</h1>
         <p class="lede" id="lede">Loading the latest scan…</p>
-        <dl class="stats" id="stats"></dl>
+
+        <!-- Four figures and two panel openers, filling two even rows. -->
+        <div class="board" id="board"></div>
       </div>
     </header>
 
-    <nav class="toolbar" aria-label="Filter and sort">
-      <div class="wrap toolbar-inner">
-        <div class="chips" role="group" aria-label="Filter by recommendation">
-          <button type="button" class="chip is-active" data-filter="all">All</button>
-          <button type="button" class="chip" data-filter="shortlist">Best picks</button>
-          <button type="button" class="chip" data-filter="new">New today</button>
-          <button type="button" class="chip" data-filter="saved">Saved</button>
+    <!-- Opened from the board. Hidden until asked for, so the cars stay first. -->
+    <section class="panel" id="panel-feedback" hidden aria-labelledby="feedback-title">
+      <div class="wrap">
+        <div class="panel-head">
+          <h2 id="feedback-title">Scan feedback</h2>
+          <button type="button" class="panel-close" data-close="feedback" aria-label="Close scan feedback">Close</button>
         </div>
-        <label class="sort">
-          <span>Sort</span>
-          <select id="sort">
-            <option value="score">Best match</option>
-            <option value="price">Cheapest first</option>
-            <option value="km">Fewest kilometres</option>
-            <option value="year">Newest year</option>
-          </select>
-        </label>
-      </div>
-    </nav>
-
-    <main class="wrap">
-      <section id="candidates" aria-live="polite">
-        <div id="cards" class="cards"></div>
-        <p id="empty" class="empty" hidden>Nothing matches that filter right now.</p>
-      </section>
-
-      <section class="near-misses" id="near-misses" hidden>
-        <h2>Just outside the scope</h2>
-        <p class="muted">These were filtered out, but only barely. If any look interesting, say so below and I will widen the search.</p>
-        <ul id="near-list" class="near-list"></ul>
-      </section>
-
-      <section class="feedback" id="feedback">
-        <h2>Tell me what to change</h2>
         <p class="muted">
           Plain English is fine. &ldquo;Too many old ones&rdquo;, &ldquo;I&rsquo;d go to $18k for something newer&rdquo;,
           &ldquo;nothing white&rdquo;, &ldquo;stop showing me trucks&rdquo; — whatever you actually think.
@@ -71,12 +46,107 @@
           <button type="button" id="clear" class="ghost">Clear my marks</button>
         </div>
         <p class="sent" id="sent" hidden></p>
-      </section>
+      </div>
+    </section>
 
-      <section class="sources" id="sources">
-        <h2>Where these came from</h2>
+    <section class="panel" id="panel-sources" hidden aria-labelledby="sources-title">
+      <div class="wrap">
+        <div class="panel-head">
+          <h2 id="sources-title">Sources</h2>
+          <button type="button" class="panel-close" data-close="sources" aria-label="Close sources">Close</button>
+        </div>
         <ul id="source-list" class="source-list"></ul>
         <p class="muted small" id="source-note"></p>
+      </div>
+    </section>
+
+    <nav class="toolbar" aria-label="Filter and sort">
+      <div class="wrap toolbar-inner">
+        <div class="chips" role="group" aria-label="Filter by recommendation">
+          <button type="button" class="chip is-active" data-filter="all">All</button>
+          <button type="button" class="chip" data-filter="shortlist">Best picks</button>
+          <button type="button" class="chip" data-filter="new">New today</button>
+          <button type="button" class="chip" data-filter="saved">Saved</button>
+        </div>
+        <div class="toolbar-right">
+          <button type="button" class="chip chip-filters" id="filters-toggle" aria-expanded="false" aria-controls="filters">
+            Filters<span class="badge" id="filter-count" hidden></span>
+          </button>
+          <label class="sort">
+            <span>Sort</span>
+            <select id="sort">
+              <option value="score">Best match</option>
+              <option value="price">Cheapest first</option>
+              <option value="km">Fewest kilometres</option>
+              <option value="year">Newest year</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="filters wrap" id="filters" hidden>
+        <div class="filter-grid">
+          <label class="field">
+            <span>Max price</span>
+            <select id="f-price"></select>
+          </label>
+          <label class="field">
+            <span>Max kilometres</span>
+            <select id="f-km"></select>
+          </label>
+          <label class="field">
+            <span>Year from</span>
+            <select id="f-year"></select>
+          </label>
+          <label class="field">
+            <span>Make</span>
+            <select id="f-make"></select>
+          </label>
+          <label class="field">
+            <span>Body type</span>
+            <select id="f-body"></select>
+          </label>
+          <label class="field">
+            <span>Seller</span>
+            <select id="f-seller">
+              <option value="">Anyone</option>
+              <option value="private">Private seller</option>
+              <option value="dealer">Dealer</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Drivetrain</span>
+            <select id="f-awd">
+              <option value="">Any</option>
+              <option value="awd">All-wheel drive only</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Listed on</span>
+            <select id="f-source"></select>
+          </label>
+        </div>
+        <div class="filter-foot">
+          <p class="muted small">
+            These narrow what the last scan already found. To change what gets
+            searched for in the first place, use <button type="button" class="linkish" data-open="feedback">scan feedback</button>.
+          </p>
+          <button type="button" class="ghost" id="filters-reset">Reset filters</button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="wrap">
+      <section id="candidates" aria-live="polite">
+        <p class="result-count" id="result-count"></p>
+        <div id="cards" class="cards"></div>
+        <p id="empty" class="empty" hidden>Nothing matches those filters right now.</p>
+      </section>
+
+      <section class="near-misses" id="near-misses" hidden>
+        <h2>Just outside the scope</h2>
+        <p class="muted">These were filtered out, but only barely. If any look interesting, say so in scan feedback and I will widen the search.</p>
+        <ul id="near-list" class="near-list"></ul>
       </section>
     </main>
 

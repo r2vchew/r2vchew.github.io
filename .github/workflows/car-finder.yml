@@ -2,21 +2,24 @@ name: Car finder
 
 on:
   schedule:
-    # 07:10 and 17:10 Calgary time (MDT = UTC-6). Offset from the hour because
-    # GitHub's scheduler is busiest on the hour.
-    - cron: '10 13 * * *'
-    - cron: '10 23 * * *'
+    # Once a day at 11:40 UTC — 05:40 in Calgary on MDT, 04:40 on MST.
+    #
+    # Why this time:
+    #  * Private sellers list in the evening, and that is where the cheap cars
+    #    are. A pre-dawn run captures the whole of the previous evening.
+    #  * Dealer inventory feeds refresh overnight, roughly 02:00-05:00 local,
+    #    so scanning after that window avoids reading a half-updated feed.
+    #  * It lands before she is up, so the digest is waiting at breakfast and
+    #    is only a couple of hours old rather than a full day.
+    #  * :40 rather than :00 — GitHub's scheduler queues hardest on the hour,
+    #    and a queued run can be delayed by many minutes.
+    #
+    # Cron is UTC with no daylight-saving handling, so this drifts an hour
+    # between MDT and MST. Both land pre-dawn, so it does not matter here.
+    - cron: '40 11 * * *'
   # Feedback should take effect straight away, not at the next scheduled scan.
   issues:
     types: [opened, labeled, reopened]
-  # Lets the full pipeline be exercised on a feature branch, where
-  # workflow_dispatch is unavailable until the workflow reaches the default
-  # branch. Never matches main, so it costs nothing once merged.
-  push:
-    branches: ['claude/**']
-    paths:
-      - 'car-finder/scripts/**'
-      - '.github/workflows/car-finder.yml'
   workflow_dispatch:
     inputs:
       pages:

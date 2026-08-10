@@ -13,13 +13,20 @@ const CONFIG = {
 
 const STORE_KEY = 'car-finder-marks-v1';
 const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => [...document.querySelectorAll(sel)];
 const fmt = new Intl.NumberFormat('en-CA');
 const money = (n) => (n == null ? '—' : `$${fmt.format(n)}`);
 
 let data = null;
 let marks = loadMarks();
-let filter = 'all';
+let band = 'all';
 let sort = 'score';
+
+// View filters. These narrow what the scan already found; they never change
+// what gets searched for — that is what scan feedback is for.
+const filters = {
+  price: '', km: '', year: '', make: '', body: '', seller: '', awd: '', source: '',
+};
 
 function loadMarks() {
   try {
@@ -47,12 +54,15 @@ async function boot() {
     return;
   }
   renderHeader();
+  buildFilterOptions();
   renderSources();
   renderNearMisses();
   renderPending();
   render();
   wire();
 }
+
+/* ---------------------------------------------------------------- header */
 
 function renderHeader() {
   const s = data.stats;
@@ -65,27 +75,143 @@ function renderHeader() {
 
   $('#lede').textContent = best
     ? `I read ${fmt.format(s.rawRecords)} listings${across} and threw out ${fmt.format(s.filteredOut)} of them. ${best} ${best === 1 ? 'stands' : 'stand'} out as ${best === 1 ? 'a best pick' : 'best picks'}. ${scope}`
-    : `I read ${fmt.format(s.rawRecords)} listings${across} and nothing really cleared the bar this time. ${scope} Widen the scope below and I will try again.`;
+    : `I read ${fmt.format(s.rawRecords)} listings${across} and nothing really cleared the bar this time. ${scope} Widen the scope in scan feedback and I will try again.`;
 
   const prices = data.cars.map((x) => x.price).filter((p) => p != null);
-  const stats = [
-    ['Worth a look', data.cars.filter((x) => x.score >= 62).length],
-    ['New since last scan', s.newSinceLastRun],
-    ['Filtered out for you', s.filteredOut],
-    ['Cheapest pick', prices.length ? money(Math.min(...prices)) : '—'],
+  const cells = [
+    { label: 'Worth a look', value: fmt.format(data.cars.filter((x) => x.score >= 62).length) },
+    { label: 'New since yesterday', value: fmt.format(s.newSinceLastRun) },
+    { label: 'Filtered out for you', value: fmt.format(s.filteredOut) },
+    { label: 'Cheapest pick', value: prices.length ? money(Math.min(...prices)) : '—' },
+    { label: 'Tell me what to change', value: 'Scan feedback', opens: 'feedback' },
+    { label: 'Where these came from', value: 'Sources', opens: 'sources' },
   ];
-  $('#stats').innerHTML = stats.map(([k, v]) =>
-    `<div><dt>${k}</dt><dd>${typeof v === 'number' ? fmt.format(v) : v}</dd></div>`).join('');
+
+  $('#board').innerHTML = cells.map((cell) => (cell.opens
+    ? `<button type="button" class="tile tile-action" data-open="${cell.opens}">
+         <span class="tile-label">${cell.label}</span>
+         <span class="tile-value">${cell.value} <span aria-hidden="true">→</span></span>
+       </button>`
+    : `<div class="tile">
+         <span class="tile-label">${cell.label}</span>
+         <span class="tile-value">${cell.value}</span>
+       </div>`)).join('');
 
   const when = new Date(data.generatedAt);
   $('#generated').textContent = `Last scan ${when.toLocaleString('en-CA', { dateStyle: 'medium', timeStyle: 'short' })}.`;
 }
 
+/* --------------------------------------------------------------- filters */
+
+/** Tidy the many spellings sites use for a body style. */
+function bodyLabel(car) {
+  const raw = `${car.bodyType || ''} ${car.title || ''}`.toLowerCase();
+  if (/pick ?up|truck|\bram\b|f-?150|silverado|sierra|tacoma/.test(raw)) return 'Truck';
+  if (/suv|crossover|cuv/.test(raw)) return 'SUV';
+  if (/minivan|\bvan\b/.test(raw)) return 'Van';
+  if (/wagon|estate/.test(raw)) return 'Wagon';
+  if (/convertible|cabrio|roadster/.test(raw)) return 'Convertible';
+  if (/coupe/.test(raw)) return 'Coupe';
+  if (/hatch/.test(raw)) return 'Hatchback';
+  if (/sedan|saloon/.test(raw)) return 'Sedan';
+  return null;
+}
+
+function isAwd(car) {
+  return /\b(awd|4wd|4x4|all[-\s]?wheel|four[-\s]?wheel|quattro|4motion|xdrive|s-?awc)/i
+    .test(`${car.title} ${car.drivetrain} ${car.trim}`);
+}
+
+/** Build the dropdowns from what is actually in this scan, with counts. */
+function buildFilterOptions() {
+  const cars = data.cars;
+  const max = data.criteria.hard.maxPrice ?? 20000;
+
+  const priceSteps = [];
+  for (let p = 6000; p < max; p += 2000) priceSteps.push(p);
+  fill('#f-price', 'Any price', priceSteps.map((p) => ({
+    value: String(p), label: `Under ${money(p)}`,
+    count: cars.filter((c) => c.price != null && c.price <= p).length,
+  })));
+
+  const kmSteps = [60000, 80000, 100000, 120000, 150000];
+  fill('#f-km', 'Any mileage', kmSteps.map((k) => ({
+    value: String(k), label: `Under ${fmt.format(k)} km`,
+    count: cars.filter((c) => c.odometerKm != null && c.odometerKm <= k).length,
+  })));
+
+  const years = [...new Set(cars.map((c) => c.year).filter(Boolean))].sort((a, b) => a - b);
+  fill('#f-year', 'Any year', years.map((y) => ({
+    value: String(y), label: `${y} or newer`,
+    count: cars.filter((c) => c.year != null && c.year >= y).length,
+  })));
+
+  const makes = [...new Set(cars.map((c) => c.make).filter(Boolean))].sort();
+  fill('#f-make', 'Any make', makes.map((m) => ({
+    value: m, label: m, count: cars.filter((c) => c.make === m).length,
+  })));
+
+  const bodies = [...new Set(cars.map(bodyLabel).filter(Boolean))].sort();
+  fill('#f-body', 'Any body type', bodies.map((b) => ({
+    value: b, label: b, count: cars.filter((c) => bodyLabel(c) === b).length,
+  })));
+
+  const sources = [...new Set(cars.map((c) => c.source).filter(Boolean))].sort();
+  const labelFor = (id) => (data.sourceHealth || []).find((s) => s.id === id)?.label || id;
+  fill('#f-source', 'Any site', sources.map((s) => ({
+    value: s, label: labelFor(s), count: cars.filter((c) => c.source === s).length,
+  })));
+
+  // Seller and drivetrain are fixed lists in the markup; annotate their counts.
+  annotate('#f-seller', {
+    private: cars.filter((c) => c.sellerType === 'private').length,
+    dealer: cars.filter((c) => c.sellerType === 'dealer').length,
+  });
+  annotate('#f-awd', { awd: cars.filter(isAwd).length });
+}
+
+function fill(sel, anyLabel, options) {
+  const el = $(sel);
+  const usable = options.filter((o) => o.count > 0);
+  el.innerHTML = [`<option value="">${anyLabel}</option>`]
+    .concat(usable.map((o) => `<option value="${escAttr(o.value)}">${esc(o.label)} (${o.count})</option>`))
+    .join('');
+  el.disabled = usable.length === 0;
+}
+
+function annotate(sel, counts) {
+  for (const opt of $(sel).options) {
+    if (!opt.value) continue;
+    const n = counts[opt.value] ?? 0;
+    opt.textContent = `${opt.textContent.replace(/\s*\(\d+\)$/, '')} (${n})`;
+    opt.disabled = n === 0;
+  }
+}
+
+function passesFilters(car) {
+  if (filters.price && !(car.price != null && car.price <= Number(filters.price))) return false;
+  if (filters.km && !(car.odometerKm != null && car.odometerKm <= Number(filters.km))) return false;
+  if (filters.year && !(car.year != null && car.year >= Number(filters.year))) return false;
+  if (filters.make && car.make !== filters.make) return false;
+  if (filters.body && bodyLabel(car) !== filters.body) return false;
+  if (filters.seller && car.sellerType !== filters.seller) return false;
+  if (filters.awd === 'awd' && !isAwd(car)) return false;
+  if (filters.source && car.source !== filters.source) return false;
+  return true;
+}
+
+function activeFilterCount() {
+  return Object.values(filters).filter(Boolean).length;
+}
+
+/* ----------------------------------------------------------------- cards */
+
 function visibleCars() {
   let cars = data.cars.filter((c) => !marks.rejected[c.id]);
-  if (filter === 'shortlist') cars = cars.filter((c) => c.band === 'shortlist');
-  if (filter === 'new') cars = cars.filter((c) => c.isNew);
-  if (filter === 'saved') cars = cars.filter((c) => marks.saved[c.id]);
+  if (band === 'shortlist') cars = cars.filter((c) => c.band === 'shortlist');
+  if (band === 'new') cars = cars.filter((c) => c.isNew);
+  if (band === 'saved') cars = cars.filter((c) => marks.saved[c.id]);
+  cars = cars.filter(passesFilters);
 
   const by = {
     score: (a, b) => b.score - a.score,
@@ -98,16 +224,25 @@ function visibleCars() {
 
 function render() {
   const cars = visibleCars();
+  const total = data.cars.filter((c) => !marks.rejected[c.id]).length;
+
   $('#empty').hidden = cars.length > 0;
+  $('#result-count').textContent = cars.length === total
+    ? `${cars.length} car${cars.length === 1 ? '' : 's'}`
+    : `${cars.length} of ${total} cars`;
+
+  const n = activeFilterCount();
+  const badge = $('#filter-count');
+  badge.hidden = n === 0;
+  badge.textContent = String(n);
+
   $('#cards').innerHTML = cars.map(cardHtml).join('');
 
-  for (const btn of document.querySelectorAll('[data-act]')) {
-    btn.addEventListener('click', onAct);
-  }
+  for (const btn of $$('[data-act]')) btn.addEventListener('click', onAct);
 
   // Plenty of sites block hotlinked images. Swap in the placeholder rather
   // than leaving a broken frame where the photo should be.
-  for (const img of document.querySelectorAll('.photo img')) {
+  for (const img of $$('.photo img')) {
     img.addEventListener('error', () => {
       const holder = document.createElement('div');
       holder.className = 'noimg';
@@ -127,6 +262,7 @@ function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
+const escAttr = esc;
 
 function cardHtml(car) {
   const name = [car.year, car.make, car.model, car.trim].filter(Boolean).join(' ') || car.title || 'Vehicle';
@@ -141,7 +277,7 @@ function cardHtml(car) {
   if (drop) flags.push(`<span class="flag">Price dropped ${money(drop)}</span>`);
 
   const photo = car.imageUrl
-    ? `<img src="${esc(car.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+    ? `<img src="${escAttr(car.imageUrl)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
     : '<div class="noimg">No photo in the listing</div>';
 
   const pm = (title, items) => (items?.length
@@ -153,14 +289,14 @@ function cardHtml(car) {
     <div class="photo">${photo}<div class="flags">${flags.join('')}</div></div>
 
     <div class="card-head">
-      <h3><a href="${esc(car.url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a></h3>
+      <h3><a href="${escAttr(car.url)}" target="_blank" rel="noopener noreferrer">${esc(name)}</a></h3>
       <div class="score ${scoreClass(car.score)}"><b>${car.score}</b><span>match</span></div>
     </div>
 
     <div class="specs">
       <span><b>${money(car.price)}</b></span>
       <span><b>${car.odometerKm != null ? `${fmt.format(car.odometerKm)} km` : '— km'}</b></span>
-      ${car.transmission ? `<span>${esc(car.transmission)}</span>` : ''}
+      ${bodyLabel(car) ? `<span>${esc(bodyLabel(car))}</span>` : ''}
       ${car.location ? `<span>${esc(car.location)}</span>` : ''}
       ${car.sellerType ? `<span>${esc(car.sellerType)}</span>` : ''}
     </div>
@@ -182,7 +318,7 @@ function cardHtml(car) {
       <span class="meta">${esc(car.source)}${car.firstSeen ? ` · first seen ${new Date(car.firstSeen).toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}` : ''}</span>
       <button type="button" class="act" data-act="save" data-id="${car.id}" aria-pressed="${saved}">${saved ? 'Saved' : 'Save'}</button>
       <button type="button" class="act" data-act="reject" data-id="${car.id}">Not for me</button>
-      <a class="view" href="${esc(car.url)}" target="_blank" rel="noopener noreferrer">View listing</a>
+      <a class="view" href="${escAttr(car.url)}" target="_blank" rel="noopener noreferrer">View listing</a>
     </div>
   </article>`;
 }
@@ -215,6 +351,8 @@ function label(car) {
   return `${[car.year, car.make, car.model].filter(Boolean).join(' ')} — ${money(car.price)}`;
 }
 
+/* -------------------------------------------------------------- sections */
+
 function renderPending() {
   const saved = Object.entries(marks.saved);
   const rejected = Object.entries(marks.rejected);
@@ -222,11 +360,10 @@ function renderPending() {
   $('#pending').hidden = !has;
   if (!has) return;
 
-  const items = [
+  $('#pending-list').innerHTML = [
     ...saved.map(([, l]) => `<li>Saved: ${esc(l)}</li>`),
     ...rejected.map(([id, l]) => `<li>Not for me: ${esc(l)}${marks.notes[id] ? ` — <em>${esc(marks.notes[id])}</em>` : ''}</li>`),
-  ];
-  $('#pending-list').innerHTML = items.join('');
+  ].join('');
 }
 
 function renderNearMisses() {
@@ -235,7 +372,7 @@ function renderNearMisses() {
   $('#near-misses').hidden = false;
   $('#near-list').innerHTML = near.map((n) => `
     <li>
-      <a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.title || 'Listing')}</a>
+      <a href="${escAttr(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.title || 'Listing')}</a>
       <span><b>${money(n.price)}</b></span>
       <span class="why">${esc(n.rejectReason)}</span>
     </li>`).join('');
@@ -257,6 +394,8 @@ function renderSources() {
     ? 'A site returning nothing usually means it served a bot check rather than that it has no cars. The next scan retries automatically.'
     : '';
 }
+
+/* -------------------------------------------------------------- feedback */
 
 function buildPayload() {
   const note = $('#note').value.trim();
@@ -339,15 +478,61 @@ function show(message) {
   el.textContent = message;
 }
 
+/* ---------------------------------------------------------------- wiring */
+
+function openPanel(name) {
+  for (const which of ['feedback', 'sources']) {
+    $(`#panel-${which}`).hidden = which !== name;
+  }
+  const panel = $(`#panel-${name}`);
+  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  panel.querySelector('h2')?.focus?.();
+}
+
+function closePanel(name) {
+  $(`#panel-${name}`).hidden = true;
+}
+
 function wire() {
-  for (const chip of document.querySelectorAll('.chip')) {
+  for (const chip of $$('.chips .chip')) {
     chip.addEventListener('click', () => {
-      filter = chip.dataset.filter;
-      for (const c of document.querySelectorAll('.chip')) c.classList.toggle('is-active', c === chip);
+      band = chip.dataset.filter;
+      for (const c of $$('.chips .chip')) c.classList.toggle('is-active', c === chip);
       render();
     });
   }
+
   $('#sort').addEventListener('change', (e) => { sort = e.target.value; render(); });
+
+  const toggle = $('#filters-toggle');
+  toggle.addEventListener('click', () => {
+    const open = $('#filters').hidden;
+    $('#filters').hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.classList.toggle('is-active', open);
+  });
+
+  const fieldMap = {
+    '#f-price': 'price', '#f-km': 'km', '#f-year': 'year', '#f-make': 'make',
+    '#f-body': 'body', '#f-seller': 'seller', '#f-awd': 'awd', '#f-source': 'source',
+  };
+  for (const [sel, key] of Object.entries(fieldMap)) {
+    $(sel).addEventListener('change', (e) => { filters[key] = e.target.value; render(); });
+  }
+
+  $('#filters-reset').addEventListener('click', () => {
+    for (const key of Object.keys(filters)) filters[key] = '';
+    for (const sel of Object.keys(fieldMap)) $(sel).value = '';
+    render();
+  });
+
+  for (const btn of $$('[data-open]')) {
+    btn.addEventListener('click', () => openPanel(btn.dataset.open));
+  }
+  for (const btn of $$('[data-close]')) {
+    btn.addEventListener('click', () => closePanel(btn.dataset.close));
+  }
+
   $('#send').addEventListener('click', send);
   $('#clear').addEventListener('click', () => {
     if (!confirm('Clear every save and rejection you have marked?')) return;

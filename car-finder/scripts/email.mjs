@@ -68,12 +68,12 @@ async function main() {
 
   const shouldSend = force || fresh.length > 0;
   const subject = fresh.length
-    ? `${fresh.length} new car${fresh.length === 1 ? '' : 's'} worth a look — from ${money(Math.min(...fresh.map((c) => c.price ?? Infinity)))}`
+    ? `${fresh.length} new car${fresh.length === 1 ? '' : 's'} since yesterday — from ${money(Math.min(...fresh.map((c) => c.price ?? Infinity)))}`
     : `Car shortlist update — ${best.length} still worth a look`;
 
   const intro = fresh.length
-    ? `${fresh.length} new listing${fresh.length === 1 ? '' : 's'} came up since the last scan. I read ${fmt.format(data.stats.rawRecords)} listings and set aside ${fmt.format(data.stats.filteredOut)} that were not worth your time.`
-    : `Nothing new cleared the bar since the last scan, but here is where the shortlist stands.`;
+    ? `${fresh.length} new listing${fresh.length === 1 ? '' : 's'} came up since yesterday. I read ${fmt.format(data.stats.rawRecords)} listings this morning and set aside ${fmt.format(data.stats.filteredOut)} that were not worth your time.`
+    : 'Nothing new cleared the bar since yesterday, but here is where the shortlist stands.';
 
   const html = `<!doctype html>
 <html lang="en-CA"><head><meta charset="utf-8">

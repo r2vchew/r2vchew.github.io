@@ -9,7 +9,7 @@ https://r2vchew.github.io/ — anything on `main` is public.
 
 | Folder | What it is | Status |
 | --- | --- | --- |
-| `car-finder/` | Used-car shortlist for Calgary, scored and commented, with an email digest and a feedback loop. See `car-finder/STATUS.md`. | Scanning twice a day |
+| `car-finder/` | Used-car shortlist for Calgary, scored and commented, with an email digest and a feedback loop. See `car-finder/STATUS.md`. | Scanning each morning |
 | `email-overview/` | Privacy-safe Email Overview companion. | Published |
 
 ## Next useful action
