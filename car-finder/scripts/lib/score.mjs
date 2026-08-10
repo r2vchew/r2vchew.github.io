@@ -223,8 +223,8 @@ export function buildMarket(listings) {
     const loose = `${l.make}|${l.model}`.toLowerCase();
     if (!tightBuckets.has(tight)) tightBuckets.set(tight, []);
     if (!looseBuckets.has(loose)) looseBuckets.set(loose, []);
-    tightBuckets.get(tight).push({ id: l.id, price: l.price });
-    looseBuckets.get(loose).push({ id: l.id, price: l.price });
+    tightBuckets.get(tight).push({ id: l.id, price: l.price, year: l.year });
+    looseBuckets.get(loose).push({ id: l.id, price: l.price, year: l.year });
   }
 
   const median = (arr) => {
@@ -235,8 +235,18 @@ export function buildMarket(listings) {
 
   // Comparing a car against a median it is itself part of drags the benchmark
   // toward the car, which hides exactly the bargains we are looking for.
-  const peersOf = (bucket, listing) =>
-    (bucket || []).filter((e) => e.id !== listing.id).map((e) => e.price);
+  //
+  // The year window matters just as much. Falling back to "any Elantra" made a
+  // 2012 at $3,500 look 64% below market against a field of 2018s — a
+  // genuinely misleading thing to tell someone about to spend their money.
+  const YEAR_WINDOW = 2;
+  const peersOf = (bucket, listing) => (bucket || [])
+    .filter((e) => e.id !== listing.id)
+    .filter((e) => {
+      if (listing.year == null || e.year == null) return false;
+      return Math.abs(e.year - listing.year) <= YEAR_WINDOW;
+    })
+    .map((e) => e.price);
 
   return {
     medianFor(listing) {
@@ -246,8 +256,11 @@ export function buildMarket(listings) {
         listing,
       );
       if (tight.length >= 3) return median(tight);
+      // Three is enough here now that the fallback is year-bounded too: it is
+      // no longer "any Elantra ever", it is "an Elantra within two model
+      // years", which is a fair comparison set.
       const loose = peersOf(looseBuckets.get(`${listing.make}|${listing.model}`.toLowerCase()), listing);
-      if (loose.length >= 4) return median(loose);
+      if (loose.length >= 3) return median(loose);
       return null;
     },
   };

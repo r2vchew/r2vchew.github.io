@@ -5,7 +5,7 @@
 import { cardScan } from './lib/cards.mjs';
 import { decodeEntities, parseMoney, parseOdometer, parseTransmission } from './lib/extract.mjs';
 import { looksLikeVehicle, normalize } from './lib/normalize.mjs';
-import { BANDS, bandFor, rejectReason } from './lib/score.mjs';
+import { BANDS, bandFor, buildMarket, rejectReason } from './lib/score.mjs';
 import { interpret } from './lib/interpret.mjs';
 import { estimateInitialCost } from './lib/costs.mjs';
 import carpages from './sources/carpages.mjs';
@@ -137,6 +137,19 @@ group('score bands', () => {
   check('top of a real scan makes the shortlist', bandFor(76), 'shortlist');
   check('mid scan is worth a look', bandFor(57), 'worth a look');
   check('median scan is not', bandFor(39), 'probably not');
+});
+
+group('market comparison', () => {
+  const car = (id, year, price) => ({ id, year, price, make: 'Hyundai', model: 'Elantra', title: `${year} Hyundai Elantra` });
+  // Four 2018s and one old cheap one. The old car must not be scored against
+  // the newer field — that reported "64% below market" on a real scan.
+  const market = buildMarket([
+    car('a', 2018, 11000), car('b', 2018, 11500), car('c', 2018, 12000),
+    car('d', 2019, 12500), car('e', 2012, 3500),
+  ]);
+  check('old car gets no cross-generation benchmark', market.medianFor(car('e', 2012, 3500)), null);
+  check('same-generation car still compared', market.medianFor(car('a', 2018, 11000)) > 0, true);
+  check('unknown year gets no benchmark', market.medianFor({ id: 'z', year: null, price: 9000, make: 'Hyundai', model: 'Elantra' }), null);
 });
 
 group('plain-English feedback', () => {

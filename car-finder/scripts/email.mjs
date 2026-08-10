@@ -29,7 +29,11 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
 
 function carBlock(car) {
   const name = [car.year, car.make, car.model, car.trim].filter(Boolean).join(' ') || car.title;
-  const line = car.commentary?.aiNote || car.commentary?.body?.[0] || '';
+  // body[0] is the formulaic opener ("X at $Y, comfortably under the ceiling"),
+  // which reads identically on every card. The second paragraph carries the
+  // price-versus-market and mileage detail, which is what earns the click.
+  const body = car.commentary?.body || [];
+  const line = car.commentary?.aiNote || body[1] || body[0] || '';
   const headline = car.commentary?.headline || '';
 
   return `
