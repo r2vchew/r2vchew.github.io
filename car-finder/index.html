@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Car finder — Calgary</title>
+    <meta name="description" content="A shortlist of used cars around Calgary, checked and commented on so you do not have to read every listing.">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <a class="skip" href="#candidates">Skip to the cars</a>
+
+    <header class="masthead">
+      <div class="wrap">
+        <p class="eyebrow">Calgary &amp; area · updated twice a day</p>
+        <h1>The car shortlist</h1>
+        <p class="lede" id="lede">Loading the latest scan…</p>
+        <dl class="stats" id="stats"></dl>
+      </div>
+    </header>
+
+    <nav class="toolbar" aria-label="Filter and sort">
+      <div class="wrap toolbar-inner">
+        <div class="chips" role="group" aria-label="Filter by recommendation">
+          <button type="button" class="chip is-active" data-filter="all">All</button>
+          <button type="button" class="chip" data-filter="shortlist">Best picks</button>
+          <button type="button" class="chip" data-filter="new">New today</button>
+          <button type="button" class="chip" data-filter="saved">Saved</button>
+        </div>
+        <label class="sort">
+          <span>Sort</span>
+          <select id="sort">
+            <option value="score">Best match</option>
+            <option value="price">Cheapest first</option>
+            <option value="km">Fewest kilometres</option>
+            <option value="year">Newest year</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+
+    <main class="wrap">
+      <section id="candidates" aria-live="polite">
+        <div id="cards" class="cards"></div>
+        <p id="empty" class="empty" hidden>Nothing matches that filter right now.</p>
+      </section>
+
+      <section class="near-misses" id="near-misses" hidden>
+        <h2>Just outside the scope</h2>
+        <p class="muted">These were filtered out, but only barely. If any look interesting, say so below and I will widen the search.</p>
+        <ul id="near-list" class="near-list"></ul>
+      </section>
+
+      <section class="feedback" id="feedback">
+        <h2>Tell me what to change</h2>
+        <p class="muted">
+          Plain English is fine. &ldquo;Too many old ones&rdquo;, &ldquo;I&rsquo;d go to $18k for something newer&rdquo;,
+          &ldquo;nothing white&rdquo;, &ldquo;stop showing me trucks&rdquo; — whatever you actually think.
+          It gets read before the next scan and the search adjusts.
+        </p>
+        <textarea id="note" rows="4" placeholder="What should be different about these picks?"></textarea>
+
+        <div class="pending" id="pending" hidden>
+          <h3>Your marks on this batch</h3>
+          <ul id="pending-list"></ul>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="send" class="primary">Send feedback</button>
+          <button type="button" id="clear" class="ghost">Clear my marks</button>
+        </div>
+        <p class="sent" id="sent" hidden></p>
+      </section>
+
+      <section class="sources" id="sources">
+        <h2>Where these came from</h2>
+        <ul id="source-list" class="source-list"></ul>
+        <p class="muted small" id="source-note"></p>
+      </section>
+    </main>
+
+    <footer class="wrap foot">
+      <p id="generated" class="muted small"></p>
+      <p class="muted small">
+        Prices are asking prices and change without notice. Always get an independent
+        inspection and a history report before buying. Nothing here is a substitute for
+        seeing the car.
+      </p>
+    </footer>
+
+    <script src="assets/app.js" type="module"></script>
+  </body>
+</html>

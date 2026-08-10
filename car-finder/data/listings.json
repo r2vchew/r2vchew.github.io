@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-08-10T00:00:00.000Z",
+  "placeholder": true,
+  "criteria": { "hard": { "minPrice": 3500, "maxPrice": 16000, "minYear": 2016, "maxOdometerKm": 180000, "transmission": "automatic" } },
+  "sourceHealth": [],
+  "stats": { "rawRecords": 0, "uniqueCars": 0, "passedFilters": 0, "filteredOut": 0, "filterReasons": {}, "candidates": 0, "newSinceLastRun": 0, "previousRunAt": null },
+  "cars": [],
+  "nearMisses": []
+}

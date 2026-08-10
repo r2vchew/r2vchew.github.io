@@ -1,0 +1,36 @@
+name: Car finder probe
+
+# Diagnostic only. Fetches one page per source and prints what came back, so a
+# broken scraper can be diagnosed from the log without guessing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Limit to one source (autotrader, kijiji, cargurus, carpages)'
+        default: ''
+      dump:
+        description: 'Include a raw HTML excerpt around the first price'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Probe sources
+        working-directory: car-finder
+        env:
+          SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+        run: |
+          node scripts/probe.mjs \
+            ${{ inputs.source && format('--source {0}', inputs.source) || '' }} \
+            ${{ inputs.dump && '--dump' || '' }}

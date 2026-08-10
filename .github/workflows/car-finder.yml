@@ -1,0 +1,128 @@
+name: Car finder
+
+on:
+  schedule:
+    # 07:10 and 17:10 Calgary time (MDT = UTC-6). Offset from the hour because
+    # GitHub's scheduler is busiest on the hour.
+    - cron: '10 13 * * *'
+    - cron: '10 23 * * *'
+  # Feedback should take effect straight away, not at the next scheduled scan.
+  issues:
+    types: [opened, labeled, reopened]
+  workflow_dispatch:
+    inputs:
+      pages:
+        description: 'Result pages to read per source'
+        default: '2'
+      source:
+        description: 'Limit to a single source (autotrader, kijiji, cargurus, carpages)'
+        default: ''
+      force_email:
+        description: 'Send the digest even if nothing is new'
+        type: boolean
+        default: false
+
+concurrency:
+  group: car-finder
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    # On the issues trigger, only run for feedback issues.
+    if: >-
+      github.event_name != 'issues' ||
+      contains(join(github.event.issue.labels.*.name, ','), 'car-feedback')
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Her decisions are applied before the scan, so a rejected car never
+      # reappears in the very run that follows the rejection.
+      - name: Apply feedback
+        working-directory: car-finder
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/apply-feedback.mjs
+
+      - name: Scan listings
+        working-directory: car-finder
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+        run: |
+          node scripts/run.mjs \
+            --pages "${{ inputs.pages || '2' }}" \
+            ${{ inputs.source && format('--source {0}', inputs.source) || '' }}
+
+      - name: Build email digest
+        id: digest
+        working-directory: car-finder
+        env:
+          SITE_URL: https://${{ github.repository_owner }}.github.io/car-finder/
+        run: node scripts/email.mjs ${{ inputs.force_email && '--force' || '' }}
+
+      - name: Commit results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add car-finder/data
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Car finder: scan for $(date -u +%Y-%m-%d\ %H:%M) UTC"
+            for i in 1 2 3 4; do
+              git pull --rebase origin "${GITHUB_REF_NAME}" && \
+              git push origin "HEAD:${GITHUB_REF_NAME}" && break
+              echo "push attempt $i failed; retrying"
+              sleep $((2 ** i))
+            done
+          fi
+
+      - name: Check email is configured
+        id: mail
+        run: |
+          if [ -n "${{ secrets.MAIL_SERVER }}" ] && [ -n "${{ secrets.MAIL_TO }}" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Email secrets not set; skipping the digest. See car-finder/README.md."
+          fi
+
+      - name: Send digest
+        if: steps.digest.outputs.send == 'true' && steps.mail.outputs.ready == 'true'
+        uses: dawidd6/action-send-mail@6063705cefe50cb915fc53bb5edffb600f4e0c8e # v3.12.0
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT || 465 }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Car finder <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: ${{ steps.digest.outputs.subject }}
+          html_body: file://car-finder/build/digest.html
+          convert_markdown: false
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Car finder scan"
+            echo ""
+            echo "- New cars worth a look: **${{ steps.digest.outputs.new_count || '0' }}**"
+            echo "- Digest sent: **${{ steps.digest.outputs.send == 'true' && steps.mail.outputs.ready == 'true' }}**"
+            echo ""
+            echo "Dashboard: https://${{ github.repository_owner }}.github.io/car-finder/"
+          } >> "$GITHUB_STEP_SUMMARY"
