@@ -112,12 +112,16 @@ jobs:
         id: mail
         if: steps.digest.outputs.send == 'true'
         working-directory: car-finder
+        # Secrets are namespaced per project because this repository is a
+        # shared workspace: a second project wanting to send mail would
+        # otherwise have to fight over the generic names. The script itself
+        # keeps the generic env vars, so it stays reusable as-is.
         env:
-          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
-          MAIL_PORT: ${{ secrets.MAIL_PORT }}
-          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
-          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_SERVER: ${{ secrets.CARFINDER_MAIL_SERVER }}
+          MAIL_PORT: ${{ secrets.CARFINDER_MAIL_PORT }}
+          MAIL_USERNAME: ${{ secrets.CARFINDER_MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.CARFINDER_MAIL_PASSWORD }}
+          MAIL_TO: ${{ secrets.CARFINDER_MAIL_TO }}
         run: |
           node scripts/send-mail.mjs \
             --html build/digest.html \

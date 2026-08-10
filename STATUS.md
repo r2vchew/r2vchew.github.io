@@ -14,5 +14,5 @@ https://r2vchew.github.io/ — anything on `main` is public.
 
 ## Next useful action
 
-Add the `MAIL_*` repository secrets to switch on the car-finder email digest.
+Add the `CARFINDER_MAIL_*` repository secrets to switch on the car-finder email digest.
 Everything else runs without them.

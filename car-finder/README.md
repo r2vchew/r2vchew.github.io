@@ -94,11 +94,15 @@ secrets:
 
 | Secret | Value |
 | --- | --- |
-| `MAIL_SERVER` | e.g. `smtp.gmail.com` |
-| `MAIL_PORT` | `465` |
-| `MAIL_USERNAME` | the sending address |
-| `MAIL_PASSWORD` | an **app password**, never the account password |
-| `MAIL_TO` | her address; comma-separate for more than one |
+| `CARFINDER_MAIL_SERVER` | e.g. `smtp.gmail.com` |
+| `CARFINDER_MAIL_PORT` | optional, defaults to `465` |
+| `CARFINDER_MAIL_USERNAME` | the sending address |
+| `CARFINDER_MAIL_PASSWORD` | an **app password**, never the account password |
+| `CARFINDER_MAIL_TO` | recipient; comma-separate for more than one |
+
+Namespaced because this repository holds more than one project. The workflow
+maps them onto the generic `MAIL_*` env vars that `send-mail.mjs` reads, so the
+script stays reusable by any other project that wants it.
 
 For Gmail this means turning on 2FA and creating an app password. The digest
 only sends when something new cleared the bar, so it will not become noise.
