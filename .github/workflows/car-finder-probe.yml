@@ -4,6 +4,14 @@ name: Car finder probe
 # broken scraper can be diagnosed from the log without guessing.
 
 on:
+  # Runs while the adapters are being developed on a feature branch, where
+  # workflow_dispatch is not available until the workflow reaches the default
+  # branch. Scoped to the adapter code so it does not fire on doc edits.
+  push:
+    branches: ['claude/**']
+    paths:
+      - 'car-finder/scripts/**'
+      - '.github/workflows/car-finder-probe.yml'
   workflow_dispatch:
     inputs:
       source:
