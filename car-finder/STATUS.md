@@ -14,7 +14,7 @@ commented shortlist.
 | --- | --- | --- |
 | Kijiji | Working | ~46 cars/page via JSON-LD, with VIN, price, km, transmission, colour. Best source, and the only strong one for private sellers. Paginates via `page-N/`. |
 | AutoTrader.ca | Working | 20 cars/page via JSON-LD. Must use the canonical `/cars/reg_ab/cit_calgary/…` path — the query-string form redirects and silently drops the location, returning Quebec dealers. Paginates via `&page=N`. |
-| Carpages.ca | Working | 19 cars/page via the HTML card scanner. Ignores its page parameter, so effectively one page. |
+| Carpages.ca | Degraded | Its cards are read by the positional fallback scanner, which on the real page finds prices but no mileage. Since an uncorroborated price is a likely misread, those rows are now dropped rather than shown — so Carpages currently contributes nothing. Needs its real markup inspected before it is useful. |
 | CarGurus.ca | Blocked | Refuses GitHub's runners on every entry point tried (403/406/404). Skipped unless a scraping proxy is configured, so it does not sit permanently red. |
 
 ### Verified
@@ -47,8 +47,9 @@ commented shortlist.
 
 ## Known limits
 
-- Carpages contributes a single page per scan until its pagination parameter is
-  identified.
+- Carpages contributes nothing until its card markup is handled properly; the
+  fallback scanner cannot find mileage on its real pages, and prices without a
+  corroborating mileage are dropped as probable misreads.
 - Some AutoTrader records carry no model year in their structured data; the
   year is recovered from the URL slug where possible, and left null otherwise.
 - Everything is asking prices from public search pages, and goes stale.

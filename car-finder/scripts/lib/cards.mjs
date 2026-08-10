@@ -60,9 +60,12 @@ export function cardScan(html, { linkPattern, baseUrl, windowSize = 2600 }) {
       snippet: text.slice(0, 400),
     };
 
-    // A card with neither a price nor a mileage is almost certainly navigation
-    // chrome that happened to match the link pattern.
-    if (card.price == null && card.odometerKm == null) continue;
+    // This scanner infers fields from position rather than structure, so it
+    // needs corroboration: a real card shows an asking price *and* a mileage
+    // close together. A price on its own is usually a misread — a neighbouring
+    // card's figure, or a payment — and a confidently wrong price on a car
+    // someone is about to go and look at is worse than no listing at all.
+    if (card.price == null || card.odometerKm == null) continue;
     cards.push(card);
   }
 

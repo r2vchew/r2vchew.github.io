@@ -69,6 +69,14 @@ group('card scanning', () => {
     { linkPattern: carpages.linkPattern, baseUrl: 'https://www.carpages.ca' },
   );
   check('adjacent numbers do not merge', merged[0]?.price, 8100);
+  check('and the mileage survives too', merged[0]?.odometerKm, 162000);
+
+  // A price with no mileage beside it is treated as a misread, not a bargain.
+  const uncorroborated = cardScan(
+    `<a href="/used-cars/alberta/calgary/e-f-1234567/">x</a><span>$4,800</span>`,
+    { linkPattern: carpages.linkPattern, baseUrl: 'https://www.carpages.ca' },
+  );
+  check('price without mileage is dropped', uncorroborated.length, 0);
 
   // Financing figures are not the asking price.
   const financed = cardScan(
