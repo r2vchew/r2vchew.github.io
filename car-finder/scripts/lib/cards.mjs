@@ -75,18 +75,28 @@ function pickTitle(chunk, text) {
   return inline ? inline[1].trim() : null;
 }
 
+const PAYMENT_CONTEXT = /(bi-?weekly|weekly|monthly|per month|\/mo\b|\/wk\b|payment|finance|financing|o\.?a\.?c|apr|down)/i;
+
 function pickPrice(text) {
   const candidates = [];
   const re = /\$\s?([\d][\d,\s]{2,10})(?:\.\d{2})?/g;
   let m;
   while ((m = re.exec(text)) !== null) {
     const value = parseMoney(m[1]);
-    if (value != null && value >= 1000 && value <= 200000) candidates.push(value);
+    if (value == null || value < 1000 || value > 200000) continue;
+    // "$149 bi-weekly" is a financing figure, not what the car costs.
+    const context = text.slice(Math.max(0, m.index - 30), m.index + m[0].length + 30);
+    candidates.push({ value, isPayment: PAYMENT_CONTEXT.test(context) });
   }
-  if (!candidates.length) return null;
-  // Biweekly/monthly payment figures are small; the sale price is the largest
-  // plausible number in the card.
-  return Math.max(...candidates);
+
+  const real = candidates.filter((c) => !c.isPayment);
+  const pool = real.length ? real : candidates;
+  if (!pool.length) return null;
+
+  // Cards commonly show a struck-through "was" price beside the asking price.
+  // The lower of the two is what the seller actually wants today.
+  const values = pool.map((c) => c.value).sort((a, b) => a - b);
+  return values[0];
 }
 
 function pickOdometer(text) {

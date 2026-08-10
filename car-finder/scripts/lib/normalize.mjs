@@ -1,5 +1,41 @@
 import { createHash } from 'node:crypto';
-import { parseTransmission, parseYear } from './extract.mjs';
+import { decodeEntities, parseTransmission, parseYear } from './extract.mjs';
+
+/**
+ * A car classified-ads category is not only cars. Kijiji's Cars & Trucks
+ * section happily carries hoists, trailers, rims and "we buy your car" ads,
+ * and a $5,969 four-post car lift with 0 km scores extremely well against
+ * criteria written for cars.
+ */
+const NOT_A_CAR = new RegExp([
+  '\\b(car ?lift|hoist|4 ?post|two ?post|post lift)\\b',
+  '\\b(trailer|camper|rv\\b|motorhome|skidoo|snowmobile|atv|quad|dirt ?bike|boat)\\b',
+  '\\b(rims?|tires?|wheels?|winter package|tire package)\\b(?!.*\\b(included|with)\\b)',
+  '\\b(engine|transmission|motor|parts?|bumper|hood|door|seat|canopy|tonneau) (only|for sale)\\b',
+  '\\b(we buy|cash for|wanted|looking for|financing available|bad credit|loan|approved)\\b',
+  '\\b(detailing|repair|service|towing|storage|rental|rent a|insurance)\\b',
+].join('|'), 'i');
+
+/**
+ * True when a record plausibly describes a car. Requires either a model year
+ * or a recognised make — a listing with neither is almost never a vehicle.
+ */
+export function looksLikeVehicle(listing) {
+  const text = `${listing.title || ''} ${listing.model || ''} ${listing.trim || ''}`;
+  if (NOT_A_CAR.test(text)) return false;
+  if (listing.vin) return true;
+  return Boolean(listing.year) || Boolean(listing.make);
+}
+
+/** Trim the boilerplate aggregators wrap around a title. */
+function tidyTitle(title) {
+  if (!title) return null;
+  return decodeEntities(title)
+    .replace(/^\s*(used|new|pre-?owned)\s+/i, '')
+    .replace(/\s+for sale\b.*$/i, '')
+    .replace(/\s*\|\s*$/, '')
+    .trim() || null;
+}
 
 const KNOWN_MAKES = [
   'Acura', 'Alfa Romeo', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler',
@@ -119,16 +155,25 @@ const EMPTY = {
 export function normalize(raw) {
   const listing = { ...EMPTY, ...raw };
 
+  listing.title = tidyTitle(listing.title);
+  listing.description = listing.description ? decodeEntities(listing.description) : null;
+  listing.sellerName = listing.sellerName ? decodeEntities(listing.sellerName) : null;
+  listing.location = listing.location ? decodeEntities(listing.location) : null;
+
   const fromTitle = parseTitle(listing.title, {
     year: listing.year,
     make: listing.make,
     model: listing.model,
     trim: listing.trim,
   });
-  listing.year = fromTitle.year;
+  listing.year = fromTitle.year
+    // AutoTrader's structured data often omits the year from the name, so fall
+    // back to the description and the URL slug before giving up on it.
+    ?? parseYear(listing.description)
+    ?? parseYear((listing.url || '').replace(/\D(19|20)(\d{2})\D/, ' $1$2 '));
   listing.make = canonicalMake(fromTitle.make);
-  listing.model = fromTitle.model ? String(fromTitle.model).trim() : null;
-  listing.trim = fromTitle.trim ? String(fromTitle.trim).trim() : null;
+  listing.model = fromTitle.model ? decodeEntities(fromTitle.model) : null;
+  listing.trim = fromTitle.trim ? decodeEntities(fromTitle.trim) : null;
 
   listing.transmission = parseTransmission(listing.transmission)
     ?? parseTransmission(listing.title)

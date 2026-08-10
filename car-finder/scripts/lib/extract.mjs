@@ -143,6 +143,32 @@ export function listingLikeObjects(blob) {
   return results;
 }
 
+/**
+ * Decode HTML entities. Listing titles arrive entity-encoded even inside
+ * JSON-LD, so "Mechanic&apos;s Special" has to be unescaped before display.
+ */
+export function decodeEntities(value) {
+  if (value == null) return value;
+  return String(value)
+    .replace(/&(#\d+|#x[0-9a-f]+|[a-z]+);/gi, (whole, code) => {
+      if (code[0] === '#') {
+        const n = code[1] === 'x' || code[1] === 'X'
+          ? Number.parseInt(code.slice(2), 16)
+          : Number.parseInt(code.slice(1), 10);
+        return Number.isFinite(n) && n > 0 && n < 0x10ffff ? String.fromCodePoint(n) : whole;
+      }
+      const named = {
+        amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+        rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”',
+        ndash: '–', mdash: '—', hellip: '…', middot: '·',
+        eacute: 'é', egrave: 'è', agrave: 'à', ccedil: 'ç',
+      };
+      return named[code.toLowerCase()] ?? whole;
+    })
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /** Strip tags and decode the entities that actually show up in listing text. */
 export function textOf(html = '') {
   return String(html)

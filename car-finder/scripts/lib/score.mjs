@@ -1,6 +1,8 @@
 import { expectedKm, lookupBodyNote, lookupModelNote } from './knowledge.mjs';
 
-const SALVAGE_RE = /\b(salvage|rebuilt|reconstructed|write[- ]?off|damaged|flood|as[- ]is|parts only|not running|no motor|mechanic special)\b/i;
+// "Mechanic's Special" and "as-is, where-is" are how a seller says the car
+// needs work. The apostrophe forms are the common ones in real listings.
+const SALVAGE_RE = /\b(salvage|rebuilt|reconstructed|write[- ]?off|damaged|flood|as[- ]is|parts only|not running|no motor|needs work|mechanic(?:'|’)?s? special|handyman special|project car)\b/i;
 
 /**
  * Hard filter. Returns null when the car is acceptable, or a reason string

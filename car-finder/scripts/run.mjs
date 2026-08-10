@@ -17,7 +17,7 @@ import kijiji from './sources/kijiji.mjs';
 import cargurus from './sources/cargurus.mjs';
 import carpages from './sources/carpages.mjs';
 
-import { dedupe, normalize } from './lib/normalize.mjs';
+import { dedupe, looksLikeVehicle, normalize } from './lib/normalize.mjs';
 import { bandFor, buildMarket, rejectReason, scoreListing } from './lib/score.mjs';
 import { enhanceWithClaude, writeCommentary } from './lib/commentary.mjs';
 import { proxyEnabled } from './lib/http.mjs';
@@ -132,8 +132,12 @@ async function main() {
     .filter(Boolean)
     .filter((l) => l.url);
 
-  const unique = dedupe(normalized);
-  console.log(`\n${raw.length} raw -> ${normalized.length} normalized -> ${unique.length} unique cars`);
+  // Classified categories carry plenty of things that are not cars.
+  const vehicles = normalized.filter(looksLikeVehicle);
+  const nonVehicles = normalized.length - vehicles.length;
+
+  const unique = dedupe(vehicles);
+  console.log(`\n${raw.length} raw -> ${normalized.length} normalized -> ${vehicles.length} actual vehicles (${nonVehicles} non-cars dropped) -> ${unique.length} unique`);
 
   // ---- Filter -------------------------------------------------------------
   const kept = [];
@@ -200,6 +204,7 @@ async function main() {
     sourceHealth,
     stats: {
       rawRecords: raw.length,
+      nonVehiclesDropped: nonVehicles,
       uniqueCars: unique.length,
       passedFilters: kept.length,
       filteredOut: rejected.length,
