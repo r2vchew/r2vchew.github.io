@@ -9,6 +9,14 @@ on:
   # Feedback should take effect straight away, not at the next scheduled scan.
   issues:
     types: [opened, labeled, reopened]
+  # Lets the full pipeline be exercised on a feature branch, where
+  # workflow_dispatch is unavailable until the workflow reaches the default
+  # branch. Never matches main, so it costs nothing once merged.
+  push:
+    branches: ['claude/**']
+    paths:
+      - 'car-finder/scripts/**'
+      - '.github/workflows/car-finder.yml'
   workflow_dispatch:
     inputs:
       pages:

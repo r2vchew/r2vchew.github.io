@@ -105,6 +105,7 @@ export async function harvest({
 }) {
   const diagnostics = { pagesFetched: 0, strategies: {}, breakdown: {}, errors: [], blocked: false };
   const collected = [];
+  let previousPageKey = null;
 
   for (let page = 0; page < pages; page += 1) {
     const url = buildUrl(criteria, page);
@@ -131,6 +132,17 @@ export async function harvest({
     }
 
     if (!rows.length) break;
+
+    // Not every site paginates the way its URLs suggest — Carpages ignores its
+    // page parameter and serves page one again. Without this check we would
+    // refetch the same cars on every extra page.
+    const pageKey = rows.map((r) => r.url || r.sourceId || r.title).join('|');
+    if (pageKey === previousPageKey) {
+      diagnostics.errors.push(`page ${page}: identical to the previous page, pagination ignored`);
+      break;
+    }
+    previousPageKey = pageKey;
+
     collected.push(...rows.map((r) => ({ ...r, source: sourceId })));
     if (rows.length < 15) break; // looks like the final page
     await courtesyDelay();

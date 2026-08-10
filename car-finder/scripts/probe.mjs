@@ -43,13 +43,13 @@ const VARIANTS = {
     'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000?modelyearfrom=2016&kmto=180000&rcs=20&rcp=100',
     'https://www.autotrader.ca/cars/reg_ab/cit_calgary/pr_16000/page_2?modelyearfrom=2016',
   ],
+  // Carpages ignores ?p=2 and serves page one again — finding the parameter
+  // it actually honours.
   carpages: [
     'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016',
-    'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016&p=2',
-  ],
-  kijiji: [
-    'https://www.kijiji.ca/b-cars-trucks/calgary/c174l1700199?sort=dateDesc&price=3500__16000',
-    'https://www.kijiji.ca/b-cars-trucks/calgary/page-3/c174l1700199?sort=dateDesc&price=3500__16000',
+    'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016&page=2',
+    'https://www.carpages.ca/alberta/calgary/used-cars/page-2/?price_to=16000&year_from=2016',
+    'https://www.carpages.ca/alberta/calgary/used-cars/?price_to=16000&year_from=2016&offset=20',
   ],
 };
 
