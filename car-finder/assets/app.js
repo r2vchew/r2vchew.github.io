@@ -64,7 +64,7 @@ function renderHeader() {
   const scope = `Everything here is an automatic, ${c.minYear} or newer, under ${money(c.maxPrice)}.`;
 
   $('#lede').textContent = best
-    ? `I read ${fmt.format(s.rawRecords)} listings${across} and threw out ${fmt.format(s.filteredOut)} of them. ${best} ${best === 1 ? 'is' : 'are'} genuinely worth your time. ${scope}`
+    ? `I read ${fmt.format(s.rawRecords)} listings${across} and threw out ${fmt.format(s.filteredOut)} of them. ${best} ${best === 1 ? 'stands' : 'stand'} out as ${best === 1 ? 'a best pick' : 'best picks'}. ${scope}`
     : `I read ${fmt.format(s.rawRecords)} listings${across} and nothing really cleared the bar this time. ${scope} Widen the scope below and I will try again.`;
 
   const prices = data.cars.map((x) => x.price).filter((p) => p != null);
@@ -245,7 +245,7 @@ function renderSources() {
   $('#source-list').innerHTML = (data.sourceHealth || []).map((s) => {
     const cls = s.count > 0 ? 'ok' : (s.skipped ? 'warn' : (s.blocked ? 'bad' : 'warn'));
     let detail;
-    if (s.count > 0) detail = `${fmt.format(s.count)} listings read`;
+    if (s.count > 0) detail = `${fmt.format(s.count)} listing${s.count === 1 ? '' : 's'} read`;
     else if (s.skipped) detail = 'not checked — this site blocks automated visits';
     else if (s.blocked) detail = 'blocked the scan this time';
     else detail = 'returned nothing';
