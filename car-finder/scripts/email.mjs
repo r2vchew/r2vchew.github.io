@@ -123,6 +123,10 @@ async function main() {
       <p style="margin:10px 0 0;font:400 13px/1.5 -apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#86827a;">
         There you can save the ones you like, dismiss the ones you do not, and tell me in plain
         English what to change — the next scan picks it up.
+        <br><br>
+        <strong style="color:#56534c;">Or just reply to this email.</strong> &ldquo;Too old&rdquo;,
+        &ldquo;I&rsquo;d go to $16k for something newer&rdquo;, &ldquo;no trucks&rdquo; — anything
+        you write comes straight back to me and gets folded into the search.
       </p>
     </td></tr>
 

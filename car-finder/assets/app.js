@@ -483,6 +483,43 @@ function buildPayload() {
   };
 }
 
+// The subject and the body are shared by every route out of here, because the
+// same text has to survive being pasted into a text message as into an issue.
+function compose(payload) {
+  const title = payload.note
+    ? `Car feedback: ${payload.note.slice(0, 60)}`
+    : `Car feedback: ${payload.saved.length} saved, ${payload.rejected.length} rejected`;
+
+  const body = [
+    payload.note ? `${payload.note}\n` : '',
+    payload.saved.length ? `**Saved**\n${payload.saved.map((s) => `- ${s.label}`).join('\n')}\n` : '',
+    payload.rejected.length ? `**Not for me**\n${payload.rejected.map((r) => `- ${r.label}${r.reason ? ` — ${r.reason}` : ''}`).join('\n')}\n` : '',
+    '<!-- machine-readable, do not edit -->',
+    '```json',
+    JSON.stringify(payload, null, 2),
+    '```',
+  ].filter(Boolean).join('\n');
+
+  return { title, body };
+}
+
+// The GitHub route needs an account. Anyone without one still has to be able to
+// get their words out, so this is a first-class button rather than a fallback.
+async function copyFeedback() {
+  const payload = buildPayload();
+  if (!payload.note && !payload.saved.length && !payload.rejected.length) {
+    show('Nothing to copy yet — save or reject a car, or write a note.');
+    return;
+  }
+  const { body } = compose(payload);
+  try {
+    await navigator.clipboard.writeText(body);
+    show('Copied. Paste it into a text or email — it gets applied the same way.');
+  } catch {
+    show('Could not copy automatically. Select your note above and copy it manually.');
+  }
+}
+
 async function send() {
   const payload = buildPayload();
   if (!payload.note && !payload.saved.length && !payload.rejected.length) {
@@ -505,24 +542,13 @@ async function send() {
     }
   }
 
-  const title = payload.note
-    ? `Car feedback: ${payload.note.slice(0, 60)}`
-    : `Car feedback: ${payload.saved.length} saved, ${payload.rejected.length} rejected`;
-
-  const body = [
-    payload.note ? `${payload.note}\n` : '',
-    payload.saved.length ? `**Saved**\n${payload.saved.map((s) => `- ${s.label}`).join('\n')}\n` : '',
-    payload.rejected.length ? `**Not for me**\n${payload.rejected.map((r) => `- ${r.label}${r.reason ? ` — ${r.reason}` : ''}`).join('\n')}\n` : '',
-    '<!-- machine-readable, do not edit -->',
-    '```json',
-    JSON.stringify(payload, null, 2),
-    '```',
-  ].filter(Boolean).join('\n');
+  const { title, body } = compose(payload);
 
   if (CONFIG.repo) {
     const url = `https://github.com/${CONFIG.repo}/issues/new?labels=${encodeURIComponent(CONFIG.feedbackLabel)}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
     window.open(url, '_blank', 'noopener');
-    afterSend('Opened a feedback form in a new tab — press the green button there to send it.');
+    afterSend('Opened a feedback form in a new tab — sign in if it asks, then press the green '
+      + 'button. If you do not have an account, close it and use “Copy it instead”.');
     return;
   }
 
@@ -607,6 +633,7 @@ function wire() {
   }
 
   $('#send').addEventListener('click', send);
+  $('#copy').addEventListener('click', copyFeedback);
   $('#clear').addEventListener('click', () => {
     if (!confirm('Clear every save and rejection you have marked?')) return;
     marks = { saved: {}, rejected: {}, notes: {} };

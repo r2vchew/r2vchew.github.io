@@ -31,5 +31,6 @@ data that have regression tests protecting them.
 
 ## Next useful action
 
-Confirm `CARFINDER_MAIL_TO` points at the intended recipient rather than the
-test address, and send the intro email drafted in Gmail.
+Watch for the first scheduled scan (11:40 UTC daily) to land a digest, then
+watch for feedback. Nothing has come through the feedback loop yet — see the
+outstanding list in `car-finder/STATUS.md` for the two candidate reasons.

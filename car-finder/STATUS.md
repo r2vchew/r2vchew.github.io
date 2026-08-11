@@ -53,14 +53,32 @@ manually.
 
 ## Outstanding
 
-1. **`CARFINDER_MAIL_TO` may still point at Vince**, not Nicole — it was set to
-   his own address to test first. Confirm and switch it.
-2. **An intro email to Nicole is drafted in Vince's Gmail** ("A car-hunting
-   helper I set up for you"), not sent. The Gmail tools available can create
-   drafts but cannot send.
+1. **No feedback has arrived yet** — the repository has zero issues, so nothing
+   has come through the feedback loop. The scheduled scan had also not fired
+   once as of 2026-08-11 10:24 UTC: every run so far was a manual dispatch, and
+   the first cron firing is 2026-08-11 11:40 UTC. So she has had the intro
+   email but no digest yet, which is the likeliest explanation on its own.
+2. **The GitHub-issue feedback route needs a free GitHub account.** That is real
+   friction for a non-technical recipient, and the button used to dead-end at a
+   sign-in wall with no explanation. There are now three routes: the issue form,
+   a **Copy it instead** button, and replying to the digest email (which lands
+   in Vince's mailbox — he pastes it in). If feedback stays silent once digests
+   are actually arriving, this is the first thing to suspect.
 3. **Listing photos may not load** in the email or dashboard — sites often
    block hotlinking, and this was never testable from the build environment.
    Both degrade to a placeholder rather than breaking.
+
+`CARFINDER_MAIL_TO` now points at Nicole, and the intro email was sent by hand
+on 2026-08-11.
+
+## Why the daily run is not on anyone's computer
+
+It is a GitHub Actions cron, so it runs in GitHub's cloud, free on a public
+repository, whether or not any machine is awake. **Do not add a second scheduler
+on a desktop.** Two schedulers scanning the same repository produce divergent
+commits to `data/` — that exact failure already happened once when a branch push
+trigger and a dispatched `main` scan overlapped, and it is why the push trigger
+was removed from the scan workflow.
 
 ## Things learned the hard way
 
