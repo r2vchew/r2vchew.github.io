@@ -64,12 +64,37 @@ manually.
    a **Copy it instead** button, and replying to the digest email (which lands
    in Vince's mailbox — he pastes it in). If feedback stays silent once digests
    are actually arriving, this is the first thing to suspect.
-3. **Listing photos may not load** in the email or dashboard — sites often
+3. **Conflicting feedback is not resolved — and the wrong side wins.**
+   `applyChanges` in `lib/interpret.mjs` blindly overwrites, so two notes
+   touching the same setting in one batch resolve as last-write-wins. Issues
+   come back from the API newest-first and are applied in that order, so the
+   **older** request is applied last and survives. Both authors still get a
+   reply saying their change was made, so both believe they won.
+
+   **Deliberately left alone** (Vince, 2026-08-11): with only Nicole submitting
+   feedback there is nothing to conflict. Fix it before adding a second person
+   who submits. The agreed fix is **newest wins, with a comment telling the
+   loser their change was overridden** — not "most cautious wins", which
+   surprises anyone deliberately widening the search. Rejections are additive
+   and never conflict; this affects `hard`/`soft` criteria only.
+4. **Listing photos may not load** in the email or dashboard — sites often
    block hotlinking, and this was never testable from the build environment.
    Both degrade to a placeholder rather than breaking.
 
 `CARFINDER_MAIL_TO` now points at Nicole, and the intro email was sent by hand
 on 2026-08-11.
+
+## Adding more recipients
+
+`CARFINDER_MAIL_TO` is comma-separated — edit the one secret, add no others.
+`send-mail.mjs` splits it, issues one `RCPT TO` per address, and lists them all
+in the `To:` header. There is **no CC or BCC**, so every recipient sees the
+others' addresses.
+
+Saves and rejections are per-browser `localStorage`, not shared: two people
+reading the same digest keep separate marks, and only whoever actually submits
+feedback changes the search. See outstanding item 3 before adding a second
+person who will submit.
 
 ## Why the daily run is not on anyone's computer
 
