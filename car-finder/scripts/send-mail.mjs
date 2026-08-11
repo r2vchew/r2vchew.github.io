@@ -29,6 +29,29 @@ const TO = (process.env.MAIL_TO || '').split(',').map((s) => s.trim()).filter(Bo
 const FROM = process.env.MAIL_FROM || USER;
 const FROM_NAME = process.env.MAIL_FROM_NAME || 'Car finder';
 
+// The sending identity is exactly one mailbox. MAIL_TO is the list; confusing
+// the two is easy when both are edited in the same settings page, and a
+// comma-separated MAIL_USERNAME used to surface as an inscrutable
+// `501 HELO/EHLO argument "gmail.com, vchew67" invalid` from the server —
+// because splitting "a@b.com, c@d.com" on "@" puts the junk in the middle.
+export function senderProblem(value) {
+  if (!value) return null;
+  if (/[,;]/.test(value)) return 'contains more than one address';
+  if (/\s/.test(value)) return 'contains a space';
+  if ((value.match(/@/g) || []).length !== 1) return 'is not a single address';
+  return null;
+}
+
+// Everything after the last "@", so a malformed value cannot smuggle a comma
+// into the EHLO argument even if the check above is ever loosened.
+export function ehloDomain(value) {
+  const text = String(value || '');
+  const at = text.lastIndexOf('@');
+  if (at < 0) return 'localhost';
+  const domain = text.slice(at + 1).trim();
+  return /^[A-Za-z0-9.-]+$/.test(domain) ? domain : 'localhost';
+}
+
 // Implicit TLS is the norm on 465 and STARTTLS elsewhere, but that is a
 // convention rather than a rule, so it stays overridable.
 const SECURE = process.env.MAIL_SECURE
@@ -142,12 +165,23 @@ async function main() {
     return;
   }
 
+  // Checked before opening a socket, so the operator reads a sentence about
+  // their own settings rather than a decoded SMTP status code.
+  const senderKey = process.env.MAIL_FROM ? 'MAIL_FROM' : 'MAIL_USERNAME';
+  const problem = senderProblem(FROM);
+  if (problem) {
+    throw new Error(
+      `${senderKey} ${problem}. It is the single mailbox the digest is sent FROM; `
+      + 'the list of recipients belongs in MAIL_TO.',
+    );
+  }
+
   const html = await readFile(htmlPath, 'utf8');
   let socket = await openSocket();
   let session = smtpSession(socket);
 
   await session.send(null, [220]);
-  let ehlo = await session.send(`EHLO ${(FROM || 'localhost').split('@')[1] || 'localhost'}`, [250]);
+  let ehlo = await session.send(`EHLO ${ehloDomain(FROM)}`, [250]);
 
   if (!SECURE) {
     if (!/STARTTLS/i.test(ehlo.text)) throw new Error('Server does not offer STARTTLS on this port');
@@ -157,7 +191,7 @@ async function main() {
       s.once('error', reject);
     });
     session = smtpSession(socket);
-    ehlo = await session.send(`EHLO ${(FROM || 'localhost').split('@')[1] || 'localhost'}`, [250]);
+    ehlo = await session.send(`EHLO ${ehloDomain(FROM)}`, [250]);
   }
 
   await session.send('AUTH LOGIN', [334]);
@@ -181,8 +215,12 @@ async function main() {
   console.log(`Digest sent to ${TO.join(', ')}`);
 }
 
-main().catch((err) => {
-  // A failed send must not lose the scan that already succeeded and committed.
-  console.error(`Could not send the digest: ${err.message}`);
-  process.exit(1);
-});
+// Guarded so the helpers above can be imported by the tests without the module
+// trying to open a socket on import.
+if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    // A failed send must not lose the scan that already succeeded and committed.
+    console.error(`Could not send the digest: ${err.message}`);
+    process.exit(1);
+  });
+}

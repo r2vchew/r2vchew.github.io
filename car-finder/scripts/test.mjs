@@ -8,6 +8,7 @@ import { dedupe, looksLikeVehicle, normalize } from './lib/normalize.mjs';
 import { BANDS, bandFor, buildMarket, rejectReason } from './lib/score.mjs';
 import { interpret } from './lib/interpret.mjs';
 import { estimateInitialCost } from './lib/costs.mjs';
+import { ehloDomain, senderProblem } from './send-mail.mjs';
 import carpages from './sources/carpages.mjs';
 
 let failures = 0;
@@ -116,6 +117,27 @@ group('what counts as a car', () => {
     normalize({ source: 'kijiji', url: 'u', title: '2018 Kia Rio 5-door LX+', make: 'kia', model: 'othrmdl' }).model, 'Rio');
   check('misspelled make canonicalised', v('2016 Volkwagen Beetle Trendline').make, 'Volkswagen');
   check('query string ids ignored', v('Kia Forte EX', { url: 'https://x.ca/vdp.action?listingId=201948371' }).year, null);
+});
+
+group('mail settings', () => {
+  // The real failure: MAIL_USERNAME held two comma-separated addresses, so
+  // splitting on "@" put "gmail.com, vchew67" in the EHLO argument and Gmail
+  // answered 501. Both the diagnosis and the sanitising are pinned here.
+  check('a single address is fine', senderProblem('vince@example.com'), null);
+  check('two addresses caught', senderProblem('a@b.com, c@d.com'), 'contains more than one address');
+  check('semicolon-separated caught', senderProblem('a@b.com; c@d.com'), 'contains more than one address');
+  check('a stray space caught', senderProblem('a@b.com '), 'contains a space');
+  check('a bare name caught', senderProblem('vince'), 'is not a single address');
+  check('an unset sender is not an error here', senderProblem(''), null);
+
+  check('ehlo domain from a normal address', ehloDomain('vince@example.com'), 'example.com');
+  // The invariant that matters is that nothing the server can choke on reaches
+  // the EHLO line, not which of two domains is picked.
+  check('ehlo domain never contains a comma or space',
+    /[,;\s]/.test(ehloDomain('a@b.com, c@d.com')), false);
+  check('ehlo domain falls back when there is no domain', ehloDomain('vince'), 'localhost');
+  check('ehlo domain falls back on junk', ehloDomain('a@b com!'), 'localhost');
+  check('ehlo domain falls back when unset', ehloDomain(''), 'localhost');
 });
 
 group('dedupe', () => {

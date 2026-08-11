@@ -53,15 +53,24 @@ manually.
 
 ## Outstanding
 
-1. **The digest is not sending — Gmail is rejecting the login.** The first
-   scheduled run (2026-08-11, run `31491301151`) scanned fine and committed its
-   data, then failed at the send step with `535-5.7.8 Username and Password not
-   accepted`. A send worked on 2026-08-10, and the secrets were edited between
-   the two to update `CARFINDER_MAIL_TO`, so the likely cause is
-   `CARFINDER_MAIL_PASSWORD` being overwritten or the app password being
-   revoked. Re-create one at https://myaccount.google.com/apppasswords and paste
-   it with the spaces stripped. **Nicole has received no digest yet**, which is
-   also why no feedback has arrived — the repository has zero issues.
+1. **The digest is still not sending — `CARFINDER_MAIL_USERNAME` holds two
+   addresses.** It must be exactly one: the single mailbox the digest is sent
+   *from*. The recipient list belongs in `CARFINDER_MAIL_TO`.
+
+   Two runs, two different errors, same root cause area:
+
+   | Run | Error | Meaning |
+   | --- | --- | --- |
+   | `31491301151` (11:40 cron) | `535-5.7.8 Username and Password not accepted` | credentials wrong |
+   | `31494460172` (forced) | `501-5.5.4 HELO/EHLO argument "gmail.com, vchew67" invalid` | username holds two addresses |
+
+   The second error is the giveaway: `"a@b.com, c@d.com".split('@')[1]` is
+   `"b.com, c"`, so the junk landed in the EHLO line. `send-mail.mjs` now
+   rejects a multi-address sender before opening a socket, with a sentence
+   naming the setting, and derives the EHLO domain from the last `@`.
+
+   **Nicole has still received no digest**, which is also why no feedback has
+   arrived — the repository has zero issues.
 
    Note the schedule fired at 12:27 UTC against a cron of 11:40. A 45-minute
    queue delay is normal for GitHub's scheduler and is not a fault.
