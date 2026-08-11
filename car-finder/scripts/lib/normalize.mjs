@@ -290,14 +290,11 @@ export function dedupe(listings) {
     [l.price, l.odometerKm, l.year, l.make, l.model, l.imageUrl, l.transmission, l.vin]
       .filter((v) => v != null).length;
 
-  const byKey = new Map();
-  for (const listing of listings) {
-    const vinKey = listing.vin ? `vin:${String(listing.vin).toUpperCase()}` : null;
-    const key = vinKey || `id:${listing.id}`;
-    const existing = byKey.get(key);
+  const collapse = (map, key, listing) => {
+    const existing = map.get(key);
     if (!existing) {
-      byKey.set(key, { ...listing, alsoOn: [] });
-      continue;
+      map.set(key, { ...listing, alsoOn: listing.alsoOn || [] });
+      return;
     }
     const winner = completeness(listing) > completeness(existing) ? { ...listing } : existing;
     const loser = winner === existing ? listing : existing;
@@ -306,7 +303,32 @@ export function dedupe(listings) {
       ...(listing.alsoOn || []),
       loser.source,
     ])].filter((s) => s && s !== winner.source);
-    byKey.set(key, winner);
+    map.set(key, winner);
+  };
+
+  const byKey = new Map();
+  for (const listing of listings) {
+    const vinKey = listing.vin ? `vin:${String(listing.vin).toUpperCase()}` : null;
+    collapse(byKey, vinKey || `id:${listing.id}`, listing);
   }
-  return [...byKey.values()];
+
+  // Second pass, because most listings carry no VIN and the same car on two
+  // sites therefore survived as two rows. A real pair — the same Elantra on
+  // AutoTrader and Kijiji at $9,811 and 73,980 km — reached the digest twice,
+  // and only slipped through the year check because AutoTrader omitted the year.
+  //
+  // The asking price to the dollar AND the odometer to the kilometre matching
+  // across two different cars of the same make is not a coincidence worth
+  // guarding against. Year is deliberately not part of the key: a missing year
+  // on one side is exactly the case this exists to catch.
+  const byFingerprint = new Map();
+  for (const listing of byKey.values()) {
+    if (listing.price == null || listing.odometerKm == null) {
+      byFingerprint.set(`id:${listing.id}`, listing);
+      continue;
+    }
+    const make = (listing.make || '').toLowerCase().trim();
+    collapse(byFingerprint, `fp:${make}|${listing.price}|${listing.odometerKm}`, listing);
+  }
+  return [...byFingerprint.values()];
 }

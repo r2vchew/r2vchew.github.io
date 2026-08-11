@@ -4,7 +4,7 @@
 
 import { cardScan } from './lib/cards.mjs';
 import { decodeEntities, parseMoney, parseOdometer, parseTransmission } from './lib/extract.mjs';
-import { looksLikeVehicle, normalize } from './lib/normalize.mjs';
+import { dedupe, looksLikeVehicle, normalize } from './lib/normalize.mjs';
 import { BANDS, bandFor, buildMarket, rejectReason } from './lib/score.mjs';
 import { interpret } from './lib/interpret.mjs';
 import { estimateInitialCost } from './lib/costs.mjs';
@@ -30,7 +30,7 @@ function group(title, fn) {
 
 const criteria = {
   hard: {
-    minPrice: 3000, maxPrice: 13000, minYear: 2010, maxOdometerKm: 180000,
+    minPrice: 3000, maxPrice: 13000, minYear: 2010, maxOdometerKm: 220000,
     transmission: 'automatic', excludeMakes: [], excludeModels: [],
   },
   soft: {
@@ -118,6 +118,30 @@ group('what counts as a car', () => {
   check('query string ids ignored', v('Kia Forte EX', { url: 'https://x.ca/vdp.action?listingId=201948371' }).year, null);
 });
 
+group('dedupe', () => {
+  const car = (over) => ({
+    id: Math.random().toString(36).slice(2), source: 'kijiji', url: 'u',
+    price: 9811, odometerKm: 73980, make: 'Hyundai', model: 'Elantra', year: 2014, ...over,
+  });
+
+  // The real pair: the same Elantra on both sites, deduped by price and
+  // odometer because neither listing carried a VIN and AutoTrader omitted the
+  // year. Both reached the digest before this existed.
+  const pair = dedupe([car({ source: 'autotrader', year: null }), car({ source: 'kijiji' })]);
+  check('same price and km collapse across sites', pair.length, 1);
+  check('the more complete record wins', pair[0].year, 2014);
+  check('the other site is remembered', pair[0].alsoOn.includes('autotrader'), true);
+
+  check('different cars are not merged',
+    dedupe([car(), car({ price: 9812 })]).length, 2);
+  check('same numbers on a different make are not merged',
+    dedupe([car(), car({ make: 'Kia' })]).length, 2);
+  check('a matching VIN still collapses',
+    dedupe([car({ vin: '1A', price: 1 }), car({ vin: '1a', price: 2, odometerKm: 5 })]).length, 1);
+  check('missing price or km falls back to the id',
+    dedupe([car({ price: null }), car({ price: null })]).length, 2);
+});
+
 group('hard filters', () => {
   const base = { price: 9900, year: 2018, odometerKm: 100000, transmission: 'automatic' };
   check('clean car kept', rejectReason({ ...base, title: '2018 Corolla LE' }, criteria), null);
@@ -126,6 +150,29 @@ group('hard filters', () => {
   check('over budget rejected', rejectReason({ ...base, price: 25000, title: 'x' }, criteria), 'over budget at $25,000');
   check('2011 now in scope', rejectReason({ ...base, year: 2011, title: 'x' }, criteria), null);
   check('too old rejected', rejectReason({ ...base, year: 2008, title: 'x' }, criteria), 'too old (2008)');
+
+  // A real Ram Cargo Van reached the digest at "worth a look": cheap, automatic,
+  // low kilometres, and completely wrong for a new driver.
+  check('cargo van rejected',
+    rejectReason({ ...base, title: '2013 Ram Cargo Van $3,000 UPFITTED DIVIDER SHELVING CAN FINANCE!' }, criteria),
+    'commercial or work vehicle');
+  check('cargo van rejected on body type',
+    rejectReason({ ...base, title: '2015 Ram', bodyType: 'Cargo Van' }, criteria),
+    'commercial or work vehicle');
+  check('promaster rejected',
+    rejectReason({ ...base, title: '2016 RAM ProMaster 1500 High Roof' }, criteria),
+    'commercial or work vehicle');
+  // The passenger minivan is a legitimate family car and must survive the above.
+  check('passenger minivan kept',
+    rejectReason({ ...base, title: '2016 Dodge Grand Caravan SE with CarPlay' }, criteria), null);
+  check('van in a street name kept',
+    rejectReason({ ...base, title: '2017 Honda Civic — Vancouver import, no accidents' }, criteria), null);
+
+  check('220,000 km now in scope',
+    rejectReason({ ...base, odometerKm: 215000, title: 'x' }, criteria), null);
+  check('past the km cap rejected',
+    rejectReason({ ...base, odometerKm: 240000, title: 'x' }, criteria),
+    'too many kilometres (240,000 km)');
 });
 
 group('score bands', () => {

@@ -4,6 +4,25 @@ import { expectedKm, lookupBodyNote, lookupModelNote } from './knowledge.mjs';
 // needs work. The apostrophe forms are the common ones in real listings.
 const SALVAGE_RE = /\b(salvage|rebuilt|reconstructed|write[- ]?off|damaged|flood|as[- ]is|parts only|not running|no motor|needs work|mechanic(?:'|’)?s? special|handyman special|project car)\b/i;
 
+// Work vehicles clear every numeric filter — a windowless cargo van is a cheap,
+// low-kilometre automatic — and are useless as a first car. A real 2013 Ram
+// Cargo Van reached the digest at "worth a look" before this existed.
+//
+// Deliberately narrow. "Cargo van" is a Grand Caravan with the windows and rear
+// seats deleted, so the passenger minivan must survive this: match the cargo
+// wording and the commercial-only nameplates, never "van" on its own.
+const COMMERCIAL_RE = new RegExp([
+  String.raw`\bcargo\s?van\b`,
+  String.raw`\b(?:panel|cube|box|work|utility)\s?van\b`,
+  String.raw`\bbox\s?truck\b`,
+  String.raw`\b(?:cutaway|chassis\s?cab|dually|stake\s?bed|flat\s?bed)\b`,
+  String.raw`\b(?:upfitted|shelving|ladder\s?rack|partition|bulkhead)\b`,
+  // Nameplates sold only as commercial vans.
+  String.raw`\b(?:promaster|econoline|e-?[123]50|savana|nv\s?[123]500|nv200)\b`,
+  String.raw`\bexpress\s?(?:cargo|[123]500)\b`,
+  String.raw`\btransit\s?(?:cargo|connect)\b`,
+].join('|'), 'i');
+
 /**
  * Hard filter. Returns null when the car is acceptable, or a reason string
  * explaining why it was dropped. Reasons are kept so the dashboard can show
@@ -16,6 +35,7 @@ export function rejectReason(listing, criteria) {
   // Ordered so the tally reports the most decision-relevant reason first: the
   // categorical dealbreakers, then budget, then the softer numeric limits.
   if (SALVAGE_RE.test(haystack)) return 'salvage, rebuilt or as-is title';
+  if (COMMERCIAL_RE.test(`${haystack} ${listing.bodyType || ''}`)) return 'commercial or work vehicle';
   if (h.transmission === 'automatic' && listing.transmission === 'manual') return 'manual transmission';
   if (listing.price == null) return 'no price listed';
   if (h.minPrice != null && listing.price < h.minPrice) return `under $${h.minPrice} (likely a parts car or a typo)`;

@@ -24,7 +24,7 @@ public — do not commit it anywhere.
 
 `car-finder/data/criteria.json` is the source of truth:
 
-$3,000–$13,000 **asking price**, 2010 or newer, under 180,000 km, automatic
+$3,000–$13,000 **asking price**, 2010 or newer, under 220,000 km, automatic
 only, within 150 km of Calgary. The realistic drive-away cost is estimated on
 top of the sticker and shown per car. **Insurance is deliberately excluded.**
 
@@ -53,11 +53,18 @@ manually.
 
 ## Outstanding
 
-1. **No feedback has arrived yet** — the repository has zero issues, so nothing
-   has come through the feedback loop. The scheduled scan had also not fired
-   once as of 2026-08-11 10:24 UTC: every run so far was a manual dispatch, and
-   the first cron firing is 2026-08-11 11:40 UTC. So she has had the intro
-   email but no digest yet, which is the likeliest explanation on its own.
+1. **The digest is not sending — Gmail is rejecting the login.** The first
+   scheduled run (2026-08-11, run `31491301151`) scanned fine and committed its
+   data, then failed at the send step with `535-5.7.8 Username and Password not
+   accepted`. A send worked on 2026-08-10, and the secrets were edited between
+   the two to update `CARFINDER_MAIL_TO`, so the likely cause is
+   `CARFINDER_MAIL_PASSWORD` being overwritten or the app password being
+   revoked. Re-create one at https://myaccount.google.com/apppasswords and paste
+   it with the spaces stripped. **Nicole has received no digest yet**, which is
+   also why no feedback has arrived — the repository has zero issues.
+
+   Note the schedule fired at 12:27 UTC against a cron of 11:40. A 45-minute
+   queue delay is normal for GitHub's scheduler and is not a fault.
 2. **The GitHub-issue feedback route needs a free GitHub account.** That is real
    friction for a non-technical recipient, and the button used to dead-end at a
    sign-in wall with no explanation. There are now three routes: the issue form,
@@ -105,6 +112,22 @@ commits to `data/` — that exact failure already happened once when a branch pu
 trigger and a dispatched `main` scan overlapped, and it is why the push trigger
 was removed from the scan workflow.
 
+## Why the kilometre cap is 220,000
+
+It was 180,000, which contradicted the 2010 year floor. Alberta cars run about
+20,000 km/year, so a 2012 at typical use has ~280,000 km — the flat cap quietly
+excluded almost every 2010–2014 car, making the year range mostly theoretical.
+
+220,000 is roughly eleven years of average use, and sits below the ~250,000
+point where transmissions and timing components start becoming likely money on
+any car. Discrimination is left to the scorer, which compares each car against
+the expected kilometres **for its age** (`expectedKm` in `knowledge.mjs`) rather
+than a flat line. The evidence that this works: in the 2026-08-11 scan the
+160–180k band held 18 cars averaging a score of 30, and only one cleared the
+bar — high-kilometre cars already fail on their merits. The one that cleared was
+a $3,000 Elantra Touring at 180,000 km scoring 77, which is exactly the kind of
+cheap, sound, high-kilometre car the old cap was throwing away.
+
 ## Things learned the hard way
 
 Each of these was a real defect found against live data, and each has a
@@ -127,6 +150,16 @@ regression test. Do not undo them casually.
   bounded to ±2 model years.
 - **Seller type moves the real cost by four figures**, so it gets three
   detection routes. It was unknown on 55 of 71 cars before that work.
+- **Work vehicles pass every numeric filter.** A windowless 2013 Ram Cargo Van
+  is cheap, automatic and low-kilometre, and reached the digest at "worth a
+  look". `COMMERCIAL_RE` in `score.mjs` is deliberately narrow: a cargo van is a
+  Grand Caravan with the windows deleted, so the passenger minivan has to
+  survive it. Match cargo wording and commercial-only nameplates, never "van".
+- **Most listings carry no VIN, so cross-site duplicates survived.** The same
+  Elantra appeared from AutoTrader and Kijiji at $9,811 and 73,980 km, and only
+  escaped the year check because AutoTrader omitted the year. `dedupe` now has a
+  second pass keyed on make + exact price + exact odometer, with year left out
+  on purpose — a missing year is the case it exists to catch.
 - **Score bands must track the scoring weights.** Adding the age and cost
   penalties moved the distribution down ~15 points, and the dashboard announced
   "nothing cleared the bar" while listing 71 cars. `BANDS` in `score.mjs` is

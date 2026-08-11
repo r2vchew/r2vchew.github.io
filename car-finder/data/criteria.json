@@ -1,7 +1,7 @@
 {
   "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
-  "updatedAt": "2026-08-10",
-  "updatedBy": "Vince: wider year range, $13k sticker cap",
+  "updatedAt": "2026-08-11",
+  "updatedBy": "Vince: km cap 180k -> 220k, so the 2010 year floor is not theoretical",
   "buyer": {
     "label": "First car for a new driver in Calgary",
     "notes": "Priorities in order: affordable all-in rather than cheap on the sticker, automatic only, reliable through Alberta winters. The $13,000 cap is the asking price; the realistic drive-away cost is estimated separately and excludes insurance."
@@ -15,7 +15,7 @@
     "minPrice": 3000,
     "maxPrice": 13000,
     "minYear": 2010,
-    "maxOdometerKm": 180000,
+    "maxOdometerKm": 220000,
     "transmission": "automatic",
     "excludeTitles": [
       "salvage",
