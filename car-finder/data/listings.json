@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T13:06:19.092Z",
+  "generatedAt": "2026-08-11T13:22:39.896Z",
   "criteria": {
     "$comment": "The search scope. Edit by hand, or let the feedback loop rewrite it from plain-English notes sent through the dashboard.",
     "updatedAt": "2026-08-11",
@@ -78,7 +78,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 4.1
+      "elapsedSeconds": 4.8
     },
     {
       "id": "kijiji",
@@ -87,7 +87,7 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 6.8
+      "elapsedSeconds": 6.2
     },
     {
       "id": "carpages",
@@ -96,25 +96,25 @@
       "blocked": false,
       "errors": [],
       "strategy": "jsonld",
-      "elapsedSeconds": 0.9
+      "elapsedSeconds": 1.1
     }
   ],
   "stats": {
     "rawRecords": 133,
-    "nonVehiclesDropped": 5,
-    "uniqueCars": 122,
-    "passedFilters": 88,
-    "filteredOut": 34,
+    "nonVehiclesDropped": 4,
+    "uniqueCars": 125,
+    "passedFilters": 90,
+    "filteredOut": 35,
     "filterReasons": {
       "salvage, rebuilt or as-is title": 2,
-      "manual transmission": 5,
-      "commercial or work vehicle": 3,
+      "manual transmission": 6,
       "too many kilometres (N km)": 23,
+      "commercial or work vehicle": 3,
       "over budget at N": 1
     },
-    "candidates": 88,
-    "newSinceLastRun": 42,
-    "previousRunAt": "2026-08-11T12:27:35.386Z"
+    "candidates": 90,
+    "newSinceLastRun": 14,
+    "previousRunAt": "2026-08-11T13:06:19.092Z"
   },
   "cars": [
     {
@@ -307,7 +307,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -496,7 +496,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -689,8 +689,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -879,12 +879,215 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 9999
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/kia-rio-ex+-heated-seats-low-kms-one-owner-gasoline-black-cat_ma39gr200742tr13795-55ef1f66-aa4c-4e53-8efa-ce773aa10513",
+      "title": "Kia Rio EX+| HEATED SEATS | LOW KMS | ONE OWNER",
+      "year": null,
+      "make": "Kia",
+      "model": "Rio",
+      "trim": "EX+| HEATED SEATS | LOW KMS | ONE OWNER",
+      "price": 9988,
+      "odometerKm": 136046,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Red Deer Acura",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/55ef1f66-aa4c-4e53-8efa-ce773aa10513_a7635523-8e01-4702-bb8c-6a5c2b5b31ff.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "f0338b14679c7f6a",
+      "alsoOn": [],
+      "score": 62,
+      "band": "worth a look",
+      "costs": {
+        "price": 9988,
+        "extras": 3343,
+        "total": 13331,
+        "low": 10582,
+        "high": 13331,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 499,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "136k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.33470164197036445,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 6
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "extras add about 33% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Worth a look if the inspection comes back clean.",
+        "body": [
+          "Kia Rio at $9,988, comfortably under the $13,000 ceiling.",
+          "It shows 136,046 km.",
+          "Realistically about $13,331 to get it on the road — roughly $3,343 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable. Worth booking an out-of-province-style inspection at an independent shop before any money changes hands."
+        ],
+        "costs": {
+          "price": 9988,
+          "extras": 3343,
+          "total": 13331,
+          "low": 10582,
+          "high": 13331,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 499,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "136k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.33470164197036445,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget",
+          "Undervalued, and the long factory warranty may still have time left.",
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "extras add about 33% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 9988
         }
       ]
     },
@@ -1079,12 +1282,216 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 3500
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/hyundai-elantra-gasoline-grey-cat_ma33gr16493va2466tr11240-ce73e9d1-f2ae-4767-98dc-130c72372c16",
+      "title": "Hyundai ELANTRA",
+      "year": null,
+      "make": "Hyundai",
+      "model": "ELANTRA",
+      "trim": null,
+      "price": 4950,
+      "odometerKm": 178144,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/ce73e9d1-f2ae-4767-98dc-130c72372c16_4fc3ad45-414f-43ad-8d59-ffa0a6a70764.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "14ba480c5408fd1b",
+      "alsoOn": [],
+      "score": 60,
+      "band": "worth a look",
+      "costs": {
+        "price": 4950,
+        "extras": 3092,
+        "total": 8042,
+        "low": 5293,
+        "high": 8042,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 248,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "178k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.6246464646464647,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 16
+        },
+        {
+          "label": "Good value; the engine trouble that hit Hyundai mostly missed this one.",
+          "delta": 10
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "extras add about 62% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "Hyundai ELANTRA at $4,950, comfortably under the $13,000 ceiling.",
+          "It shows 178,144 km.",
+          "Realistically about $8,042 to get it on the road — roughly $3,092 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "The well-publicised Theta II engine failures affected the larger 2.4L cars (Sonata, Santa Fe), not the Elantra's 2.0L Nu engine. Often thousands cheaper than an equivalent Civic. Remaining factory powertrain warranty may still apply.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 4950,
+          "extras": 3092,
+          "total": 8042,
+          "low": 5293,
+          "high": 8042,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 248,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "178k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.6246464646464647,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget",
+          "Good value; the engine trouble that hit Hyundai mostly missed this one."
+        ],
+        "cons": [
+          "high kilometres",
+          "extras add about 62% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 4950
         }
       ]
     },
@@ -1259,7 +1666,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -1440,8 +1847,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -1644,8 +2051,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -1819,215 +2226,12 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T17:29:34.397Z",
           "price": 12800
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/honda-civic-ex-gasoline-grey-cat_ma31gr200622va2411tr11734-777718cc-9ba2-4d22-8e30-d2ab623cef4e",
-      "title": "Honda Civic EX",
-      "year": null,
-      "make": "Honda",
-      "model": "Civic",
-      "trim": "EX",
-      "price": 11950,
-      "odometerKm": 134383,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Cardeals4u",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/777718cc-9ba2-4d22-8e30-d2ab623cef4e_433e6a0c-6bc6-48fe-a03e-5002fe1ddd58.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "ef53091fb81ec150",
-      "alsoOn": [],
-      "score": 57,
-      "band": "worth a look",
-      "costs": {
-        "price": 11950,
-        "extras": 3442,
-        "total": 15392,
-        "low": 12643,
-        "high": 15392,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 598,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "134k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.2880334728033473,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -7
-        },
-        {
-          "label": "Deservedly the default answer for a first car.",
-          "delta": 18
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "extras add about 29% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Honda Civic at $11,950. This is the kind of car I would put at the top of the list for a first-time driver.",
-          "It shows 134,383 km.",
-          "Realistically about $15,392 to get it on the road — roughly $3,442 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Reliable, efficient, holds value, and parts are everywhere. Only real downside is that they are stolen more than average, so check what insurance quotes look like.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 11950,
-          "extras": 3442,
-          "total": 15392,
-          "low": 12643,
-          "high": 15392,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 598,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "134k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.2880334728033473,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "Deservedly the default answer for a first car.",
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "extras add about 29% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T18:27:58.283Z",
-          "price": 11950
         }
       ]
     },
@@ -2227,12 +2431,211 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 7497
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "3KPFK4A7XJE229771",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2018-kia-forte-ex/1739452227",
+      "title": "2018 Kia Forte EX",
+      "year": 2018,
+      "make": "Kia",
+      "model": "Forte",
+      "trim": "EX",
+      "price": 11995,
+      "odometerKm": 121796,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "sedan",
+      "exteriorColour": "brown",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/eb/ebd8fd0d-bb01-4858-adc9-db7e94ba2a72?rule=kijijica-200-jpg",
+      "vin": "3KPFK4A7XJE229771",
+      "description": "2018 Kia Forte EX is a dependable and practical compact sedan designed for both daily commuting and modern connectivity. Equipped with a fuel-efficient 4-cylinder engine and a spacious, ...",
+      "id": "ef0b571437d8f557",
+      "alsoOn": [],
+      "score": 55,
+      "band": "worth a look",
+      "costs": {
+        "price": 11995,
+        "extras": 2845,
+        "total": 14840,
+        "low": 12090,
+        "high": 14840,
+        "items": [
+          {
+            "label": "GST, if this is a dealer",
+            "amount": 600,
+            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "122k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.23718215923301375,
+        "sellerTypeKnown": false,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "Undervalued, and the long factory warranty may still have time left.",
+          "delta": 10
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "middle-aged but not old",
+          "delta": 2
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 24% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "2018 Kia Forte at $11,995.",
+          "It shows 121,796 km, about normal for its age here.",
+          "Realistically about $14,840 to get it on the road — roughly $2,845 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price."
+        ],
+        "costs": {
+          "price": 11995,
+          "extras": 2845,
+          "total": 14840,
+          "low": 12090,
+          "high": 14840,
+          "items": [
+            {
+              "label": "GST, if this is a dealer",
+              "amount": 600,
+              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "122k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.23718215923301375,
+          "sellerTypeKnown": false,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "Undervalued, and the long factory warranty may still have time left.",
+          "reasonable kilometres",
+          "middle-aged but not old",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "extras add about 24% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 11995
         }
       ]
     },
@@ -2428,216 +2831,12 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 12388
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/hyundai-tucson-limited-gasoline-white-cat_ma33gr18493tr11398-b6423eb4-5b05-4368-a9e7-81a59cd277a7",
-      "title": "Hyundai TUCSON Limited",
-      "year": null,
-      "make": "Hyundai",
-      "model": "TUCSON",
-      "trim": "Limited",
-      "price": 7888,
-      "odometerKm": 206000,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "House of Cars 3",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/b6423eb4-5b05-4368-a9e7-81a59cd277a7_18e024ff-39e5-4d9b-92fe-04db1b8ab8e2.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "44ff114a1597449b",
-      "alsoOn": [],
-      "score": 54,
-      "band": "worth a look",
-      "costs": {
-        "price": 7888,
-        "extras": 3238,
-        "total": 11126,
-        "low": 8377,
-        "high": 11126,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 394,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "206k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.4104969574036511,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 10
-        },
-        {
-          "label": "Reasonable small SUV, but avoid the 2.4L in older ones.",
-          "delta": 10
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "extras add about 41% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Hyundai TUCSON at $7,888, comfortably under the $13,000 ceiling.",
-          "It shows 206,000 km.",
-          "Realistically about $11,126 to get it on the road — roughly $3,238 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "The 2.0L and 1.6T are the ones to have. Check the VIN against Hyundai's engine recall list before committing.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 7888,
-          "extras": 3238,
-          "total": 11126,
-          "low": 8377,
-          "high": 11126,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 394,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "206k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.4104969574036511,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "comfortably inside budget",
-          "Reasonable small SUV, but avoid the 2.4L in older ones."
-        ],
-        "cons": [
-          "high kilometres",
-          "extras add about 41% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
-      "priceHistory": [
-        {
-          "at": "2026-08-11T13:06:19.092Z",
-          "price": 7888
         }
       ]
     },
@@ -2829,7 +3028,7 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3032,7 +3231,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3238,8 +3437,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -3436,8 +3635,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -3611,7 +3810,7 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -3814,7 +4013,7 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4024,8 +4223,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -4229,12 +4428,209 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 9995
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/ford-edge-sel-gasoline-black-cat_ma29gr18913tr11455-e28b39d7-c2d0-46e7-bebc-dd95ee06f71a",
+      "title": "Ford Edge SEL",
+      "year": null,
+      "make": "Ford",
+      "model": "Edge",
+      "trim": "SEL",
+      "price": 4950,
+      "odometerKm": 210278,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/e28b39d7-c2d0-46e7-bebc-dd95ee06f71a_be7d3c40-20c4-4a08-8bd5-d452c547baf5.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "9d2b4bbd556108ad",
+      "alsoOn": [],
+      "score": 50,
+      "band": "maybe",
+      "costs": {
+        "price": 4950,
+        "extras": 3092,
+        "total": 8042,
+        "low": 5293,
+        "high": 8042,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 248,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "210k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.6246464646464647,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 16
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "extras add about 62% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Fine, but there are better uses of a Saturday.",
+        "body": [
+          "Ford Edge at $4,950, comfortably under the $13,000 ceiling.",
+          "It shows 210,278 km.",
+          "Realistically about $8,042 to get it on the road — roughly $3,092 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 4950,
+          "extras": 3092,
+          "total": 8042,
+          "low": 5293,
+          "high": 8042,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 248,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "210k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.6246464646464647,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget"
+        ],
+        "cons": [
+          "high kilometres",
+          "extras add about 62% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 4950
         }
       ]
     },
@@ -4448,7 +4844,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -4458,40 +4854,41 @@
       ]
     },
     {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/kia-forte-ex-2-0l-i4-auto-sunroof-heated-seats-bac-gasoline-blue-cat_ma39gr202109-9e3eccda-9198-4e8f-a761-22d696490469",
-      "title": "Kia Forte EX | 2.0L I4 | AUTO | SUNROOF | HEATED SEATS | BAC",
-      "year": null,
-      "make": "Kia",
-      "model": "Forte",
-      "trim": "EX | 2.0L I4 | AUTO | SUNROOF | HEATED SEATS | BAC",
-      "price": 11995,
-      "odometerKm": 121538,
+      "source": "kijiji",
+      "sourceId": "WVGJV3AX2EW527914",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2014-volkswagen-tiguan-4motion-4dr-auto-trendline-turbocharged-2/1739109065",
+      "title": "2014 Volkswagen Tiguan 4MOTION 4dr Auto Trendline turbocharged 2",
+      "year": 2014,
+      "make": "Volkswagen",
+      "model": "Tiguan",
+      "trim": "4MOTION 4dr Auto Trendline turbocharged 2.0L engine|PRICED TO SELL",
+      "price": 7995,
+      "odometerKm": 163072,
       "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "beige",
       "location": null,
       "sellerType": "dealer",
-      "sellerName": "Shaw GMC Chevrolet Buick Inc.",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/9e3eccda-9198-4e8f-a761-22d696490469_6ae6dee6-6813-4157-b10f-db811f3c686f.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "5428f2cf36c79f9c",
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/45/45e5006b-cf6d-4816-97f8-1ad47ff51761?rule=kijijica-200-jpg",
+      "vin": "WVGJV3AX2EW527914",
+      "description": "Thanks for viewing our South View Motors Inventory! a { text-decoration: none color: #464feb } tr th, tr td { border: 1px solid #e6e6e6 } tr th { background-color: #f5f5f5 } 2014 Volkswagen Tiguan ...",
+      "id": "750a7c39c93a5845",
       "alsoOn": [],
       "score": 49,
       "band": "maybe",
       "costs": {
-        "price": 11995,
-        "extras": 3444,
-        "total": 15439,
-        "low": 12690,
-        "high": 15439,
+        "price": 7995,
+        "extras": 3244,
+        "total": 11239,
+        "low": 8490,
+        "high": 11239,
         "items": [
           {
             "label": "GST (5%)",
-            "amount": 600,
+            "amount": 400,
             "why": "dealer sales are taxed; private sales in Alberta are not",
             "certain": true,
             "kind": "always"
@@ -4527,7 +4924,7 @@
           {
             "label": "Brake work",
             "amount": 550,
-            "why": "122k km with no service history mentioned",
+            "why": "163k km with no service history mentioned",
             "certain": false,
             "kind": "assumed"
           },
@@ -4539,210 +4936,7 @@
             "kind": "assumed"
           }
         ],
-        "uplift": 0.2871196331804919,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -7
-        },
-        {
-          "label": "Undervalued, and the long factory warranty may still have time left.",
-          "delta": 10
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "extras add about 29% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Fine, but there are better uses of a Saturday.",
-        "body": [
-          "Kia Forte at $11,995.",
-          "It shows 121,538 km.",
-          "Realistically about $15,439 to get it on the road — roughly $3,444 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Kia's 5-year/100,000 km powertrain coverage carries over to a second owner. Mechanically these are close cousins of the Hyundai equivalents at a slightly lower price.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 11995,
-          "extras": 3444,
-          "total": 15439,
-          "low": 12690,
-          "high": 15439,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 600,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "122k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.2871196331804919,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "Undervalued, and the long factory warranty may still have time left.",
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "extras add about 29% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-11T12:27:35.386Z",
-          "price": 11995
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/ford-edge-sel-gasoline-white-cat_ma29gr18913tr11455-1fcad441-6555-4cde-8f08-296b9d8c2f62",
-      "title": "Ford Edge SEL",
-      "year": null,
-      "make": "Ford",
-      "model": "Edge",
-      "trim": "SEL",
-      "price": 5950,
-      "odometerKm": 201933,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/1fcad441-6555-4cde-8f08-296b9d8c2f62_9bc8d572-082f-4165-884f-8b371913ac65.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "1886297ca840a4bd",
-      "alsoOn": [],
-      "score": 48,
-      "band": "maybe",
-      "costs": {
-        "price": 5950,
-        "extras": 3142,
-        "total": 9092,
-        "low": 6343,
-        "high": 9092,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 298,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "202k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.5280672268907562,
+        "uplift": 0.40575359599749844,
         "sellerTypeKnown": true,
         "tiresIncluded": false,
         "needsWork": false,
@@ -4751,35 +4945,48 @@
       "scoreParts": [
         {
           "label": "comfortably inside budget",
-          "delta": 14
+          "delta": 10
         },
         {
           "label": "high kilometres",
           "delta": -6
         },
         {
-          "label": "extras add about 53% before she can drive it",
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "getting on in years",
+          "delta": -4
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 41% before she can drive it",
           "delta": -10
         }
       ],
       "commentary": {
         "headline": "Fine, but there are better uses of a Saturday.",
         "body": [
-          "Ford Edge at $5,950, comfortably under the $13,000 ceiling.",
-          "It shows 201,933 km.",
-          "Realistically about $9,092 to get it on the road — roughly $3,142 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "2014 Volkswagen Tiguan at $7,995, comfortably under the $13,000 ceiling.",
+          "It shows 163,072 km, well under the 240,000 km an average Alberta car of that age would have.",
+          "Realistically about $11,239 to get it on the road — roughly $3,244 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control.",
           "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
         ],
         "costs": {
-          "price": 5950,
-          "extras": 3142,
-          "total": 9092,
-          "low": 6343,
-          "high": 9092,
+          "price": 7995,
+          "extras": 3244,
+          "total": 11239,
+          "low": 8490,
+          "high": 11239,
           "items": [
             {
               "label": "GST (5%)",
-              "amount": 298,
+              "amount": 400,
               "why": "dealer sales are taxed; private sales in Alberta are not",
               "certain": true,
               "kind": "always"
@@ -4815,7 +5022,7 @@
             {
               "label": "Brake work",
               "amount": 550,
-              "why": "202k km with no service history mentioned",
+              "why": "163k km with no service history mentioned",
               "certain": false,
               "kind": "assumed"
             },
@@ -4827,33 +5034,37 @@
               "kind": "assumed"
             }
           ],
-          "uplift": 0.5280672268907562,
+          "uplift": 0.40575359599749844,
           "sellerTypeKnown": true,
           "tiresIncluded": false,
           "needsWork": false,
           "recentlyServiced": false
         },
         "pros": [
-          "comfortably inside budget"
+          "comfortably inside budget",
+          "driven less than average for its age",
+          "practical body style"
         ],
         "cons": [
           "high kilometres",
-          "extras add about 53% before she can drive it"
+          "getting on in years",
+          "extras add about 41% before she can drive it"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
           "Timing belt or chain service, if due",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-11T13:06:19.092Z",
-          "price": 5950
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 7995
         }
       ]
     },
@@ -5054,8 +5265,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -5248,8 +5459,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -5451,8 +5662,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -5649,8 +5860,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -5848,8 +6059,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -6016,7 +6227,7 @@
         ]
       },
       "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6028,38 +6239,240 @@
     {
       "source": "autotrader",
       "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/bmw-x3-28i-gasoline-brown-cat_ma13gr18387mt333-5850cd79-fe78-485a-882e-ef367644f753",
-      "title": "BMW X3 28I",
+      "url": "https://www.autotrader.ca/offers/kia-sorento-2-0l-turbo-sx-heated-seats-leather-seats-nav-gasoline-violet-cat_ma39gr200739mt12087tr13768-7bb78872-efea-4d08-a85b-0278a554de71",
+      "title": "Kia Sorento 2.0L TURBO SX | HEATED SEATS | LEATHER SEATS | NAV",
       "year": null,
-      "make": "BMW",
-      "model": "X3",
-      "trim": "28I",
-      "price": 8900,
-      "odometerKm": 105366,
+      "make": "Kia",
+      "model": "Sorento",
+      "trim": "2.0L TURBO SX | HEATED SEATS | LEATHER SEATS | NAV",
+      "price": 12995,
+      "odometerKm": 132445,
       "transmission": "automatic",
       "drivetrain": null,
       "fuel": "Gasoline",
       "exteriorColour": null,
       "location": null,
       "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/5850cd79-fe78-485a-882e-ef367644f753_645e9de3-1bbd-4e1f-bc08-47120872ce91.jpg/250x188.webp",
+      "sellerName": "Subaru Calgary",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/7bb78872-efea-4d08-a85b-0278a554de71_c33d268f-8c91-42ca-a4b0-8aa78abc240f.jpg/250x188.webp",
       "vin": null,
       "description": null,
-      "id": "cb50be96d9939f22",
+      "id": "7ef968175e5a230b",
       "alsoOn": [],
       "score": 42,
       "band": "maybe",
       "costs": {
-        "price": 8900,
-        "extras": 2739,
-        "total": 11639,
-        "low": 9440,
-        "high": 11639,
+        "price": 12995,
+        "extras": 3494,
+        "total": 16489,
+        "low": 13740,
+        "high": 16489,
         "items": [
           {
             "label": "GST (5%)",
-            "amount": 445,
+            "amount": 650,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "132k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.2688726433243555,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "from a make with a good reliability record",
+          "delta": 6
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "extras add about 27% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "Kia Sorento at $12,995.",
+          "It shows 132,445 km.",
+          "Realistically about $16,489 to get it on the road — roughly $3,494 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 12995,
+          "extras": 3494,
+          "total": 16489,
+          "low": 13740,
+          "high": 16489,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 650,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "132k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.2688726433243555,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "from a make with a good reliability record",
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "extras add about 27% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 12995
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/hyundai-santa-fe-awd-4dr-2-4l-luxury-gasoline-black-cat_ma33gr16526va2431tr11320-e6b585bd-e57d-40fe-91d3-1d468ea20bf9",
+      "title": "Hyundai SANTA FE AWD 4dr 2.4L LUXURY",
+      "year": null,
+      "make": "Hyundai",
+      "model": "SANTA FE",
+      "trim": "AWD 4dr 2.4L LUXURY",
+      "price": 12999,
+      "odometerKm": 103000,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Big 4 Motors Chrysler Dodge Jeep Ram",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/e6b585bd-e57d-40fe-91d3-1d468ea20bf9_d145fe55-c561-4a79-af05-4751b43b42ca.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "189387385d189633",
+      "alsoOn": [],
+      "score": 42,
+      "band": "maybe",
+      "costs": {
+        "price": 12999,
+        "extras": 2944,
+        "total": 15943,
+        "low": 13744,
+        "high": 15943,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 650,
             "why": "dealer sales are taxed; private sales in Alberta are not",
             "certain": true,
             "kind": "always"
@@ -6100,7 +6513,7 @@
             "kind": "assumed"
           }
         ],
-        "uplift": 0.30775280898876406,
+        "uplift": 0.22647895991999384,
         "sellerTypeKnown": true,
         "tiresIncluded": false,
         "needsWork": false,
@@ -6108,41 +6521,40 @@
       },
       "scoreParts": [
         {
-          "label": "comfortably inside budget",
-          "delta": 8
+          "label": "at the top of the budget",
+          "delta": -10
         },
         {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
+          "label": "from a make with a good reliability record",
+          "delta": 6
         },
         {
           "label": "reasonable kilometres",
           "delta": 6
         },
         {
-          "label": "extras add about 31% before she can drive it",
+          "label": "extras add about 23% before she can drive it",
           "delta": -10
         }
       ],
       "commentary": {
         "headline": "Included for completeness rather than because I like it.",
         "body": [
-          "BMW X3 at $8,900, comfortably under the $13,000 ceiling.",
-          "It shows 105,366 km.",
-          "Realistically about $11,639 to get it on the road — roughly $2,739 on top of the asking price. I have allowed for pre-purchase inspection, winter tires and catch-up service. Insurance is not in that figure.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
+          "Hyundai SANTA FE at $12,999.",
+          "It shows 103,000 km.",
+          "Realistically about $15,943 to get it on the road — roughly $2,944 on top of the asking price. I have allowed for pre-purchase inspection, winter tires and catch-up service. Insurance is not in that figure.",
           "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
         ],
         "costs": {
-          "price": 8900,
-          "extras": 2739,
-          "total": 11639,
-          "low": 9440,
-          "high": 11639,
+          "price": 12999,
+          "extras": 2944,
+          "total": 15943,
+          "low": 13744,
+          "high": 15943,
           "items": [
             {
               "label": "GST (5%)",
-              "amount": 445,
+              "amount": 650,
               "why": "dealer sales are taxed; private sales in Alberta are not",
               "certain": true,
               "kind": "always"
@@ -6183,34 +6595,34 @@
               "kind": "assumed"
             }
           ],
-          "uplift": 0.30775280898876406,
+          "uplift": 0.22647895991999384,
           "sellerTypeKnown": true,
           "tiresIncluded": false,
           "needsWork": false,
           "recentlyServiced": false
         },
         "pros": [
-          "comfortably inside budget",
+          "from a make with a good reliability record",
           "reasonable kilometres"
         ],
         "cons": [
-          "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "extras add about 31% before she can drive it"
+          "at the top of the budget",
+          "extras add about 23% before she can drive it"
         ],
         "checks": [
           "Carfax or equivalent history report",
           "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
+          "Engine recall status against the VIN, and whether factory powertrain warranty remains",
           "Winter tires — budget $800-$1,200 if they are not included"
         ]
       },
-      "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
       "priceHistory": [
         {
-          "at": "2026-08-11T12:27:35.386Z",
-          "price": 8900
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 12999
         }
       ]
     },
@@ -6421,8 +6833,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -6615,7 +7027,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -6818,8 +7230,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -7037,12 +7449,209 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 11300
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/chevrolet-malibu-lt-heated-seats-sunroof-nav-remote-start-gasoline-black-cat_ma19gr200250tr11825-bfd9e397-8b5e-4b8c-b6f7-e10052241f32",
+      "title": "Chevrolet Malibu LT | HEATED SEATS | SUNROOF | NAV | REMOTE START",
+      "year": null,
+      "make": "Chevrolet",
+      "model": "Malibu",
+      "trim": "LT | HEATED SEATS | SUNROOF | NAV | REMOTE START",
+      "price": 11920,
+      "odometerKm": 134014,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Maclin Ford",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/bfd9e397-8b5e-4b8c-b6f7-e10052241f32_dcb87616-763a-411d-b597-1a11a98a3970.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "8d7bac431c123a83",
+      "alsoOn": [],
+      "score": 40,
+      "band": "maybe",
+      "costs": {
+        "price": 11920,
+        "extras": 3440,
+        "total": 15360,
+        "low": 12611,
+        "high": 15360,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 596,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "134k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.28859060402684567,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -6
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "extras add about 29% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "Chevrolet Malibu at $11,920.",
+          "It shows 134,014 km.",
+          "Realistically about $15,360 to get it on the road — roughly $3,440 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 11920,
+          "extras": 3440,
+          "total": 15360,
+          "low": 12611,
+          "high": 15360,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 596,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "134k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.28859060402684567,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "extras add about 29% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Coolant system and water pump history",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 11920
         }
       ]
     },
@@ -7228,7 +7837,7 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -7431,8 +8040,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -7640,12 +8249,216 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 10495
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/bmw-x1-xdrive28i-gasoline-blue-cat_ma13gr19242mt321-34b37eba-01e0-4b39-8e7c-75849bf2fc93",
+      "title": "BMW X1 XDRIVE28I",
+      "year": null,
+      "make": "BMW",
+      "model": "X1",
+      "trim": "XDRIVE28I",
+      "price": 5500,
+      "odometerKm": 156184,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/34b37eba-01e0-4b39-8e7c-75849bf2fc93_d5038e4f-0a6b-4244-894a-1743da50c4d7.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "302a318512226f32",
+      "alsoOn": [],
+      "score": 37,
+      "band": "probably not",
+      "costs": {
+        "price": 5500,
+        "extras": 3119,
+        "total": 8619,
+        "low": 5870,
+        "high": 8619,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 275,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "156k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.5670909090909091,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "comfortably inside budget",
+          "delta": 15
+        },
+        {
+          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "delta": -12
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "extras add about 57% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "BMW X1 at $5,500, comfortably under the $13,000 ceiling.",
+          "It shows 156,184 km.",
+          "Realistically about $8,619 to get it on the road — roughly $3,119 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 5500,
+          "extras": 3119,
+          "total": 8619,
+          "low": 5870,
+          "high": 8619,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 275,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "156k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.5670909090909091,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "comfortably inside budget"
+        ],
+        "cons": [
+          "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "high kilometres",
+          "extras add about 57% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 5500
         }
       ]
     },
@@ -7841,7 +8654,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -8040,7 +8853,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -8239,7 +9052,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -8429,7 +9242,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -8638,216 +9451,12 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 3700
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/bmw-3-series-gasoline-silver-cat_ma13gr100038mt104-640ffcf4-7111-4bac-8688-8ebb81212906",
-      "title": "BMW 3 Series",
-      "year": null,
-      "make": "BMW",
-      "model": "3 Series",
-      "trim": null,
-      "price": 5950,
-      "odometerKm": 150398,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/640ffcf4-7111-4bac-8688-8ebb81212906_1ea8b33a-6fd3-4398-b275-88afdeb12792.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "903b30b350f66716",
-      "alsoOn": [],
-      "score": 36,
-      "band": "probably not",
-      "costs": {
-        "price": 5950,
-        "extras": 3142,
-        "total": 9092,
-        "low": 6343,
-        "high": 9092,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 298,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "150k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.5280672268907562,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 14
-        },
-        {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "extras add about 53% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "BMW 3 Series at $5,950, comfortably under the $13,000 ceiling.",
-          "It shows 150,398 km.",
-          "Realistically about $9,092 to get it on the road — roughly $3,142 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 5950,
-          "extras": 3142,
-          "total": 9092,
-          "low": 6343,
-          "high": 9092,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 298,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "150k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.5280672268907562,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "high kilometres",
-          "extras add about 53% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T18:27:58.283Z",
-          "price": 5950
         }
       ]
     },
@@ -9042,220 +9651,12 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 12977
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/bmw-x1-xdrive-former-bc-suv-one-3k-claim-gasoline-white-cat_ma13gr19242mt321tr478952-0d97076d-d97c-44ad-a572-e80636d96a46",
-      "title": "BMW X1 xDrive Former BC SUV One 3k Claim",
-      "year": null,
-      "make": "BMW",
-      "model": "X1",
-      "trim": "xDrive Former BC SUV One 3k Claim",
-      "price": 10999,
-      "odometerKm": 123310,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Epic Cars",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/0d97076d-d97c-44ad-a572-e80636d96a46_44cfb87c-837b-4276-8ef2-7127948f9738.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "6415283382100635",
-      "alsoOn": [],
-      "score": 35,
-      "band": "probably not",
-      "costs": {
-        "price": 10999,
-        "extras": 3394,
-        "total": 14393,
-        "low": 11644,
-        "high": 14393,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 550,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "123k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.30857350668242567,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -3
-        },
-        {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "practical body style",
-          "delta": 4
-        },
-        {
-          "label": "extras add about 31% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "BMW X1 at $10,999.",
-          "It shows 123,310 km.",
-          "Realistically about $14,393 to get it on the road — roughly $3,394 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 10999,
-          "extras": 3394,
-          "total": 14393,
-          "low": 11644,
-          "high": 14393,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 550,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "123k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.30857350668242567,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "reasonable kilometres",
-          "practical body style"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "extras add about 31% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T18:27:58.283Z",
-          "price": 10999
         }
       ]
     },
@@ -9451,7 +9852,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9656,7 +10057,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -9859,8 +10260,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -10063,8 +10464,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -10257,7 +10658,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -10460,12 +10861,186 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 7900
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/land-rover-range-rover-sport-luxury-gasoline-brown-cat_ma15641gr200833-83a45c21-e1a3-4ec0-a36a-306a5dd61668",
+      "title": "Land Rover Range Rover Sport LUXURY",
+      "year": null,
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "trim": "LUXURY",
+      "price": 12000,
+      "odometerKm": 97090,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "Regal Auctions Ltd",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/83a45c21-e1a3-4ec0-a36a-306a5dd61668_110c10aa-bf17-47c3-a63c-45eb877bdb18.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "62b33ab9ea0e7691",
+      "alsoOn": [],
+      "score": 32,
+      "band": "probably not",
+      "costs": {
+        "price": 12000,
+        "extras": 2544,
+        "total": 14544,
+        "low": 12695,
+        "high": 14544,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 600,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.212,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "delta": -12
+        },
+        {
+          "label": "reasonable kilometres",
+          "delta": 6
+        },
+        {
+          "label": "a few hundred in extras before it is road-ready",
+          "delta": -5
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "Land Rover Range Rover Sport at $12,000.",
+          "It shows 97,090 km.",
+          "Realistically about $14,544 to get it on the road — roughly $2,544 on top of the asking price. I have allowed for pre-purchase inspection and winter tires. Insurance is not in that figure.",
+          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 12000,
+          "extras": 2544,
+          "total": 14544,
+          "low": 12695,
+          "high": 14544,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 600,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.212,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "reasonable kilometres"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "a few hundred in extras before it is road-ready"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 12000
         }
       ]
     },
@@ -10657,8 +11232,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -10854,8 +11429,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -11054,7 +11629,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11248,8 +11823,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -11442,7 +12017,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -11651,8 +12226,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -11865,8 +12440,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -12069,8 +12644,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -12272,202 +12847,12 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T17:29:34.397Z",
           "price": 11900
-        }
-      ]
-    },
-    {
-      "source": "kijiji",
-      "sourceId": "2C4RDGBG0GR346435",
-      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2016-dodge-grand-caravan-se-with-carplay-android-auto/1741388716",
-      "title": "2016 Dodge Grand Caravan SE with CarPlay / Android Auto",
-      "year": 2016,
-      "make": "Dodge",
-      "model": "Grndcrvn",
-      "trim": "Canada Value Package",
-      "price": 12500,
-      "odometerKm": 168000,
-      "transmission": "automatic",
-      "drivetrain": "https://schema.org/FrontWheelDriveConfiguration",
-      "fuel": null,
-      "bodyType": "vanminicomma",
-      "exteriorColour": "white",
-      "location": null,
-      "sellerType": null,
-      "sellerName": null,
-      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-fsbo-ads/images/84/8481825b-d75c-4957-8f7d-11048103d136?rule=kijijica-200-jpg",
-      "vin": "2C4RDGBG0GR346435",
-      "description": "Are you ready to impress your friends with the most practical vehicle of all time? Seats up to seven people, can haul a couch and has sliding side doors which pretty much makes it a Lamborghini. For ...",
-      "id": "1588b1b7d20cdd47",
-      "alsoOn": [],
-      "score": 28,
-      "band": "probably not",
-      "costs": {
-        "price": 12500,
-        "extras": 2870,
-        "total": 15370,
-        "low": 12595,
-        "high": 15370,
-        "items": [
-          {
-            "label": "GST, if this is a dealer",
-            "amount": 625,
-            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "168k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.2296,
-        "sellerTypeKnown": false,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -8
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "middle-aged but not old",
-          "delta": 2
-        },
-        {
-          "label": "extras add about 23% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "2016 Dodge Grndcrvn at $12,500.",
-          "It shows 168,000 km, about normal for its age here.",
-          "Realistically about $15,370 to get it on the road — roughly $2,870 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control."
-        ],
-        "costs": {
-          "price": 12500,
-          "extras": 2870,
-          "total": 15370,
-          "low": 12595,
-          "high": 15370,
-          "items": [
-            {
-              "label": "GST, if this is a dealer",
-              "amount": 625,
-              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "168k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.2296,
-          "sellerTypeKnown": false,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "middle-aged but not old"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "high kilometres",
-          "extras add about 23% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Oil-dilution service bulletin completed (1.5L turbo only)",
-          "Timing belt or chain service, if due",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-11T12:27:35.386Z",
-          "price": 12500
         }
       ]
     },
@@ -12671,8 +13056,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -12868,12 +13253,209 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 11988
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/jeep-cherokee-4wd-4dr-north-gasoline-black-cat_ma38gr200723tr13647-57235238-8693-463c-abd9-77ec93c86ed7",
+      "title": "Jeep Cherokee 4WD 4dr North",
+      "year": null,
+      "make": "Jeep",
+      "model": "Cherokee",
+      "trim": "4WD 4dr North",
+      "price": 11995,
+      "odometerKm": 175702,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "House Of Cars Lethbridge",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/57235238-8693-463c-abd9-77ec93c86ed7_dcff31d4-2816-4620-8d6e-43c6b6d5a26b.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "e87e116ca96ac5ca",
+      "alsoOn": [],
+      "score": 27,
+      "band": "probably not",
+      "costs": {
+        "price": 11995,
+        "extras": 3444,
+        "total": 15439,
+        "low": 12690,
+        "high": 15439,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 600,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "176k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.2871196331804919,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "extras add about 29% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "Jeep Cherokee at $11,995.",
+          "It shows 175,702 km.",
+          "Realistically about $15,439 to get it on the road — roughly $3,444 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 11995,
+          "extras": 3444,
+          "total": 15439,
+          "low": 12690,
+          "high": 15439,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 600,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "176k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.2871196331804919,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [],
+        "cons": [
+          "at the top of the budget",
+          "high kilometres",
+          "extras add about 29% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "CVT fluid service history",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 11995
         }
       ]
     },
@@ -13076,8 +13658,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -13278,12 +13860,211 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 12596
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "2GNAXUEV1K6121049",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2019-chevrolet-equinox-lt-heated-seats-bluetooth-powered-sea/1738999080",
+      "title": "2019 Chevrolet Equinox LT - HEATED SEATS, BLUETOOTH, POWERED SEA",
+      "year": 2019,
+      "make": "Chevrolet",
+      "model": "Equinox",
+      "trim": "LT - HEATED SEATS",
+      "price": 12977,
+      "odometerKm": 200249,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/5b/5b4e5ce6-6f28-4788-b5b3-a4ebb54d8fbd?rule=kijijica-200-jpg",
+      "vin": "2GNAXUEV1K6121049",
+      "description": "ENJOY COMFORT, VERSATILITY, AND SMOOTH PERFORMANCE WITH THIS 2019 CHEVROLET EQUINOX LT. THIS WELLROUNDED COMPACT SUV OFFERS A SMOOTH RIDE, RESPONSIVE HANDLING, AND A SPACIOUS INTERIOR PERFECT FOR ...",
+      "id": "5918f8a7ef427537",
+      "alsoOn": [],
+      "score": 25,
+      "band": "probably not",
+      "costs": {
+        "price": 12977,
+        "extras": 2894,
+        "total": 15871,
+        "low": 13072,
+        "high": 15871,
+        "items": [
+          {
+            "label": "GST, if this is a dealer",
+            "amount": 649,
+            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "200k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.22300994066425214,
+        "sellerTypeKnown": false,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "driven harder than average for its age",
+          "delta": -5
+        },
+        {
+          "label": "middle-aged but not old",
+          "delta": 2
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 22% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "2019 Chevrolet Equinox at $12,977.",
+          "It shows 200,249 km, noticeably more than the 140,000 km typical for its age — likely highway commuting, so service records matter.",
+          "Realistically about $15,871 to get it on the road — roughly $2,894 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure."
+        ],
+        "costs": {
+          "price": 12977,
+          "extras": 2894,
+          "total": 15871,
+          "low": 13072,
+          "high": 15871,
+          "items": [
+            {
+              "label": "GST, if this is a dealer",
+              "amount": 649,
+              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "200k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.22300994066425214,
+          "sellerTypeKnown": false,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "middle-aged but not old",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "high kilometres",
+          "driven harder than average for its age",
+          "extras add about 22% before she can drive it"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Coolant system and water pump history",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 12977
         }
       ]
     },
@@ -13483,214 +14264,12 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 10988
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/ford-escape-se-awd-heated-seats-power-drivers-seat-blue-gasoline-silver-cat_ma29gr18589tr11412-b7fb6a2c-cd38-4edc-96bc-2fea774605a8",
-      "title": "Ford Escape SE AWD | Heated Seats | Power Driver's Seat | Blue",
-      "year": null,
-      "make": "Ford",
-      "model": "Escape",
-      "trim": "SE AWD | Heated Seats | Power Driver's Seat | Blue",
-      "price": 12875,
-      "odometerKm": 129770,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Kia Red Deer",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/b7fb6a2c-cd38-4edc-96bc-2fea774605a8_bc11a78c-266f-4a5f-90c4-649c8c678657.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "6900dcf575b42825",
-      "alsoOn": [],
-      "score": 24,
-      "band": "probably not",
-      "costs": {
-        "price": 12875,
-        "extras": 3488,
-        "total": 16363,
-        "low": 13614,
-        "high": 16363,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 644,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "130k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.2709126213592233,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -10
-        },
-        {
-          "label": "Decent value, but check transmission and coolant history.",
-          "delta": -12
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "extras add about 27% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "Ford Escape at $12,875.",
-          "It shows 129,770 km.",
-          "Realistically about $16,363 to get it on the road — roughly $3,488 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Cheap for the size. The 1.5L and 1.6L EcoBoost engines had coolant-intrusion problems in some years. A pre-purchase inspection matters more here than on a Corolla.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 12875,
-          "extras": 3488,
-          "total": 16363,
-          "low": 13614,
-          "high": 16363,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 644,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "130k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.2709126213592233,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "Decent value, but check transmission and coolant history.",
-          "extras add about 27% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T18:27:58.283Z",
-          "price": 12875
         }
       ]
     },
@@ -13881,201 +14460,12 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
           "price": 12988
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/mercedes-benz-c-class-gasoline-silver-cat_ma47gr100056va119mt297-a7c2726f-ee2d-4e1e-aa23-f418b08e7ee1",
-      "title": "Mercedes-Benz C-Class",
-      "year": null,
-      "make": "Mercedes-Benz",
-      "model": "C-Class",
-      "trim": null,
-      "price": 12995,
-      "odometerKm": 107804,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Calgary Hyundai",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/a7c2726f-ee2d-4e1e-aa23-f418b08e7ee1_32fec3f8-9d93-443e-94e6-048628fe9c2a.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "f8c2ad48e795de60",
-      "alsoOn": [],
-      "score": 24,
-      "band": "probably not",
-      "costs": {
-        "price": 12995,
-        "extras": 2944,
-        "total": 15939,
-        "low": 13740,
-        "high": 15939,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 650,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.22654867256637168,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -10
-        },
-        {
-          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "delta": -12
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "extras add about 23% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Included for completeness rather than because I like it.",
-        "body": [
-          "Mercedes-Benz C-Class at $12,995.",
-          "It shows 107,804 km.",
-          "Realistically about $15,939 to get it on the road — roughly $2,944 on top of the asking price. I have allowed for pre-purchase inspection, winter tires and catch-up service. Insurance is not in that figure.",
-          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 12995,
-          "extras": 2944,
-          "total": 15939,
-          "low": 13740,
-          "high": 15939,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 650,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.22654867256637168,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "A cheap German or British luxury car is an expensive car with a low sticker.",
-          "extras add about 23% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "Service records from a specialist, not just oil changes",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-11T12:27:35.386Z",
-          "price": 12995
         }
       ]
     },
@@ -14259,7 +14649,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -14436,8 +14826,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -14656,8 +15046,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -14861,215 +15251,12 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 11988
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/nissan-rogue-gasoline-violet-cat_ma52gr201103-9a20530b-2f99-48fb-8180-69468605c2c5",
-      "title": "Nissan Rogue",
-      "year": null,
-      "make": "Nissan",
-      "model": "Rogue",
-      "trim": null,
-      "price": 5500,
-      "odometerKm": 147916,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "Regal Auctions Ltd",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/9a20530b-2f99-48fb-8180-69468605c2c5_f6e3bf04-95b1-4321-9e85-0055899d20c2.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "0579164b768a876b",
-      "alsoOn": [],
-      "score": 19,
-      "band": "probably not",
-      "costs": {
-        "price": 5500,
-        "extras": 3119,
-        "total": 8619,
-        "low": 5870,
-        "high": 8619,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 275,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Brake work",
-            "amount": 550,
-            "why": "148k km with no service history mentioned",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Catch-up service",
-            "amount": 350,
-            "why": "fluids and filters, since nothing recent is mentioned",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.5670909090909091,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "comfortably inside budget",
-          "delta": 15
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "high kilometres",
-          "delta": -6
-        },
-        {
-          "label": "extras add about 57% before she can drive it",
-          "delta": -10
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "Nissan Rogue at $5,500. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 147,916 km.",
-          "Realistically about $8,619 to get it on the road — roughly $3,119 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 5500,
-          "extras": 3119,
-          "total": 8619,
-          "low": 5870,
-          "high": 8619,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 275,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Brake work",
-              "amount": 550,
-              "why": "148k km with no service history mentioned",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Catch-up service",
-              "amount": 350,
-              "why": "fluids and filters, since nothing recent is mentioned",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.5670909090909091,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "comfortably inside budget"
-        ],
-        "cons": [
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "high kilometres",
-          "extras add about 57% before she can drive it"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-10T17:29:34.397Z",
-          "price": 5500
         }
       ]
     },
@@ -15237,8 +15424,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -15446,7 +15633,7 @@
         ]
       },
       "firstSeen": "2026-08-10T17:29:34.397Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -15646,7 +15833,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -15850,8 +16037,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -16053,12 +16240,217 @@
         ]
       },
       "firstSeen": "2026-08-10T18:27:58.283Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-10T18:27:58.283Z",
           "price": 12999
+        }
+      ]
+    },
+    {
+      "source": "kijiji",
+      "sourceId": "4JGDA2EB8CA059473",
+      "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2012-mercedes-benz-m-class-ml-350-bluetec-navi-backup-camera/1738999042",
+      "title": "2012 Mercedes-Benz M-Class ML 350 BlueTEC - NAVI! BACKUP CAMERA!",
+      "year": 2012,
+      "make": "Mercedes-Benz",
+      "model": "Mclass",
+      "trim": "ML 350 BlueTEC - NAVI! BACKUP CAMERA! SUNROOF!",
+      "price": 11977,
+      "odometerKm": 195607,
+      "transmission": "automatic",
+      "drivetrain": "https://schema.org/AllWheelDriveConfiguration",
+      "fuel": null,
+      "bodyType": "suvcrossover",
+      "exteriorColour": "gray",
+      "location": null,
+      "sellerType": null,
+      "sellerName": null,
+      "imageUrl": "https://media.kijiji.ca/api/v1/ca-prod-dealer-ads/images/f4/f4ce6a6c-e2a4-40f9-9330-f21dbecf8cac?rule=kijijica-200-jpg",
+      "vin": "4JGDA2EB8CA059473",
+      "description": "This exceptional example of the 2012 Mercedes-Benz M-Class ML 350 BlueTEC is proudly offered and ready to impress. Blending timeless luxury with outstanding efficiency, this ML 350 BlueTEC delivers a ...",
+      "id": "0eafeeab7ed5b030",
+      "alsoOn": [],
+      "score": 16,
+      "band": "probably not",
+      "costs": {
+        "price": 11977,
+        "extras": 2844,
+        "total": 14821,
+        "low": 12072,
+        "high": 14821,
+        "items": [
+          {
+            "label": "GST, if this is a dealer",
+            "amount": 599,
+            "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "196k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.23745512231777574,
+        "sellerTypeKnown": false,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -7
+        },
+        {
+          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "delta": -12
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "driven less than average for its age",
+          "delta": 5
+        },
+        {
+          "label": "quite old now",
+          "delta": -8
+        },
+        {
+          "label": "practical body style",
+          "delta": 4
+        },
+        {
+          "label": "extras add about 24% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "2012 Mercedes-Benz Mclass at $11,977.",
+          "It shows 195,607 km, well under the 280,000 km an average Alberta car of that age would have.",
+          "Realistically about $14,821 to get it on the road — roughly $2,844 on top of the asking price. I have allowed for gst, if this is a dealer, pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
+          "It predates backup cameras being standard, so check whether this trim has one — useful, though far less critical than stability control."
+        ],
+        "costs": {
+          "price": 11977,
+          "extras": 2844,
+          "total": 14821,
+          "low": 12072,
+          "high": 14821,
+          "items": [
+            {
+              "label": "GST, if this is a dealer",
+              "amount": 599,
+              "why": "could not tell dealer from private seller — a private sale in Alberta pays no GST, so ask, and take this line off if it is a private sale",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "196k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.23745512231777574,
+          "sellerTypeKnown": false,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [
+          "driven less than average for its age",
+          "practical body style"
+        ],
+        "cons": [
+          "at the top of the budget",
+          "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "high kilometres",
+          "quite old now"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
+          "price": 11977
         }
       ]
     },
@@ -16253,7 +16645,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -16456,7 +16848,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
@@ -16658,187 +17050,12 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T12:27:35.386Z",
           "price": 11500
-        }
-      ]
-    },
-    {
-      "source": "autotrader",
-      "sourceId": null,
-      "url": "https://www.autotrader.ca/offers/nissan-micra-s-auto-gasoline-cat_ma52gr201056tr14458-f8161f7f-40d0-4a19-8104-e4e56ceda1a3",
-      "title": "Nissan Micra S Auto",
-      "year": null,
-      "make": "Nissan",
-      "model": "Micra",
-      "trim": "S Auto",
-      "price": 12995,
-      "odometerKm": 92602,
-      "transmission": "automatic",
-      "drivetrain": null,
-      "fuel": "Gasoline",
-      "exteriorColour": null,
-      "location": null,
-      "sellerType": "dealer",
-      "sellerName": "House Of Cars Lethbridge",
-      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/f8161f7f-40d0-4a19-8104-e4e56ceda1a3_d88956d7-9b0a-4354-a0d0-355b9b9df2bf.jpg/250x188.webp",
-      "vin": null,
-      "description": null,
-      "id": "cfb3d86fc96e63d7",
-      "alsoOn": [],
-      "score": 11,
-      "band": "probably not",
-      "costs": {
-        "price": 12995,
-        "extras": 2594,
-        "total": 15589,
-        "low": 13740,
-        "high": 15589,
-        "items": [
-          {
-            "label": "GST (5%)",
-            "amount": 650,
-            "why": "dealer sales are taxed; private sales in Alberta are not",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Dealer documentation fee",
-            "amount": 599,
-            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-            "certain": false,
-            "kind": "always"
-          },
-          {
-            "label": "Registration and plates",
-            "amount": 95,
-            "why": "Alberta registration",
-            "certain": true,
-            "kind": "always"
-          },
-          {
-            "label": "Pre-purchase inspection",
-            "amount": 150,
-            "why": "an independent shop looking it over before she commits",
-            "certain": false,
-            "kind": "assumed"
-          },
-          {
-            "label": "Winter tires",
-            "amount": 1100,
-            "why": "no winter set mentioned, and Calgary needs one",
-            "certain": false,
-            "kind": "assumed"
-          }
-        ],
-        "uplift": 0.19961523662947286,
-        "sellerTypeKnown": true,
-        "tiresIncluded": false,
-        "needsWork": false,
-        "recentlyServiced": false
-      },
-      "scoreParts": [
-        {
-          "label": "at the top of the budget",
-          "delta": -10
-        },
-        {
-          "label": "The CVT is the problem, and replacing it costs more than the car.",
-          "delta": -30
-        },
-        {
-          "label": "reasonable kilometres",
-          "delta": 6
-        },
-        {
-          "label": "a few hundred in extras before it is road-ready",
-          "delta": -5
-        }
-      ],
-      "commentary": {
-        "headline": "Cheap for a reason — I would keep looking.",
-        "body": [
-          "Nissan Micra at $12,995. The price looks tempting, but this is a model I would steer her away from.",
-          "It shows 92,602 km.",
-          "Realistically about $15,589 to get it on the road — roughly $2,594 on top of the asking price. I have allowed for pre-purchase inspection and winter tires. Insurance is not in that figure.",
-          "Nissan's continuously variable transmissions from this era fail often, frequently between 120,000 and 180,000 km. A replacement runs $4,000-$6,000 installed. The cars are cheap on the used market for exactly this reason. If one is irresistible, insist on documented CVT replacement or fluid-service history.",
-          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
-        ],
-        "costs": {
-          "price": 12995,
-          "extras": 2594,
-          "total": 15589,
-          "low": 13740,
-          "high": 15589,
-          "items": [
-            {
-              "label": "GST (5%)",
-              "amount": 650,
-              "why": "dealer sales are taxed; private sales in Alberta are not",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Dealer documentation fee",
-              "amount": 599,
-              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
-              "certain": false,
-              "kind": "always"
-            },
-            {
-              "label": "Registration and plates",
-              "amount": 95,
-              "why": "Alberta registration",
-              "certain": true,
-              "kind": "always"
-            },
-            {
-              "label": "Pre-purchase inspection",
-              "amount": 150,
-              "why": "an independent shop looking it over before she commits",
-              "certain": false,
-              "kind": "assumed"
-            },
-            {
-              "label": "Winter tires",
-              "amount": 1100,
-              "why": "no winter set mentioned, and Calgary needs one",
-              "certain": false,
-              "kind": "assumed"
-            }
-          ],
-          "uplift": 0.19961523662947286,
-          "sellerTypeKnown": true,
-          "tiresIncluded": false,
-          "needsWork": false,
-          "recentlyServiced": false
-        },
-        "pros": [
-          "reasonable kilometres"
-        ],
-        "cons": [
-          "at the top of the budget",
-          "The CVT is the problem, and replacing it costs more than the car.",
-          "a few hundred in extras before it is road-ready"
-        ],
-        "checks": [
-          "Carfax or equivalent history report",
-          "Independent pre-purchase inspection",
-          "CVT fluid service history",
-          "Winter tires — budget $800-$1,200 if they are not included"
-        ]
-      },
-      "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": false,
-      "priceHistory": [
-        {
-          "at": "2026-08-11T12:27:35.386Z",
-          "price": 12995
         }
       ]
     },
@@ -17038,8 +17255,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -17234,11 +17451,218 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
+          "price": 12995
+        }
+      ]
+    },
+    {
+      "source": "autotrader",
+      "sourceId": null,
+      "url": "https://www.autotrader.ca/offers/bmw-4-series-428i-xdrive-awd-gran-coupe-navi-hud-b-cam-sunroof-gasoline-white-cat_ma13gr100097va301mt682tr478942-69978e57-3dcd-4eb3-8b5a-ffcd4d3cfaf0",
+      "title": "BMW 4 Series 428i xDRIVE AWD GRAN COUPE/NAVI/HUD/B-CAM/SUNROOF/",
+      "year": null,
+      "make": "BMW",
+      "model": "4 Series",
+      "trim": "428i xDRIVE AWD GRAN COUPE/NAVI/HUD/B-CAM/SUNROOF/",
+      "price": 12995,
+      "odometerKm": 177800,
+      "transmission": "automatic",
+      "drivetrain": null,
+      "fuel": "Gasoline",
+      "exteriorColour": null,
+      "location": null,
+      "sellerType": "dealer",
+      "sellerName": "MILLENIUM MOTORS",
+      "imageUrl": "https://prod.pictures.autoscout24.net/listing-images/69978e57-3dcd-4eb3-8b5a-ffcd4d3cfaf0_1dc87782-edb9-4fd1-972c-0c82211209be.jpg/250x188.webp",
+      "vin": null,
+      "description": null,
+      "id": "f9945fc75ce4d5a6",
+      "alsoOn": [],
+      "score": 4,
+      "band": "probably not",
+      "costs": {
+        "price": 12995,
+        "extras": 3494,
+        "total": 16489,
+        "low": 13740,
+        "high": 16489,
+        "items": [
+          {
+            "label": "GST (5%)",
+            "amount": 650,
+            "why": "dealer sales are taxed; private sales in Alberta are not",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Dealer documentation fee",
+            "amount": 599,
+            "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+            "certain": false,
+            "kind": "always"
+          },
+          {
+            "label": "Registration and plates",
+            "amount": 95,
+            "why": "Alberta registration",
+            "certain": true,
+            "kind": "always"
+          },
+          {
+            "label": "Pre-purchase inspection",
+            "amount": 150,
+            "why": "an independent shop looking it over before she commits",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Winter tires",
+            "amount": 1100,
+            "why": "no winter set mentioned, and Calgary needs one",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Brake work",
+            "amount": 550,
+            "why": "178k km with no service history mentioned",
+            "certain": false,
+            "kind": "assumed"
+          },
+          {
+            "label": "Catch-up service",
+            "amount": 350,
+            "why": "fluids and filters, since nothing recent is mentioned",
+            "certain": false,
+            "kind": "assumed"
+          }
+        ],
+        "uplift": 0.2688726433243555,
+        "sellerTypeKnown": true,
+        "tiresIncluded": false,
+        "needsWork": false,
+        "recentlyServiced": false
+      },
+      "scoreParts": [
+        {
+          "label": "at the top of the budget",
+          "delta": -10
+        },
+        {
+          "label": "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "delta": -12
+        },
+        {
+          "label": "high kilometres",
+          "delta": -6
+        },
+        {
+          "label": "body style she did not ask for",
+          "delta": -8
+        },
+        {
+          "label": "extras add about 27% before she can drive it",
+          "delta": -10
+        }
+      ],
+      "commentary": {
+        "headline": "Included for completeness rather than because I like it.",
+        "body": [
+          "BMW 4 Series at $12,995.",
+          "It shows 177,800 km.",
+          "Realistically about $16,489 to get it on the road — roughly $3,494 on top of the asking price. I have allowed for pre-purchase inspection, winter tires, brake work and catch-up service. Insurance is not in that figure.",
+          "Anything in this budget is a former $50,000 car near the end of its cheap years. One suspension or electronics repair can exceed what she paid. Great cars, wrong context.",
+          "Dealer listing — ask for the all-in number before going in, and treat the doc fee as negotiable."
+        ],
+        "costs": {
+          "price": 12995,
+          "extras": 3494,
+          "total": 16489,
+          "low": 13740,
+          "high": 16489,
+          "items": [
+            {
+              "label": "GST (5%)",
+              "amount": 650,
+              "why": "dealer sales are taxed; private sales in Alberta are not",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Dealer documentation fee",
+              "amount": 599,
+              "why": "typical Alberta doc fee — ask for the all-in price, it is negotiable",
+              "certain": false,
+              "kind": "always"
+            },
+            {
+              "label": "Registration and plates",
+              "amount": 95,
+              "why": "Alberta registration",
+              "certain": true,
+              "kind": "always"
+            },
+            {
+              "label": "Pre-purchase inspection",
+              "amount": 150,
+              "why": "an independent shop looking it over before she commits",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Winter tires",
+              "amount": 1100,
+              "why": "no winter set mentioned, and Calgary needs one",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Brake work",
+              "amount": 550,
+              "why": "178k km with no service history mentioned",
+              "certain": false,
+              "kind": "assumed"
+            },
+            {
+              "label": "Catch-up service",
+              "amount": 350,
+              "why": "fluids and filters, since nothing recent is mentioned",
+              "certain": false,
+              "kind": "assumed"
+            }
+          ],
+          "uplift": 0.2688726433243555,
+          "sellerTypeKnown": true,
+          "tiresIncluded": false,
+          "needsWork": false,
+          "recentlyServiced": false
+        },
+        "pros": [],
+        "cons": [
+          "at the top of the budget",
+          "A cheap German or British luxury car is an expensive car with a low sticker.",
+          "high kilometres",
+          "body style she did not ask for"
+        ],
+        "checks": [
+          "Carfax or equivalent history report",
+          "Independent pre-purchase inspection",
+          "Service records from a specialist, not just oil changes",
+          "Timing belt or chain service, if due",
+          "Winter tires — budget $800-$1,200 if they are not included"
+        ]
+      },
+      "firstSeen": "2026-08-11T13:22:39.896Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": true,
+      "priceHistory": [
+        {
+          "at": "2026-08-11T13:22:39.896Z",
           "price": 12995
         }
       ]
@@ -17437,8 +17861,8 @@
         ]
       },
       "firstSeen": "2026-08-11T13:06:19.092Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
-      "isNew": true,
+      "lastSeen": "2026-08-11T13:22:39.896Z",
+      "isNew": false,
       "priceHistory": [
         {
           "at": "2026-08-11T13:06:19.092Z",
@@ -17641,7 +18065,7 @@
         ]
       },
       "firstSeen": "2026-08-11T12:27:35.386Z",
-      "lastSeen": "2026-08-11T13:06:19.092Z",
+      "lastSeen": "2026-08-11T13:22:39.896Z",
       "isNew": false,
       "priceHistory": [
         {
