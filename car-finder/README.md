@@ -10,6 +10,10 @@ without anyone having to read hundreds of listings.
 
 **Dashboard:** https://r2vchew.github.io/car-finder/
 
+**Picking this up cold? Read [STATUS.md](STATUS.md) first** — current scope,
+what each source is doing, what is outstanding, and the defects found against
+live data that have tests protecting them. This file is the how-it-works.
+
 ## How it works
 
 ```
@@ -87,10 +91,10 @@ lives at `/car-finder/`. Nothing to do — but note the consequence: the code
 has to be **on `main`** to be served. While it sat on a feature branch the URL
 returned 404, which is easy to mistake for Pages being switched off.
 
-### 2. Email digest (optional)
+### 2. Email digest — **already configured**
 
-Without these the system still works — it just does not email. Add repository
-secrets:
+A send was confirmed in the workflow log on 2026-08-10. These are the secrets
+behind it, for reference or for pointing it at a different recipient:
 
 | Secret | Value |
 | --- | --- |
@@ -104,8 +108,16 @@ Namespaced because this repository holds more than one project. The workflow
 maps them onto the generic `MAIL_*` env vars that `send-mail.mjs` reads, so the
 script stays reusable by any other project that wants it.
 
-For Gmail this means turning on 2FA and creating an app password. The digest
-only sends when something new cleared the bar, so it will not become noise.
+For Gmail this means turning on 2FA and creating an app password at
+https://myaccount.google.com/apppasswords — the account password will not work
+for SMTP. An app password is full access to the mailbox regardless of the label
+you give it, so use a separate one per project and revoke by name.
+
+The digest only sends when something new cleared the bar, so it will not become
+noise. To test it without waiting for new cars, run the workflow manually with
+**"Send the digest even if nothing is new"** set to true.
+
+Without these secrets everything else still runs; the send step just no-ops.
 
 ### 3. Feedback (works out of the box)
 
