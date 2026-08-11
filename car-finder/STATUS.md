@@ -1,6 +1,6 @@
 # Status — Car finder
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 **It is live, scanning daily, and emailing.** Everything below is the state of a
 working system, not a plan.
@@ -28,10 +28,11 @@ $3,000–$13,000 **asking price**, 2010 or newer, under 220,000 km, automatic
 only, within 150 km of Calgary. The realistic drive-away cost is estimated on
 top of the sticker and shown per car. **Insurance is deliberately excluded.**
 
-## Last verified scan (2026-08-10 18:28 UTC)
+## Last verified scan (2026-08-11 13:22 UTC)
 
-133 listings read → 67 candidates. Bands: 1 shortlist, 8 worth a look, 20
-maybe, 38 probably not. Seller type resolved on 48 of 67.
+90 candidates on the dashboard, with the digest sent successfully. Verified
+against that data: no cargo vans survive the commercial filter, and no two rows
+share a make, price and odometer, so the cross-site duplicates are gone.
 
 | Source | State | Notes |
 | --- | --- | --- |
@@ -46,34 +47,33 @@ manually.
 
 ## Configured and working
 
-- All five `CARFINDER_MAIL_*` secrets are set. A send was confirmed in the log
-  on 2026-08-10 (`Digest sent to ***`).
+- All five `CARFINDER_MAIL_*` secrets are set, and a send to the real recipient
+  list was confirmed on 2026-08-11 (`Digest sent to ***`, run `31495824474`).
+  `CARFINDER_MAIL_TO` carries Nicole and Vince; `CARFINDER_MAIL_USERNAME` is the
+  single sending mailbox — see "The mail settings that bite" below.
 - GitHub Pages serves `main` at the repository root.
-- 70 regression checks run in CI before every scan (`node scripts/test.mjs`).
+- 95 regression checks run in CI before every scan (`node scripts/test.mjs`).
+
+## The mail settings that bite
+
+Two failures on 2026-08-11 came from the same confusion, and cost a morning:
+
+| Run | Error | Cause |
+| --- | --- | --- |
+| `31491301151` | `535-5.7.8 Username and Password not accepted` | `MAIL_USERNAME` was not a single address |
+| `31494460172` | `501-5.5.4 HELO/EHLO argument "gmail.com, vchew67" invalid` | same value, now breaking EHLO |
+
+`MAIL_USERNAME` is **one mailbox — the sender**. The recipient list goes in
+`MAIL_TO`. Putting a list in `MAIL_USERNAME` breaks it in a way that reads like
+a password problem, because `"a@b.com, c@d.com".split('@')[1]` is `"b.com, c"`.
+`send-mail.mjs` now refuses a multi-address sender before opening a socket and
+says which setting is wrong.
 
 ## Outstanding
 
-1. **The digest is still not sending — `CARFINDER_MAIL_USERNAME` holds two
-   addresses.** It must be exactly one: the single mailbox the digest is sent
-   *from*. The recipient list belongs in `CARFINDER_MAIL_TO`.
-
-   Two runs, two different errors, same root cause area:
-
-   | Run | Error | Meaning |
-   | --- | --- | --- |
-   | `31491301151` (11:40 cron) | `535-5.7.8 Username and Password not accepted` | credentials wrong |
-   | `31494460172` (forced) | `501-5.5.4 HELO/EHLO argument "gmail.com, vchew67" invalid` | username holds two addresses |
-
-   The second error is the giveaway: `"a@b.com, c@d.com".split('@')[1]` is
-   `"b.com, c"`, so the junk landed in the EHLO line. `send-mail.mjs` now
-   rejects a multi-address sender before opening a socket, with a sentence
-   naming the setting, and derives the EHLO domain from the last `@`.
-
-   **Nicole has still received no digest**, which is also why no feedback has
-   arrived — the repository has zero issues.
-
-   Note the schedule fired at 12:27 UTC against a cron of 11:40. A 45-minute
-   queue delay is normal for GitHub's scheduler and is not a fault.
+1. **No feedback has arrived yet** — the repository has zero issues. The first
+   digest only reached Nicole on 2026-08-11, so there has been nothing to react
+   to. If it stays silent from here, suspect item 2.
 2. **The GitHub-issue feedback route needs a free GitHub account.** That is real
    friction for a non-technical recipient, and the button used to dead-end at a
    sign-in wall with no explanation. There are now three routes: the issue form,
