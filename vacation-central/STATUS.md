@@ -146,14 +146,18 @@ Not started / not verified:
   documented shapes but never executed. First real session with this app
   should treat it as a first draft, not a working app, until proven
   otherwise. Deployment did not change this.
-- **One setup step the app cannot do for itself**: the magic-link redirect
-  URL has to be allowlisted in Supabase → Authentication → URL Configuration
-  → Redirect URLs as `https://r2vchew.github.io/vacation-central/`. Without
-  it, sign-in fails quietly, and it will look like an app bug rather than a
-  config gap. The digest app hit exactly this and it is recorded in its own
-  STATUS.md — check this *before* debugging a failed login.
-- Maps key referrer restriction — applied at creation, never re-verified now
-  that the key is public. Console-only check.
+- ~~Magic-link redirect URL allowlisted in Supabase~~ — **done 2026-08-12.**
+  `https://r2vchew.github.io/vacation-central/` and `http://localhost:8732/`
+  both added to Authentication → URL Configuration → Redirect URLs (3 total
+  URLs now, alongside digest's). Verified via the Supabase dashboard, not
+  just assumed. This was the one setup step the app couldn't do for itself —
+  without it sign-in fails quietly and looks like an app bug. Still true that
+  nobody has actually completed a sign-in yet; this just removes the config
+  gap that would have silently broken the first attempt.
+- ~~Maps key referrer restriction~~ — **re-verified 2026-08-12**, unchanged
+  since creation: `Websites` restriction, exactly
+  `http://localhost:8732/*` and `https://r2vchew.github.io/vacation-central/*`,
+  confirmed directly in the Google Cloud console (not inferred).
 - Keely isn't a household member yet — needs her own Supabase Auth signup
   first (her action), then one SQL insert into
   `trip_planner.household_members` (same pattern as Vince's).
@@ -164,19 +168,16 @@ Not started / not verified:
 
 ## Next useful action
 
-The commit is no longer the blocker; it landed 2026-08-12. What stands
-between this and a usable app is that **nobody has ever opened it**.
+The commit landed 2026-08-12, and both pre-login setup gaps (redirect URL,
+Maps key restriction) are now verified fixed. What stands between this and a
+usable app is that **nobody has ever opened it**.
 
-1. Allowlist the redirect URL in Supabase (above). Two minutes, and it
-   silently breaks login if skipped — do it before step 2 so a failed
-   sign-in means something.
-2. Open [the live URL](https://r2vchew.github.io/vacation-central/), sign in,
+1. Open [the live URL](https://r2vchew.github.io/vacation-central/), sign in,
    and exercise every flow once: magic-link round-trip, day/leg navigation,
    weather card, map render, Places search, manual add-without-location,
    "Optimize order", and the manual up/down reorder. Expect real bugs — this
    is the first execution of code written blind.
-3. Confirm the Maps key restriction in the Google Cloud console.
-4. Add Keely as a household member once she's signed up, and check she lands
+2. Add Keely as a household member once she's signed up, and check she lands
    on the "signed in but not added yet" screen before that, not a generic
    error — that path was written specifically for her and has never run.
 5. Link it from the site home page once it actually works. Linking a broken
