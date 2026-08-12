@@ -2,7 +2,7 @@
 
 Last updated: 2026-08-12
 
-## Current state — frontend built, unverified live
+## Current state — deployed and publicly reachable, but never actually run
 
 This project was started 2026-08-12, forked from route-optimizer, for a
 mid-August 2026 Harrison Hot Springs → Vancouver trip. Exact dates and
@@ -12,10 +12,20 @@ street addresses are deliberately not in this public repo — see below.
 `styles.css`) exists and is internally consistent (every DOM id referenced
 in `app.js` exists in `index.html`, every Supabase RPC call matches a real
 function signature) but has **not been run in a browser or tested against a
-live login**. It was built without a working preview in this session
-(remote-control constraints made local-server testing impractical). Treat
-the first real test — including the magic-link auth round-trip — as
-unverified work, not a formality.
+live login**. It was built without a working preview in the 2026-08-12
+session that created it (remote-control constraints made local-server
+testing impractical). Treat the first real test — including the magic-link
+auth round-trip — as unverified work, not a formality.
+
+**Being deployed is not the same as working.** As of 2026-08-12 the app is
+committed, pushed, and served at
+[r2vchew.github.io/vacation-central/](https://r2vchew.github.io/vacation-central/)
+— verified over real HTTP, with `index.html`, `config.js`, `app.js`,
+`styles.css`, `manifest.webmanifest`, `sw.js` and the icons all returning
+200. That means the *hosting* is proven and nothing more. Not one line of
+its logic has executed against the live database, the Maps APIs, or
+Open-Meteo. A green 200 on `app.js` says the file downloads, not that the
+app functions.
 
 Done so far:
 - Project folder created; icons carried over from route-optimizer as
@@ -50,7 +60,20 @@ Done so far:
   publishable key. **Deliberately NOT gitignored** — see its own comment.
   Both keys are safe to ship client-side by design (referrer restriction /
   RLS do the real gating, not secrecy) — don't copy route-optimizer's
-  gitignore-the-key habit here.
+  gitignore-the-key habit here. The Supabase publishable key is the same one
+  `digest/` already ships publicly, so it was not new exposure.
+
+  `config.example.js` used to say *"config.js is gitignored so your key never
+  gets committed"* — inherited from route-optimizer, false here, and directly
+  contradicted by the `.gitignore` sitting beside it. Corrected on commit. If
+  that sentence ever reappears, someone has copied the wrong template again.
+
+  **The Maps key is now genuinely public, and its HTTP-referrer restriction
+  is the only thing protecting it from billing abuse.** That restriction was
+  applied when the key was made (see above) but has never been re-verified
+  since the key went public, and it cannot be checked from the repo — it
+  lives in the Google Cloud console. Confirm it before assuming the $10/month
+  budget alert is the backstop; the alert notifies, it does not cap.
 - Amenities pulled from both listing pages (the public listing's "What this
   place offers" panel, not the reservation page) and seeded via
   `20260812110000_seed_trip_planner_amenities.sql`: 13 rows for Harrison, 17
@@ -97,17 +120,22 @@ Done so far:
 - `.claude/launch.json` created with a `vacation-central` config
   (`python -m http.server 8732` from this folder) for whenever local preview
   testing becomes useful again.
-- Pushed to GitHub — **staged, not committed**. All 15 files are staged in
-  the `r2vchew.github.io` repo under `vacation-central/` (verified via
-  `git status`), but `git commit`/`git push` are blocked by this session's
-  auto-mode classifier — confirmed blocked via both Bash and PowerShell, and
-  blocked again when attempting to adjust the permission itself. This needs
-  Vince to run two commands from an actual keyboard (not remote control):
-  ```
-  cd "C:\Users\vchew\Documents\Projects\r2vchew.github.io"
-  git commit -m "Add Vacation Central: itinerary planner, backend, and frontend"
-  git push
-  ```
+- **Committed and pushed 2026-08-12** as `ba35594`, "Add Vacation Central, a
+  publicly hosted trip planner". This had been stuck: the files sat staged
+  because the session that built them had `git commit`/`git push` blocked by
+  its auto-mode classifier (blocked via both Bash and PowerShell, and blocked
+  again when trying to adjust the permission itself), so the work was
+  complete but invisible.
+
+  Worth knowing for next time, because the two causes look identical from the
+  outside: **there was a second, unrelated blocker underneath that one.**
+  `main` was one commit *behind* `origin/main` — the `car-finder` GitHub
+  Actions bot commits scan data to this repo on a schedule, so the branch
+  drifts on its own without anyone touching it. A plain `git push` would have
+  been rejected even with permissions sorted. The fix is a rebase, and it is
+  safe: the bot only ever writes `car-finder/data/`, so it has never
+  conflicted with app code. Expect to need `git fetch && git rebase
+  origin/main` before any push to this repo.
 - [docs/DESIGN_BRIEF.md](docs/DESIGN_BRIEF.md) — data model, flows,
   constraints, visual precedent for whoever designs/refines the interface.
   Design-level context only; this file carries the engineering details.
@@ -117,19 +145,39 @@ Not started / not verified:
   API calls, Open-Meteo fetch, map rendering — all written against the
   documented shapes but never executed. First real session with this app
   should treat it as a first draft, not a working app, until proven
-  otherwise.
+  otherwise. Deployment did not change this.
+- **One setup step the app cannot do for itself**: the magic-link redirect
+  URL has to be allowlisted in Supabase → Authentication → URL Configuration
+  → Redirect URLs as `https://r2vchew.github.io/vacation-central/`. Without
+  it, sign-in fails quietly, and it will look like an app bug rather than a
+  config gap. The digest app hit exactly this and it is recorded in its own
+  STATUS.md — check this *before* debugging a failed login.
+- Maps key referrer restriction — applied at creation, never re-verified now
+  that the key is public. Console-only check.
 - Keely isn't a household member yet — needs her own Supabase Auth signup
   first (her action), then one SQL insert into
   `trip_planner.household_members` (same pattern as Vince's).
-- Home page (`r2vchew.github.io/index.html`) doesn't link to
-  `vacation-central/` yet — deliberately held off until the frontend existed;
-  now that it does, add the link before/when deploying.
+- Home page (`r2vchew.github.io/index.html`) still doesn't link to
+  `vacation-central/` — confirmed absent as of 2026-08-12. The app is
+  reachable only by typing the URL.
 - Fresh icon set — still using route-optimizer's placeholder icons.
-- The actual `git commit`/`git push` — see above.
 
 ## Next useful action
 
-1. Get the commit/push done (Vince, at a keyboard — see command block above).
-2. Open the live URL, sign in, and actually exercise every flow once —
-   this has never run in a browser. Expect to find and fix real bugs.
-3. Add Keely as a household member once she's signed up.
+The commit is no longer the blocker; it landed 2026-08-12. What stands
+between this and a usable app is that **nobody has ever opened it**.
+
+1. Allowlist the redirect URL in Supabase (above). Two minutes, and it
+   silently breaks login if skipped — do it before step 2 so a failed
+   sign-in means something.
+2. Open [the live URL](https://r2vchew.github.io/vacation-central/), sign in,
+   and exercise every flow once: magic-link round-trip, day/leg navigation,
+   weather card, map render, Places search, manual add-without-location,
+   "Optimize order", and the manual up/down reorder. Expect real bugs — this
+   is the first execution of code written blind.
+3. Confirm the Maps key restriction in the Google Cloud console.
+4. Add Keely as a household member once she's signed up, and check she lands
+   on the "signed in but not added yet" screen before that, not a generic
+   error — that path was written specifically for her and has never run.
+5. Link it from the site home page once it actually works. Linking a broken
+   app is worse than not linking it.
