@@ -1,0 +1,250 @@
+/* ============================================================
+   Vacation Central — plain CSS, mobile-first PWA
+   Palette carried over from route-optimizer (the "Claude Design" mockup
+   origin) on purpose — same discipline: flat surfaces, one accent reserved
+   for the thing that matters, no gradients.
+   ============================================================ */
+:root{
+  --bg:#121016;
+  --surface:#1c1a22;
+  --surface-2:#211f29;
+  --surface-3:#262330;
+  --map-bg:#14161d;
+  --ink:#f5f1ea;
+  --ink-2:#f0ecf5;
+  --muted:#9c96a8;
+  --muted-2:#8b8598;
+  --muted-3:#6f6a7c;
+  --accent:#4f8cff;
+  --accent-ink:#aeb8d4;
+  --good:#4fbf7a;
+  --warn:#e0a83e;
+  --bad:#e2584f;
+  --hairline:rgba(255,255,255,0.06);
+  --display:'Space Grotesk',sans-serif;
+  --sans:'Manrope',sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family:var(--sans);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.phone{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  height:100dvh;
+  max-height:932px;
+  background:var(--surface);
+  overflow:hidden;
+}
+@media (min-width:460px){
+  .phone{
+    border-radius:44px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.04);
+    margin:24px;
+  }
+}
+
+/* ---------- view routing ---------- */
+.view{position:absolute;inset:0;display:none;animation:view-in .25s ease}
+.view--active{display:block}
+@keyframes view-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.screen{height:100%;display:flex;flex-direction:column;box-sizing:border-box}
+
+/* ============================ TOPBAR ============================ */
+.topbar{
+  display:flex;align-items:center;gap:10px;
+  padding:calc(env(safe-area-inset-top) + 14px) 16px 12px;
+  border-bottom:1px solid var(--hairline);
+  flex:0 0 auto;
+}
+.topbar-titles{flex:1;min-width:0}
+.topbar-title{font-family:var(--display);font-weight:700;font-size:16px}
+.topbar-sub{font-size:12px;color:var(--muted);margin-top:1px}
+.icon-btn{
+  width:34px;height:34px;border-radius:10px;border:none;
+  background:var(--surface-2);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+
+/* ---------- leg switcher ---------- */
+.leg-tabs{display:flex;gap:6px;padding:0 16px 12px}
+.leg-tab{
+  flex:1;padding:9px 10px;border-radius:10px;border:none;
+  background:var(--surface-2);color:var(--muted);font-family:var(--sans);
+  font-weight:700;font-size:12.5px;text-align:center;
+}
+.leg-tab--active{background:var(--accent);color:#fff}
+
+/* ---------- day strip ---------- */
+.day-strip{display:flex;gap:6px;padding:0 16px 14px;overflow-x:auto}
+.day-pill{
+  flex:0 0 auto;padding:8px 12px;border-radius:20px;border:1px solid var(--hairline);
+  background:var(--surface-2);color:var(--muted);font-size:12.5px;font-weight:700;
+  white-space:nowrap;
+}
+.day-pill--active{background:var(--surface-3);color:var(--ink);border-color:var(--accent)}
+
+.day-body{flex:1;overflow-y:auto;padding:0 16px 24px}
+
+/* ---------- weather card ---------- */
+.weather-card{
+  background:var(--surface-2);border-radius:14px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.weather-icon{font-size:26px;line-height:1}
+.weather-main{flex:1;min-width:0}
+.weather-temp{font-family:var(--display);font-weight:700;font-size:18px}
+.weather-cond{font-size:12px;color:var(--muted);text-transform:capitalize}
+.weather-alert{
+  margin-top:8px;padding:8px 10px;border-radius:10px;
+  background:rgba(226,88,79,0.14);border:1px solid rgba(226,88,79,0.4);
+  color:#f2a49d;font-size:11.5px;line-height:1.4;
+}
+.weather-card--stale{opacity:0.55}
+
+/* ---------- map ---------- */
+.day-map{
+  height:220px;border-radius:14px;overflow:hidden;margin-bottom:14px;
+  background:var(--map-bg);position:relative;
+}
+.day-map-optimize{
+  position:absolute;bottom:10px;right:10px;z-index:2;
+  background:var(--surface);color:var(--ink);border:1px solid var(--hairline);
+  border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;
+  box-shadow:0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* ---------- stop list ---------- */
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted-3);margin:18px 0 8px;
+}
+.stop-card{
+  display:flex;align-items:center;gap:12px;background:var(--surface-2);
+  border-radius:14px;padding:12px 14px;margin-bottom:8px;
+}
+.stop-order{
+  width:24px;height:24px;border-radius:50%;background:var(--surface-3);
+  color:var(--muted);font-size:11.5px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.stop-info{flex:1;min-width:0}
+.stop-name{font-weight:700;font-size:14px}
+.stop-name--done{text-decoration:line-through;color:var(--muted)}
+.stop-meta{font-size:11.5px;color:var(--muted);margin-top:1px}
+.stop-status-btn{
+  width:30px;height:30px;border-radius:9px;border:1px solid var(--hairline);
+  background:var(--surface-3);color:var(--muted);flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+}
+.stop-status-btn--done{background:var(--good);border-color:var(--good);color:#0d1c12}
+.stop-status-btn--skipped{background:var(--surface-3);color:var(--muted-3);text-decoration:line-through}
+.stop-reorder{display:flex;flex-direction:column;gap:2px;flex:0 0 auto}
+.stop-reorder-btn{
+  width:22px;height:18px;border-radius:5px;border:1px solid var(--hairline);
+  background:var(--surface-3);color:var(--muted);display:flex;
+  align-items:center;justify-content:center;font-size:10px;line-height:1;
+}
+.stop-reorder-btn:disabled{opacity:0.3}
+
+.empty-note{
+  color:var(--muted);font-size:12.5px;background:var(--surface-2);
+  border-radius:12px;padding:14px;text-align:center;
+}
+
+/* ---------- floating add button ---------- */
+.fab{
+  position:absolute;right:18px;bottom:calc(env(safe-area-inset-bottom) + 18px);
+  width:52px;height:52px;border-radius:50%;background:var(--accent);color:#fff;
+  border:none;box-shadow:0 10px 24px rgba(79,140,255,0.45);
+  display:flex;align-items:center;justify-content:center;z-index:5;
+}
+
+/* ============================ SEARCH / ADD ============================ */
+.search-bar{
+  display:flex;align-items:center;gap:8px;background:var(--surface-2);
+  border-radius:12px;padding:10px 12px;margin:0 16px 14px;
+}
+.search-bar input{
+  flex:1;background:none;border:none;color:var(--ink);font-family:var(--sans);
+  font-size:14px;outline:none;
+}
+.result-card{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--surface-2);border-radius:12px;padding:12px 14px;margin:0 16px 8px;
+}
+.result-name{font-weight:700;font-size:13.5px}
+.result-sub{font-size:11.5px;color:var(--muted);margin-top:1px}
+.result-add-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:9px;
+  padding:7px 12px;font-size:12px;font-weight:700;flex:0 0 auto;
+}
+.category-chip{
+  display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--accent-ink);background:rgba(79,140,255,0.14);
+  border-radius:6px;padding:2px 7px;margin-top:4px;
+}
+
+/* ============================ AMENITIES ============================ */
+.amenity-row{
+  display:flex;align-items:flex-start;gap:10px;padding:10px 0;
+  border-bottom:1px solid var(--hairline);
+}
+.amenity-row:last-child{border-bottom:none}
+.amenity-label{font-weight:700;font-size:13px}
+.amenity-notes{font-size:11.5px;color:var(--muted);margin-top:2px}
+.amenity-row--gap .amenity-label{color:#f2a49d}
+
+/* ============================ LOGIN ============================ */
+.login{
+  height:100%;display:flex;flex-direction:column;justify-content:center;
+  padding:32px 24px;text-align:center;
+}
+.login-title{font-family:var(--display);font-weight:700;font-size:22px;margin-bottom:6px}
+.login-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.5}
+.login input{
+  width:100%;background:var(--surface-2);border:1px solid var(--hairline);
+  border-radius:12px;padding:13px 14px;color:var(--ink);font-family:var(--sans);
+  font-size:14px;margin-bottom:10px;outline:none;
+}
+.login-btn{
+  width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;
+  padding:13px 14px;font-family:var(--sans);font-weight:700;font-size:14px;
+}
+.login-note{font-size:11.5px;color:var(--muted-3);margin-top:16px;line-height:1.5}
+.login-error{color:#f2a49d;font-size:12px;margin-top:10px}
+
+/* transient toast */
+.toast{
+  position:absolute;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom) + 18px);
+  background:var(--surface-3);color:var(--ink);border-radius:12px;
+  padding:12px 14px;font-size:13px;text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;
+  transform:translateY(8px);z-index:20;
+}
+.toast--show{opacity:1;transform:none}
+
+/* bottom nav */
+.bottom-nav{
+  display:flex;border-top:1px solid var(--hairline);flex:0 0 auto;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.nav-btn{
+  flex:1;background:none;border:none;color:var(--muted);font-family:var(--sans);
+  font-size:11px;font-weight:700;padding:10px 4px 8px;display:flex;
+  flex-direction:column;align-items:center;gap:4px;
+}
+.nav-btn--active{color:var(--accent)}

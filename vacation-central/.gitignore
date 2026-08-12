@@ -1,0 +1,6 @@
+# config.js is deliberately NOT gitignored here, unlike route-optimizer.
+# This app is publicly hosted on GitHub Pages, so config.js must ship with
+# the deployed site or the live app has no API key at all. Safety comes from
+# the key's HTTP-referrer restriction (r2vchew.github.io/vacation-central/*
+# and localhost:8732), not from secrecy — that's the standard model for a
+# client-side Google Maps key. See STATUS.md.
