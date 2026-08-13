@@ -621,18 +621,32 @@ function renderLibraryAsSearchResults() {
   const el = document.getElementById('searchResults');
   setSearchLabel('Idea library for this leg');
   el.innerHTML = '';
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act))));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act), act)));
   if (!leg.activities.length) el.innerHTML = '<div class="empty-note" style="margin:0 16px">Nothing saved yet — search above.</div>';
 }
 
 // onRemove is only passed for saved ideas — a live Places result isn't ours to
 // delete, it's just something the internet knows about.
-function buildResultCard(name, sub, onAdd, onRemove) {
+// `extra` carries a saved idea's note and source; a note is the entire reason a
+// curated suggestion beats a bare name, so it can't stay invisible in the data.
+function buildResultCard(name, sub, onAdd, onRemove, extra) {
   const card = document.createElement('div');
   card.className = 'result-card';
-  card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div></div><div class="result-actions"><button class="result-add-btn">Add</button></div>';
+  card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div><div class="result-note"></div></div><div class="result-actions"><button class="result-add-btn">Add</button></div>';
   card.querySelector('.result-name').textContent = name;
-  card.querySelector('.result-sub').textContent = sub || '';
+
+  const subEl = card.querySelector('.result-sub');
+  subEl.textContent = sub || '';
+  if (extra && extra.source === 'claude_curated') {
+    const tag = document.createElement('span');
+    tag.className = 'source-tag';
+    tag.textContent = 'suggested';
+    subEl.appendChild(tag);
+  }
+
+  const noteEl = card.querySelector('.result-note');
+  if (extra && extra.notes) noteEl.textContent = extra.notes; else noteEl.remove();
+
   card.querySelector('.result-add-btn').addEventListener('click', onAdd);
   if (onRemove) card.querySelector('.result-actions').appendChild(makeRemoveButton('✕', onRemove));
   return card;
@@ -739,7 +753,7 @@ function renderLibrary() {
   const el = document.getElementById('libraryList');
   el.innerHTML = '';
   if (!leg.activities.length) { el.innerHTML = '<div class="empty-note">No ideas saved yet.</div>'; return; }
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act))));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act), act)));
 }
 
 function renderAmenities() {

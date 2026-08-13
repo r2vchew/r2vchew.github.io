@@ -211,7 +211,13 @@ body{
 .result-info{min-width:0}
 .result-actions{display:flex;align-items:center;gap:6px;flex:0 0 auto}
 .result-name{font-weight:700;font-size:13.5px}
-.result-sub{font-size:11.5px;color:var(--muted);margin-top:1px}
+.result-sub{font-size:11.5px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:6px}
+.result-note{font-size:11.5px;color:var(--muted-2);margin-top:5px;line-height:1.45}
+.source-tag{
+  font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+  color:var(--accent-ink);background:rgba(79,140,255,0.16);
+  border-radius:5px;padding:1px 5px;
+}
 .result-add-btn{
   background:var(--accent);color:#fff;border:none;border-radius:9px;
   padding:7px 12px;font-size:12px;font-weight:700;flex:0 0 auto;
