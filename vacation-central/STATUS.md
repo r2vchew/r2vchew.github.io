@@ -2,6 +2,43 @@
 
 Last updated: 2026-08-13
 
+## 2026-08-13: Vancouver family Explore planner
+
+Added a dedicated **Explore** tab built around the actual planning job, not a
+static article. It contains 24 current Vancouver / Metro Vancouver activities
+chosen for a family with a six-year-old. Each card includes neighbourhood,
+realistic duration, cost band, weather fit, the child-specific reason it made
+the list, booking advice, a nearby pairing, and an official details link.
+Filters cover best bets, rain-proof options, free / low-cost options, and
+outdoors. A Vancouver day picker stays at the top so an activity can be added
+directly to any of the five Vancouver days.
+
+The catalogue is in `vancouver-guide.js`, separate from app logic and cached by
+the service worker for offline browsing. Research was refreshed against
+official 2026 attraction, municipal, and tourism sources on August 13. The
+cards explicitly carry the time-sensitive details most likely to cause a bad
+outing: Granville Island's splash pad is temporarily closed while the slide is
+open; Stanley Park Mini Golf is operating at the currently closed train site;
+Playland's regular season changes to PNE Fair admission on August 22; the
+Shipyards splash park can close for weather / water restrictions; and the
+Maritime Museum's St. Roch exhibit is being revitalized.
+
+**Scheduling path:** if the activity already exists in Vancouver Ideas, Explore
+reuses it. Otherwise it resolves the official place through the already-live
+Places API, saves a `claude_curated` activity with the planning note, then adds
+that activity to the selected day through the existing household RPCs. Planned
+items disable themselves for that day, and the user stays in Explore so several
+days can be built without bouncing between screens.
+
+**Verification:** the updated app shell loaded in headless Chrome at a 390 x 844
+mobile viewport and rendered all 24 cards with the bottom navigation visible.
+Browser interaction checks confirmed the rain filter (10 cards), day switching,
+all official links, and an add-to-day transition from zero stops to one with the
+button changing to `Planned`. The interaction check used a stubbed successful
+RPC response, so the new button itself has **not yet made an authenticated live
+backend write**. The underlying Places and trip-planner RPCs were already live-
+verified before this feature. A local render is saved outside the repo at
+`C:\Users\vchew\.codex\visualizations\2026\08\13\019ff9a5-783c-7541-8429-fead0893c3b1\vancouver-explore-mobile.png`.
 ## Current state — clicked through end to end, and working
 
 This project was started 2026-08-12, forked from route-optimizer, for a

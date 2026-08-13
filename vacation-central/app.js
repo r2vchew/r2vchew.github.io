@@ -39,6 +39,8 @@ const State = {
   map: null,
   mapMarkers: [],
   mapPolyline: null,
+  exploreDayId: null,
+  exploreFilter: 'all',
 };
 
 /* ---------- view routing + toast ---------- */
@@ -718,20 +720,23 @@ async function addExistingActivityToDay(activity) {
   await addActivityToDay(activity, currentDay(), currentLeg());
 }
 
-async function addActivityToDay(activity, day, leg) {
+async function addActivityToDay(activity, day, leg, options = {}) {
   const { data: stopId, error } = await SB.rpc('trip_planner_add_stop', {
     p_leg_slug: leg.slug, p_the_date: day.the_date, p_activity_id: activity.id,
   });
-  if (error) { App.toast('Could not add stop: ' + error.message); return; }
+  if (error) { App.toast('Could not add stop: ' + error.message); return false; }
 
   day.stops.push({
     id: stopId, activity_id: activity.id, sort_order: day.stops.length, planned_time: null, status: 'planned',
     name: activity.name, category: activity.category, address: activity.address, lat: activity.lat, lng: activity.lng, notes: activity.notes,
   });
   App.toast(`Added ${activity.name} to ${formatDayLabel(day.the_date)}.`);
-  App.show('day');
-  renderStops(day);
-  renderMap(day);
+  if (options.navigate !== false) {
+    App.show('day');
+    renderStops(day);
+    renderMap(day);
+  }
+  return true;
 }
 
 function guessCategory(types) {
@@ -744,6 +749,226 @@ function guessCategory(types) {
   return 'other';
 }
 
+/* ============================================================
+   Vancouver family guide - researched picks that schedule into the live trip
+   ============================================================ */
+const GUIDE_FILTER_LABELS = {
+  all: 'all activities',
+  top: 'best bets',
+  rain: 'rain-proof activities',
+  free: 'free or low-cost activities',
+  outdoor: 'outdoor activities',
+};
+
+function getVancouverLeg() {
+  if (!State.trip) return null;
+  return State.trip.legs.find((leg) => /vancouver/i.test(`${leg.slug} ${leg.name}`)) || null;
+}
+
+function normalizeGuideName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function guideActivityNames(item) {
+  return [item.name, ...(item.aliases || [])].map(normalizeGuideName);
+}
+
+function findSavedGuideActivity(leg, item) {
+  const names = guideActivityNames(item);
+  return leg.activities.find((activity) => names.includes(normalizeGuideName(activity.name))) || null;
+}
+
+function isGuideItemPlanned(day, leg, item) {
+  const saved = findSavedGuideActivity(leg, item);
+  const names = guideActivityNames(item);
+  return day.stops.some((stop) => (saved && stop.activity_id === saved.id) || names.includes(normalizeGuideName(stop.name)));
+}
+
+function formatExploreDay(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function selectedExploreDay(leg) {
+  return leg.days.find((day) => String(day.id) === String(State.exploreDayId)) || leg.days[0] || null;
+}
+
+function renderExplore() {
+  const list = document.getElementById('guideList');
+  const summary = document.getElementById('guideSummary');
+  const picker = document.getElementById('exploreDay');
+  const leg = getVancouverLeg();
+  const guide = window.VANCOUVER_GUIDE || [];
+
+  if (!leg || !leg.days.length) {
+    picker.innerHTML = '';
+    summary.textContent = '';
+    list.innerHTML = '<div class="empty-note">No Vancouver days are loaded for this trip.</div>';
+    return;
+  }
+
+  if (!leg.days.some((day) => String(day.id) === String(State.exploreDayId))) {
+    const current = State.currentLegSlug === leg.slug ? currentDay() : null;
+    State.exploreDayId = (current || leg.days[0]).id;
+  }
+
+  picker.innerHTML = '';
+  leg.days.forEach((day) => {
+    const option = document.createElement('option');
+    option.value = day.id;
+    option.textContent = formatExploreDay(day.the_date);
+    option.selected = String(day.id) === String(State.exploreDayId);
+    picker.appendChild(option);
+  });
+
+  document.querySelectorAll('[data-guide-filter]').forEach((button) => {
+    const active = button.dataset.guideFilter === State.exploreFilter;
+    button.classList.toggle('guide-filter--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  const day = selectedExploreDay(leg);
+  const visible = guide.filter((item) => State.exploreFilter === 'all' || (item.filters || []).includes(State.exploreFilter));
+  const plannedCount = guide.filter((item) => isGuideItemPlanned(day, leg, item)).length;
+  summary.textContent = `Showing ${visible.length} ${GUIDE_FILTER_LABELS[State.exploreFilter]} \u2022 ${plannedCount} planned for ${formatExploreDay(day.the_date)}`;
+
+  list.innerHTML = '';
+  visible.forEach((item) => list.appendChild(buildGuideCard(item, day, leg)));
+}
+
+function buildGuideCard(item, day, leg) {
+  const planned = isGuideItemPlanned(day, leg, item);
+  const card = document.createElement('article');
+  card.className = 'guide-card';
+  card.innerHTML = `
+    <div class="guide-card-head">
+      <div class="guide-card-icon" aria-hidden="true"></div>
+      <div class="guide-card-title-wrap">
+        <div class="guide-card-title"></div>
+        <div class="guide-card-area"></div>
+      </div>
+      <div class="guide-card-rank"></div>
+    </div>
+    <div class="guide-card-meta"></div>
+    <div class="guide-card-why"></div>
+    <div class="guide-card-current"></div>
+    <div class="guide-card-tip"></div>
+    <div class="guide-card-pair"></div>
+    <div class="guide-card-actions">
+      <a class="guide-source" target="_blank" rel="noopener noreferrer">Official details</a>
+      <button class="guide-add-btn"></button>
+    </div>`;
+
+  card.querySelector('.guide-card-icon').textContent = item.icon;
+  card.querySelector('.guide-card-title').textContent = item.name;
+  card.querySelector('.guide-card-area').textContent = item.area;
+  const rank = card.querySelector('.guide-card-rank');
+  if ((item.filters || []).includes('top')) rank.textContent = 'Best bet'; else rank.remove();
+
+  const meta = card.querySelector('.guide-card-meta');
+  const weatherLabels = { indoors: 'Rain-proof', mixed: 'Mixed weather', dry: 'Best dry', sunny: 'Sunny day' };
+  [item.duration, item.cost, weatherLabels[item.weather] || item.weather].forEach((text) => {
+    const chip = document.createElement('span');
+    chip.textContent = text;
+    meta.appendChild(chip);
+  });
+
+  card.querySelector('.guide-card-why').textContent = item.why;
+  const current = card.querySelector('.guide-card-current');
+  if (item.current) current.textContent = item.current; else current.remove();
+  card.querySelector('.guide-card-tip').textContent = `Plan it: ${item.booking}`;
+  card.querySelector('.guide-card-pair').textContent = `Pairs well: ${item.pair}`;
+
+  const source = card.querySelector('.guide-source');
+  source.href = item.sourceUrl;
+  source.setAttribute('aria-label', `${item.sourceLabel} for ${item.name} (opens in a new tab)`);
+
+  const addButton = card.querySelector('.guide-add-btn');
+  addButton.textContent = planned ? 'Planned' : `Add to ${formatDayLabel(day.the_date)}`;
+  addButton.disabled = planned;
+  addButton.classList.toggle('guide-add-btn--planned', planned);
+  if (!planned) addButton.addEventListener('click', () => addGuideActivityToDay(item, day, leg, addButton));
+  return card;
+}
+
+async function findGuidePlace(item, leg) {
+  try {
+    const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': CONFIG.GOOGLE_MAPS_API_KEY,
+        'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.location,places.types',
+      },
+      body: JSON.stringify({
+        textQuery: item.placeQuery,
+        locationBias: { circle: { center: { latitude: leg.home_base_lat, longitude: leg.home_base_lng }, radius: 50000 } },
+      }),
+      referrerPolicy: GOOGLE_REFERRER_POLICY,
+    });
+    const json = await res.json();
+    if (!res.ok || json.error) return null;
+    return (json.places || [])[0] || null;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function addGuideActivityToDay(item, day, leg, button) {
+  if (isGuideItemPlanned(day, leg, item)) { App.toast('That activity is already on this day.'); return; }
+  const originalLabel = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Adding...';
+
+  let activity = findSavedGuideActivity(leg, item);
+  if (!activity) {
+    const place = await findGuidePlace(item, leg);
+    const notes = `${item.why} Plan: ${item.booking} Pairs well: ${item.pair}`;
+    const { data: activityId, error } = await SB.rpc('trip_planner_add_activity', {
+      p_leg_slug: leg.slug,
+      p_name: item.name,
+      p_category: item.category,
+      p_address: place?.formattedAddress || null,
+      p_lat: place?.location?.latitude ?? null,
+      p_lng: place?.location?.longitude ?? null,
+      p_notes: notes,
+      p_source: 'claude_curated',
+    });
+    if (error) {
+      button.disabled = false;
+      button.textContent = originalLabel;
+      App.toast('Could not save: ' + error.message);
+      return;
+    }
+    activity = {
+      id: activityId, name: item.name, category: item.category,
+      address: place?.formattedAddress || null,
+      lat: place?.location?.latitude ?? null,
+      lng: place?.location?.longitude ?? null,
+      source: 'claude_curated', notes,
+    };
+    leg.activities.push(activity);
+  }
+
+  const added = await addActivityToDay(activity, day, leg, { navigate: false });
+  if (added) renderExplore();
+  else {
+    button.disabled = false;
+    button.textContent = originalLabel;
+  }
+}
+
+document.getElementById('exploreDay').addEventListener('change', (event) => {
+  State.exploreDayId = event.target.value;
+  renderExplore();
+});
+
+document.getElementById('guideFilters').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-guide-filter]');
+  if (!button) return;
+  State.exploreFilter = button.dataset.guideFilter;
+  renderExplore();
+});
 /* ============================================================
    Idea library + amenities views
    ============================================================ */
@@ -775,6 +1000,7 @@ function renderAmenities() {
 document.querySelectorAll('[data-nav]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const view = btn.dataset.nav;
+    if (view === 'explore') renderExplore();
     if (view === 'library') renderLibrary();
     if (view === 'amenities') renderAmenities();
     App.show(view);

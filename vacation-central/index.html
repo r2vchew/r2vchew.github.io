@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=6">
+<link rel="stylesheet" href="./styles.css?v=7">
 </head>
 <body>
 <div id="app" class="phone">
@@ -76,11 +76,51 @@
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn nav-btn--active" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="library">Ideas</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
   </section>
 
+  <!-- ============================ VANCOUVER EXPLORE ============================ -->
+  <section class="view" data-view="explore">
+    <div class="screen">
+      <header class="topbar">
+        <div class="topbar-titles">
+          <div class="topbar-title">Vancouver with a six-year-old</div>
+          <div class="topbar-sub">24 family picks &bull; checked Aug 13, 2026</div>
+        </div>
+      </header>
+
+      <div class="explore-scroll">
+        <div class="explore-hero">
+          <div class="explore-hero-kicker">Build the Vancouver days</div>
+          <div class="explore-hero-title">Pick a day, then tap Add.</div>
+          <div class="explore-hero-copy">Big-ticket favourites, rainy-day saves and free outdoor resets &ndash; all chosen for age six.</div>
+          <label class="explore-day-label" for="exploreDay">Add activities to</label>
+          <select class="explore-day-select" id="exploreDay" aria-label="Vancouver day to plan"></select>
+        </div>
+
+        <div class="guide-filters" id="guideFilters" role="group" aria-label="Filter Vancouver activities">
+          <button class="guide-filter guide-filter--active" data-guide-filter="all">All 24</button>
+          <button class="guide-filter" data-guide-filter="top">Best bets</button>
+          <button class="guide-filter" data-guide-filter="rain">Rain-proof</button>
+          <button class="guide-filter" data-guide-filter="free">Free / low</button>
+          <button class="guide-filter" data-guide-filter="outdoor">Outdoors</button>
+        </div>
+
+        <div class="guide-summary" id="guideSummary" aria-live="polite"></div>
+        <div class="guide-list" id="guideList"></div>
+        <div class="guide-research-note">Planning details can change. Use each card's official link before buying tickets or leaving.</div>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn nav-btn--active" data-nav="explore">Explore</button>
+      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="amenities">Amenities</button>
+    </nav>
+  </section>
   <!-- ============================ ADD / SEARCH ============================ -->
   <section class="view" data-view="search">
     <div class="screen">
@@ -129,6 +169,7 @@
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn nav-btn--active" data-nav="library">Ideas</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
@@ -147,6 +188,7 @@
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="library">Ideas</button>
       <button class="nav-btn nav-btn--active" data-nav="amenities">Amenities</button>
     </nav>
@@ -157,7 +199,8 @@
 </div>
 
 <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="./config.js?v=6"></script>
-<script src="./app.js?v=6"></script>
+<script src="./config.js?v=7"></script>
+<script src="./vancouver-guide.js?v=7"></script>
+<script src="./app.js?v=7"></script>
 </body>
 </html>
