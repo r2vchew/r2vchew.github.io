@@ -1,31 +1,64 @@
 # Status
 
-Last updated: 2026-08-12
+Last updated: 2026-08-13
 
-## Current state — deployed and publicly reachable, but never actually run
+## Current state — clicked through end to end, and working
 
 This project was started 2026-08-12, forked from route-optimizer, for a
 mid-August 2026 Harrison Hot Springs → Vancouver trip. Exact dates and
 street addresses are deliberately not in this public repo — see below.
 
-**Read this before touching anything**: the frontend (`index.html`/`app.js`/
-`styles.css`) exists and is internally consistent (every DOM id referenced
-in `app.js` exists in `index.html`, every Supabase RPC call matches a real
-function signature) but has **not been run in a browser or tested against a
-live login**. It was built without a working preview in the 2026-08-12
-session that created it (remote-control constraints made local-server
-testing impractical). Treat the first real test — including the magic-link
-auth round-trip — as unverified work, not a formality.
+**2026-08-13: the app has now been signed into and every flow exercised
+against the live backend.** Six real bugs were found and fixed (commit
+`24f1c17`), and each fix was re-verified against the deployed site, not
+just locally. Everything below in this section is confirmed working in a
+real browser:
 
-**Being deployed is not the same as working.** As of 2026-08-12 the app is
-committed, pushed, and served at
-[r2vchew.github.io/vacation-central/](https://r2vchew.github.io/vacation-central/)
-— verified over real HTTP, with `index.html`, `config.js`, `app.js`,
-`styles.css`, `manifest.webmanifest`, `sw.js` and the icons all returning
-200. That means the *hosting* is proven and nothing more. Not one line of
-its logic has executed against the live database, the Maps APIs, or
-Open-Meteo. A green 200 on `app.js` says the file downloads, not that the
-app functions.
+- Magic-link sign-in round-trip (Supabase `signInWithOtp` → email → session)
+- Leg switching (Harrison ↔ Vancouver), day strip navigation
+- Weather card, including the "forecast changed since planned" alert state
+- Real embedded Google Map with markers and route polyline
+- Places text search, and adding a searched place as a stop
+- Manual add-without-location ("Soak at the resort pool")
+- "Optimize order" via the Routes API, including correctly parking
+  location-less stops at the end instead of dropping them
+- Manual up/down reorder, and stop status cycling (planned → done → skipped)
+- Idea library and amenities views
+
+### The bug that matters most for anything else on this origin
+
+**Google API keys restricted by HTTP referrer to a *path* do not work from
+`fetch`.** The key is restricted to `https://r2vchew.github.io/vacation-central/*`,
+but browsers default to a `strict-origin-when-cross-origin` referrer policy,
+so a cross-origin `fetch` sends only `https://r2vchew.github.io/` — no path.
+Google rejected it: `403 Requests from referer https://r2vchew.github.io/ are
+blocked`. This killed **both** Places search and "Optimize order".
+
+The fix is `referrerPolicy: 'unsafe-url'` on those specific fetches (see
+`GOOGLE_REFERRER_POLICY` in `app.js`), which sends the full URL so the path
+matches. That was chosen over the alternative — loosening the key
+restriction to `https://r2vchew.github.io/*` — because the whole point of
+the path restriction is that this origin also hosts digest and car-finder.
+
+Worth knowing: the **Maps JavaScript API was unaffected** and rendered fine
+throughout. Only the REST APIs called via `fetch` (Places, Routes) broke. So
+"the map works" was never evidence that the key was configured correctly.
+
+The other five fixes: the bottom nav was rendered off-screen and clipped
+away entirely (Ideas and Amenities were unreachable); a Places API error
+displayed as "No results", which is exactly how the 403 above stayed hidden;
+the map zoomed to 22 — a blank grey square — on any day with fewer than two
+located stops; expired sign-in links redirected back with the error in the
+URL fragment and nothing read it, so a dead link looked identical to never
+clicking one; and "Optimize order" sat on top of Google's own zoom control.
+
+**Deployment caching gotcha, confirmed the hard way:** after pushing, the
+browser kept serving the old bundle through *two* layers — the service
+worker cache and the plain HTTP cache (`Cache-Control: max-age=600` from
+GitHub Pages). Bumping `CACHE` in `sw.js` and the `?v=N` on the assets (as
+`sw.js` itself instructs) is necessary but not sufficient within that
+10-minute window; a one-off `?cb=` on the page URL is the reliable way to
+confirm a fresh deploy immediately.
 
 Done so far:
 - Project folder created; icons carried over from route-optimizer as
@@ -141,11 +174,17 @@ Done so far:
   Design-level context only; this file carries the engineering details.
 
 Not started / not verified:
-- **No live test of any kind.** Auth round-trip, RPC calls, Places/Routes
-  API calls, Open-Meteo fetch, map rendering — all written against the
-  documented shapes but never executed. First real session with this app
-  should treat it as a first draft, not a working app, until proven
-  otherwise. Deployment did not change this.
+- ~~No live test of any kind~~ — **done 2026-08-13**, see the top of this
+  file. Auth, RPCs, Places, Routes, Open-Meteo and map rendering have all
+  now executed for real.
+- **Test data is sitting in the live trip.** The 2026-08-13 click-through
+  wrote real rows to Harrison Hot Springs / 15 Sat: five activities in the
+  idea library (Harrison Mineral Baths, Sasquatch Provincial Park, Harrison
+  Hot Springs Beach, Muddy Waters Cafe, "Soak at the resort pool") and five
+  matching day_stops, with Muddy Waters Cafe left marked `done`. These are
+  real places and mostly worth keeping, but nothing here was chosen as an
+  actual plan. There is no delete function in the API by design, so removing
+  them needs service-role SQL.
 - ~~Magic-link redirect URL allowlisted in Supabase~~ — **done 2026-08-12.**
   `https://r2vchew.github.io/vacation-central/` and `http://localhost:8732/`
   both added to Authentication → URL Configuration → Redirect URLs (3 total
@@ -168,17 +207,26 @@ Not started / not verified:
 
 ## Next useful action
 
-The commit landed 2026-08-12, and both pre-login setup gaps (redirect URL,
-Maps key restriction) are now verified fixed. What stands between this and a
-usable app is that **nobody has ever opened it**.
+The app works. What's left is other people, real content, and polish.
 
-1. Open [the live URL](https://r2vchew.github.io/vacation-central/), sign in,
-   and exercise every flow once: magic-link round-trip, day/leg navigation,
-   weather card, map render, Places search, manual add-without-location,
-   "Optimize order", and the manual up/down reorder. Expect real bugs — this
-   is the first execution of code written blind.
-2. Add Keely as a household member once she's signed up, and check she lands
-   on the "signed in but not added yet" screen before that, not a generic
-   error — that path was written specifically for her and has never run.
-5. Link it from the site home page once it actually works. Linking a broken
-   app is worse than not linking it.
+1. **Decide what to do with the test data** listed above — keep the five
+   Harrison activities as genuine ideas, or clear the day_stops so 15 Sat
+   starts empty. Needs service-role SQL either way.
+2. **Add Keely.** She needs her own Supabase Auth signup first, then one
+   insert into `trip_planner.household_members`. Before that insert, have her
+   open the app once and confirm she lands on the "signed in but not added
+   yet" screen rather than a generic error — that path was written
+   specifically for her and is the one flow still never executed.
+3. **Put real ideas in the library.** Both legs are empty apart from the test
+   rows. This is the "Claude Chat adds an activity from a normal
+   conversation" path the whole shared-backend design exists for, and it has
+   never been used either.
+4. **Link it from the site home page** (`r2vchew.github.io/index.html`) —
+   the app is still reachable only by typing the URL. This was gated on "once
+   it actually works," which is now satisfied.
+5. Fresh icons — still route-optimizer's placeholders.
+
+Known rough edges, none blocking: there's no leg switcher on the Ideas or
+Amenities views (you have to go back to Day to change legs); the Ideas view
+doesn't say which day "Add" adds to; and `guessCategory` filed Harrison
+Mineral Baths as `other` rather than `rest`.
