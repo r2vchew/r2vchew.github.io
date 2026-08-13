@@ -441,14 +441,14 @@ function loadGoogleMaps() {
   document.head.appendChild(s);
 }
 
-const MAP_DARK_STYLE = [
-  { elementType: 'geometry', stylers: [{ color: '#1c1a22' }] },
-  { elementType: 'labels.text.fill', stylers: [{ color: '#9c96a8' }] },
-  { elementType: 'labels.text.stroke', stylers: [{ color: '#121016' }] },
-  { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#262330' }] },
-  { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#14161d' }] },
-  { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
-];
+/* The map is deliberately NOT restyled to match the app's dark palette.
+   It was, and it read as broken: a dark custom style with POI labels turned
+   off looks like tiles failing to load, and you lose the thing a map is for
+   outdoors — recognising where you are against the Google Maps you already
+   know. Standard styling also brings back POI labels, which is free context
+   for a trip planner (you can see the restaurants you haven't added yet).
+   The one dark-app concession is the map's own background colour while tiles
+   load, set in CSS. */
 
 function renderMap(day) {
   if (!mapsReady || !day) return;
@@ -468,7 +468,6 @@ function renderMap(day) {
       zoom: 12,
       disableDefaultUI: true,
       zoomControl: true,
-      styles: MAP_DARK_STYLE,
     });
   }
 

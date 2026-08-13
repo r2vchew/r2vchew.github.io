@@ -9,7 +9,9 @@
   --surface:#1c1a22;
   --surface-2:#211f29;
   --surface-3:#262330;
-  --map-bg:#14161d;
+  --map-bg:#e8e6e1; /* Google's own map canvas grey — the map uses standard
+                       styling, so a dark placeholder would flash dark→light
+                       every time tiles load. */
   --ink:#f5f1ea;
   --ink-2:#f0ecf5;
   --muted:#9c96a8;
