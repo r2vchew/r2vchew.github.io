@@ -246,8 +246,67 @@ function renderStops(day) {
     upBtn.addEventListener('click', () => moveStop(day, stop.id, -1));
     downBtn.addEventListener('click', () => moveStop(day, stop.id, 1));
 
+    card.appendChild(makeRemoveButton('✕', () => removeStop(day, stop)));
+
     el.appendChild(card);
   });
+}
+
+/* Removing is destructive and there's no undo, but this gets used one-handed
+   on a sidewalk — so it's two taps, not a modal: the button arms itself, says
+   "Sure?", and disarms on its own if you don't follow through. */
+function makeRemoveButton(idleLabel, onConfirm) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'remove-btn';
+  btn.textContent = idleLabel;
+  btn.setAttribute('aria-label', 'Remove');
+  const disarm = () => {
+    clearTimeout(btn._armTimer);
+    btn.dataset.armed = '0';
+    btn.classList.remove('remove-btn--armed');
+    btn.textContent = idleLabel;
+  };
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (btn.dataset.armed === '1') { disarm(); onConfirm(); return; }
+    btn.dataset.armed = '1';
+    btn.classList.add('remove-btn--armed');
+    btn.textContent = 'Sure?';
+    btn._armTimer = setTimeout(disarm, 3500);
+  });
+  return btn;
+}
+
+function resequence(stops) {
+  [...stops].sort((a, b) => a.sort_order - b.sort_order).forEach((s, i) => { s.sort_order = i; });
+}
+
+async function removeStop(day, stop) {
+  const { error } = await SB.rpc('trip_planner_remove_stop', { p_day_stop_id: stop.id });
+  if (error) { App.toast('Could not remove: ' + error.message); return; }
+  day.stops = day.stops.filter((s) => s.id !== stop.id);
+  resequence(day.stops); // mirrors the gap-closing the RPC just did server-side
+  App.toast(`Removed ${stop.name} from this day.`);
+  renderStops(day);
+  renderMap(day);
+}
+
+async function removeActivity(activity) {
+  const { error } = await SB.rpc('trip_planner_remove_activity', { p_activity_id: activity.id });
+  if (error) { App.toast('Could not remove: ' + error.message); return; }
+  const leg = currentLeg();
+  leg.activities = leg.activities.filter((a) => a.id !== activity.id);
+  // The RPC also unschedules it everywhere, so drop it from every day too.
+  leg.days.forEach((d) => {
+    const before = d.stops.length;
+    d.stops = d.stops.filter((s) => s.activity_id !== activity.id);
+    if (d.stops.length !== before) resequence(d.stops);
+  });
+  App.toast(`Removed ${activity.name}.`);
+  renderLibrary();
+  const day = currentDay();
+  if (day) { renderStops(day); renderMap(day); }
 }
 
 async function cycleStopStatus(stop) {
@@ -544,17 +603,20 @@ function renderLibraryAsSearchResults() {
   const el = document.getElementById('searchResults');
   setSearchLabel('Idea library for this leg');
   el.innerHTML = '';
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act))));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act))));
   if (!leg.activities.length) el.innerHTML = '<div class="empty-note" style="margin:0 16px">Nothing saved yet — search above.</div>';
 }
 
-function buildResultCard(name, sub, onAdd) {
+// onRemove is only passed for saved ideas — a live Places result isn't ours to
+// delete, it's just something the internet knows about.
+function buildResultCard(name, sub, onAdd, onRemove) {
   const card = document.createElement('div');
   card.className = 'result-card';
-  card.innerHTML = '<div><div class="result-name"></div><div class="result-sub"></div></div><button class="result-add-btn">Add</button>';
+  card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div></div><div class="result-actions"><button class="result-add-btn">Add</button></div>';
   card.querySelector('.result-name').textContent = name;
   card.querySelector('.result-sub').textContent = sub || '';
   card.querySelector('.result-add-btn').addEventListener('click', onAdd);
+  if (onRemove) card.querySelector('.result-actions').appendChild(makeRemoveButton('✕', onRemove));
   return card;
 }
 
@@ -659,7 +721,7 @@ function renderLibrary() {
   const el = document.getElementById('libraryList');
   el.innerHTML = '';
   if (!leg.activities.length) { el.innerHTML = '<div class="empty-note">No ideas saved yet.</div>'; return; }
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act))));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act))));
 }
 
 function renderAmenities() {
