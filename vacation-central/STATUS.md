@@ -25,6 +25,28 @@ real browser:
 - Manual up/down reorder, and stop status cycling (planned → done → skipped)
 - Idea library and amenities views
 
+### Removal exists now, and it breaks a Life Hub convention on purpose
+
+`20260813090000_trip_planner_remove_functions.sql` adds
+`trip_planner_remove_stop` (unschedule from a day, keep the idea) and
+`trip_planner_remove_activity` (drop the idea and every day using it). Both
+close the `sort_order` gap they leave, so ordering stays contiguous from 0
+and can't collide with a later reorder or "Optimize order".
+
+This deliberately reverses the "no delete function anywhere, same as
+finance/cartwise" rule the API shipped with the day before. That rule is
+right for ledgers — finance records what *happened*, and a transaction you
+regret is still a transaction, so soft-correcting is honest. A trip plan
+records what you *intend*, and intentions get abandoned outright. Marking a
+mis-tapped stop `skipped` claims "we decided not to go" when the truth is
+"that was a typo," and the day view fills up with other people's fat-finger
+taps forever. **If you're adding a table to this schema, ask which kind it
+is before inheriting the no-delete convention.**
+
+In the UI, removal is two taps rather than a confirm dialog: the ✕ arms
+itself, says "Sure?", and disarms after 3.5s. This gets used one-handed
+outdoors, where a modal is worse than a second tap.
+
 ### The bug that matters most for anything else on this origin
 
 **Google API keys restricted by HTTP referrer to a *path* do not work from
@@ -177,14 +199,10 @@ Not started / not verified:
 - ~~No live test of any kind~~ — **done 2026-08-13**, see the top of this
   file. Auth, RPCs, Places, Routes, Open-Meteo and map rendering have all
   now executed for real.
-- **Test data is sitting in the live trip.** The 2026-08-13 click-through
-  wrote real rows to Harrison Hot Springs / 15 Sat: five activities in the
-  idea library (Harrison Mineral Baths, Sasquatch Provincial Park, Harrison
-  Hot Springs Beach, Muddy Waters Cafe, "Soak at the resort pool") and five
-  matching day_stops, with Muddy Waters Cafe left marked `done`. These are
-  real places and mostly worth keeping, but nothing here was chosen as an
-  actual plan. There is no delete function in the API by design, so removing
-  them needs service-role SQL.
+- ~~Test data sitting in the live trip~~ — **cleared 2026-08-13**, using the
+  new remove buttons (below) rather than raw SQL, which doubled as the
+  feature's first real test. Harrison / 15 Sat is empty again and both idea
+  libraries are back to empty.
 - ~~Magic-link redirect URL allowlisted in Supabase~~ — **done 2026-08-12.**
   `https://r2vchew.github.io/vacation-central/` and `http://localhost:8732/`
   both added to Authentication → URL Configuration → Redirect URLs (3 total
