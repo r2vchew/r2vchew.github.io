@@ -23,6 +23,14 @@ const WEATHER_THROTTLE_MS = 4 * 60 * 60 * 1000; // 4 hours — see docs/DESIGN_B
    Verified live 2026-08-13: without it, Places and Routes both 403. */
 const GOOGLE_REFERRER_POLICY = 'unsafe-url';
 
+/* Zoom levels. HOME is what you see on a day with nothing planned yet: wide
+   enough to place the lodging in its surroundings (Harrison plus the lake and
+   Agassiz; Vancouver plus the North Shore) rather than a street corner.
+   MAX caps fitBounds, which otherwise zooms to 22 on a single point or two
+   stops next door to each other. */
+const MAP_HOME_ZOOM = 11;
+const MAP_MAX_FIT_ZOOM = 14;
+
 const State = {
   trip: null,
   weatherHistory: {},
@@ -465,9 +473,20 @@ function renderMap(day) {
     }
     State.map = new google.maps.Map(mapDiv, {
       center: { lat: leg.home_base_lat, lng: leg.home_base_lng },
-      zoom: 12,
-      disableDefaultUI: true,
+      zoom: MAP_HOME_ZOOM,
+      // Google's own controls, not a stripped-down embed — this should feel
+      // like the Google Maps you already know how to use. Street View's pegman
+      // is the one omission: it eats a corner of a 220px-tall map and there's
+      // nowhere useful to drop it. Fullscreen earns its place precisely
+      // because the inline map is small.
+      mapTypeControl: true,
+      mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
+      fullscreenControl: true,
       zoomControl: true,
+      streetViewControl: false,
+      // One-finger drag pans, instead of Google's default "use two fingers"
+      // overlay. This is used one-handed.
+      gestureHandling: 'greedy',
     });
   }
 
@@ -505,11 +524,11 @@ function renderMap(day) {
   // zoom for the one-stop-next-door case, which has the same problem.
   if (!sorted.length) {
     State.map.setCenter(homePos);
-    State.map.setZoom(13);
+    State.map.setZoom(MAP_HOME_ZOOM);
   } else if (!bounds.isEmpty()) {
     State.map.fitBounds(bounds, 40);
     google.maps.event.addListenerOnce(State.map, 'idle', () => {
-      if (State.map.getZoom() > 16) State.map.setZoom(16);
+      if (State.map.getZoom() > MAP_MAX_FIT_ZOOM) State.map.setZoom(MAP_MAX_FIT_ZOOM);
     });
   }
 }
