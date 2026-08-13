@@ -41,6 +41,7 @@ const State = {
   mapPolyline: null,
   exploreDayId: null,
   exploreFilter: 'all',
+  foodCuisine: 'All',
 };
 
 /* ---------- view routing + toast ---------- */
@@ -170,21 +171,28 @@ function formatDayLabel(dateStr) {
 /* ============================================================
    Rendering — day view
    ============================================================ */
-function renderLegTabs() {
-  const el = document.getElementById('legTabs');
+function renderLegTabsInto(containerId, onSelect) {
+  const el = document.getElementById(containerId);
   el.innerHTML = '';
   State.trip.legs.forEach((leg) => {
     const btn = document.createElement('button');
     btn.className = 'leg-tab' + (leg.slug === State.currentLegSlug ? ' leg-tab--active' : '');
     btn.textContent = leg.name;
+    btn.setAttribute('aria-pressed', leg.slug === State.currentLegSlug ? 'true' : 'false');
     btn.addEventListener('click', () => {
       State.currentLegSlug = leg.slug;
       pickTodayOrFirstDay();
-      renderLegTabs();
-      renderDayStrip();
-      renderDay();
+      onSelect();
     });
     el.appendChild(btn);
+  });
+}
+
+function renderLegTabs() {
+  renderLegTabsInto('legTabs', () => {
+    renderLegTabs();
+    renderDayStrip();
+    renderDay();
   });
 }
 
@@ -582,7 +590,9 @@ async function optimizeDay() {
    Add a stop — search live, or pull from the leg's idea library
    ============================================================ */
 document.getElementById('fabAdd').addEventListener('click', () => {
-  document.getElementById('searchDayLabel').textContent = formatDayLabel(currentDay().the_date);
+  const dayLabel = formatDayLabel(currentDay().the_date);
+  document.getElementById('searchDayLabel').textContent = `Adding to ${dayLabel}`;
+  document.getElementById('manualAdd').textContent = `Add to ${dayLabel}`;
   document.getElementById('searchInput').value = '';
   document.getElementById('manualForm').style.display = 'none';
   document.getElementById('manualName').value = '';
@@ -620,10 +630,18 @@ function setSearchLabel(text) {
 
 function renderLibraryAsSearchResults() {
   const leg = currentLeg();
+  const day = currentDay();
   const el = document.getElementById('searchResults');
   setSearchLabel('Idea library for this leg');
   el.innerHTML = '';
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act), act)));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(
+    act.name,
+    act.category,
+    () => addExistingActivityToDay(act, day, leg),
+    () => removeActivity(act),
+    act,
+    `Add to ${formatDayLabel(day.the_date)}`,
+  )));
   if (!leg.activities.length) el.innerHTML = '<div class="empty-note" style="margin:0 16px">Nothing saved yet — search above.</div>';
 }
 
@@ -631,7 +649,7 @@ function renderLibraryAsSearchResults() {
 // delete, it's just something the internet knows about.
 // `extra` carries a saved idea's note and source; a note is the entire reason a
 // curated suggestion beats a bare name, so it can't stay invisible in the data.
-function buildResultCard(name, sub, onAdd, onRemove, extra) {
+function buildResultCard(name, sub, onAdd, onRemove, extra, addLabel = 'Add') {
   const card = document.createElement('div');
   card.className = 'result-card';
   card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div><div class="result-note"></div></div><div class="result-actions"><button class="result-add-btn">Add</button></div>';
@@ -649,7 +667,10 @@ function buildResultCard(name, sub, onAdd, onRemove, extra) {
   const noteEl = card.querySelector('.result-note');
   if (extra && extra.notes) noteEl.textContent = extra.notes; else noteEl.remove();
 
-  card.querySelector('.result-add-btn').addEventListener('click', onAdd);
+  const addButton = card.querySelector('.result-add-btn');
+  addButton.textContent = addLabel;
+  addButton.setAttribute('aria-label', `${addLabel}: ${name}`);
+  addButton.addEventListener('click', onAdd);
   if (onRemove) card.querySelector('.result-actions').appendChild(makeRemoveButton('✕', onRemove));
   return card;
 }
@@ -684,7 +705,15 @@ async function runPlaceSearch(query) {
     }
     el.innerHTML = '';
     (json.places || []).slice(0, CONFIG.maxCandidates || 6).forEach((place) => {
-      el.appendChild(buildResultCard(place.displayName?.text || query, place.formattedAddress || '', () => addSearchedPlaceToDay(place)));
+      const day = currentDay();
+      el.appendChild(buildResultCard(
+        place.displayName?.text || query,
+        place.formattedAddress || '',
+        () => addSearchedPlaceToDay(place),
+        null,
+        null,
+        `Add to ${formatDayLabel(day.the_date)}`,
+      ));
     });
     if (!json.places || !json.places.length) el.innerHTML = '<div class="empty-note" style="margin:0 16px">No results.</div>';
   } catch (e) {
@@ -716,8 +745,8 @@ async function addSearchedPlaceToDay(place) {
   await addActivityToDay(newActivity, day, leg);
 }
 
-async function addExistingActivityToDay(activity) {
-  await addActivityToDay(activity, currentDay(), currentLeg());
+async function addExistingActivityToDay(activity, day = currentDay(), leg = currentLeg()) {
+  await addActivityToDay(activity, day, leg);
 }
 
 async function addActivityToDay(activity, day, leg, options = {}) {
@@ -970,19 +999,206 @@ document.getElementById('guideFilters').addEventListener('click', (event) => {
   renderExplore();
 });
 /* ============================================================
+   Food guide - shortlists for both legs with cuisine filtering
+   ============================================================ */
+function normalizeFoodName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function getFoodItemsForLeg(leg) {
+  return (window.FOOD_GUIDE || []).filter((item) => item.legSlug === leg.slug);
+}
+
+function findSavedFoodActivity(leg, item) {
+  const names = [item.name].concat(item.aliases || []).map(normalizeFoodName);
+  return leg.activities.find((activity) => names.includes(normalizeFoodName(activity.name))) || null;
+}
+
+function isFoodItemPlanned(day, leg, item) {
+  const saved = findSavedFoodActivity(leg, item);
+  return Boolean(saved && day.stops.some((stop) => stop.activity_id === saved.id));
+}
+
+function renderFood() {
+  const leg = currentLeg();
+  const day = currentDay();
+  if (!leg || !day) return;
+
+  renderLegTabsInto('foodLegTabs', renderFood);
+  document.getElementById('foodLegName').textContent = leg.name;
+
+  const dayStrip = document.getElementById('foodDayStrip');
+  dayStrip.innerHTML = '';
+  leg.days.forEach((candidate) => {
+    const pill = document.createElement('button');
+    pill.className = 'day-pill' + (candidate.id === day.id ? ' day-pill--active' : '');
+    pill.textContent = formatDayLabel(candidate.the_date);
+    pill.setAttribute('aria-pressed', candidate.id === day.id ? 'true' : 'false');
+    pill.addEventListener('click', () => {
+      State.currentDayId = candidate.id;
+      renderFood();
+    });
+    dayStrip.appendChild(pill);
+  });
+
+  const items = getFoodItemsForLeg(leg);
+  const cuisines = Array.from(new Set(items.flatMap((item) => item.cuisines)));
+  if (State.foodCuisine !== 'All' && !cuisines.includes(State.foodCuisine)) State.foodCuisine = 'All';
+
+  const filters = document.getElementById('foodFilters');
+  filters.innerHTML = '';
+  ['All'].concat(cuisines).forEach((cuisine) => {
+    const button = document.createElement('button');
+    button.className = 'food-filter' + (cuisine === State.foodCuisine ? ' food-filter--active' : '');
+    button.dataset.foodCuisine = cuisine;
+    button.textContent = cuisine;
+    button.setAttribute('aria-pressed', cuisine === State.foodCuisine ? 'true' : 'false');
+    filters.appendChild(button);
+  });
+
+  const visible = State.foodCuisine === 'All'
+    ? items
+    : items.filter((item) => item.cuisines.includes(State.foodCuisine));
+  const plannedCount = items.filter((item) => isFoodItemPlanned(day, leg, item)).length;
+  document.getElementById('foodSummary').textContent =
+    visible.length + ' of ' + items.length + ' places · ' + plannedCount + ' planned for ' + formatDayLabel(day.the_date);
+
+  const list = document.getElementById('foodList');
+  list.innerHTML = '';
+  visible.forEach((item) => list.appendChild(buildFoodCard(item, day, leg)));
+}
+
+function buildFoodCard(item, day, leg) {
+  const planned = isFoodItemPlanned(day, leg, item);
+  const card = document.createElement('article');
+  card.className = 'food-card';
+  card.innerHTML =
+    '<div class="food-card-head">' +
+      '<div class="food-card-icon"></div>' +
+      '<div class="food-card-title-wrap"><div class="food-card-title"></div><div class="food-card-area"></div></div>' +
+    '</div>' +
+    '<div class="food-card-tags"></div>' +
+    '<div class="food-card-proof"></div>' +
+    '<div class="food-card-why"></div>' +
+    '<div class="food-card-kid"></div>' +
+    '<div class="food-card-heads-up"></div>' +
+    '<div class="food-card-actions"><a class="food-source" target="_blank" rel="noopener noreferrer"></a><button class="food-add-btn"></button></div>';
+
+  card.querySelector('.food-card-icon').textContent = item.icon;
+  card.querySelector('.food-card-title').textContent = item.name;
+  card.querySelector('.food-card-area').textContent = item.area;
+  const tags = card.querySelector('.food-card-tags');
+  item.cuisines.concat([item.price]).forEach((label) => {
+    const tag = document.createElement('span');
+    tag.textContent = label;
+    tags.appendChild(tag);
+  });
+  card.querySelector('.food-card-proof').textContent = item.proof;
+  card.querySelector('.food-card-why').textContent = item.why;
+  card.querySelector('.food-card-kid').textContent = 'Age-six fit: ' + item.kidFit;
+  card.querySelector('.food-card-heads-up').textContent = 'Heads up: ' + item.headsUp;
+
+  const source = card.querySelector('.food-source');
+  source.href = item.sourceUrl;
+  source.textContent = item.sourceLabel || 'Official details';
+
+  const addButton = card.querySelector('.food-add-btn');
+  addButton.textContent = planned ? 'Planned' : 'Add to ' + formatDayLabel(day.the_date);
+  addButton.disabled = planned;
+  if (planned) {
+    addButton.classList.add('food-add-btn--planned');
+  } else {
+    addButton.addEventListener('click', () => addFoodToDay(item, day, leg, addButton));
+  }
+  return card;
+}
+
+async function addFoodToDay(item, day, leg, button) {
+  if (isFoodItemPlanned(day, leg, item)) {
+    App.toast('That restaurant is already on this day.');
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = 'Adding...';
+  let activity = findSavedFoodActivity(leg, item);
+  if (!activity) {
+    const notes = item.cuisines.join(' / ') + '. ' + item.why + ' Age-six fit: ' + item.kidFit + ' Heads up: ' + item.headsUp;
+    const result = await SB.rpc('trip_planner_add_activity', {
+      p_leg_slug: leg.slug,
+      p_name: item.name,
+      p_category: 'food',
+      p_address: item.address,
+      p_lat: item.lat,
+      p_lng: item.lng,
+      p_notes: notes,
+      p_source: 'claude_curated',
+    });
+    if (result.error) {
+      App.toast('Could not save: ' + result.error.message);
+      renderFood();
+      return;
+    }
+    activity = {
+      id: result.data,
+      name: item.name,
+      category: 'food',
+      address: item.address,
+      lat: item.lat,
+      lng: item.lng,
+      source: 'claude_curated',
+      notes: notes,
+    };
+    leg.activities.push(activity);
+  }
+
+  await addActivityToDay(activity, day, leg, { navigate: false });
+  renderFood();
+}
+
+document.getElementById('foodFilters').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-food-cuisine]');
+  if (!button) return;
+  State.foodCuisine = button.dataset.foodCuisine;
+  renderFood();
+});
+/* ============================================================
    Idea library + amenities views
    ============================================================ */
 function renderLibrary() {
   const leg = currentLeg();
+  const day = currentDay();
+  renderLegTabsInto('libraryLegTabs', renderLibrary);
   document.getElementById('libraryLegName').textContent = leg.name;
+  const dayStrip = document.getElementById('libraryDayStrip');
+  dayStrip.innerHTML = '';
+  leg.days.forEach((candidate) => {
+    const pill = document.createElement('button');
+    pill.className = 'day-pill' + (candidate.id === day.id ? ' day-pill--active' : '');
+    pill.textContent = formatDayLabel(candidate.the_date);
+    pill.setAttribute('aria-pressed', candidate.id === day.id ? 'true' : 'false');
+    pill.addEventListener('click', () => {
+      State.currentDayId = candidate.id;
+      renderLibrary();
+    });
+    dayStrip.appendChild(pill);
+  });
   const el = document.getElementById('libraryList');
   el.innerHTML = '';
   if (!leg.activities.length) { el.innerHTML = '<div class="empty-note">No ideas saved yet.</div>'; return; }
-  leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act), () => removeActivity(act), act)));
+  leg.activities.forEach((act) => el.appendChild(buildResultCard(
+    act.name,
+    act.category,
+    () => addExistingActivityToDay(act, day, leg),
+    () => removeActivity(act),
+    act,
+    `Add to ${formatDayLabel(day.the_date)}`,
+  )));
 }
 
 function renderAmenities() {
   const leg = currentLeg();
+  renderLegTabsInto('amenitiesLegTabs', renderAmenities);
   document.getElementById('amenitiesLegName').textContent = leg.name;
   const el = document.getElementById('amenitiesList');
   el.innerHTML = '';
@@ -1001,6 +1217,7 @@ document.querySelectorAll('[data-nav]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const view = btn.dataset.nav;
     if (view === 'explore') renderExplore();
+    if (view === 'food') renderFood();
     if (view === 'library') renderLibrary();
     if (view === 'amenities') renderAmenities();
     App.show(view);

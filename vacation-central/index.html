@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=7">
+<link rel="stylesheet" href="./styles.css?v=9">
 </head>
 <body>
 <div id="app" class="phone">
@@ -77,6 +77,7 @@
     <nav class="bottom-nav">
       <button class="nav-btn nav-btn--active" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
+      <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="library">Ideas</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
@@ -117,6 +118,38 @@
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn nav-btn--active" data-nav="explore">Explore</button>
+      <button class="nav-btn" data-nav="food">Food</button>
+      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="amenities">Amenities</button>
+    </nav>
+  </section>
+  <!-- ============================ FOOD ============================ -->
+  <section class="view" data-view="food">
+    <div class="screen">
+      <header class="topbar">
+        <div class="topbar-titles">
+          <div class="topbar-title">Places to eat</div>
+          <div class="topbar-sub" id="foodLegName">—</div>
+        </div>
+      </header>
+
+      <div class="leg-tabs" id="foodLegTabs"></div>
+      <div class="food-scroll">
+        <div class="food-target">
+          <div class="section-label">Plan food for</div>
+          <div class="day-strip" id="foodDayStrip"></div>
+        </div>
+        <div class="section-label food-cuisine-label">Choose a cuisine</div>
+        <div class="food-filters" id="foodFilters" role="group" aria-label="Filter restaurants by cuisine"></div>
+        <div class="food-summary" id="foodSummary" aria-live="polite"></div>
+        <div class="food-list" id="foodList"></div>
+        <div class="food-research-note">Ratings and details were checked August 13, 2026. Use the official link before leaving or reserving.</div>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="explore">Explore</button>
+      <button class="nav-btn nav-btn--active" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="library">Ideas</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
@@ -165,11 +198,17 @@
           <div class="topbar-sub" id="libraryLegName">—</div>
         </div>
       </header>
+      <div class="leg-tabs" id="libraryLegTabs"></div>
+      <div class="library-target">
+        <div class="section-label">Add ideas to</div>
+        <div class="day-strip" id="libraryDayStrip"></div>
+      </div>
       <div id="libraryList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
+      <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn nav-btn--active" data-nav="library">Ideas</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
@@ -184,11 +223,13 @@
           <div class="topbar-sub" id="amenitiesLegName">—</div>
         </div>
       </header>
+      <div class="leg-tabs" id="amenitiesLegTabs"></div>
       <div id="amenitiesList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
+      <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="library">Ideas</button>
       <button class="nav-btn nav-btn--active" data-nav="amenities">Amenities</button>
     </nav>
@@ -199,8 +240,9 @@
 </div>
 
 <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="./config.js?v=7"></script>
-<script src="./vancouver-guide.js?v=7"></script>
-<script src="./app.js?v=7"></script>
+<script src="./config.js?v=9"></script>
+<script src="./vancouver-guide.js?v=9"></script>
+<script src="./food-catalogue.js?v=9"></script>
+<script src="./app.js?v=9"></script>
 </body>
 </html>

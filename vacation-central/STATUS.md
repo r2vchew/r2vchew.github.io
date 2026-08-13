@@ -2,6 +2,88 @@
 
 Last updated: 2026-08-13
 
+## 2026-08-13: Food tab with cuisine filters
+
+Added **Food** as a fifth main tab for both trip legs. It uses the same leg and
+target-day controls as Ideas, then builds its cuisine chips from the current
+leg's catalogue. The 15 researched picks cover six Harrison restaurants and
+nine walkable Vancouver options around Gastown, Chinatown and Stadium. Filters
+include breakfast, burgers, cafe, pizza, Italian, German, Greek, Vietnamese,
+sushi, Japanese, Chinese, dim sum, Cambodian, Lebanese, Middle Eastern,
+Mexican, pub and Canadian, showing only cuisines that exist for the selected
+leg.
+
+Each card carries the practical reason it made the shortlist, an age-six
+ordering angle, a wait/timing warning, price band, current popularity signal
+and an official menu/site link. Place names, addresses, coordinates, ratings,
+review counts and websites were checked through the existing Places API on
+August 13. Tourism Harrison and MICHELIN were used to distinguish established
+local favourites from merely nearby search results.
+
+Scheduling preserves the shared-backend design. If a restaurant is already an
+activity, Food reuses it. Otherwise it calls the existing
+trip_planner_add_activity RPC with category food and the verified coordinates,
+then calls the unchanged trip_planner_add_stop RPC for the visibly selected
+day. The catalogue itself is static app-shell data and does not create 15 live
+database rows merely by being viewed.
+
+Local browser verification at 390 x 844 confirmed:
+
+- 6 Harrison and 9 Vancouver cards load from food-catalogue.js.
+- Pizza filters Harrison to Village Pizzeria and Vancouver to Pizzeria Ludica;
+  Sushi filters Vancouver to Momo Sushi.
+- Selecting Harrison / 15 Sat and adding a new place sent add-activity followed
+  by add-stop with the Harrison slug and exact 2026-08-15 target.
+- Adding an already-saved Momo Sushi to Vancouver / 18 Tue skipped duplicate
+  activity creation and sent only add-stop with the saved activity ID.
+- Planned state, counts, all official links, five-tab navigation and target-day
+  labels updated correctly, with no mobile overflow and the bottom nav visible.
+
+Asset and service-worker versions moved together from v8 to v9, including the
+new offline-cached food-catalogue.js. The canonical hosting copy and standalone
+working copy match. These combined UI changes remain uncommitted and
+undeployed.
+## 2026-08-13: Clear leg and target-day controls + Harrison family ideas
+
+Ideas and Amenities now carry the same Harrison Hot Springs / Vancouver leg
+switcher as Day. Ideas also carries the selected leg's day pills under an
+explicit **Add ideas to** label. Every saved-idea and search-result button
+repeats the selected target (for example, **Add to 15 Sat**) and captures that
+day and leg when rendered, so the visible label and the
+trip_planner_add_stop payload cannot drift apart. The add-activity and
+add-stop RPC names and argument shapes are unchanged. Cache and asset versions
+were bumped together from v7 to v8.
+
+Local verification used the real app files in an isolated Chrome session at
+390 x 844 with stubbed successful RPC responses. Switching Harrison from
+14 Fri to 15 Sat updated every Ideas button; clicking one sent
+p_leg_slug = harrison, p_the_date = 2026-08-15, and the expected
+activity ID to trip_planner_add_stop. Ideas switched to Vancouver and reset
+to its first day; Amenities switched Vancouver -> Harrison and rendered each
+leg's own rows. The page stayed 390 px wide, the labelled buttons remained
+inside their cards, and the bottom navigation stayed visible. This was a local
+mutation test only - it did not alter a real day.
+
+Three deliberately small Harrison additions were written to the live shared
+backend through the existing authenticated public.trip_planner_add_activity
+path, with Google Places coordinates and source = claude_curated:
+
+- Harrison Beach Pirate Playground + Playboxes - inclusive beachfront play and
+  free balls/games between beach swims.
+- Harrison Visitor Centre and Sasquatch Museum - a free 30-45 minute weather
+  break with interactive displays and Sts'ailes context.
+- Spirit Trail - an easy 1.1 km cedar loop framed as a carved-mask scavenger
+  hunt.
+
+All three were read back from the live database and each has zero scheduled
+stops, so adding ideas did not silently plan a day. Current official research
+also says the Miami Bridges Trail is temporarily closed, so it was not added.
+The natural-looking water beside the hot-spring source is not a public soaking
+pool; the existing Harrison Mineral Baths idea remains the public option and
+same-day hours should be confirmed.
+
+The UI changes are in the canonical hosting repo and mirrored to the standalone
+working copy, but are not committed or deployed yet.
 ## 2026-08-13: Vancouver family Explore planner
 
 Added a dedicated **Explore** tab built around the actual planning job, not a
@@ -300,7 +382,4 @@ The app works. What's left is other people, real content, and polish.
    it actually works," which is now satisfied.
 5. Fresh icons — still route-optimizer's placeholders.
 
-Known rough edges, none blocking: there's no leg switcher on the Ideas or
-Amenities views (you have to go back to Day to change legs); the Ideas view
-doesn't say which day "Add" adds to; and `guessCategory` filed Harrison
-Mineral Baths as `other` rather than `rest`.
+Known rough edge, not blocking: guessCategory filed Harrison Mineral Baths as other rather than rest.
