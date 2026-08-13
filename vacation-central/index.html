@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=9">
+<link rel="stylesheet" href="./styles.css?v=10">
 </head>
 <body>
 <div id="app" class="phone">
@@ -49,111 +49,84 @@
         </div>
       </header>
 
-      <div class="leg-tabs" id="legTabs"></div>
-      <div class="day-strip" id="dayStrip"></div>
+      <div class="date-strip" id="dateStrip"></div>
 
-      <div class="day-body">
-        <div class="weather-card" id="weatherCard" style="display:none">
-          <div class="weather-icon" id="weatherIcon">—</div>
-          <div class="weather-main">
-            <div class="weather-temp" id="weatherTemp">—</div>
-            <div class="weather-cond" id="weatherCond">—</div>
-          </div>
-        </div>
-        <div class="weather-alert" id="weatherAlert" style="display:none"></div>
-
-        <div class="day-map" id="dayMap">
-          <button class="day-map-optimize" id="btnOptimize">Optimize order</button>
-        </div>
-
-        <div class="section-label">Today's stops</div>
-        <div id="stopList"></div>
+      <div class="day-body" id="dayBody">
+        <div class="day-map" id="dayMap"><!-- Google Map instance lives here; app.js never wipes this node --></div>
+        <div id="daySections"><!-- one or two day-section blocks, built by app.js --></div>
       </div>
-
-      <button class="fab" id="fabAdd" aria-label="Add a stop">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-      </button>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn nav-btn--active" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
-      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="flagged">Flagged</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
   </section>
 
-  <!-- ============================ VANCOUVER EXPLORE ============================ -->
+  <!-- ============================ EXPLORE ============================ -->
   <section class="view" data-view="explore">
     <div class="screen">
       <header class="topbar">
         <div class="topbar-titles">
-          <div class="topbar-title">Vancouver with a six-year-old</div>
-          <div class="topbar-sub">24 family picks &bull; checked Aug 13, 2026</div>
+          <div class="topbar-title" id="exploreLegName">—</div>
+          <div class="topbar-sub" id="exploreSubtitle">—</div>
         </div>
+        <button class="icon-btn" id="exploreLegSwap" aria-label="Switch to the other leg">⇄</button>
       </header>
 
+      <div class="guide-filters guide-filters--sticky" id="guideFilters" role="group" aria-label="Filter activities">
+        <button class="guide-filter guide-filter--active" data-guide-filter="all">All</button>
+        <button class="guide-filter" data-guide-filter="top">Best</button>
+        <button class="guide-filter" data-guide-filter="rain">Rain-proof</button>
+        <button class="guide-filter" data-guide-filter="free">Free / low</button>
+        <button class="guide-filter" data-guide-filter="outdoor">Outdoors</button>
+      </div>
+
       <div class="explore-scroll">
-        <div class="explore-hero">
-          <div class="explore-hero-kicker">Build the Vancouver days</div>
-          <div class="explore-hero-title">Pick a day, then tap Add.</div>
-          <div class="explore-hero-copy">Big-ticket favourites, rainy-day saves and free outdoor resets &ndash; all chosen for age six.</div>
-          <label class="explore-day-label" for="exploreDay">Add activities to</label>
-          <select class="explore-day-select" id="exploreDay" aria-label="Vancouver day to plan"></select>
-        </div>
-
-        <div class="guide-filters" id="guideFilters" role="group" aria-label="Filter Vancouver activities">
-          <button class="guide-filter guide-filter--active" data-guide-filter="all">All 24</button>
-          <button class="guide-filter" data-guide-filter="top">Best bets</button>
-          <button class="guide-filter" data-guide-filter="rain">Rain-proof</button>
-          <button class="guide-filter" data-guide-filter="free">Free / low</button>
-          <button class="guide-filter" data-guide-filter="outdoor">Outdoors</button>
-        </div>
-
         <div class="guide-summary" id="guideSummary" aria-live="polite"></div>
         <div class="guide-list" id="guideList"></div>
-        <div class="guide-research-note">Planning details can change. Use each card's official link before buying tickets or leaving.</div>
+        <div class="guide-research-note">Planning details can change. Tap 🔗 for the official page before buying tickets or leaving.</div>
       </div>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn nav-btn--active" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
-      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="flagged">Flagged</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
   </section>
+
   <!-- ============================ FOOD ============================ -->
   <section class="view" data-view="food">
     <div class="screen">
       <header class="topbar">
         <div class="topbar-titles">
-          <div class="topbar-title">Places to eat</div>
-          <div class="topbar-sub" id="foodLegName">—</div>
+          <div class="topbar-title" id="foodLegName">—</div>
+          <div class="topbar-sub" id="foodSubtitle">—</div>
         </div>
+        <button class="icon-btn" id="foodLegSwap" aria-label="Switch to the other leg">⇄</button>
       </header>
 
-      <div class="leg-tabs" id="foodLegTabs"></div>
+      <div class="food-filters guide-filters--sticky" id="foodFilters" role="group" aria-label="Filter restaurants by cuisine"></div>
+
       <div class="food-scroll">
-        <div class="food-target">
-          <div class="section-label">Plan food for</div>
-          <div class="day-strip" id="foodDayStrip"></div>
-        </div>
-        <div class="section-label food-cuisine-label">Choose a cuisine</div>
-        <div class="food-filters" id="foodFilters" role="group" aria-label="Filter restaurants by cuisine"></div>
         <div class="food-summary" id="foodSummary" aria-live="polite"></div>
         <div class="food-list" id="foodList"></div>
-        <div class="food-research-note">Ratings and details were checked August 13, 2026. Use the official link before leaving or reserving.</div>
+        <div class="food-research-note">Ratings and details were checked August 13, 2026. Tap 🔗 for the official page before leaving or reserving.</div>
       </div>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn nav-btn--active" data-nav="food">Food</button>
-      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="flagged">Flagged</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
   </section>
+
   <!-- ============================ ADD / SEARCH ============================ -->
   <section class="view" data-view="search">
     <div class="screen">
@@ -189,27 +162,22 @@
     </div>
   </section>
 
-  <!-- ============================ LIBRARY ============================ -->
-  <section class="view" data-view="library">
+  <!-- ============================ FLAGGED ============================ -->
+  <section class="view" data-view="flagged">
     <div class="screen">
       <header class="topbar">
         <div class="topbar-titles">
-          <div class="topbar-title">Idea library</div>
-          <div class="topbar-sub" id="libraryLegName">—</div>
+          <div class="topbar-title">Flagged</div>
+          <div class="topbar-sub">The planning whiteboard — collect first, sort out days later</div>
         </div>
       </header>
-      <div class="leg-tabs" id="libraryLegTabs"></div>
-      <div class="library-target">
-        <div class="section-label">Add ideas to</div>
-        <div class="day-strip" id="libraryDayStrip"></div>
-      </div>
-      <div id="libraryList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
+      <div id="flaggedList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
     </div>
     <nav class="bottom-nav">
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
-      <button class="nav-btn nav-btn--active" data-nav="library">Ideas</button>
+      <button class="nav-btn nav-btn--active" data-nav="flagged">Flagged</button>
       <button class="nav-btn" data-nav="amenities">Amenities</button>
     </nav>
   </section>
@@ -230,19 +198,23 @@
       <button class="nav-btn" data-nav="day">Day</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
-      <button class="nav-btn" data-nav="library">Ideas</button>
+      <button class="nav-btn" data-nav="flagged">Flagged</button>
       <button class="nav-btn nav-btn--active" data-nav="amenities">Amenities</button>
     </nav>
   </section>
 
-  <!-- transient toast -->
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- transient toast (can include an inline Undo action) -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toastMsg"></span>
+    <button id="toastUndo" style="display:none">Undo</button>
+  </div>
 </div>
 
 <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="./config.js?v=9"></script>
-<script src="./vancouver-guide.js?v=9"></script>
-<script src="./food-catalogue.js?v=9"></script>
-<script src="./app.js?v=9"></script>
+<script src="./config.js?v=10"></script>
+<script src="./vancouver-guide.js?v=10"></script>
+<script src="./harrison-guide.js?v=10"></script>
+<script src="./food-catalogue.js?v=10"></script>
+<script src="./app.js?v=10"></script>
 </body>
 </html>

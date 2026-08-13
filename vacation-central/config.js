@@ -22,4 +22,17 @@ window.CONFIG = {
   searchRadiusMeters: 9000,
   maxCandidates: 6,
   routingPreference: 'TRAFFIC_AWARE',
+
+  // ntfy.sh push notification topic for "the forecast changed enough to
+  // matter" alerts. ntfy is a free, keyless push service: anyone who knows
+  // the topic name can read what's posted to it, so this is a made-up,
+  // non-guessable string rather than something memorable — treat it as
+  // semi-private, the way you would a calendar link.
+  //
+  // One-time setup (Vince's phone, not something this app can do for you):
+  //   1. Install the "ntfy" app (iOS App Store / Google Play).
+  //   2. In the app, subscribe to the exact topic below.
+  //   3. Done — no account, no login. You'll get a push whenever a day's
+  //      forecast changes enough to be worth reconsidering plans for.
+  NTFY_TOPIC: 'vince-vacation-central-h9k2p',
 };

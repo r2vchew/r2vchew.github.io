@@ -2,6 +2,71 @@
 
 Last updated: 2026-08-13
 
+## 2026-08-13: 16-item Explore/Food/Day/Flagged redesign — NOT YET LIVE-VERIFIED
+
+A full redesign of Day, Explore, Food, plus a new Flagged tab, replacing the
+work described in the three entries below (Explore hero/day-picker layout,
+Ideas leg switcher, Food cuisine filters). This entry supersedes those for
+current app shape; kept below for the RPC/schema history, which is unchanged.
+
+**What changed, structurally:**
+- **Day tab** is no longer leg-scoped. One chronological date strip across the
+  whole trip (`getAllTripDays()` merges both legs' day rows by calendar date).
+  Aug 17 (Harrison checkout, Vancouver check-in) renders **two** day-sections
+  stacked, each with its own accent colour (`--harrison` / `--vancouver`) and
+  its own "+ Add" button, sharing one combined map. Every other date renders
+  one section and gets the old floating FAB back.
+- **Explore and Food** both dropped their old per-leg-tab layout for a single
+  leg toggle (⇄ icon, top-right) plus a shared `buildDiscoveryCard()` renderer.
+  Filter chips (`guideFilters` / `foodFilters`) sit outside the scrollable list
+  so they're always visible without any sticky-scroll JS. Each card has one
+  action row — 🔗 official link, 📅 schedule (opens an inline day-picker
+  limited to that leg's own days), 🚩 flag, ✕ dismiss — on the same row as the
+  duration/cost/weather (or cuisine/price) chips, per the spec. Scheduling or
+  flagging an item removes it from Explore/Food; dismissing does too
+  (localStorage-only, `vc_dismissed_v1`, not synced to the DB). Every removal
+  shows a toast with an inline **Undo** that reverses that specific action.
+- **Flagged** is a new fifth nav tab, replacing Ideas. It lists every activity
+  with `flagged = true` across both legs — a deliberately loose "planning
+  whiteboard," not tied to any day, meant to get sorted into the itinerary
+  later by asking in a normal chat. Migration
+  `20260813100000_trip_planner_flagging.sql` added the `activities.flagged`
+  column and `trip_planner_set_activity_flag` RPC.
+- **Harrison now has its own Explore catalogue** (`harrison-guide.js`, same
+  schema as `vancouver-guide.js`, 10 entries, researched fresh — flags Harrison
+  Mineral Baths as closed for renovations since spring 2026, not tagged
+  `top` given that uncertainty). Vancouver's 10 Ideas activities already
+  matched an existing `vancouver-guide.js` entry each, so no net-new Vancouver
+  catalogue work was needed — confirmed by querying the live `claude_curated`
+  rows directly rather than assuming.
+- **Weather alert simplified** to material changes only — crossing into/out of
+  rain, or a 5°C+ high-temp swing (`isMaterialWeatherChange()`), not every
+  small forecast wobble. A material change now also fires an **ntfy.sh push**
+  (`sendNtfyAlert()`, topic in `config.js` as `NTFY_TOPIC`). ntfy is free and
+  keyless — **one-time setup still needed on Vince's phone**: install the ntfy
+  app, subscribe to the exact topic in `config.js`'s comment. The app cannot
+  do this step itself.
+
+**Not yet done:** fresh icon set (still route-optimizer's), Keely's household
+membership, home-page link — all pre-existing, unrelated to this redesign.
+
+**Verification status: none of this has been exercised in a live browser
+session.** No local dev server was available this session (the harness's
+preview tools weren't useful for remote-controlled testing here), so unlike
+the 2026-08-13 entries below — which each list specific interaction checks
+against stubbed or live RPC responses — this batch has only been checked by:
+reading `index.html`/`styles.css`/`app.js` back against each other for
+matching element IDs and class names, confirming every RPC name and argument
+list called from `app.js` against `pg_get_function_arguments()` on the live
+`kejchvwswjpdrvyccufi` project, and confirming the `FOOD_GUIDE` /
+`VANCOUVER_GUIDE` / `HARRISON_GUIDE` catalogue schemas match what `app.js`
+reads from them. **No JS syntax checker was available either** (no `node` or
+usable `python` in this environment) — the file was manually re-read in full
+instead. Treat this as a strong static review, not a substitute for actually
+opening the app and clicking through Day (including Aug 17's dual-leg
+rendering), Explore's leg toggle and scheduling flow, Food, Flagged, and the
+Undo toast before trusting it on the trip.
+
 ## 2026-08-13: Food tab with cuisine filters
 
 Added **Food** as a fifth main tab for both trip legs. It uses the same leg and

@@ -3,15 +3,16 @@
    on styles.css/config.js/app.js in index.html too — otherwise the plain
    HTTP cache (separate from this service worker) can keep serving stale JS
    after an update. Same gotcha route-optimizer's OPERATIONS.md documents. */
-const CACHE = 'vacation-central-v9';
+const CACHE = 'vacation-central-v10';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=9',
-  './config.js?v=9',
-  './vancouver-guide.js?v=9',
-  './food-catalogue.js?v=9',
-  './app.js?v=9',
+  './styles.css?v=10',
+  './config.js?v=10',
+  './vancouver-guide.js?v=10',
+  './harrison-guide.js?v=10',
+  './food-catalogue.js?v=10',
+  './app.js?v=10',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -32,7 +33,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
-  // Never cache Supabase/weather/Maps calls — those need to be live.
+  // Never cache Supabase/weather/Maps/ntfy calls — those need to be live.
   if (new URL(req.url).origin !== self.location.origin) return;
   e.respondWith(
     caches.match(req).then((cached) => cached || fetch(req).then((res) => {
