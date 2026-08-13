@@ -250,10 +250,14 @@ The app works. What's left is other people, real content, and polish.
    open the app once and confirm she lands on the "signed in but not added
    yet" screen rather than a generic error — that path was written
    specifically for her and is the one flow still never executed.
-3. **Put real ideas in the library.** Both legs are empty apart from the test
-   rows. This is the "Claude Chat adds an activity from a normal
-   conversation" path the whole shared-backend design exists for, and it has
-   never been used either.
+3. ~~Put real ideas in the library~~ — **seeded 2026-08-13.** 17
+   kid-oriented activities (7 Harrison, 10 Vancouver), all with real Places
+   coordinates so they route and map correctly, all `source =
+   'claude_curated'` with a note explaining why each suits a 6-year-old.
+   Seeded through the app's own `trip_planner_add_activity` RPC, not raw SQL.
+   Still untested: the **Claude Chat → same database** path, which is the
+   premise the shared backend exists for. Adding one idea from a normal chat
+   is the test.
 4. **Link it from the site home page** (`r2vchew.github.io/index.html`) —
    the app is still reachable only by typing the URL. This was gated on "once
    it actually works," which is now satisfied.
