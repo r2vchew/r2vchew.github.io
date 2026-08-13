@@ -40,9 +40,12 @@ Local browser verification at 390 x 844 confirmed:
   labels updated correctly, with no mobile overflow and the bottom nav visible.
 
 Asset and service-worker versions moved together from v8 to v9, including the
-new offline-cached food-catalogue.js. The canonical hosting copy and standalone
-working copy match. These combined UI changes remain uncommitted and
-undeployed.
+new offline-cached food-catalogue.js. The combined UI work was committed and
+pushed after rebasing over the scheduled site-data commit. GitHub Pages build
+31702144698 completed successfully for app revision 207b402. Fresh live
+requests then returned the Food view, all five Food nav buttons, app.js v9,
+all 15 catalogue entries, cuisine handling and the v9 service-worker cache.
+The canonical hosting copy and standalone working copy match.
 ## 2026-08-13: Clear leg and target-day controls + Harrison family ideas
 
 Ideas and Amenities now carry the same Harrison Hot Springs / Vancouver leg
@@ -82,8 +85,8 @@ The natural-looking water beside the hot-spring source is not a public soaking
 pool; the existing Harrison Mineral Baths idea remains the public option and
 same-day hours should be confirmed.
 
-The UI changes are in the canonical hosting repo and mirrored to the standalone
-working copy, but are not committed or deployed yet.
+These target-day and leg-switcher changes shipped as part of the v9 Food
+deployment described above.
 ## 2026-08-13: Vancouver family Explore planner
 
 Added a dedicated **Explore** tab built around the actual planning job, not a
