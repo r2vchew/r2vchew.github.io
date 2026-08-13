@@ -57,10 +57,14 @@ body{
 
 /* ---------- view routing ---------- */
 .view{position:absolute;inset:0;display:none;animation:view-in .25s ease}
-.view--active{display:block}
+/* Flex column, not block: .bottom-nav is a SIBLING of .screen, so a block view
+   let .screen's height:100% push the nav past the bottom of .phone (which is
+   overflow:hidden) and Ideas/Amenities became unreachable. */
+.view--active{display:flex;flex-direction:column}
 @keyframes view-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-.screen{height:100%;display:flex;flex-direction:column;box-sizing:border-box}
+.screen{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;box-sizing:border-box}
+.login{flex:1 1 auto}
 
 /* ============================ TOPBAR ============================ */
 .topbar{
@@ -119,8 +123,11 @@ body{
   height:220px;border-radius:14px;overflow:hidden;margin-bottom:14px;
   background:var(--map-bg);position:relative;
 }
+/* Top-right, not bottom-right: Google owns the bottom of the map (zoom control
+   on the right, logo + attribution along the bottom) and the button sat on top
+   of both. */
 .day-map-optimize{
-  position:absolute;bottom:10px;right:10px;z-index:2;
+  position:absolute;top:10px;right:10px;z-index:2;
   background:var(--surface);color:var(--ink);border:1px solid var(--hairline);
   border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;
   box-shadow:0 6px 16px rgba(0,0,0,0.4);
@@ -165,8 +172,10 @@ body{
 }
 
 /* ---------- floating add button ---------- */
+/* Bottom offset clears the 34px bottom nav — the FAB is positioned against
+   .view, which now includes the nav. */
 .fab{
-  position:absolute;right:18px;bottom:calc(env(safe-area-inset-bottom) + 18px);
+  position:absolute;right:18px;bottom:calc(env(safe-area-inset-bottom) + 56px);
   width:52px;height:52px;border-radius:50%;background:var(--accent);color:#fff;
   border:none;box-shadow:0 10px 24px rgba(79,140,255,0.45);
   display:flex;align-items:center;justify-content:center;z-index:5;
@@ -228,7 +237,7 @@ body{
 
 /* transient toast */
 .toast{
-  position:absolute;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom) + 18px);
+  position:absolute;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom) + 56px);
   background:var(--surface-3);color:var(--ink);border-radius:12px;
   padding:12px 14px;font-size:13px;text-align:center;
   box-shadow:0 12px 30px rgba(0,0,0,0.45);

@@ -14,6 +14,15 @@
 const SB = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_PUBLISHABLE_KEY);
 const WEATHER_THROTTLE_MS = 4 * 60 * 60 * 1000; // 4 hours — see docs/DESIGN_BRIEF.md
 
+/* The Maps key is referrer-restricted to https://r2vchew.github.io/vacation-central/*.
+   Browsers default to a `strict-origin-when-cross-origin` referrer policy, so a
+   plain cross-origin fetch sends only `https://r2vchew.github.io/` — no path —
+   and Google rejects it with 403 "Requests from referer ... are blocked".
+   `unsafe-url` sends the full URL so the path matches the restriction. Applied
+   per-request (not page-wide) so only the Google API calls leak the path.
+   Verified live 2026-08-13: without it, Places and Routes both 403. */
+const GOOGLE_REFERRER_POLICY = 'unsafe-url';
+
 const State = {
   trip: null,
   weatherHistory: {},
@@ -28,6 +37,9 @@ const State = {
 const App = {
   show(view) {
     document.querySelectorAll('.view').forEach((v) => v.classList.toggle('view--active', v.dataset.view === view));
+    // Keep the nav highlight with the view rather than with the last tap —
+    // adding from the Ideas list jumps to Day, and the nav used to stay on Ideas.
+    document.querySelectorAll('.nav-btn').forEach((n) => n.classList.toggle('nav-btn--active', n.dataset.nav === view));
   },
   toast(msg) {
     const t = document.getElementById('toast');
@@ -47,11 +59,29 @@ function escapeHtml(value) {
    way; who can actually read/write is enforced by RLS + household_members,
    not by anything in this file.
    ============================================================ */
+// Supabase reports a bad/expired/already-used link by redirecting back with the
+// failure in the URL fragment. Nothing read it, so a dead link looked identical
+// to never having clicked one — you just landed on the login screen again.
+function consumeAuthErrorFromUrl() {
+  const raw = window.location.hash.replace(/^#/, '');
+  if (!raw.includes('error')) return null;
+  const p = new URLSearchParams(raw);
+  const code = p.get('error_code');
+  const desc = p.get('error_description');
+  if (!p.get('error') && !code) return null;
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  return code === 'otp_expired'
+    ? 'That sign-in link has expired or was already used. Send yourself a fresh one.'
+    : (desc || 'Sign-in failed. Try sending a new link.');
+}
+
 async function initAuth() {
+  const authError = consumeAuthErrorFromUrl();
   const { data: { session } } = await SB.auth.getSession();
   if (session) {
     await bootTrip();
   } else {
+    if (authError) document.getElementById('loginError').textContent = authError;
     App.show('login');
   }
   SB.auth.onAuthStateChange((event, session) => {
@@ -179,6 +209,10 @@ function renderDay() {
 function renderStops(day) {
   const el = document.getElementById('stopList');
   el.innerHTML = '';
+  // Optimizing needs two routable stops; showing the button before then just
+  // buys you a toast explaining why it didn't work.
+  const routable = day.stops.filter((s) => s.lat && s.lng).length;
+  document.getElementById('btnOptimize').style.display = routable >= 2 ? 'block' : 'none';
   if (!day.stops.length) {
     el.innerHTML = '<div class="empty-note">No stops yet — tap + to search, or pull one from Ideas.</div>';
     return;
@@ -407,7 +441,19 @@ function renderMap(day) {
   if (path.length > 1) {
     State.mapPolyline = new google.maps.Polyline({ path, strokeColor: '#4f8cff', strokeWeight: 3, strokeOpacity: 0.85, map: State.map });
   }
-  if (!bounds.isEmpty()) State.map.fitBounds(bounds, 40);
+
+  // With no located stops the bounds are a single point, and fitBounds zooms to
+  // 22 — a featureless grey square. Show the neighbourhood instead. Also cap the
+  // zoom for the one-stop-next-door case, which has the same problem.
+  if (!sorted.length) {
+    State.map.setCenter(homePos);
+    State.map.setZoom(13);
+  } else if (!bounds.isEmpty()) {
+    State.map.fitBounds(bounds, 40);
+    google.maps.event.addListenerOnce(State.map, 'idle', () => {
+      if (State.map.getZoom() > 16) State.map.setZoom(16);
+    });
+  }
 }
 
 document.getElementById('btnOptimize').addEventListener('click', optimizeDay);
@@ -439,6 +485,7 @@ async function optimizeDay() {
         'X-Goog-FieldMask': 'routes.optimizedIntermediateWaypointIndex',
       },
       body: JSON.stringify(body),
+      referrerPolicy: GOOGLE_REFERRER_POLICY,
     });
     const json = await res.json();
     const order = json.routes && json.routes[0] && json.routes[0].optimizedIntermediateWaypointIndex;
@@ -488,9 +535,14 @@ document.getElementById('manualAdd').addEventListener('click', async () => {
   await addActivityToDay(newActivity, day, leg);
 });
 
+function setSearchLabel(text) {
+  document.getElementById('searchResultsLabel').textContent = text;
+}
+
 function renderLibraryAsSearchResults() {
   const leg = currentLeg();
   const el = document.getElementById('searchResults');
+  setSearchLabel('Idea library for this leg');
   el.innerHTML = '';
   leg.activities.forEach((act) => el.appendChild(buildResultCard(act.name, act.category, () => addExistingActivityToDay(act))));
   if (!leg.activities.length) el.innerHTML = '<div class="empty-note" style="margin:0 16px">Nothing saved yet — search above.</div>';
@@ -509,6 +561,7 @@ function buildResultCard(name, sub, onAdd) {
 async function runPlaceSearch(query) {
   if (!query) { renderLibraryAsSearchResults(); return; }
   const el = document.getElementById('searchResults');
+  setSearchLabel('Search results');
   el.innerHTML = '<div class="empty-note" style="margin:0 16px">Searching…</div>';
   try {
     const leg = currentLeg();
@@ -523,8 +576,16 @@ async function runPlaceSearch(query) {
         textQuery: query,
         locationBias: { circle: { center: { latitude: leg.home_base_lat, longitude: leg.home_base_lng }, radius: CONFIG.searchRadiusMeters || 9000 } },
       }),
+      referrerPolicy: GOOGLE_REFERRER_POLICY,
     });
     const json = await res.json();
+    // Don't let an API failure masquerade as "No results" — that's exactly how
+    // the referrer 403 stayed invisible until someone read the network tab.
+    if (json.error) {
+      el.innerHTML = '<div class="empty-note" style="margin:0 16px"></div>';
+      el.firstChild.textContent = `Search unavailable (${json.error.status || res.status}). ${json.error.message || ''}`;
+      return;
+    }
     el.innerHTML = '';
     (json.places || []).slice(0, CONFIG.maxCandidates || 6).forEach((place) => {
       el.appendChild(buildResultCard(place.displayName?.text || query, place.formattedAddress || '', () => addSearchedPlaceToDay(place)));
@@ -620,7 +681,6 @@ function renderAmenities() {
 document.querySelectorAll('[data-nav]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const view = btn.dataset.nav;
-    document.querySelectorAll('.nav-btn').forEach((n) => n.classList.toggle('nav-btn--active', n.dataset.nav === view));
     if (view === 'library') renderLibrary();
     if (view === 'amenities') renderAmenities();
     App.show(view);
