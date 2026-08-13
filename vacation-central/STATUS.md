@@ -24,6 +24,8 @@ Added three planning views on top of the v10 redesign:
   obvious; each group has an Open day action back to Detail.
 
 Cache and asset versions moved together to `vacation-central-v11`.
+Deployed to GitHub Pages in commit `b9c4fe7`; cache-busted live fetches then
+confirmed the v11 shell, app logic and service worker are all being served.
 
 **Verification:** headless Chrome loaded the production shell with no JavaScript
 startup errors. A disposable in-browser trip fixture passed 11 checks covering
