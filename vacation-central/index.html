@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=10">
+<link rel="stylesheet" href="./styles.css?v=11">
 </head>
 <body>
 <div id="app" class="phone">
@@ -47,6 +47,10 @@
           <div class="topbar-title" id="dayLegName">—</div>
           <div class="topbar-sub" id="dayHomeBase">—</div>
         </div>
+        <div class="view-toggle" id="daysViewToggle" role="group" aria-label="Days view">
+          <button class="view-toggle-btn view-toggle-btn--active" data-days-mode="detail" aria-pressed="true">Detail</button>
+          <button class="view-toggle-btn" data-days-mode="plan" aria-pressed="false">Plan</button>
+        </div>
       </header>
 
       <div class="date-strip" id="dateStrip"></div>
@@ -55,9 +59,10 @@
         <div class="day-map" id="dayMap"><!-- Google Map instance lives here; app.js never wipes this node --></div>
         <div id="daySections"><!-- one or two day-section blocks, built by app.js --></div>
       </div>
+      <div class="plan-overview" id="planOverview" hidden></div>
     </div>
     <nav class="bottom-nav">
-      <button class="nav-btn nav-btn--active" data-nav="day">Day</button>
+      <button class="nav-btn nav-btn--active" data-nav="day">Days</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="flagged">Flagged</button>
@@ -87,11 +92,11 @@
       <div class="explore-scroll">
         <div class="guide-summary" id="guideSummary" aria-live="polite"></div>
         <div class="guide-list" id="guideList"></div>
-        <div class="guide-research-note">Planning details can change. Tap 🔗 for the official page before buying tickets or leaving.</div>
+        <div class="guide-research-note">Planning details can change. Tap 🔗 for the official page before buying tickets or leaving.<br>Drive times: Powered by Google Maps, ©2026 Google.</div>
       </div>
     </div>
     <nav class="bottom-nav">
-      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="day">Days</button>
       <button class="nav-btn nav-btn--active" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="flagged">Flagged</button>
@@ -115,11 +120,11 @@
       <div class="food-scroll">
         <div class="food-summary" id="foodSummary" aria-live="polite"></div>
         <div class="food-list" id="foodList"></div>
-        <div class="food-research-note">Ratings and details were checked August 13, 2026. Tap 🔗 for the official page before leaving or reserving.</div>
+        <div class="food-research-note">Ratings and details were checked August 13, 2026. Tap 🔗 for the official page before leaving or reserving.<br>Drive times: Powered by Google Maps, ©2026 Google.</div>
       </div>
     </div>
     <nav class="bottom-nav">
-      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="day">Days</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn nav-btn--active" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="flagged">Flagged</button>
@@ -168,13 +173,17 @@
       <header class="topbar">
         <div class="topbar-titles">
           <div class="topbar-title">Flagged</div>
-          <div class="topbar-sub">The planning whiteboard — collect first, sort out days later</div>
+          <div class="topbar-sub">Vancouver scouting — collect first, compare together</div>
         </div>
       </header>
-      <div id="flaggedList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
+      <div class="flagged-scroll">
+        <div class="flagged-map" id="flaggedMap"></div>
+        <div class="flagged-map-summary" id="flaggedMapSummary"></div>
+        <div id="flaggedList"></div>
+      </div>
     </div>
     <nav class="bottom-nav">
-      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="day">Days</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn nav-btn--active" data-nav="flagged">Flagged</button>
@@ -195,7 +204,7 @@
       <div id="amenitiesList" style="overflow-y:auto;flex:1;padding:0 16px"></div>
     </div>
     <nav class="bottom-nav">
-      <button class="nav-btn" data-nav="day">Day</button>
+      <button class="nav-btn" data-nav="day">Days</button>
       <button class="nav-btn" data-nav="explore">Explore</button>
       <button class="nav-btn" data-nav="food">Food</button>
       <button class="nav-btn" data-nav="flagged">Flagged</button>
@@ -211,10 +220,10 @@
 </div>
 
 <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="./config.js?v=10"></script>
-<script src="./vancouver-guide.js?v=10"></script>
-<script src="./harrison-guide.js?v=10"></script>
-<script src="./food-catalogue.js?v=10"></script>
-<script src="./app.js?v=10"></script>
+<script src="./config.js?v=11"></script>
+<script src="./vancouver-guide.js?v=11"></script>
+<script src="./harrison-guide.js?v=11"></script>
+<script src="./food-catalogue.js?v=11"></script>
+<script src="./app.js?v=11"></script>
 </body>
 </html>

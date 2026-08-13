@@ -2,6 +2,44 @@
 
 Last updated: 2026-08-13
 
+## 2026-08-13: v11 proximity, Flagged map and Days plan view
+
+Added three planning views on top of the v10 redesign:
+
+- Explore and Food cards now show traffic-aware driving minutes from the
+  relevant accommodation in their upper-right corner. The authenticated trip
+  document already contains the private accommodation address; the browser
+  resolves it to accurate coordinates at runtime and keeps them only in memory,
+  replacing the original city-level fallback for that session. Catalogue
+  destinations are batched through Google Routes `computeRouteMatrix` and
+  cached for the session.
+- Flagged is now Vancouver-focused and includes a map of the Vancouver
+  accommodation plus every located flagged activity. Numbered markers match
+  the numbered list below the map. Explore/Food flagging already resolves and
+  saves a place location, so normal flagged items are mappable without a schema
+  change.
+- The bottom-nav label is now **Days**. Its new Detail / Plan toggle preserves
+  the existing one-date map and controls in Detail, while Plan shows the whole
+  trip grouped by date and leg. Empty days remain visible so planning gaps are
+  obvious; each group has an Open day action back to Detail.
+
+Cache and asset versions moved together to `vacation-central-v11`.
+
+**Verification:** headless Chrome loaded the production shell with no JavaScript
+startup errors. A disposable in-browser trip fixture passed 11 checks covering
+the dual-leg date, all Plan groups (including empty days), planned-stop content,
+Explore/Food proximity slots, and the numbered Vancouver Flagged list. A live
+Google Routes request using this app's key returned `ROUTE_EXISTS` from the new
+route-matrix endpoint. The disposable fixture was removed. The remaining gate
+is a signed-in click-through on the deployed app to confirm the private-address
+resolution, real minute labels, Google map markers and actual trip content.
+
+**Chat companion direction:** ChatGPT can use the same shared database through
+a narrow MCP-backed custom app. Recommended v1 is data-only (no ChatGPT widget):
+read trip, find/create/flag an activity, and schedule it through the existing
+RPCs, with server-held credentials and confirmation on writes. This integration
+has not been built yet.
+
 ## 2026-08-13: 16-item Explore/Food/Day/Flagged redesign — NOT YET LIVE-VERIFIED
 
 A full redesign of Day, Explore, Food, plus a new Flagged tab, replacing the

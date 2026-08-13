@@ -47,6 +47,7 @@ const State = {
   trip: null,
   weatherHistory: {},
   currentDate: null,        // 'YYYY-MM-DD' — drives the Day tab
+  daysMode: 'detail',       // detail = one date; plan = whole-trip macro view
   exploreLegSlug: null,
   exploreFilter: 'all',
   foodLegSlug: null,
@@ -54,6 +55,11 @@ const State = {
   map: null,
   mapMarkers: [],
   mapPolylines: [],
+  flaggedMap: null,
+  flaggedMapMarkers: [],
+  proximityCache: new Map(),
+  locationCache: new Map(),
+  homeBasesHydrated: false,
   dismissed: new Set(),     // localStorage-backed, see loadDismissed()
   addTarget: null,          // { leg, day } — set right before opening the search view
 };
@@ -180,6 +186,11 @@ async function bootTrip() {
   State.trip = data;
   loadDismissed();
 
+  // The seeded coordinates were intentionally city-level approximations.
+  // Resolve the private accommodation addresses only after authentication and
+  // keep the accurate coordinates in memory for maps and travel times.
+  hydrateAccurateHomeBases();
+
   const { data: wx } = await SB.rpc('trip_planner_weather_history');
   State.weatherHistory = wx || {};
 
@@ -240,6 +251,41 @@ function entriesForDate(dateStr) {
   return found ? found.entries : [];
 }
 
+async function hydrateAccurateHomeBases() {
+  try {
+    await Promise.all(State.trip.legs.map(async (leg) => {
+      if (!leg.home_base_address) return;
+      const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Goog-Api-Key': CONFIG.GOOGLE_MAPS_API_KEY,
+          'X-Goog-FieldMask': 'places.location',
+        },
+        body: JSON.stringify({
+          textQuery: leg.home_base_address,
+          locationBias: leg.home_base_lat && leg.home_base_lng ? {
+            circle: { center: { latitude: leg.home_base_lat, longitude: leg.home_base_lng }, radius: 50000 },
+          } : undefined,
+        }),
+        referrerPolicy: GOOGLE_REFERRER_POLICY,
+      });
+      const json = await res.json();
+      const location = json.places && json.places[0] && json.places[0].location;
+      if (res.ok && location) {
+        leg.home_base_lat = location.latitude;
+        leg.home_base_lng = location.longitude;
+      }
+    }));
+  } catch (e) {
+    // The existing coordinates remain a safe fallback if Places is offline.
+  } finally {
+    State.homeBasesHydrated = true;
+    State.proximityCache.clear();
+    refreshActiveView();
+  }
+}
+
 /* ============================================================
    Day tab
    ============================================================ */
@@ -257,6 +303,9 @@ function renderDateStrip() {
 }
 
 function renderDayTab() {
+  updateDaysModeUI();
+  if (State.daysMode === 'plan') { renderPlanOverview(); return; }
+
   const entries = entriesForDate(State.currentDate);
   const sections = document.getElementById('daySections');
   sections.innerHTML = '';
@@ -297,6 +346,83 @@ function renderDayTab() {
   renderCombinedMap(entries);
   entries.forEach(({ leg, day }) => maybeFetchWeather(leg, day));
 }
+
+function updateDaysModeUI() {
+  const detail = State.daysMode === 'detail';
+  document.getElementById('dateStrip').hidden = !detail;
+  document.getElementById('dayBody').hidden = !detail;
+  document.getElementById('planOverview').hidden = detail;
+  document.querySelectorAll('[data-days-mode]').forEach((button) => {
+    const active = button.dataset.daysMode === State.daysMode;
+    button.classList.toggle('view-toggle-btn--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function renderPlanOverview() {
+  document.querySelectorAll('.fab').forEach((f) => f.remove());
+  const overview = document.getElementById('planOverview');
+  overview.innerHTML = '';
+  const days = getAllTripDays();
+  const totalStops = days.reduce((sum, item) => sum + item.entries.reduce((n, entry) => n + entry.day.stops.length, 0), 0);
+  document.getElementById('dayLegName').textContent = 'Trip plan';
+  document.getElementById('dayHomeBase').textContent = `${totalStops} planned ${totalStops === 1 ? 'stop' : 'stops'} across ${days.length} dates`;
+
+  days.forEach(({ dateStr, entries }) => {
+    const dayStops = entries.reduce((sum, entry) => sum + entry.day.stops.length, 0);
+    const card = document.createElement('section');
+    card.className = 'plan-day';
+    const head = document.createElement('div');
+    head.className = 'plan-day-head';
+    head.innerHTML = `<div><div class="plan-day-date">${escapeHtml(formatFullDay(dateStr))}</div><div class="plan-day-count">${dayStops} ${dayStops === 1 ? 'stop' : 'stops'}</div></div>`;
+    const open = document.createElement('button');
+    open.className = 'plan-day-open';
+    open.textContent = 'Open day';
+    open.addEventListener('click', () => {
+      State.currentDate = dateStr;
+      State.daysMode = 'detail';
+      renderDateStrip();
+      renderDayTab();
+    });
+    head.appendChild(open);
+    card.appendChild(head);
+
+    entries.forEach(({ leg, day }) => {
+      const legWrap = document.createElement('div');
+      legWrap.className = 'plan-leg';
+      if (entries.length > 1) {
+        const name = document.createElement('div');
+        name.className = 'plan-leg-name';
+        name.textContent = leg.name;
+        legWrap.appendChild(name);
+      }
+      const sorted = [...day.stops].sort((a, b) => a.sort_order - b.sort_order);
+      if (!sorted.length) {
+        const empty = document.createElement('div');
+        empty.className = 'plan-empty';
+        empty.textContent = 'Nothing planned yet';
+        legWrap.appendChild(empty);
+      } else {
+        sorted.forEach((stop, index) => {
+          const row = document.createElement('div');
+          row.className = 'plan-stop' + (stop.status === 'done' ? ' plan-stop--done' : '');
+          row.innerHTML = `<span class="plan-stop-num">${index + 1}</span><span>${escapeHtml(stop.name)}</span>`;
+          legWrap.appendChild(row);
+        });
+      }
+      card.appendChild(legWrap);
+    });
+    overview.appendChild(card);
+  });
+}
+
+document.getElementById('daysViewToggle').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-days-mode]');
+  if (!button || button.dataset.daysMode === State.daysMode) return;
+  State.daysMode = button.dataset.daysMode;
+  if (State.daysMode === 'detail') renderDateStrip();
+  renderDayTab();
+});
 
 function buildDaySection(leg, day, dual) {
   const section = document.createElement('div');
@@ -602,6 +728,7 @@ let mapsReady = false;
 window.onGoogleMapsReady = function () {
   mapsReady = true;
   if (State.trip) renderCombinedMap(entriesForDate(State.currentDate));
+  if (State.trip) requestAnimationFrame(renderFlaggedMap);
 };
 
 function loadGoogleMaps() {
@@ -1009,7 +1136,10 @@ function buildDiscoveryCard(cfg) {
         <div class="discovery-card-title"></div>
         <div class="discovery-card-area"></div>
       </div>
-      <div class="discovery-card-rank"></div>
+      <div class="discovery-card-head-meta">
+        <div class="discovery-card-rank"></div>
+        <div class="discovery-card-proximity" data-proximity-key=""></div>
+      </div>
     </div>
     <div class="discovery-card-row">
       <div class="discovery-chips"></div>
@@ -1030,6 +1160,10 @@ function buildDiscoveryCard(cfg) {
   card.querySelector('.discovery-card-area').textContent = cfg.area;
   const rank = card.querySelector('.discovery-card-rank');
   if (cfg.rankLabel) rank.textContent = cfg.rankLabel; else rank.remove();
+  const proximity = card.querySelector('.discovery-card-proximity');
+  proximity.dataset.proximityKey = cfg.proximityKey;
+  proximity.textContent = State.proximityCache.get(cfg.proximityKey) || '… mins';
+  proximity.setAttribute('aria-label', `Driving time from ${cfg.homeLabel}`);
 
   const chips = card.querySelector('.discovery-chips');
   cfg.chips.forEach((text) => {
@@ -1106,6 +1240,79 @@ function buildDiscoveryCard(cfg) {
   return card;
 }
 
+function catalogueLocationKey(kind, leg, item) { return `${kind}:${leg.slug}:${item.id}`; }
+
+async function resolveCatalogueLocation(kind, leg, item) {
+  const key = catalogueLocationKey(kind, leg, item);
+  if (State.locationCache.has(key)) return State.locationCache.get(key);
+  const saved = findSavedCatalogueActivity(leg, item);
+  let location = saved && saved.lat && saved.lng ? { lat: saved.lat, lng: saved.lng } : null;
+  if (!location && item.lat && item.lng) location = { lat: item.lat, lng: item.lng };
+  if (!location && kind === 'explore') {
+    const place = await findGuidePlace(item, leg);
+    if (place && place.location) location = { lat: place.location.latitude, lng: place.location.longitude };
+  }
+  State.locationCache.set(key, location);
+  return location;
+}
+
+function updateProximityLabels(key, value) {
+  document.querySelectorAll('[data-proximity-key]').forEach((el) => {
+    if (el.dataset.proximityKey === key) el.textContent = value;
+  });
+}
+
+async function loadProximities(kind, leg, items) {
+  if (!State.homeBasesHydrated || !leg.home_base_lat || !leg.home_base_lng || !items.length) return;
+  const unresolved = items.filter((item) => !State.proximityCache.has(catalogueLocationKey(kind, leg, item)));
+  items.forEach((item) => {
+    const key = catalogueLocationKey(kind, leg, item);
+    if (State.proximityCache.has(key)) updateProximityLabels(key, State.proximityCache.get(key));
+  });
+  if (!unresolved.length) return;
+
+  const resolved = await Promise.all(unresolved.map(async (item) => ({ item, location: await resolveCatalogueLocation(kind, leg, item) })));
+  const routable = resolved.filter((entry) => entry.location);
+  resolved.filter((entry) => !entry.location).forEach(({ item }) => {
+    const key = catalogueLocationKey(kind, leg, item);
+    State.proximityCache.set(key, '—');
+    updateProximityLabels(key, '—');
+  });
+  if (!routable.length) return;
+
+  try {
+    const res = await fetch('https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': CONFIG.GOOGLE_MAPS_API_KEY,
+        'X-Goog-FieldMask': 'destinationIndex,status,condition,duration',
+      },
+      body: JSON.stringify({
+        origins: [{ waypoint: { location: { latLng: { latitude: leg.home_base_lat, longitude: leg.home_base_lng } } } }],
+        destinations: routable.map(({ location }) => ({ waypoint: { location: { latLng: { latitude: location.lat, longitude: location.lng } } } })),
+        travelMode: 'DRIVE',
+        routingPreference: CONFIG.routingPreference || 'TRAFFIC_AWARE',
+        units: 'METRIC',
+      }),
+      referrerPolicy: GOOGLE_REFERRER_POLICY,
+    });
+    const matrix = await res.json();
+    if (!res.ok || !Array.isArray(matrix)) throw new Error('Route matrix unavailable');
+    matrix.forEach((result) => {
+      const entry = routable[result.destinationIndex];
+      if (!entry || result.condition !== 'ROUTE_EXISTS' || !result.duration) return;
+      const minutes = Math.max(1, Math.round(parseFloat(result.duration) / 60));
+      const key = catalogueLocationKey(kind, leg, entry.item);
+      const label = `${minutes} mins`;
+      State.proximityCache.set(key, label);
+      updateProximityLabels(key, label);
+    });
+  } catch (e) {
+    routable.forEach(({ item }) => updateProximityLabels(catalogueLocationKey(kind, leg, item), '—'));
+  }
+}
+
 /* ============================================================
    Explore — leg-toggled, catalogue-backed discovery.
    ============================================================ */
@@ -1155,6 +1362,7 @@ function renderExplore() {
 
   list.innerHTML = '';
   visible.forEach((item) => list.appendChild(buildExploreCard(item, leg)));
+  loadProximities('explore', leg, visible);
 }
 
 function buildExploreCard(item, leg) {
@@ -1162,6 +1370,7 @@ function buildExploreCard(item, leg) {
   return buildDiscoveryCard({
     icon: item.icon, title: item.name, area: item.area,
     rankLabel: (item.filters || []).includes('top') ? 'Best bet' : null,
+    proximityKey: catalogueLocationKey('explore', leg, item), homeLabel: leg.home_base_label,
     chips: [item.duration, item.cost, weatherLabels[item.weather] || item.weather],
     why: item.why, current: item.current, tip: item.booking ? `Plan it: ${item.booking}` : null, pair: item.pair ? `Pairs well: ${item.pair}` : null,
     sourceUrl: item.sourceUrl, sourceLabel: item.sourceLabel,
@@ -1244,11 +1453,13 @@ function renderFood() {
 
   list.innerHTML = '';
   visible.forEach((item) => list.appendChild(buildFoodCard(item, leg)));
+  loadProximities('food', leg, visible);
 }
 
 function buildFoodCard(item, leg) {
   return buildDiscoveryCard({
     icon: item.icon, title: item.name, area: item.area,
+    proximityKey: catalogueLocationKey('food', leg, item), homeLabel: leg.home_base_label,
     chips: item.cuisines.concat([item.price]),
     proof: item.proof, why: item.why, kid: item.kidFit ? `Age-six fit: ${item.kidFit}` : null, headsUp: item.headsUp ? `Heads up: ${item.headsUp}` : null,
     sourceUrl: item.sourceUrl, sourceLabel: item.sourceLabel,
@@ -1287,22 +1498,14 @@ function renderFlagged() {
   const el = document.getElementById('flaggedList');
   el.innerHTML = '';
   if (!State.trip) return;
+  const leg = findLegBySlug('vancouver');
+  const flagged = leg ? leg.activities.filter((a) => a.flagged) : [];
 
-  let any = false;
-  State.trip.legs.forEach((leg) => {
-    const flagged = leg.activities.filter((a) => a.flagged);
-    if (!flagged.length) return;
-    any = true;
-    const label = document.createElement('div');
-    label.className = 'flagged-leg-label';
-    label.textContent = leg.name;
-    el.appendChild(label);
-
-    flagged.forEach((activity) => {
+  flagged.forEach((activity, index) => {
       const card = document.createElement('div');
       card.className = 'result-card';
       card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div><div class="result-note"></div></div><div class="result-actions"></div>';
-      card.querySelector('.result-name').textContent = activity.name;
+      card.querySelector('.result-name').textContent = `${index + 1}. ${activity.name}`;
       card.querySelector('.result-sub').textContent = activity.category;
       const noteEl = card.querySelector('.result-note');
       if (activity.notes) noteEl.textContent = activity.notes; else noteEl.remove();
@@ -1351,10 +1554,56 @@ function renderFlagged() {
 
       el.appendChild(card);
       el.appendChild(picker);
-    });
   });
 
-  if (!any) el.innerHTML = '<div class="empty-note" style="margin-top:16px">Nothing flagged yet — tap 🚩 on an Explore or Food card to start the whiteboard.</div>';
+  if (!flagged.length) el.innerHTML = '<div class="empty-note" style="margin-top:16px">Nothing flagged in Vancouver yet — tap 🚩 on an Explore or Food card to start the whiteboard.</div>';
+  requestAnimationFrame(renderFlaggedMap);
+}
+
+function renderFlaggedMap() {
+  if (!mapsReady || !State.trip) return;
+  const container = document.getElementById('flaggedMap');
+  const leg = findLegBySlug('vancouver');
+  if (!container || !leg || !leg.home_base_lat || !leg.home_base_lng) return;
+  const flagged = leg.activities.filter((activity) => activity.flagged);
+  const located = flagged.filter((activity) => activity.lat && activity.lng);
+  document.getElementById('flaggedMapSummary').textContent = `${flagged.length} flagged · ${located.length} mapped · accommodation marked H`;
+
+  if (!State.flaggedMap) {
+    State.flaggedMap = new google.maps.Map(container, {
+      center: { lat: leg.home_base_lat, lng: leg.home_base_lng }, zoom: MAP_HOME_ZOOM,
+      mapTypeControl: false, fullscreenControl: true, zoomControl: true,
+      streetViewControl: false, gestureHandling: 'greedy',
+    });
+  }
+  State.flaggedMapMarkers.forEach((marker) => marker.setMap(null));
+  State.flaggedMapMarkers = [];
+  const bounds = new google.maps.LatLngBounds();
+  const home = { lat: leg.home_base_lat, lng: leg.home_base_lng };
+  State.flaggedMapMarkers.push(new google.maps.Marker({
+    position: home, map: State.flaggedMap, title: leg.home_base_label,
+    label: { text: 'H', color: '#fff', fontSize: '11px', fontWeight: '700' },
+  }));
+  bounds.extend(home);
+  located.forEach((activity) => {
+    const index = flagged.indexOf(activity) + 1;
+    const position = { lat: activity.lat, lng: activity.lng };
+    State.flaggedMapMarkers.push(new google.maps.Marker({
+      position, map: State.flaggedMap, title: activity.name,
+      label: { text: String(index), color: '#fff', fontSize: '11px', fontWeight: '700' },
+    }));
+    bounds.extend(position);
+  });
+  google.maps.event.trigger(State.flaggedMap, 'resize');
+  if (!located.length) {
+    State.flaggedMap.setCenter(home);
+    State.flaggedMap.setZoom(MAP_HOME_ZOOM);
+  } else {
+    State.flaggedMap.fitBounds(bounds, 40);
+    google.maps.event.addListenerOnce(State.flaggedMap, 'idle', () => {
+      if (State.flaggedMap.getZoom() > MAP_MAX_FIT_ZOOM) State.flaggedMap.setZoom(MAP_MAX_FIT_ZOOM);
+    });
+  }
 }
 
 /* ============================================================
@@ -1390,11 +1639,12 @@ function renderAmenities() {
 document.querySelectorAll('[data-nav]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const view = btn.dataset.nav;
+    App.show(view);
+    if (view === 'day') { renderDateStrip(); renderDayTab(); }
     if (view === 'explore') renderExplore();
     if (view === 'food') renderFood();
     if (view === 'flagged') renderFlagged();
     if (view === 'amenities') renderAmenities();
-    App.show(view);
   });
 });
 
