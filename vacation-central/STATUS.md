@@ -25,6 +25,20 @@ real browser:
 - Manual up/down reorder, and stop status cycling (planned → done → skipped)
 - Idea library and amenities views
 
+### Standard map styling — don't re-theme it
+
+The map shipped with a custom dark style matching the app palette, POI
+labels switched off. It read as a broken map: dark, label-free tiles look
+exactly like tiles failing to load, and that's what it was mistaken for on
+sight. Reverted 2026-08-13 to Google's standard styling, which also brings
+POI labels back — free context on a trip planner, since you can see the
+restaurants and parks you haven't added yet.
+
+`--map-bg` is now Google's own canvas grey rather than the app's dark
+surface, so the placeholder doesn't flash dark-to-light while tiles load.
+The dark app chrome around a normal-looking map is the intended result, not
+an oversight.
+
 ### Removal exists now, and it breaks a Life Hub convention on purpose
 
 `20260813090000_trip_planner_remove_functions.sql` adds
@@ -159,9 +173,10 @@ Done so far:
   for the exact scenario Keely will hit first (`error.code === '42501'` from
   `is_household_member()`'s check, caught explicitly rather than shown as a
   generic error). Day view: leg tabs, a horizontal day strip, a weather card
-  with a change-alert state, a real embedded Google Map (dark-styled to
-  match the palette) showing the day's stops and route, and an ordered stop
-  list. Adding a stop: live Places text search, or reuse anything already in
+  with a change-alert state, a real embedded Google Map showing the day's
+  stops and route, and an ordered stop list. (The map was originally
+  dark-styled to match the palette; that was reverted 2026-08-13 — see
+  "Standard map styling" below.) Adding a stop: live Places text search, or reuse anything already in
   the leg's idea library, or — for things that aren't real searchable venues
   ("relax at the pool") — a manual add-without-location form. Reordering:
   an "Optimize order" button that calls the Routes API's waypoint
