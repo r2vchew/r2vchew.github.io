@@ -161,9 +161,9 @@ body{
   color:var(--muted-3);margin:0 0 8px;
 }
 .stop-card{
-  display:flex;align-items:center;gap:12px;background:var(--surface-2);
-  border-radius:14px;padding:12px 14px;margin-bottom:8px;
+  background:var(--surface-2);border-radius:14px;padding:12px 14px;margin-bottom:8px;
 }
+.stop-card-row{display:flex;align-items:center;gap:12px}
 .stop-order{
   width:24px;height:24px;border-radius:50%;background:var(--surface-3);
   color:var(--muted);font-size:11.5px;font-weight:700;
@@ -187,6 +187,26 @@ body{
   align-items:center;justify-content:center;font-size:10px;line-height:1;
 }
 .stop-reorder-btn:disabled{opacity:0.3}
+.stop-move-btn{
+  width:30px;height:30px;border-radius:9px;border:1px solid var(--hairline);
+  background:var(--surface-3);color:var(--muted);flex:0 0 auto;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+}
+.stop-move-btn:disabled{opacity:0.3}
+
+/* The inline day picker a move tap reveals — same pattern as
+   .discovery-day-picker in Explore/Food, scoped to this stop's own leg so a
+   mis-tap can't move something to the wrong leg's days. */
+.stop-day-picker{
+  display:flex;gap:6px;overflow-x:auto;margin-top:10px;padding-top:10px;
+  border-top:1px solid var(--hairline);scrollbar-width:none;
+}
+.stop-day-picker::-webkit-scrollbar{display:none}
+.stop-day-picker button{
+  flex:0 0 auto;padding:7px 11px;border-radius:16px;border:1px solid var(--accent);
+  background:var(--surface-3);color:var(--ink);font-family:var(--sans);
+  font-size:11.5px;font-weight:700;white-space:nowrap;
+}
 
 /* ---------- remove (two-tap: ✕ then "Sure?") ---------- */
 .remove-btn{

@@ -1,6 +1,58 @@
 # Status
 
-Last updated: 2026-08-13
+Last updated: 2026-08-14
+
+## 2026-08-14: v12 — move a stop to a different day
+
+The Day tab had no way to move an already-scheduled stop to another date —
+only remove-and-re-add by hand. Considered press-and-hold (mobile) /
+right-click (desktop), but rejected it: no precedent anywhere else in this
+app, bad discoverability for Keely/Vince, and it fights one-handed outdoor
+use the same way a long-press-vs-scroll conflict would (the remove button's
+own two-tap "Sure?" design was a deliberate reaction to exactly that
+problem — see below). Went instead with a visible **⇄ Move** icon button on
+each stop card that reveals the leg's other days as a horizontal strip —
+the same inline-day-picker pattern Explore/Food already use for scheduling
+(`buildDiscoveryCard`'s 📅 button), just reused for stops. Same tap on
+mobile and desktop, zero new gestures, and the picker only ever lists the
+stop's own leg's days, so a mis-tap can't move a Harrison stop onto a
+Vancouver date.
+
+There's no dedicated "move" RPC in the schema — a `day_stop` belongs to one
+`day_id`. `moveStopToDay()` does `trip_planner_remove_stop` on the old day
+then `trip_planner_add_stop` (same `activity_id`) on the new one, mirroring
+how Explore/Food already reuse an existing activity rather than duplicating
+it. One real consequence: `trip_planner_add_stop` doesn't take status or
+planned_time, so a moved stop always lands back at **planned** on its new
+day — status doesn't carry across. Treated that as correct rather than a
+gap: a plan records intentions, and a stop's "done/skipped" state belongs
+to the day it was actually done or skipped on, not wherever it gets
+replanned to next.
+
+Ships with the existing toast+Undo pattern; Undo just calls
+`moveStopToDay()` again with the days swapped. Caught one real bug in local
+testing before it shipped: the first version re-rendered by
+`document.getElementById('stopList-' + day.id)`, which works for the
+source day (always on screen, since that's where the ⇄ was tapped) but
+not reliably for the day a stop is moving *to* — and Undo moves stops back
+to a day that's just as likely off-screen. That day's stop-list element
+may never have been created in the DOM, so `.innerHTML = ''` on `null`
+would throw. Fixed by using the existing `refreshActiveView()` helper
+instead (already documented as the seam for exactly this — a mutation that
+might not match what's currently on screen), which re-derives from
+`State.currentDate` rather than assuming a specific day's DOM node exists.
+
+**Verification:** local Playwright session (Chromium, 390×844, stubbed
+Supabase client and a two-day Harrison fixture) exercised the full path
+live: tapped ⇄, confirmed the picker showed only the other day, moved the
+stop, confirmed the correct `remove_stop` → `add_stop` RPC pair fired with
+the right `p_the_date`/`p_activity_id`, confirmed the card left the
+original day (empty-note shown) and appeared on the target day when
+navigated to, then tapped Undo from the *original* (non-target) day —
+the exact scenario the DOM-lookup bug above would have crashed on — and
+confirmed the reversing RPC pair fired and the stop landed back with zero
+uncaught JS errors at any step. Screenshot saved locally, not committed.
+Cache and asset versions moved together to `vacation-central-v12`.
 
 ## 2026-08-13: v11 proximity, Flagged map and Days plan view
 

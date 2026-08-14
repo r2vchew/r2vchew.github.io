@@ -478,20 +478,25 @@ function renderStopsInto(el, leg, day) {
     return;
   }
   const sorted = [...day.stops].sort((a, b) => a.sort_order - b.sort_order);
+  const otherDays = leg.days.filter((d) => d.id !== day.id);
   sorted.forEach((stop, i) => {
     const card = document.createElement('div');
     card.className = 'stop-card';
     card.innerHTML = `
-      <div class="stop-order">${i + 1}</div>
-      <div class="stop-info">
-        <div class="stop-name${stop.status === 'done' ? ' stop-name--done' : ''}"></div>
-        <div class="stop-meta"></div>
+      <div class="stop-card-row">
+        <div class="stop-order">${i + 1}</div>
+        <div class="stop-info">
+          <div class="stop-name${stop.status === 'done' ? ' stop-name--done' : ''}"></div>
+          <div class="stop-meta"></div>
+        </div>
+        <div class="stop-reorder">
+          <button class="stop-reorder-btn" data-dir="up">▲</button>
+          <button class="stop-reorder-btn" data-dir="down">▼</button>
+        </div>
+        <button class="stop-move-btn" aria-label="Move to another day">⇄</button>
+        <button class="stop-status-btn${stop.status === 'done' ? ' stop-status-btn--done' : ''}${stop.status === 'skipped' ? ' stop-status-btn--skipped' : ''}"></button>
       </div>
-      <div class="stop-reorder">
-        <button class="stop-reorder-btn" data-dir="up">▲</button>
-        <button class="stop-reorder-btn" data-dir="down">▼</button>
-      </div>
-      <button class="stop-status-btn${stop.status === 'done' ? ' stop-status-btn--done' : ''}${stop.status === 'skipped' ? ' stop-status-btn--skipped' : ''}"></button>
+      <div class="stop-day-picker" style="display:none"></div>
     `;
     card.querySelector('.stop-name').textContent = stop.name;
     card.querySelector('.stop-meta').textContent = stop.category + (stop.planned_time ? ' · ' + stop.planned_time : '');
@@ -506,7 +511,27 @@ function renderStopsInto(el, leg, day) {
     upBtn.addEventListener('click', () => moveStop(leg, day, stop.id, -1));
     downBtn.addEventListener('click', () => moveStop(leg, day, stop.id, 1));
 
-    card.appendChild(makeRemoveButton('✕', () => removeStop(leg, day, stop)));
+    const moveBtn = card.querySelector('.stop-move-btn');
+    const picker = card.querySelector('.stop-day-picker');
+    if (!otherDays.length) {
+      moveBtn.disabled = true;
+    } else {
+      moveBtn.addEventListener('click', () => {
+        const open = picker.style.display !== 'none';
+        picker.style.display = open ? 'none' : 'flex';
+      });
+      otherDays.forEach((targetDay) => {
+        const dayBtn = document.createElement('button');
+        dayBtn.textContent = formatDayLabel(targetDay.the_date);
+        dayBtn.addEventListener('click', () => {
+          picker.style.display = 'none';
+          moveStopToDay(leg, day, stop, targetDay);
+        });
+        picker.appendChild(dayBtn);
+      });
+    }
+
+    card.querySelector('.stop-card-row').appendChild(makeRemoveButton('✕', () => removeStop(leg, day, stop)));
 
     el.appendChild(card);
   });
@@ -591,6 +616,42 @@ async function persistReorder(leg, day, orderedStopIds) {
   orderedStopIds.forEach((id, i) => { const s = day.stops.find((x) => x.id === id); if (s) s.sort_order = i; });
   renderStopsInto(document.getElementById(`stopList-${day.id}`), leg, day);
   renderCombinedMap(entriesForDate(State.currentDate));
+}
+
+/* There's no dedicated "move" RPC — a day_stop belongs to one day_id, so
+   moving is remove-from-here + re-add-there against the same activity_id,
+   same as how Explore/Food already reuse an existing activity. Status and
+   planned_time don't carry over (add_stop doesn't take them): a moved stop
+   lands back at "planned" on its new day, which matches the redesign's
+   overall stance that a plan is intentions, not a log of what happened. */
+async function moveStopToDay(leg, day, stop, targetDay) {
+  const { error: removeError } = await SB.rpc('trip_planner_remove_stop', { p_day_stop_id: stop.id });
+  if (removeError) { App.toast('Could not move: ' + removeError.message); return; }
+  day.stops = day.stops.filter((s) => s.id !== stop.id);
+  resequence(day.stops);
+
+  const { data: newStopId, error: addError } = await SB.rpc('trip_planner_add_stop', {
+    p_leg_slug: leg.slug, p_the_date: targetDay.the_date, p_activity_id: stop.activity_id,
+  });
+  if (addError) {
+    App.toast(`Removed from ${formatDayLabel(day.the_date)} but could not add to ${formatDayLabel(targetDay.the_date)}: ` + addError.message);
+    refreshActiveView();
+    return;
+  }
+  const movedStop = {
+    id: newStopId, activity_id: stop.activity_id, sort_order: targetDay.stops.length, planned_time: null, status: 'planned',
+    name: stop.name, category: stop.category, address: stop.address, lat: stop.lat, lng: stop.lng, notes: stop.notes,
+  };
+  targetDay.stops.push(movedStop);
+  // Not renderStopsInto(getElementById(...)) directly: the day the stop
+  // landed on (or, on Undo, the day it came from) is often not the one
+  // currently on screen, so its stopList element may not exist in the DOM
+  // at all. refreshActiveView() re-derives from State.currentDate instead,
+  // same as every other mutation that can be triggered from more than one
+  // place (see its own comment above).
+  refreshActiveView();
+
+  App.toast(`Moved ${stop.name} to ${formatDayLabel(targetDay.the_date)}.`, () => moveStopToDay(leg, targetDay, movedStop, day));
 }
 
 /* ============================================================
