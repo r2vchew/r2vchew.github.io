@@ -1,7 +1,13 @@
 /* Vancouver family activity catalogue.
    Research refreshed 2026-08-13 from official attraction, municipal, and
    tourism sources. Volatile prices and opening times stay behind the source
-   links; this file keeps only planning-level guidance that is useful in-app. */
+   links; this file keeps only planning-level guidance that is useful in-app.
+   2026-08-15: added a Chinatown cluster (ranks 25-29), checked fresh against
+   each venue's own site. The old-style Chinatown Night Market shows up in a
+   lot of search results but is not reliably operating in 2026 (Yelp lists it
+   CLOSED; the one confirmed 2026 Chinatown event, the BMO Chinatown Festival,
+   already happened July 25-26, before this trip) — left out rather than
+   risk sending the family to a market that isn't there. */
 'use strict';
 
 window.VANCOUVER_GUIDE = Object.freeze([
@@ -227,5 +233,53 @@ window.VANCOUVER_GUIDE = Object.freeze([
     why: 'The glass elevator and 360-degree view are a short, low-effort way to help a child understand the city you have been exploring.',
     booking: 'Aim for a clear day; advance tickets are recommended.', pair: 'Gastown Steam Clock or Canada Place',
     sourceUrl: 'https://vancouverlookout.com/know-before-you-go', sourceLabel: 'Lookout visitor info',
+  },
+  {
+    id: 'sun-yat-sen-garden', rank: 25, icon: '🎋', name: 'Dr. Sun Yat-Sen Classical Chinese Garden',
+    aliases: ['Sun Yat-Sen Classical Chinese Garden', 'Chinese Garden'], placeQuery: 'Dr. Sun Yat-Sen Classical Chinese Garden Vancouver',
+    category: 'attraction', area: 'Chinatown', duration: '1–1.5 hr', cost: '$$', weather: 'mixed',
+    filters: ['top'],
+    why: 'The first full-scale Ming-dynasty-style garden built outside China — koi and turtles in the pond, covered walkways and moon-gate doorways give a six-year-old plenty to spot on a guided tour.',
+    current: 'Closed Mondays; children under 6 are free but Lily (6) needs a ticket — the two-adult/up-to-three-kids family rate is the better deal.',
+    booking: 'A free 45-minute guided tour runs most days — worth timing the visit around it.', pair: 'Sun Yat-Sen Park next door, or the Chinatown Storytelling Centre',
+    sourceUrl: 'https://vancouverchinesegarden.com/visit/', sourceLabel: 'Garden visitor info',
+  },
+  {
+    id: 'sun-yat-sen-park', rank: 26, icon: '🪷', name: 'Sun Yat-Sen Park',
+    aliases: ['Dr. Sun Yat-Sen Park'], placeQuery: 'Dr. Sun Yat-Sen Park Vancouver Chinatown',
+    category: 'outdoor', area: 'Chinatown', duration: '20–30 min', cost: 'Free', weather: 'mixed',
+    filters: ['free', 'outdoor'],
+    why: 'The free public half of the same pond and garden grounds — enough lotus flowers, koi and a pavilion to enjoy without paying for or queuing at the ticketed garden.',
+    booking: 'A relaxed 20-minute stop; pairs naturally either side of the ticketed garden.', pair: 'Dr. Sun Yat-Sen Classical Chinese Garden',
+    sourceUrl: 'https://covapp.vancouver.ca/ParkFinder/parkdetail.aspx?inparkid=30', sourceLabel: 'City park page',
+  },
+  {
+    id: 'chinatown-storytelling-centre', rank: 27, icon: '📞', name: 'Chinatown Storytelling Centre',
+    aliases: ['Storytelling Centre'], placeQuery: 'Chinatown Storytelling Centre Vancouver',
+    category: 'attraction', area: 'Chinatown', duration: '45–75 min', cost: '$', weather: 'indoors',
+    filters: ['top', 'rain'],
+    why: 'Built for hands-on exploring rather than reading walls of text: a pagoda phone booth of recorded stories, a dress-up photo studio and a projected banquet-table game a six-year-old can actually play.',
+    current: 'Open Friday to Sunday only (closed Mon-Thu) — of this trip’s Vancouver days (17 Mon - 21 Fri), only Friday the 21st works.',
+    booking: 'Children 11 and under are free with a ticketed adult.', pair: 'Chinese Canadian Museum or the Millennium Gate walk',
+    sourceUrl: 'https://www.chinatownstorytellingcentre.org/visit/', sourceLabel: 'Storytelling Centre visitor info',
+  },
+  {
+    id: 'chinese-canadian-museum', rank: 28, icon: '🏮', name: 'Chinese Canadian Museum',
+    aliases: ['Chinese Canadian Museum at the Wing Sang Building', 'Wing Sang Building'], placeQuery: 'Chinese Canadian Museum Vancouver Wing Sang Building',
+    category: 'attraction', area: 'Chinatown', duration: '45–75 min', cost: '$', weather: 'indoors',
+    filters: ['rain'],
+    why: 'Vancouver’s oldest Chinatown building (1889), with real family history behind it — leans more look-and-listen than hands-on, so it suits a calmer stretch of the day rather than the main event.',
+    current: 'Open Wed-Sun plus holiday Mondays (closed Mon-Tue otherwise) — of this trip’s Vancouver days (17 Mon - 21 Fri), Wed 19 through Fri 21 work; Mon 17 and Tue 18 do not.',
+    booking: 'Pair with the more interactive Storytelling Centre so the museum stretch stays short.', pair: 'Chinatown Storytelling Centre',
+    sourceUrl: 'https://www.chinesecanadianmuseum.ca/plan-your-visit/', sourceLabel: 'Museum visitor info',
+  },
+  {
+    id: 'chinatown-gate-walk', rank: 29, icon: '🀄', name: 'Millennium Gate + Sam Kee Building walk',
+    aliases: ['Chinatown Millennium Gate', 'Sam Kee Building', "World's Narrowest Building"], placeQuery: 'Chinatown Millennium Gate Vancouver',
+    category: 'outdoor', area: 'Chinatown', duration: '20–30 min', cost: 'Free', weather: 'mixed',
+    filters: ['top', 'free', 'outdoor'],
+    why: 'Give it a mission instead of a stroll: find the stone lions guarding the big dragon-topped gate, then walk one block to the Sam Kee Building — a real Guinness World Record for narrowest building, under 5 feet wide.',
+    booking: 'A quick 20-minute add-on before or after anything else in Chinatown, any day, any weather.', pair: 'Any of the other Chinatown stops',
+    sourceUrl: 'https://vancouver.ca/parks-recreation-culture/chinatown-architectural-walk.aspx', sourceLabel: 'City architectural walk guide',
   },
 ]);

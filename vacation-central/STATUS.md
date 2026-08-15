@@ -1,6 +1,53 @@
 # Status
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
+
+## 2026-08-15: v13 — a Chinatown cluster in Vancouver Explore
+
+Vince wants to show Lily some notable Chinatown spots. Added 5 entries to
+`vancouver-guide.js` (ranks 25-29), each freshly checked against its own
+official site rather than assumed:
+
+- **Dr. Sun Yat-Sen Classical Chinese Garden** — the ticketed Ming-dynasty
+  garden, koi/turtles/moon gates, free guided tour most days. Closed
+  Mondays; under-6 is free but Lily (6) needs a ticket.
+- **Sun Yat-Sen Park** — the free public half of the same grounds, for
+  pairing with the ticketed garden without paying twice.
+- **Chinatown Storytelling Centre** — genuinely hands-on for a six-year-old
+  (a phone-booth of recorded stories, a dress-up photo studio, a projected
+  banquet game), tagged `top` on that basis. **Open Friday-Sunday only.**
+  Checked against this trip's actual Vancouver days (17 Mon - 21 Fri): only
+  **Friday the 21st** works.
+- **Chinese Canadian Museum** (Wing Sang Building) — more look-and-listen
+  than hands-on, so not tagged `top`; paired with the Storytelling Centre
+  in its own copy so the museum stretch of the day stays short. Open
+  Wed-Sun (+holiday Mondays): of this trip's days, Wed 19 - Fri 21 work,
+  Mon 17 and Tue 18 don't.
+- **Millennium Gate + Sam Kee Building walk** — free 20-minute add-on,
+  framed as a mission (find the lions on the gate, then the Guinness
+  World Record narrowest building) rather than a plain stroll.
+
+**Deliberately left out:** the old Chinatown Night Market. It shows up
+constantly in search results, but current sources disagree on whether it
+still operates — Yelp lists the venue CLOSED, and the one Chinatown event
+confirmed for 2026 (the BMO Chinatown Festival) already ran July 25-26,
+before this trip's Vancouver leg even starts. Sending the family there on
+a guess wasn't worth the risk of a wasted evening; can revisit if a 2026
+season is ever confirmed directly by the organizers.
+
+Cache and asset versions moved together to `vacation-central-v13`
+(vancouver-guide.js was the only file with real content changes this
+round).
+
+**Verification:** local Playwright session (Chromium, 390×844, stubbed
+Supabase client, a two-day Vancouver fixture spanning the 17th and 21st)
+confirmed all 29 Vancouver cards render (24 existing + 5 new), all five
+new cards show `area: Chinatown` with the right title/why/source-link
+text, the `top` filter includes the Storytelling Centre, the `free` filter
+includes Sun Yat-Sen Park, and scheduling the Millennium Gate walk fired
+the expected `trip_planner_add_activity` → `trip_planner_add_stop` RPC
+pair, removed the card from the list, and showed the correct toast — all
+with zero uncaught JS errors. Screenshot saved locally, not committed.
 
 ## 2026-08-14: v12 — move a stop to a different day
 

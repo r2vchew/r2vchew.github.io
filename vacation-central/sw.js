@@ -3,16 +3,16 @@
    on styles.css/config.js/app.js in index.html too — otherwise the plain
    HTTP cache (separate from this service worker) can keep serving stale JS
    after an update. Same gotcha route-optimizer's OPERATIONS.md documents. */
-const CACHE = 'vacation-central-v12';
+const CACHE = 'vacation-central-v13';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=12',
-  './config.js?v=12',
-  './vancouver-guide.js?v=12',
-  './harrison-guide.js?v=12',
-  './food-catalogue.js?v=12',
-  './app.js?v=12',
+  './styles.css?v=13',
+  './config.js?v=13',
+  './vancouver-guide.js?v=13',
+  './harrison-guide.js?v=13',
+  './food-catalogue.js?v=13',
+  './app.js?v=13',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
