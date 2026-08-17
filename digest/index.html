@@ -12,7 +12,7 @@
     --paper:#F1F2F0; --surface:#FBFCFA;
     --ink:#121614; --ink-2:#414A45; --ink-3:#6E7873; --ink-4:#9AA39E;
     --rule:#DBDFDA; --rule-2:#E7EAE5;
-    --accent:#1F6F6B; --accent-soft:#DCE9E7;
+    --accent:#1F6F6B; --accent-soft:#DCE9E7; --accent-deep:#123F3C;
     --flag:#8A5300; --flag-soft:#F3E7D3;
     --display:Georgia,"Iowan Old Style","Times New Roman",serif;
     --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -21,7 +21,8 @@
   @media (prefers-color-scheme:dark){
     :root{--paper:#101312;--surface:#171B19;--ink:#E6EAE7;--ink-2:#B2BAB6;
       --ink-3:#848D89;--ink-4:#5D6663;--rule:#282D2B;--rule-2:#1E2321;
-      --accent:#5DB7B0;--accent-soft:#16302E;--flag:#D59B4E;--flag-soft:#2E2415;}
+      --accent:#5DB7B0;--accent-soft:#16302E;--accent-deep:#2E6B66;
+      --flag:#D59B4E;--flag-soft:#2E2415;}
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0}
@@ -83,9 +84,10 @@
                 border:1px solid var(--rule);background:transparent;color:var(--ink-4);cursor:pointer}
   .scope button[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);
                                      background:var(--accent-soft)}
-  .clearall{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
-            padding:6px 10px;border-radius:5px;margin-left:auto;cursor:pointer;
-            border:1px solid var(--rule);background:transparent;color:var(--flag)}
+  button.clearall{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+            padding:6px 11px;border-radius:5px;margin-left:auto;cursor:pointer;font-weight:600;
+            border:1px solid var(--accent-deep);background:var(--accent-deep);color:var(--paper)}
+  button.clearall:hover{opacity:.88}
 
   /* ---- urgent ---- */
   .urgent{border:1px solid var(--flag);background:var(--flag-soft);border-radius:7px;
@@ -175,8 +177,11 @@
   .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:74px;z-index:40;
          background:var(--ink);color:var(--paper);font-size:13.5px;padding:10px 16px;
          border-radius:7px;opacity:0;pointer-events:none;transition:opacity .18s;
-         max-width:88vw;text-align:center}
+         max-width:88vw;display:flex;align-items:center;justify-content:center;gap:12px}
   .toast.show{opacity:1}
+  .toast.actionable{pointer-events:auto}
+  .toast #toastUndo{font:inherit;font-weight:700;text-decoration:underline;color:inherit;
+                    background:none;border:0;cursor:pointer;padding:2px;flex:0 0 auto}
   @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
@@ -215,7 +220,10 @@
   <div class="dock-list" id="dockList"></div>
 </aside>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span id="toastMsg"></span>
+  <button id="toastUndo" hidden>Undo</button>
+</div>
 
 <script type="module">
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
@@ -236,8 +244,31 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function toast(msg){
-  const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+  const t = $("#toast");
+  $("#toastMsg").textContent = msg;
+  $("#toastUndo").hidden = true;
+  t.classList.remove("actionable");
+  t.classList.add("show");
   clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove("show"), 2800);
+}
+
+/* Undo is possible only because clearing has always been a stamp, never a
+   delete. A few seconds to change your mind, then it's just a clear. */
+function toastUndo(msg, ids){
+  if(!ids || !ids.length){ toast(msg); return; }
+  const t = $("#toast"), btn = $("#toastUndo");
+  $("#toastMsg").textContent = msg;
+  btn.hidden = false;
+  t.classList.add("show","actionable");
+  const hide = () => { t.classList.remove("show","actionable"); btn.onclick = null; };
+  btn.onclick = async () => {
+    hide();
+    const { error } = await sb.rpc("digest_undo", { p_story_ids: ids });
+    toast(error ? "Undo failed: " + error.message : "↺ restored");
+    if(!error) await load();
+  };
+  clearTimeout(t._t);
+  t._t = setTimeout(hide, 6000);
 }
 
 /* ---------------- auth ---------------- */
@@ -298,19 +329,24 @@ async function act(storyId, action, noteEl){
   const { data, error } = await sb.rpc("digest_act", args);
   BUSY = false;
   if(error){ toast("Didn't save: " + error.message); await load(); return; }
-  const label = TABS.find(t => t[0] === args.p_moved_to_tab);
-  const applied = (data && data.applied) || [];
-  toast(applied.length
-    ? "✓ " + applied.join(", ").replace(/moved to (\w+)/, "moved to " + (label ? label[1] : "$1"))
-    : "✓ noted");
+  const clearedIds = (data && data.cleared_ids) || [];
+  if(clearedIds.length){
+    toastUndo("✓ cleared", clearedIds);
+  } else {
+    const label = TABS.find(t => t[0] === args.p_moved_to_tab);
+    const applied = (data && data.applied) || [];
+    toast(applied.length
+      ? "✓ " + applied.join(", ").replace(/moved to (\w+)/, "moved to " + (label ? label[1] : "$1"))
+      : "✓ noted");
+  }
   if(noteEl) noteEl.value = "";
   await load();
 }
 
-/* Clear sweeps everything at or before the clicked story's position in the same
-   tab — "I read down to here." Training has no daily reading order, so it keeps
-   the old single-item behaviour. A "move to X" note always wins over the sweep:
-   the note is asking for one specific thing to move, not to bulk-clear. */
+/* Clear ↑ sweeps everything at or before the clicked story's position in the
+   same tab — "I read down to here." Only reachable outside training, which has
+   no daily reading order to sweep through. Always a pure sweep: it doesn't
+   parse the note for a move command the way plain Clear does. */
 async function clearThrough(storyId, noteEl){
   if(BUSY) return;
   BUSY = true;
@@ -320,7 +356,7 @@ async function clearThrough(storyId, noteEl){
     { p_story_id: storyId, p_note: note || null });
   BUSY = false;
   if(error){ toast("Didn't clear: " + error.message); await load(); return; }
-  toast(`✓ cleared ${data.cleared}`);
+  toastUndo(`✓ cleared ${data.cleared}`, data.cleared_ids || []);
   if(noteEl) noteEl.value = "";
   await load();
 }
@@ -334,8 +370,50 @@ async function clearTab(tabId){
   BUSY = true;
   const { data, error } = await sb.rpc("digest_clear_tab", { p_tab: tabId });
   BUSY = false;
-  toast(error ? "Didn't clear: " + error.message : `✓ cleared ${data.cleared}`);
+  if(error){ toast("Didn't clear: " + error.message); return; }
+  toastUndo(`✓ cleared ${data.cleared}`, data.cleared_ids || []);
   await load();
+}
+
+function relTime(iso){
+  const h = Math.round((Date.now() - new Date(iso).getTime()) / 3600000);
+  if(h < 1) return "just now";
+  if(h < 24) return h + "h ago";
+  return Math.round(h / 24) + "d ago";
+}
+
+function clearedEl(s){
+  const el = document.createElement("article");
+  el.className = "story compact";
+  const head = document.createElement("div"); head.className = "head";
+  const h = document.createElement("h3"); h.textContent = s.headline;
+  head.appendChild(h); el.appendChild(head);
+
+  const meta = document.createElement("div"); meta.className = "meta";
+  if(s.source_count > 1){
+    meta.insertAdjacentHTML("beforeend",
+      `<span class="chip">${s.source_count} sources</span><span class="outlets">${esc(s.outlets)}</span>`);
+  } else if(s.outlets){
+    meta.insertAdjacentHTML("beforeend", `<span class="chip one">${esc(s.outlets)}</span>`);
+  }
+  meta.insertAdjacentHTML("beforeend", `<span class="topic">cleared ${relTime(s.cleared_at)}</span>`);
+  el.appendChild(meta);
+
+  const bar = document.createElement("div"); bar.className = "acts";
+  const restore = document.createElement("button");
+  restore.className = "act primary";
+  restore.textContent = "Restore";
+  restore.addEventListener("click", async () => {
+    if(BUSY) return;
+    BUSY = true;
+    const { error } = await sb.rpc("digest_undo", { p_story_ids: [s.id] });
+    BUSY = false;
+    toast(error ? "Didn't restore: " + error.message : "↺ restored");
+    await load();
+  });
+  bar.appendChild(restore);
+  el.appendChild(bar);
+  return el;
 }
 
 /* ---------------- rendering ---------------- */
@@ -358,22 +436,15 @@ function actionBar(s){
     el.appendChild(mk("▼ less","vol","down"));
   }
   el.appendChild(mk(s.saved ? "✓ Saved" : "Save", s.saved ? "on" : "", "save"));
-
-  const clearBtn = document.createElement("button");
-  clearBtn.className = "act";
-  clearBtn.textContent = "Clear";
-  clearBtn.title = s.tab === "training"
-    ? "Remove this from the library"
-    : "Clear this and everything above it";
-  clearBtn.addEventListener("click", () => {
-    const typed = note.value.trim();
-    if(s.tab === "training" || parseCommand(typed)){
-      act(s.id, "clear", note);      // single item, or the move-note override
-    } else {
-      clearThrough(s.id, note);      // sweep this + everything above
-    }
-  });
-  el.appendChild(clearBtn);
+  el.appendChild(mk("Clear","","clear"));
+  if(s.tab !== "training"){
+    const sweep = document.createElement("button");
+    sweep.className = "act vol";
+    sweep.textContent = "Clear ↑";
+    sweep.title = "Clear this and everything above it";
+    sweep.addEventListener("click", () => clearThrough(s.id, note));
+    el.appendChild(sweep);
+  }
   el.appendChild(note);
   return el;
 }
@@ -484,9 +555,10 @@ function render(){
   else {
     const list = DATA.stories.filter(s => s.tab === TAB);
     const today = list.filter(s => !s.carried).length;
+    const clearedN = (DATA.recently_cleared||[]).filter(s => s.tab === TAB).length;
     scope.innerHTML = [["today",`Today ${today}`],
                        ["carried",`Carried over ${list.length - today}`],
-                       ["all",`All ${list.length}`]]
+                       ["cleared",`Cleared ${clearedN}`]]
       .map(([k,l])=>`<button data-scope="${k}" aria-pressed="${k===SCOPE}">${l}</button>`).join("")
       + `<button class="clearall" id="clearAll">Clear all</button>`;
     scope.querySelectorAll("button[data-scope]").forEach(b =>
@@ -511,7 +583,15 @@ function render(){
     if(SCOPE === "today")   list = list.filter(s => !s.carried);
     if(SCOPE === "carried") list = list.filter(s =>  s.carried);
 
-    if(!list.length){
+    if(SCOPE === "cleared"){
+      const cleared = (DATA.recently_cleared||[]).filter(s => s.tab === TAB);
+      if(!cleared.length){
+        c.insertAdjacentHTML("beforeend",
+          `<p class="empty-state">Nothing cleared here in the last week.</p>`);
+      } else {
+        cleared.forEach(s => c.appendChild(clearedEl(s)));
+      }
+    } else if(!list.length){
       c.insertAdjacentHTML("beforeend", `<p class="empty-state">Nothing here.</p>`);
     } else if(TAB === "news"){
       const top = list.filter(s => s.tier === "top"), rest = list.filter(s => s.tier !== "top");
