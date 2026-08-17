@@ -8,16 +8,24 @@
    connection.
 
    2026-08-13 redesign: the Day tab is no longer leg-scoped. There is one
-   chronological date strip across the whole trip; most dates belong to one
-   leg, but Aug 17 (Harrison checkout, Vancouver check-in) has a day row in
-   both legs and renders both, stacked. Explore and Food gained a leg toggle
-   instead, live from a static per-leg catalogue file each, with a shared
-   "discovery card" renderer (icon row: official link / schedule / flag /
-   dismiss, all on the same row as the duration-cost-weather chips). A new
-   Flagged tab replaced Ideas in the bottom nav — Explore/Food items that get
-   scheduled OR flagged both leave their catalogue list; flagging is the
+   chronological date strip across the whole trip; a date can in principle
+   belong to more than one leg's days table (a checkout/check-in day would
+   render both, stacked) though in practice the trip is Vancouver-only now.
+   Explore and Food render from a static per-leg catalogue file, with a
+   shared "discovery card" renderer (icon row: official link / schedule /
+   flag / dismiss, all on the same row as the duration-cost-weather chips).
+   A Flagged tab replaced Ideas in the bottom nav — Explore/Food items that
+   get scheduled OR flagged both leave their catalogue list; flagging is the
    lighter action, meant to be sorted into days later by asking in a normal
-   chat, not to a specific date.
+   chat, not to a specific date. Flagged cards reuse the same discovery-card
+   renderer (via a matched catalogue item lookup) so the full detail carries
+   over instead of collapsing to a name-and-notes summary.
+
+   2026-08-17: Harrison Hot Springs leg wrapped (checked out today), so the
+   app dropped everything Harrison-facing — its guide catalogue, the
+   Explore/Food leg toggle, and the Amenities leg switcher. The trip's past
+   Harrison days/stops are untouched in the database and still show in the
+   Day tab's history; only the forward-facing browsing surfaces were turfed.
    ============================================================ */
 'use strict';
 
@@ -194,8 +202,8 @@ async function bootTrip() {
   const { data: wx } = await SB.rpc('trip_planner_weather_history');
   State.weatherHistory = wx || {};
 
-  if (!State.exploreLegSlug) State.exploreLegSlug = findLegBySlug('vancouver') ? 'vancouver' : data.legs[0]?.slug;
-  if (!State.foodLegSlug) State.foodLegSlug = State.exploreLegSlug;
+  if (!State.exploreLegSlug) State.exploreLegSlug = 'vancouver';
+  if (!State.foodLegSlug) State.foodLegSlug = 'vancouver';
   if (!State.currentDate) {
     const days = getAllTripDays();
     const todayStr = new Date().toISOString().slice(0, 10);
@@ -427,7 +435,7 @@ document.getElementById('daysViewToggle').addEventListener('click', (event) => {
 function buildDaySection(leg, day, dual) {
   const section = document.createElement('div');
   section.className = 'day-section' + (dual ? ' day-section--dual' : '');
-  if (dual) section.style.setProperty('--leg-color', leg.slug === 'vancouver' ? 'var(--vancouver)' : 'var(--harrison)');
+  if (dual) section.style.setProperty('--leg-color', LEG_LINE_COLORS[leg.slug] || 'var(--accent)');
 
   const head = document.createElement('div');
   head.className = 'day-section-head';
@@ -471,6 +479,47 @@ function buildDaySection(leg, day, dual) {
   return section;
 }
 
+/* The Day tab keeps stop cards condensed (name + category, no chips) on
+   purpose — but for anything that came from the Explore/Food catalogue,
+   the duration/cost/tip that got collapsed into .notes at save time is
+   still one tap away instead of gone. User-added stops have no catalogue
+   match, so they just don't get a "Show more" button. */
+function buildStopMoreButton(card, stop) {
+  const match = findCatalogueItemForActivity(stop);
+  if (!match) return;
+  const { kind, item } = match;
+  const weatherLabels = { indoors: 'Rain-proof', mixed: 'Mixed weather', dry: 'Best dry', sunny: 'Sunny day' };
+  const chips = (kind === 'food' ? item.cuisines.concat([item.price]) : [item.duration, item.cost, weatherLabels[item.weather] || item.weather]).filter(Boolean);
+  const tip = item.booking || (kind === 'food' ? item.headsUp : null) || null;
+  if (!chips.length && !tip) return;
+
+  const extra = card.querySelector('.stop-extra');
+  if (chips.length) {
+    const chipsRow = document.createElement('div');
+    chipsRow.className = 'stop-extra-chips';
+    chips.forEach((text) => { const c = document.createElement('span'); c.textContent = text; chipsRow.appendChild(c); });
+    extra.appendChild(chipsRow);
+  }
+  if (tip) {
+    const tipEl = document.createElement('div');
+    tipEl.className = 'stop-extra-tip';
+    tipEl.textContent = tip;
+    extra.appendChild(tipEl);
+  }
+
+  const moreBtn = document.createElement('button');
+  moreBtn.type = 'button';
+  moreBtn.className = 'stop-more-btn';
+  moreBtn.textContent = 'Show more';
+  moreBtn.setAttribute('aria-label', `Show more details for ${stop.name}`);
+  moreBtn.addEventListener('click', () => {
+    const open = extra.style.display !== 'none';
+    extra.style.display = open ? 'none' : 'block';
+    moreBtn.textContent = open ? 'Show more' : 'Show less';
+  });
+  card.querySelector('.stop-meta').insertAdjacentElement('afterend', moreBtn);
+}
+
 function renderStopsInto(el, leg, day) {
   el.innerHTML = '';
   if (!day.stops.length) {
@@ -497,9 +546,11 @@ function renderStopsInto(el, leg, day) {
         <button class="stop-status-btn${stop.status === 'done' ? ' stop-status-btn--done' : ''}${stop.status === 'skipped' ? ' stop-status-btn--skipped' : ''}"></button>
       </div>
       <div class="stop-day-picker" style="display:none"></div>
+      <div class="stop-extra" style="display:none"></div>
     `;
     card.querySelector('.stop-name').textContent = stop.name;
     card.querySelector('.stop-meta').textContent = stop.category + (stop.planned_time ? ' · ' + stop.planned_time : '');
+    buildStopMoreButton(card, stop);
     const statusBtn = card.querySelector('.stop-status-btn');
     statusBtn.textContent = stop.status === 'done' ? '✓' : stop.status === 'skipped' ? '×' : '○';
     statusBtn.addEventListener('click', () => cycleStopStatus(leg, day, stop));
@@ -807,7 +858,7 @@ function loadGoogleMaps() {
    outdoors — recognising where you are against the Google Maps you already
    know. Standard styling also brings back POI labels, which is free context
    for a trip planner (you can see the restaurants you haven't added yet). */
-const LEG_LINE_COLORS = { vancouver: '#4f8cff', 'harrison-hot-springs': '#e0a83e' };
+const LEG_LINE_COLORS = { vancouver: '#4f8cff' };
 
 function renderCombinedMap(entries) {
   if (!mapsReady || !entries || !entries.length) return;
@@ -1116,10 +1167,11 @@ function guessCategory(types) {
 }
 
 /* ============================================================
-   Discovery cards — the shared renderer behind both Explore and Food.
-   A "catalogue item" (from vancouver-guide.js / harrison-guide.js /
-   food-catalogue.js) becomes a real `activities` row only once it's
-   scheduled or flagged; find-or-create happens in ensureCatalogueActivity.
+   Discovery cards — the shared renderer behind Explore, Food, and Flagged.
+   A "catalogue item" (from vancouver-guide.js / food-catalogue.js) becomes a
+   real `activities` row only once it's scheduled or flagged; find-or-create
+   happens in ensureCatalogueActivity. Flagged cards re-derive their catalogue
+   item from the saved activity via findCatalogueItemForActivity instead.
    ============================================================ */
 function normalizeCatalogueName(value) {
   return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -1128,6 +1180,20 @@ function normalizeCatalogueName(value) {
 function findSavedCatalogueActivity(leg, item) {
   const names = [item.name].concat(item.aliases || []).map(normalizeCatalogueName);
   return leg.activities.find((activity) => names.includes(normalizeCatalogueName(activity.name))) || null;
+}
+
+/* The reverse lookup: given a saved activity (or a day_stop, which has the
+   same .name), find the rich catalogue entry it came from — so Flagged cards
+   and the Day tab's "show more" can show duration/cost/tips instead of just
+   the flattened .notes blob ensureCatalogueActivity wrote at save time.
+   Returns null for user-added stops, which never had a catalogue entry. */
+function findCatalogueItemForActivity(activityLike) {
+  const name = normalizeCatalogueName(activityLike.name);
+  const exploreItem = (window.VANCOUVER_GUIDE || []).find((item) => [item.name].concat(item.aliases || []).map(normalizeCatalogueName).includes(name));
+  if (exploreItem) return { kind: 'explore', item: exploreItem };
+  const foodItem = (window.FOOD_GUIDE || []).find((item) => item.legSlug === 'vancouver' && [item.name].concat(item.aliases || []).map(normalizeCatalogueName).includes(name));
+  if (foodItem) return { kind: 'food', item: foodItem };
+  return null;
 }
 
 async function findGuidePlace(item, leg) {
@@ -1248,14 +1314,16 @@ function buildDiscoveryCard(cfg) {
   const actions = card.querySelector('.discovery-actions');
   const picker = card.querySelector('.discovery-day-picker');
 
-  const linkBtn = document.createElement('a');
-  linkBtn.className = 'discovery-icon-btn discovery-icon-btn--link';
-  linkBtn.href = cfg.sourceUrl;
-  linkBtn.target = '_blank';
-  linkBtn.rel = 'noopener noreferrer';
-  linkBtn.textContent = '🔗';
-  linkBtn.setAttribute('aria-label', `${cfg.sourceLabel || 'Official details'} for ${cfg.title} (opens in a new tab)`);
-  actions.appendChild(linkBtn);
+  if (cfg.sourceUrl) {
+    const linkBtn = document.createElement('a');
+    linkBtn.className = 'discovery-icon-btn discovery-icon-btn--link';
+    linkBtn.href = cfg.sourceUrl;
+    linkBtn.target = '_blank';
+    linkBtn.rel = 'noopener noreferrer';
+    linkBtn.textContent = '🔗';
+    linkBtn.setAttribute('aria-label', `${cfg.sourceLabel || 'Official details'} for ${cfg.title} (opens in a new tab)`);
+    actions.appendChild(linkBtn);
+  }
 
   const calBtn = document.createElement('button');
   calBtn.className = 'discovery-icon-btn';
@@ -1278,25 +1346,38 @@ function buildDiscoveryCard(cfg) {
     picker.appendChild(dayBtn);
   });
 
-  const flagBtn = document.createElement('button');
-  flagBtn.className = 'discovery-icon-btn discovery-icon-btn--flag';
-  flagBtn.textContent = '🚩';
-  flagBtn.setAttribute('aria-label', `Flag ${cfg.title} for later`);
-  flagBtn.addEventListener('click', async () => {
-    const result = await cfg.onFlag();
-    if (result) cfg.onGone(`Flagged ${cfg.title}.`, result.undo);
-  });
-  actions.appendChild(flagBtn);
+  if (cfg.flaggedMode) {
+    const unflagBtn = document.createElement('button');
+    unflagBtn.className = 'discovery-icon-btn discovery-icon-btn--flag';
+    unflagBtn.textContent = '🚩';
+    unflagBtn.setAttribute('aria-label', `Unflag ${cfg.title}`);
+    unflagBtn.addEventListener('click', async () => {
+      const result = await cfg.onUnflag();
+      if (result) cfg.onGone(`Unflagged ${cfg.title}.`, result.undo);
+    });
+    actions.appendChild(unflagBtn);
+    actions.appendChild(makeRemoveButton('✕', cfg.onRemove));
+  } else {
+    const flagBtn = document.createElement('button');
+    flagBtn.className = 'discovery-icon-btn discovery-icon-btn--flag';
+    flagBtn.textContent = '🚩';
+    flagBtn.setAttribute('aria-label', `Flag ${cfg.title} for later`);
+    flagBtn.addEventListener('click', async () => {
+      const result = await cfg.onFlag();
+      if (result) cfg.onGone(`Flagged ${cfg.title}.`, result.undo);
+    });
+    actions.appendChild(flagBtn);
 
-  const dismissBtn = document.createElement('button');
-  dismissBtn.className = 'discovery-icon-btn discovery-icon-btn--dismiss';
-  dismissBtn.textContent = '✕';
-  dismissBtn.setAttribute('aria-label', `Not interested in ${cfg.title}`);
-  dismissBtn.addEventListener('click', () => {
-    const undo = cfg.onDismiss();
-    cfg.onGone(`Hid ${cfg.title}.`, undo);
-  });
-  actions.appendChild(dismissBtn);
+    const dismissBtn = document.createElement('button');
+    dismissBtn.className = 'discovery-icon-btn discovery-icon-btn--dismiss';
+    dismissBtn.textContent = '✕';
+    dismissBtn.setAttribute('aria-label', `Not interested in ${cfg.title}`);
+    dismissBtn.addEventListener('click', () => {
+      const undo = cfg.onDismiss();
+      cfg.onGone(`Hid ${cfg.title}.`, undo);
+    });
+    actions.appendChild(dismissBtn);
+  }
 
   return card;
 }
@@ -1380,14 +1461,7 @@ async function loadProximities(kind, leg, items) {
 const GUIDE_FILTER_LABELS = { all: 'activities', top: 'best bets', rain: 'rain-proof activities', free: 'free or low-cost activities', outdoor: 'outdoor activities' };
 
 function getExploreLeg() { return findLegBySlug(State.exploreLegSlug); }
-function getExploreCatalogue() {
-  return State.exploreLegSlug === 'vancouver' ? (window.VANCOUVER_GUIDE || []) : (window.HARRISON_GUIDE || []);
-}
-
-document.getElementById('exploreLegSwap').addEventListener('click', () => {
-  State.exploreLegSlug = State.exploreLegSlug === 'vancouver' ? 'harrison-hot-springs' : 'vancouver';
-  renderExplore();
-});
+function getExploreCatalogue() { return window.VANCOUVER_GUIDE || []; }
 
 document.getElementById('guideFilters').addEventListener('click', (event) => {
   const button = event.target.closest('[data-guide-filter]');
@@ -1466,12 +1540,6 @@ function buildExploreCard(item, leg) {
    ============================================================ */
 function getFoodLeg() { return findLegBySlug(State.foodLegSlug); }
 function getFoodCatalogueForLeg(leg) { return (window.FOOD_GUIDE || []).filter((item) => item.legSlug === leg.slug); }
-
-document.getElementById('foodLegSwap').addEventListener('click', () => {
-  State.foodLegSlug = State.foodLegSlug === 'vancouver' ? 'harrison-hot-springs' : 'vancouver';
-  State.foodCuisine = 'All';
-  renderFood();
-});
 
 document.getElementById('foodFilters').addEventListener('click', (event) => {
   const button = event.target.closest('[data-food-cuisine]');
@@ -1562,63 +1630,69 @@ function renderFlagged() {
   const leg = findLegBySlug('vancouver');
   const flagged = leg ? leg.activities.filter((a) => a.flagged) : [];
 
-  flagged.forEach((activity, index) => {
-      const card = document.createElement('div');
-      card.className = 'result-card';
-      card.innerHTML = '<div class="result-info"><div class="result-name"></div><div class="result-sub"></div><div class="result-note"></div></div><div class="result-actions"></div>';
-      card.querySelector('.result-name').textContent = `${index + 1}. ${activity.name}`;
-      card.querySelector('.result-sub').textContent = activity.category;
-      const noteEl = card.querySelector('.result-note');
-      if (activity.notes) noteEl.textContent = activity.notes; else noteEl.remove();
-
-      const actions = card.querySelector('.result-actions');
-
-      const calBtn = document.createElement('button');
-      calBtn.className = 'discovery-icon-btn';
-      calBtn.textContent = '📅';
-      calBtn.setAttribute('aria-label', `Schedule ${activity.name}`);
-      const picker = document.createElement('div');
-      picker.className = 'discovery-day-picker';
-      picker.style.display = 'none';
-      leg.days.forEach((day) => {
-        const dayBtn = document.createElement('button');
-        dayBtn.textContent = formatDayLabel(day.the_date);
-        dayBtn.addEventListener('click', async () => {
-          const stopId = await addActivityToDay(activity, day, leg, { navigate: false });
-          if (!stopId) return;
-          await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: false });
-          activity.flagged = false;
-          renderFlagged();
-        });
-        picker.appendChild(dayBtn);
-      });
-      calBtn.addEventListener('click', () => { picker.style.display = picker.style.display === 'none' ? 'flex' : 'none'; });
-      actions.appendChild(calBtn);
-
-      const unflagBtn = document.createElement('button');
-      unflagBtn.className = 'discovery-icon-btn discovery-icon-btn--flag';
-      unflagBtn.textContent = '🚩';
-      unflagBtn.setAttribute('aria-label', `Unflag ${activity.name}`);
-      unflagBtn.addEventListener('click', async () => {
-        const { error } = await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: false });
-        if (error) { App.toast('Could not unflag: ' + error.message); return; }
-        activity.flagged = false;
-        App.toast(`Unflagged ${activity.name}.`, async () => {
-          await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: true });
-          activity.flagged = true;
-          renderFlagged();
-        });
-        renderFlagged();
-      });
-      actions.appendChild(unflagBtn);
-      actions.appendChild(makeRemoveButton('✕', () => removeActivity(activity)));
-
-      el.appendChild(card);
-      el.appendChild(picker);
-  });
+  flagged.forEach((activity, index) => el.appendChild(buildFlaggedCard(activity, leg, index)));
 
   if (!flagged.length) el.innerHTML = '<div class="empty-note" style="margin-top:16px">Nothing flagged in Vancouver yet — tap 🚩 on an Explore or Food card to start the whiteboard.</div>';
+  else loadProximities('flagged', leg, flagged);
   requestAnimationFrame(renderFlaggedMap);
+}
+
+/* Same discovery-card renderer as Explore/Food, not the condensed
+   result-card — flagging shouldn't cost you the duration/cost/tips you saw
+   before flagging it. The rich fields come from re-matching the saved
+   activity back to its catalogue entry; user-added flags (no catalogue
+   match) fall back to just what's on the activity itself. */
+function buildFlaggedCard(activity, leg, index) {
+  const match = findCatalogueItemForActivity(activity);
+  const kind = match && match.kind;
+  const item = match && match.item;
+  const weatherLabels = { indoors: 'Rain-proof', mixed: 'Mixed weather', dry: 'Best dry', sunny: 'Sunny day' };
+  const chips = item
+    ? (kind === 'food' ? item.cuisines.concat([item.price]) : [item.duration, item.cost, weatherLabels[item.weather] || item.weather])
+    : [activity.category];
+
+  return buildDiscoveryCard({
+    icon: item ? item.icon : '📌',
+    title: `${index + 1}. ${activity.name}`,
+    area: item ? item.area : (activity.address || ''),
+    rankLabel: kind === 'explore' && (item.filters || []).includes('top') ? 'Best bet' : null,
+    proximityKey: catalogueLocationKey('flagged', leg, activity), homeLabel: leg.home_base_label,
+    chips: chips.filter(Boolean),
+    proof: kind === 'food' ? item.proof : null,
+    why: item ? item.why : activity.notes,
+    current: item ? item.current : null,
+    kid: kind === 'food' && item.kidFit ? `Age-six fit: ${item.kidFit}` : null,
+    tip: item && item.booking ? `Plan it: ${item.booking}` : null,
+    headsUp: kind === 'food' && item.headsUp ? `Heads up: ${item.headsUp}` : null,
+    pair: item && item.pair ? `Pairs well: ${item.pair}` : null,
+    sourceUrl: item ? item.sourceUrl : null, sourceLabel: item ? item.sourceLabel : null,
+    days: leg.days,
+    flaggedMode: true,
+    onSchedule: async (day) => {
+      const stopId = await addActivityToDay(activity, day, leg, { navigate: false, silent: true });
+      if (!stopId) return null;
+      await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: false });
+      activity.flagged = false;
+      return {
+        undo: async () => {
+          await SB.rpc('trip_planner_remove_stop', { p_day_stop_id: stopId });
+          day.stops = day.stops.filter((s) => s.id !== stopId);
+          resequence(day.stops);
+          await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: true });
+          activity.flagged = true;
+          refreshActiveView();
+        },
+      };
+    },
+    onUnflag: async () => {
+      const { error } = await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: false });
+      if (error) { App.toast('Could not unflag: ' + error.message); return null; }
+      activity.flagged = false;
+      return { undo: async () => { await SB.rpc('trip_planner_set_activity_flag', { p_activity_id: activity.id, p_flagged: true }); activity.flagged = true; refreshActiveView(); } };
+    },
+    onRemove: () => removeActivity(activity),
+    onGone: (message, undo) => { App.toast(message, undo); renderFlagged(); },
+  });
 }
 
 function renderFlaggedMap() {
@@ -1668,20 +1742,10 @@ function renderFlaggedMap() {
 }
 
 /* ============================================================
-   Amenities — unchanged: per-leg, its own small leg switcher.
+   Amenities — Vancouver only now; the leg switcher went with Harrison.
    ============================================================ */
 function renderAmenities() {
-  const leg = findLegBySlug(State.exploreLegSlug) || State.trip.legs[0];
-  const el = document.getElementById('amenitiesLegTabs');
-  el.innerHTML = '';
-  State.trip.legs.forEach((l) => {
-    const btn = document.createElement('button');
-    btn.className = 'leg-tab' + (l.slug === leg.slug ? ' leg-tab--active' : '');
-    btn.textContent = l.name;
-    btn.addEventListener('click', () => { State.exploreLegSlug = l.slug; renderAmenities(); });
-    el.appendChild(btn);
-  });
-
+  const leg = findLegBySlug('vancouver') || State.trip.legs[0];
   document.getElementById('amenitiesLegName').textContent = leg.name;
   const list = document.getElementById('amenitiesList');
   list.innerHTML = '';

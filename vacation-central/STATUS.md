@@ -1,6 +1,48 @@
 # Status
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
+
+## 2026-08-17: v14 — Harrison wrapped, turfed from the app; Flagged and Day tab detail
+
+Harrison Hot Springs checkout / Vancouver check-in both fall on today (Mon
+Aug 17), and the household is done with Harrison. Removed everything
+Harrison-facing from the app rather than leaving it as dead browsing UI:
+
+- Deleted `harrison-guide.js` outright and its `<script>` tag; `getExploreCatalogue()`
+  now just returns `VANCOUVER_GUIDE`.
+- Removed the Explore and Food leg-swap (⇄) buttons and their listeners —
+  `State.exploreLegSlug`/`State.foodLegSlug` are hardcoded to `'vancouver'`.
+- Removed the Amenities leg-tab switcher; it renders the Vancouver leg only
+  now (`.leg-tabs`/`.leg-tab` CSS dropped as dead code).
+- `food-catalogue.js` dropped its 6 Harrison entries.
+- `styles.css` dropped the `--harrison` custom property; `.day-pill--dual`
+  no longer references it.
+- Deliberately left alone: the trip database itself (Harrison's past
+  days/stops/activities), and the Day tab's whole-trip date strip / Plan
+  overview, which still shows Harrison's history — this was a browsing-UI
+  cleanup, not a data purge.
+- Monday itself was asked to become single-leg: dropped Harrison's day row
+  (and its checkout stop) for 2026-08-17 from `trip_planner.days`, so the
+  Day tab no longer renders it as a dual (Harrison + Vancouver) date.
+
+Also, two Day/Flagged tweaks bundled into the same release:
+
+- **Flagged** used to render the condensed `result-card` (name, category,
+  one paragraph of notes) — noticeably less than what Explore/Food showed
+  before you flagged it. It now reuses the same `buildDiscoveryCard`
+  renderer as Explore/Food (icon, area, chips, why, tips, official link),
+  via a new `findCatalogueItemForActivity()` reverse lookup that re-matches
+  a saved activity back to its `VANCOUVER_GUIDE`/`FOOD_GUIDE` entry. User-added
+  flags with no catalogue match fall back to just what's on the activity.
+  `buildDiscoveryCard` gained a `flaggedMode` branch (unflag + remove
+  instead of flag + dismiss) and skips the 🔗 button when there's no
+  `sourceUrl`.
+- **Day tab** stop cards stay condensed by design, but now get a "Show
+  more" toggle next to the category/time line when `findCatalogueItemForActivity`
+  finds a match — reveals the same duration/cost/weather chips plus one
+  booking/heads-up tip, collapsed by default.
+
+Cache and asset versions moved together to `vacation-central-v14`.
 
 ## 2026-08-15: v13 — a Chinatown cluster in Vancouver Explore
 
