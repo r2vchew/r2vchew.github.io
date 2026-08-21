@@ -46,6 +46,11 @@ once, in `10b53ab`, which put her address in this very file directly under the
 sentence forbidding it; it was removed on 2026-08-11, but a removal only
 changes the current file, not the commit it landed in.
 
+**Vince decided on 2026-08-11 to leave that commit as it is** — one address, in
+a small personal repository, exposed for about a day. Do not rewrite the history
+to purge it: that was considered and declined, and a rewrite would break every
+existing clone for no benefit he wanted.
+
 ## Current scope
 
 `car-finder/data/criteria.json` is the source of truth:
