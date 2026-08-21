@@ -2,23 +2,49 @@
 
 Last updated: 2026-08-11
 
-**It is live, scanning daily, and emailing.** Everything below is the state of a
-working system, not a plan.
+**ARCHIVED — the job is done.** Nicole bought a car in August 2026, so the
+search was switched off the same day. Nothing runs on a schedule and nobody is
+emailed. This file is now a record rather than an operations page.
 
-- Dashboard: https://r2vchew.github.io/car-finder/
-- Scans at **11:40 UTC daily** (05:40 Calgary MDT), plus immediately whenever
-  feedback arrives, plus **Actions → Car finder → Run workflow** on demand.
-- Emails a digest **only when something new clears the bar**. Silence is the
-  system working, not failing.
+- Dashboard: https://r2vchew.github.io/car-finder/ — still up, showing the last
+  scan behind a banner saying the search has finished.
+- The workflow keeps only its `workflow_dispatch` trigger, so it can still be
+  run by hand from **Actions → Car finder → Run workflow**. The `schedule` and
+  `issues` triggers are commented out, not deleted.
+- 95 regression tests still pass.
+
+## How it ended
+
+It ran daily from 2026-08-10, scanning AutoTrader and Kijiji for a first car
+for Nicole's daughter in Calgary: $3,000–$13,000 asking price, 2010 or newer,
+under 220,000 km, automatic, within 150 km. The last verified scan held 90
+candidates. She found a car before the feedback loop was ever used — the
+repository has zero feedback issues, so the plain-English calibration was
+never exercised against a real note.
+
+## To switch it back on
+
+1. Uncomment the `schedule` and `issues` blocks in
+   `.github/workflows/car-finder.yml`.
+2. Check `CARFINDER_MAIL_TO` still points where you want.
+3. Make a new Gmail app password if the old one was revoked at archive time,
+   and update `CARFINDER_MAIL_PASSWORD`.
+4. Remove the `.archived` banner from `car-finder/index.html` and put back the
+   sentences it replaced about feedback being read before the next scan.
+
+Everything else is intact and tested.
 
 ## Who it is for
 
-Vince's friend Nicole (nicole.kashuba@gmail.com) is buying a first car for her
-daughter in Calgary. Her stated criteria: relatively inexpensive, **no manual
-transmission**, nothing too old.
+Vince's friend Nicole was buying a first car for her daughter in Calgary. Her
+stated criteria: relatively inexpensive, **no manual transmission**, nothing
+too old.
 
-Her address is **only in the `CARFINDER_MAIL_TO` secret**. This repository is
-public — do not commit it anywhere.
+Recipient addresses live **only in the `CARFINDER_MAIL_TO` secret**. This
+repository is public — do not write one into a file here. That rule was broken
+once, in `10b53ab`, which put her address in this very file directly under the
+sentence forbidding it; it was removed on 2026-08-11, but a removal only
+changes the current file, not the commit it landed in.
 
 ## Current scope
 

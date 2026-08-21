@@ -1,5 +1,10 @@
 # Car finder — Calgary
 
+**Archived 2026-08-11 — the car was found.** The schedule is off and no mail
+goes out; the dashboard still serves the last scan. `STATUS.md` has how it
+ended and how to turn it back on. Everything below describes how it works, and
+still does.
+
 Scans the main Canadian used-car sites each morning, throws out everything that
 does not fit, and publishes a short, commented shortlist to a web page plus an
 email digest. Feedback from the page — including plain-English notes — feeds

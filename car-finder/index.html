@@ -13,8 +13,17 @@
 
     <header class="masthead">
       <div class="wrap">
-        <p class="eyebrow">Calgary &amp; area · updated every morning</p>
+        <p class="eyebrow">Calgary &amp; area · search finished</p>
         <h1>The car shortlist</h1>
+
+        <!-- The scan is switched off. Without this the page looks live, and the
+             prices below are frozen at the last scan rather than current. -->
+        <p class="archived">
+          <strong>This search has finished.</strong> Nicole found a car in
+          August 2026, so the daily scan is switched off and no more emails go
+          out. The cars below are the last batch that was found — the prices are
+          frozen at that date, and many of these will already be sold.
+        </p>
         <p class="lede" id="lede">Loading the latest scan…</p>
 
         <!-- Four figures and two panel openers, filling two even rows. -->
@@ -30,9 +39,11 @@
           <button type="button" class="panel-close" data-close="feedback" aria-label="Close scan feedback">Close</button>
         </div>
         <p class="muted">
-          Plain English is fine. &ldquo;Too many old ones&rdquo;, &ldquo;I&rsquo;d go to $18k for something newer&rdquo;,
-          &ldquo;nothing white&rdquo;, &ldquo;stop showing me trucks&rdquo; — whatever you actually think.
-          It gets read before the next scan and the search adjusts.
+          <strong>The search is finished, so nothing here is being read any more.</strong>
+          It is left in place because it still records what you thought. If the
+          scan is ever switched back on, plain English is fine —
+          &ldquo;too many old ones&rdquo;, &ldquo;I&rsquo;d go to $18k for something newer&rdquo;,
+          &ldquo;stop showing me trucks&rdquo; — and the search adjusts.
         </p>
         <textarea id="note" rows="4" placeholder="What should be different about these picks?"></textarea>
 
@@ -49,7 +60,7 @@
         <p class="muted small">
           <strong>Send feedback</strong> needs a free GitHub account — it opens a form you press one
           green button on. No account? Use <strong>Copy it instead</strong> and text or email it to
-          Vince, or just reply to any of the morning emails. Same result either way.
+          Vince. Nothing is acted on automatically now that the search has finished.
         </p>
         <p class="sent" id="sent" hidden></p>
       </div>
@@ -135,8 +146,7 @@
         </div>
         <div class="filter-foot">
           <p class="muted small">
-            These narrow what the last scan already found. To change what gets
-            searched for in the first place, use <button type="button" class="linkish" data-open="feedback">scan feedback</button>.
+            These narrow what the last scan found before the search finished.
           </p>
           <button type="button" class="ghost" id="filters-reset">Reset filters</button>
         </div>
@@ -152,7 +162,7 @@
 
       <section class="near-misses" id="near-misses" hidden>
         <h2>Just outside the scope</h2>
-        <p class="muted">These were filtered out, but only barely. If any look interesting, say so in scan feedback and I will widen the search.</p>
+        <p class="muted">These were filtered out, but only barely — kept for the record.</p>
         <ul id="near-list" class="near-list"></ul>
       </section>
     </main>

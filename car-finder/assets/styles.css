@@ -73,6 +73,22 @@ body {
 h1 { margin: 0 0 .5rem; font-size: clamp(1.7rem, 5vw, 2.4rem); letter-spacing: -.02em; line-height: 1.15; }
 .lede { margin: 0 0 1.2rem; color: var(--ink-2); max-width: 60ch; }
 
+/* The search is over. Loud enough that nobody reads a frozen price as current,
+   using the same accent as the rest of the page rather than an alarm colour. */
+.archived {
+  margin: 0 0 1.2rem;
+  padding: .85rem 1rem;
+  max-width: 60ch;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent, #1f5d4c);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.archived strong { color: var(--ink); }
+
 /* Four figures plus two panel openers, filling two even rows. */
 .board {
   display: grid; gap: .6rem; margin: 0;

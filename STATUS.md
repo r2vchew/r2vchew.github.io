@@ -9,7 +9,7 @@ https://r2vchew.github.io/ — **anything on `main` is public.**
 
 | Folder | What it is | Status |
 | --- | --- | --- |
-| `car-finder/` | Used-car shortlist for Calgary — scored, commented, with a drive-away cost estimate, a daily email digest and a plain-English feedback loop. | **Running daily and emailing.** Full detail in `car-finder/STATUS.md`. |
+| `car-finder/` | Used-car shortlist for Calgary — scored, commented, with a drive-away cost estimate, a daily email digest and a plain-English feedback loop. | **Archived 2026-08-11** — the car was found. Schedule off, page still served. Full detail in `car-finder/STATUS.md`. |
 | `digest/` | Subscription-email digest — news merged across outlets, then loyalty and marketing, with the feedback loop that teaches it. | **Live**, fed by a 7:30am ingest. Full detail in `Documents\Projects\life-hub\digest\STATUS.md`. |
 
 `email-overview/` was removed on 2026-08-11 and replaced by `digest/`. It worked
@@ -20,9 +20,10 @@ corrections never accumulated and every rebuild restarted from blank assumptions
 
 ## If you are picking this up cold
 
-Read `car-finder/STATUS.md`. It has the current scope, what each listing source
-is doing, what is still outstanding, and the list of defects found against live
-data that have regression tests protecting them.
+`car-finder/` is finished — read its `STATUS.md` for how it ended and how to
+switch it back on. It is still worth reading for the defects found against live
+data and the regression tests protecting them; the scraping and scoring code is
+reusable.
 
 ## Conventions worth knowing
 
@@ -41,6 +42,6 @@ data that have regression tests protecting them.
 
 ## Next useful action
 
-Watch for the first scheduled scan (11:40 UTC daily) to land a digest, then
-watch for feedback. Nothing has come through the feedback loop yet — see the
-outstanding list in `car-finder/STATUS.md` for the two candidate reasons.
+For `car-finder/`, nothing — it is archived. Two loose ends are Vince's to
+close: revoke the Gmail app password that the digest used, and delete the five
+`CARFINDER_MAIL_*` secrets if the search is not coming back.

@@ -1,25 +1,36 @@
 name: Car finder
 
+# ARCHIVED 2026-08-11. Nicole bought a car, so the search is over.
+#
+# The daily schedule and the feedback-issue trigger are both switched off, so
+# nothing runs on its own and nobody gets emailed. Everything still works: the
+# dashboard keeps serving the last scan, and this workflow can still be run by
+# hand from Actions -> Car finder -> Run workflow.
+#
+# To bring it back, uncomment the two trigger blocks below and confirm
+# CARFINDER_MAIL_TO still points where you want before the first run. If the
+# Gmail app password was revoked at archive time, make a new one.
+
 on:
-  schedule:
-    # Once a day at 11:40 UTC — 05:40 in Calgary on MDT, 04:40 on MST.
-    #
-    # Why this time:
-    #  * Private sellers list in the evening, and that is where the cheap cars
-    #    are. A pre-dawn run captures the whole of the previous evening.
-    #  * Dealer inventory feeds refresh overnight, roughly 02:00-05:00 local,
-    #    so scanning after that window avoids reading a half-updated feed.
-    #  * It lands before she is up, so the digest is waiting at breakfast and
-    #    is only a couple of hours old rather than a full day.
-    #  * :40 rather than :00 — GitHub's scheduler queues hardest on the hour,
-    #    and a queued run can be delayed by many minutes.
-    #
-    # Cron is UTC with no daylight-saving handling, so this drifts an hour
-    # between MDT and MST. Both land pre-dawn, so it does not matter here.
-    - cron: '40 11 * * *'
-  # Feedback should take effect straight away, not at the next scheduled scan.
-  issues:
-    types: [opened, labeled, reopened]
+  # schedule:
+  #   # Once a day at 11:40 UTC - 05:40 in Calgary on MDT, 04:40 on MST.
+  #   #
+  #   # Why this time:
+  #   #  * Private sellers list in the evening, and that is where the cheap
+  #   #    cars are. A pre-dawn run captures the whole of the previous evening.
+  #   #  * Dealer inventory feeds refresh overnight, roughly 02:00-05:00 local,
+  #   #    so scanning after that window avoids reading a half-updated feed.
+  #   #  * It lands before she is up, so the digest is waiting at breakfast.
+  #   #  * :40 rather than :00 - GitHub's scheduler queues hardest on the hour.
+  #   #
+  #   # Cron is UTC with no daylight-saving handling, so this drifts an hour
+  #   # between MDT and MST. Both land pre-dawn, so it does not matter here.
+  #   - cron: '40 11 * * *'
+  #
+  # # Feedback should take effect straight away, not at the next scan.
+  # issues:
+  #   types: [opened, labeled, reopened]
+
   workflow_dispatch:
     inputs:
       pages:
