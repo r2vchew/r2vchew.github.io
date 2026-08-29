@@ -242,6 +242,8 @@ let DATA = null, TAB = "news", SCOPE = "today", BUSY = false;
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
   ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtShortDate = d => new Date(d + "T12:00:00")
+  .toLocaleDateString("en-CA",{day:"numeric",month:"short"});
 
 function toast(msg){
   const t = $("#toast");
@@ -425,15 +427,16 @@ function actionBar(s){
   note.placeholder = "why? (optional — or “move to AI learning”)";
   note.setAttribute("aria-label","Note for this action");
 
-  const mk = (label, cls, action) => {
+  const mk = (label, cls, action, aria) => {
     const b = document.createElement("button");
     b.className = "act " + cls; b.textContent = label;
+    if(aria){ b.setAttribute("aria-label", aria); b.title = aria; }
     b.addEventListener("click", () => act(s.id, action, note));
     return b;
   };
   if(s.tab !== "training"){
-    el.appendChild(mk("▲ more","vol","up"));
-    el.appendChild(mk("▼ less","vol","down"));
+    el.appendChild(mk("▲","vol","up","More"));
+    el.appendChild(mk("▼","vol","down","Less"));
   }
   el.appendChild(mk(s.saved ? "✓ Saved" : "Save", s.saved ? "on" : "", "save"));
   el.appendChild(mk("Clear","","clear"));
@@ -470,7 +473,8 @@ function storyEl(s, compact){
   } else if(s.outlets){
     meta.insertAdjacentHTML("beforeend", `<span class="chip one">${esc(s.outlets)}</span>`);
   }
-  if(s.carried) meta.insertAdjacentHTML("beforeend", `<span class="chip carry">carried over</span>`);
+  if(s.carried) meta.insertAdjacentHTML("beforeend",
+    `<span class="chip carry">carried over${s.first_shown_on ? " · " + esc(fmtShortDate(s.first_shown_on)) : ""}</span>`);
   if(s.saved)   meta.insertAdjacentHTML("beforeend", `<span class="chip saved">saved</span>`);
   if(s.topic)   meta.insertAdjacentHTML("beforeend", `<span class="topic">${esc(s.topic)}</span>`);
   el.appendChild(meta);
