@@ -129,6 +129,12 @@
   .angle b{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;
            color:var(--ink-3);display:block;margin-bottom:1px}
   .angle span{font-size:13px;color:var(--ink-2)}
+  .links{border-top:1px solid var(--rule);margin-top:11px;padding-top:10px;display:grid;gap:7px}
+  .link-row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;font-size:13px}
+  .link-row b{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;
+              color:var(--ink-3)}
+  .link-row a{color:var(--accent);text-decoration:none}
+  .link-row a:hover{text-decoration:underline}
 
   /* ---- actions: big enough for thumbs ---- */
   .acts{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
@@ -479,8 +485,9 @@ function storyEl(s, compact){
   if(s.topic)   meta.insertAdjacentHTML("beforeend", `<span class="topic">${esc(s.topic)}</span>`);
   el.appendChild(meta);
 
-  const details = s.details || [], angles = s.angles || [];
-  if(details.length || angles.length){
+  const details = s.details || [], angles = s.angles || [], sources = s.sources || [];
+  const hasExtra = details.length || angles.length || sources.length;
+  if(hasExtra){
     const d = document.createElement("div"); d.className = "detail";
     if(details.length){
       d.innerHTML = "<ul>" + details.map(x=>`<li>${esc(x)}</li>`).join("") + "</ul>";
@@ -488,6 +495,15 @@ function storyEl(s, compact){
     if(angles.length){
       d.insertAdjacentHTML("beforeend", '<div class="angles">' + angles.map(a =>
         `<div class="angle"><b>${esc(a.source)}</b><span>${esc(a.added)}</span></div>`).join("") + "</div>");
+    }
+    if(sources.length){
+      d.insertAdjacentHTML("beforeend", '<div class="links">' + sources.map(src => {
+        const article = src.article_url
+          ? `<a href="${esc(src.article_url)}" target="_blank" rel="noopener">Read article ↗</a>` : "";
+        const gmail = src.gmail_url
+          ? `<a href="${esc(src.gmail_url)}" target="_blank" rel="noopener">Open email ↗</a>` : "";
+        return `<div class="link-row"><b>${esc(src.outlet)}</b>${article}${gmail}</div>`;
+      }).join("") + "</div>");
     }
     el.appendChild(d);
   }
@@ -501,19 +517,19 @@ function storyEl(s, compact){
   toggle.className = "act primary";
   const sync = () => {
     if(stage === 0) toggle.textContent = "Show more";
-    else if(stage === 1 && (details.length || angles.length)) toggle.textContent = "Details";
+    else if(stage === 1 && hasExtra) toggle.textContent = "Details";
     else toggle.textContent = "Hide details";
     if(s.brief) brief.style.display = stage >= 1 ? "" : "none";
     el.classList.toggle("open-d", stage >= 2);
   };
   const bump = () => {
-    const max = (details.length || angles.length) ? 2 : 1;
+    const max = hasExtra ? 2 : 1;
     stage = stage >= max ? (showBriefNow ? 1 : 0) : stage + 1;
     sync();
   };
   toggle.addEventListener("click", bump);
   h.addEventListener("click", bump);
-  if(s.brief || details.length || angles.length) bar.insertBefore(toggle, bar.firstChild);
+  if(s.brief || hasExtra) bar.insertBefore(toggle, bar.firstChild);
   sync();
 
   el.appendChild(bar);
