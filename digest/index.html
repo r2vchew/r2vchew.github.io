@@ -352,9 +352,14 @@ async function act(storyId, action, noteEl){
 }
 
 /* Clear ↑ sweeps everything at or before the clicked story's position in the
-   same tab — "I read down to here." Only reachable outside training, which has
-   no daily reading order to sweep through. Always a pure sweep: it doesn't
-   parse the note for a move command the way plain Clear does. */
+   same tab — "I read down to here." Server-side, the sweep is also confined
+   to the same carried/not-carried group as the clicked story, so it can
+   never cross from today's reading order into the carried backlog (position
+   numbers alone don't guarantee that split - they depend on whether the
+   day's ingest ran before or after the page was first opened that day).
+   Only reachable outside training, which has no daily reading order to sweep
+   through. Always a pure sweep: it doesn't parse the note for a move command
+   the way plain Clear does. */
 async function clearThrough(storyId, noteEl){
   if(BUSY) return;
   BUSY = true;
@@ -369,14 +374,16 @@ async function clearThrough(storyId, noteEl){
   await load();
 }
 
-async function clearTab(tabId){
+async function clearTab(tabId, scope){
   if(BUSY || !DATA) return;
   const label = (TABS.find(t => t[0] === tabId) || [])[1] || tabId;
-  const count = DATA.stories.filter(s => s.tab === tabId).length;
+  const scopeLabel = scope === "today" ? "today's" : "carried-over";
+  const count = DATA.stories.filter(s => s.tab === tabId
+    && (scope === "today" ? !s.carried : s.carried)).length;
   if(!count){ toast("Nothing to clear."); return; }
-  if(!confirm(`Clear all ${count} in ${label}? This can't be undone from here.`)) return;
+  if(!confirm(`Clear all ${count} ${scopeLabel} in ${label}? This can't be undone from here.`)) return;
   BUSY = true;
-  const { data, error } = await sb.rpc("digest_clear_tab", { p_tab: tabId });
+  const { data, error } = await sb.rpc("digest_clear_tab", { p_tab: tabId, p_scope: scope });
   BUSY = false;
   if(error){ toast("Didn't clear: " + error.message); return; }
   toastUndo(`✓ cleared ${data.cleared}`, data.cleared_ids || []);
@@ -580,10 +587,12 @@ function render(){
                        ["carried",`Carried over ${list.length - today}`],
                        ["cleared",`Cleared ${clearedN}`]]
       .map(([k,l])=>`<button data-scope="${k}" aria-pressed="${k===SCOPE}">${l}</button>`).join("")
-      + `<button class="clearall" id="clearAll">Clear all</button>`;
+      + (SCOPE === "cleared" ? "" :
+         `<button class="clearall" id="clearAll">Clear all ${SCOPE === "today" ? "today" : "carried"}</button>`);
     scope.querySelectorAll("button[data-scope]").forEach(b =>
       b.addEventListener("click", () => { SCOPE = b.dataset.scope; render(); }));
-    $("#clearAll").addEventListener("click", () => clearTab(TAB));
+    const clearAllBtn = $("#clearAll");
+    if(clearAllBtn) clearAllBtn.addEventListener("click", () => clearTab(TAB, SCOPE));
   }
 
   renderUrgent();
