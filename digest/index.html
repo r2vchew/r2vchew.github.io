@@ -89,6 +89,18 @@
             border:1px solid var(--accent-deep);background:var(--accent-deep);color:var(--paper)}
   button.clearall:hover{opacity:.88}
 
+  /* ---- joke of the day ---- */
+  .joke{border:1px solid var(--rule);background:var(--surface);border-radius:7px;
+        padding:12px 13px;margin-top:15px}
+  .joke .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+             color:var(--accent);font-weight:600;margin:0 0 7px}
+  .joke p.text{margin:0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
+  .joke .jvote{display:flex;gap:7px;margin-top:11px}
+  button.jv{font-size:15px;line-height:1;padding:6px 13px;border-radius:6px;
+            border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
+  button.jv:hover{border-color:var(--ink-4);color:var(--ink)}
+  button.jv.picked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
   /* ---- urgent ---- */
   .urgent{border:1px solid var(--flag);background:var(--flag-soft);border-radius:7px;
           padding:10px 13px;margin-top:15px}
@@ -215,6 +227,7 @@
     <div class="tabs" id="tabs" role="tablist"></div>
     <div class="scope" id="scope"></div>
   </div>
+  <div id="joke"></div>
   <div id="urgent"></div>
   <div id="content"></div>
 </div>
@@ -242,8 +255,8 @@ const SUPABASE_KEY = "sb_publishable_0sg-HAeFVVj4vnYAMMNQng_pSX-lvLs";
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const TABS = [["news","News"],["deals","Deals"],["others","Others"],
-              ["ctc","CTC"],["training","AI Training"]];
-let DATA = null, TAB = "news", SCOPE = "today", BUSY = false;
+              ["ctc","CTC"],["training","AI"]];
+let DATA = null, TAB = "news", SCOPE = "today", BUSY = false, JOKE = null;
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
@@ -310,6 +323,33 @@ async function load(){
   $("#date").textContent = new Date(DATA.day + "T12:00:00")
     .toLocaleDateString("en-CA",{weekday:"long",day:"numeric",month:"long"});
   render();
+}
+
+async function loadJoke(){
+  const { data, error } = await sb.rpc("digest_joke");
+  JOKE = error ? null : data;
+  renderJoke();
+}
+
+async function voteJoke(vote){
+  if(!JOKE || !JOKE.id || BUSY) return;
+  const { error } = await sb.rpc("digest_joke_feedback", { p_joke_id: JOKE.id, p_vote: vote });
+  if(error){ toast("Didn't save: " + error.message); return; }
+  JOKE.vote = vote;
+  renderJoke();
+  toast(vote === "up" ? "✓ noted" : "✓ noted — won't show that one again");
+}
+
+function renderJoke(){
+  const box = $("#joke");
+  if(!JOKE || !JOKE.text){ box.innerHTML = ""; return; }
+  box.innerHTML = `<p class="lbl">Joke of the day</p><p class="text">${esc(JOKE.text)}</p>
+    <div class="jvote">
+      <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
+      <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
+    </div>`;
+  $("#jokeUp").addEventListener("click", () => voteJoke("up"));
+  $("#jokeDown").addEventListener("click", () => voteJoke("down"));
 }
 
 /* A note can be a command as well as a comment. It must always say what it did —
@@ -588,7 +628,7 @@ function render(){
                        ["cleared",`Cleared ${clearedN}`]]
       .map(([k,l])=>`<button data-scope="${k}" aria-pressed="${k===SCOPE}">${l}</button>`).join("")
       + (SCOPE === "cleared" ? "" :
-         `<button class="clearall" id="clearAll">Clear all ${SCOPE === "today" ? "today" : "carried"}</button>`);
+         `<button class="clearall" id="clearAll">Clear</button>`);
     scope.querySelectorAll("button[data-scope]").forEach(b =>
       b.addEventListener("click", () => { SCOPE = b.dataset.scope; render(); }));
     const clearAllBtn = $("#clearAll");
@@ -693,7 +733,7 @@ async function boot(){
   $("#gate").hidden = inApp;
   $("#app").hidden  = !inApp;
   $("#dock").hidden = !inApp;
-  if(inApp) await load();
+  if(inApp){ await load(); await loadJoke(); }
 }
 sb.auth.onAuthStateChange(() => boot());
 boot();
