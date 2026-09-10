@@ -92,12 +92,12 @@
   /* ---- joke of the day ---- */
   .joke{border:1px solid var(--rule);background:var(--surface);border-radius:7px;
         padding:12px 13px;margin-top:15px}
-  .joke .jhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .joke .jhead{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
   .joke .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
              color:var(--accent);font-weight:600;margin:0}
-  .joke .jactions{display:flex;gap:6px;flex:0 0 auto}
-  .joke p.text{margin:9px 0 0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
-  button.jv{font-size:15px;line-height:1;padding:5px 10px;border-radius:6px;
+  .joke .jactions{display:flex;gap:4px;flex:0 0 auto}
+  .joke p.text{margin:7px 0 0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
+  button.jv{font-size:12px;line-height:1;padding:3px 7px;border-radius:5px;
             border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
   button.jv:hover{border-color:var(--ink-4);color:var(--ink)}
   button.jv.picked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
@@ -361,7 +361,8 @@ async function saveJoke(){
 
 function renderJoke(){
   const box = $("#joke");
-  if(!JOKE || !JOKE.text){ box.innerHTML = ""; return; }
+  if(!JOKE || !JOKE.text){ box.className = ""; box.innerHTML = ""; return; }
+  box.className = "joke";
   box.innerHTML = `<div class="jhead">
       <span class="lbl">Joke of the day</span>
       <div class="jactions">
