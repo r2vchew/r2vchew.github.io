@@ -92,14 +92,22 @@
   /* ---- joke of the day ---- */
   .joke{border:1px solid var(--rule);background:var(--surface);border-radius:7px;
         padding:12px 13px;margin-top:15px}
+  .joke .jhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .joke .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-             color:var(--accent);font-weight:600;margin:0 0 7px}
-  .joke p.text{margin:0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
-  .joke .jvote{display:flex;gap:7px;margin-top:11px}
-  button.jv{font-size:15px;line-height:1;padding:6px 13px;border-radius:6px;
+             color:var(--accent);font-weight:600;margin:0}
+  .joke .jactions{display:flex;gap:6px;flex:0 0 auto}
+  .joke p.text{margin:9px 0 0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
+  button.jv{font-size:15px;line-height:1;padding:5px 10px;border-radius:6px;
             border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
   button.jv:hover{border-color:var(--ink-4);color:var(--ink)}
   button.jv.picked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+
+  /* ---- saved jokes ---- */
+  .jfilters{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
+  .jfilters button{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+                   padding:6px 10px;border-radius:5px;border:1px solid var(--rule);
+                   background:transparent;color:var(--ink-4);cursor:pointer}
+  .jfilters button[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
 
   /* ---- urgent ---- */
   .urgent{border:1px solid var(--flag);background:var(--flag-soft);border-radius:7px;
@@ -256,7 +264,8 @@ const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const TABS = [["news","News"],["deals","Deals"],["others","Others"],
               ["ctc","CTC"],["training","AI"]];
-let DATA = null, TAB = "news", SCOPE = "today", BUSY = false, JOKE = null;
+let DATA = null, TAB = "news", SCOPE = "today", BUSY = false;
+let JOKE = null, JOKES_VIEW = false, SAVED_JOKES = [], JOKE_FILTER = "all";
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
@@ -337,19 +346,97 @@ async function voteJoke(vote){
   if(error){ toast("Didn't save: " + error.message); return; }
   JOKE.vote = vote;
   renderJoke();
-  toast(vote === "up" ? "✓ noted" : "✓ noted — won't show that one again");
+  toast(vote === "up" ? "✓ noted" : "✓ noted — you'll see less of this style");
+}
+
+async function saveJoke(){
+  if(!JOKE || !JOKE.id || BUSY) return;
+  const next = !JOKE.saved;
+  const { error } = await sb.rpc("digest_joke_save", { p_joke_id: JOKE.id, p_saved: next });
+  if(error){ toast("Didn't save: " + error.message); return; }
+  JOKE.saved = next;
+  renderJoke();
+  toast(next ? "✓ saved" : "removed from saved");
 }
 
 function renderJoke(){
   const box = $("#joke");
   if(!JOKE || !JOKE.text){ box.innerHTML = ""; return; }
-  box.innerHTML = `<p class="lbl">Joke of the day</p><p class="text">${esc(JOKE.text)}</p>
-    <div class="jvote">
-      <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
-      <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
-    </div>`;
+  box.innerHTML = `<div class="jhead">
+      <span class="lbl">Joke of the day</span>
+      <div class="jactions">
+        <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
+        <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
+        <button class="jv${JOKE.saved?' picked':''}" id="jokeSave" aria-label="Save this one">🔖</button>
+      </div>
+    </div>
+    <p class="text">${esc(JOKE.text)}</p>`;
   $("#jokeUp").addEventListener("click", () => voteJoke("up"));
   $("#jokeDown").addEventListener("click", () => voteJoke("down"));
+  $("#jokeSave").addEventListener("click", saveJoke);
+}
+
+/* ---------------- saved jokes screen ---------------- */
+async function toggleJokesView(){
+  JOKES_VIEW = !JOKES_VIEW;
+  if(JOKES_VIEW){
+    JOKE_FILTER = "all";
+    const { data, error } = await sb.rpc("digest_saved_jokes");
+    SAVED_JOKES = error ? [] : data;
+  }
+  render();
+}
+
+function savedJokeEl(j){
+  const el = document.createElement("article");
+  el.className = "story compact";
+  const meta = document.createElement("div"); meta.className = "meta";
+  meta.innerHTML = `<span class="chip one">${esc(j.category)}</span>`;
+  el.appendChild(meta);
+  const p = document.createElement("p"); p.className = "brief"; p.style.display = ""; p.textContent = j.text;
+  el.appendChild(p);
+  const bar = document.createElement("div"); bar.className = "acts";
+  const copyBtn = document.createElement("button");
+  copyBtn.className = "act"; copyBtn.textContent = "Copy";
+  copyBtn.addEventListener("click", async () => {
+    try{ await navigator.clipboard.writeText(j.text); toast("✓ copied"); }
+    catch{ toast("Couldn't copy"); }
+  });
+  const removeBtn = document.createElement("button");
+  removeBtn.className = "act"; removeBtn.textContent = "Remove";
+  removeBtn.addEventListener("click", async () => {
+    if(BUSY) return; BUSY = true;
+    const { error } = await sb.rpc("digest_joke_save", { p_joke_id: j.id, p_saved: false });
+    BUSY = false;
+    if(error){ toast("Didn't remove: " + error.message); return; }
+    SAVED_JOKES = SAVED_JOKES.filter(x => x.id !== j.id);
+    if(JOKE && JOKE.id === j.id){ JOKE.saved = false; renderJoke(); }
+    toast("Removed");
+    render();
+  });
+  bar.appendChild(copyBtn); bar.appendChild(removeBtn);
+  el.appendChild(bar);
+  return el;
+}
+
+function renderSavedJokesScreen(c){
+  c.insertAdjacentHTML("beforeend", `<p class="sec-label">Saved jokes — ${SAVED_JOKES.length}</p>`);
+  if(!SAVED_JOKES.length){
+    c.insertAdjacentHTML("beforeend",
+      `<p class="empty-state">Nothing saved yet. Hit 🔖 on a joke you like.</p>`);
+    return;
+  }
+  const cats = [...new Set(SAVED_JOKES.map(j => j.category))];
+  if(cats.length > 1){
+    const filters = document.createElement("div"); filters.className = "jfilters";
+    filters.innerHTML = ["all", ...cats].map(cat =>
+      `<button data-cat="${esc(cat)}" aria-pressed="${cat===JOKE_FILTER}">${cat==="all"?"All":esc(cat)}</button>`).join("");
+    filters.querySelectorAll("button").forEach(b =>
+      b.addEventListener("click", () => { JOKE_FILTER = b.dataset.cat; render(); }));
+    c.appendChild(filters);
+  }
+  const list = JOKE_FILTER === "all" ? SAVED_JOKES : SAVED_JOKES.filter(j => j.category === JOKE_FILTER);
+  list.forEach(j => c.appendChild(savedJokeEl(j)));
 }
 
 /* A note can be a command as well as a comment. It must always say what it did —
@@ -585,7 +672,7 @@ function storyEl(s, compact){
 
 function renderUrgent(){
   const box = $("#urgent"); box.innerHTML = "";
-  if(TAB !== "news") return;
+  if(JOKES_VIEW || TAB !== "news") return;
   const u = DATA.stories.filter(s => s.is_urgent);
   // Nothing urgent renders nothing at all — no empty panel. Zero urgent items is
   // the normal case, and a standing orange box on a normal day trains you to
@@ -615,11 +702,15 @@ function render(){
              aria-selected="${id===TAB}">${label}<span class="n">${n}</span></button>`;
   }).join("");
   $("#tabs").querySelectorAll(".tab").forEach(b =>
-    b.addEventListener("click", () => { TAB = b.dataset.tab; render(); }));
+    b.addEventListener("click", () => { TAB = b.dataset.tab; JOKES_VIEW = false; render(); }));
 
+  const jokesChip = `<button data-scope="jokes" aria-pressed="${JOKES_VIEW}" title="Saved jokes">😂</button>`;
   const scope = $("#scope");
-  if(TAB === "training"){ scope.innerHTML = ""; }
-  else {
+  if(JOKES_VIEW){
+    scope.innerHTML = jokesChip;
+  } else if(TAB === "training"){
+    scope.innerHTML = jokesChip;
+  } else {
     const list = DATA.stories.filter(s => s.tab === TAB);
     const today = list.filter(s => !s.carried).length;
     const clearedN = (DATA.recently_cleared||[]).filter(s => s.tab === TAB).length;
@@ -627,16 +718,24 @@ function render(){
                        ["carried",`Carried over ${list.length - today}`],
                        ["cleared",`Cleared ${clearedN}`]]
       .map(([k,l])=>`<button data-scope="${k}" aria-pressed="${k===SCOPE}">${l}</button>`).join("")
+      + jokesChip
       + (SCOPE === "cleared" ? "" :
          `<button class="clearall" id="clearAll">Clear</button>`);
-    scope.querySelectorAll("button[data-scope]").forEach(b =>
+    scope.querySelectorAll("button[data-scope]:not([data-scope='jokes'])").forEach(b =>
       b.addEventListener("click", () => { SCOPE = b.dataset.scope; render(); }));
     const clearAllBtn = $("#clearAll");
     if(clearAllBtn) clearAllBtn.addEventListener("click", () => clearTab(TAB, SCOPE));
   }
+  scope.querySelector('[data-scope="jokes"]').addEventListener("click", toggleJokesView);
 
   renderUrgent();
   const c = $("#content"); c.innerHTML = "";
+
+  if(JOKES_VIEW){
+    renderSavedJokesScreen(c);
+    renderRules();
+    return;
+  }
 
   if(TAB === "training"){
     c.insertAdjacentHTML("beforeend",
