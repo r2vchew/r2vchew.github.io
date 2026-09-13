@@ -94,16 +94,15 @@
         padding:12px 13px;margin-top:15px}
   .joke .jhead{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
   .joke .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-             color:var(--accent);font-weight:600;margin:0}
+             color:var(--accent);font-weight:600;margin:0;flex:0 0 auto}
   .joke .jactions{display:flex;gap:4px;flex:0 0 auto}
   .joke p.text{margin:7px 0 0;font-family:var(--display);font-size:16.5px;line-height:1.42;color:var(--ink)}
   button.jv{font-size:12px;line-height:1;padding:3px 7px;border-radius:5px;
             border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
   button.jv:hover{border-color:var(--ink-4);color:var(--ink)}
   button.jv.picked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-  .joke .jvote{display:flex;align-items:center;gap:6px;margin-top:9px}
-  .joke .jnote{flex:1;min-width:0;font-family:var(--body);font-size:13px;
-               padding:6px 10px;border-radius:6px;border:1px solid var(--rule);
+  .joke .jnote{flex:1 1 110px;min-width:90px;font-family:var(--body);font-size:12.5px;
+               padding:4px 9px;border-radius:6px;border:1px solid var(--rule);
                background:var(--surface);color:var(--ink)}
   .joke .jnote::placeholder{color:var(--ink-4)}
 
@@ -373,17 +372,15 @@ function renderJoke(){
   box.className = "joke";
   box.innerHTML = `<div class="jhead">
       <span class="lbl">Joke of the day</span>
+      <input type="text" class="jnote" id="jokeNote" enterKeyHint="done"
+             placeholder="optional note — why?" value="${esc(JOKE.note || "")}">
       <div class="jactions">
+        <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
+        <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
         <button class="jv${JOKE.saved?' picked':''}" id="jokeSave" aria-label="Save this one">🔖</button>
       </div>
     </div>
-    <p class="text">${esc(JOKE.text)}</p>
-    <div class="jvote">
-      <input type="text" class="jnote" id="jokeNote" enterKeyHint="done"
-             placeholder="optional note — why?" value="${esc(JOKE.note || "")}">
-      <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
-      <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
-    </div>`;
+    <p class="text">${esc(JOKE.text)}</p>`;
   $("#jokeUp").addEventListener("click", () => voteJoke("up"));
   $("#jokeDown").addEventListener("click", () => voteJoke("down"));
   $("#jokeSave").addEventListener("click", saveJoke);
