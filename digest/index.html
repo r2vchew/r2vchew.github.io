@@ -101,6 +101,11 @@
             border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
   button.jv:hover{border-color:var(--ink-4);color:var(--ink)}
   button.jv.picked{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .joke .jvote{display:flex;align-items:center;gap:6px;margin-top:9px}
+  .joke .jnote{flex:1;min-width:0;font-family:var(--body);font-size:13px;
+               padding:6px 10px;border-radius:6px;border:1px solid var(--rule);
+               background:var(--surface);color:var(--ink)}
+  .joke .jnote::placeholder{color:var(--ink-4)}
 
   /* ---- saved jokes ---- */
   .jfilters{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
@@ -342,9 +347,12 @@ async function loadJoke(){
 
 async function voteJoke(vote){
   if(!JOKE || !JOKE.id || BUSY) return;
-  const { error } = await sb.rpc("digest_joke_feedback", { p_joke_id: JOKE.id, p_vote: vote });
+  const noteEl = $("#jokeNote");
+  const note = noteEl ? noteEl.value.trim() : "";
+  const { error } = await sb.rpc("digest_joke_feedback", { p_joke_id: JOKE.id, p_vote: vote, p_note: note || null });
   if(error){ toast("Didn't save: " + error.message); return; }
   JOKE.vote = vote;
+  JOKE.note = note;
   renderJoke();
   toast(vote === "up" ? "✓ noted" : "✓ noted — you'll see less of this style");
 }
@@ -366,12 +374,16 @@ function renderJoke(){
   box.innerHTML = `<div class="jhead">
       <span class="lbl">Joke of the day</span>
       <div class="jactions">
-        <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
-        <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
         <button class="jv${JOKE.saved?' picked':''}" id="jokeSave" aria-label="Save this one">🔖</button>
       </div>
     </div>
-    <p class="text">${esc(JOKE.text)}</p>`;
+    <p class="text">${esc(JOKE.text)}</p>
+    <div class="jvote">
+      <input type="text" class="jnote" id="jokeNote" enterKeyHint="done"
+             placeholder="optional note — why?" value="${esc(JOKE.note || "")}">
+      <button class="jv${JOKE.vote==='up'?' picked':''}" id="jokeUp" aria-label="Good one">👍</button>
+      <button class="jv${JOKE.vote==='down'?' picked':''}" id="jokeDown" aria-label="Not for me">👎</button>
+    </div>`;
   $("#jokeUp").addEventListener("click", () => voteJoke("up"));
   $("#jokeDown").addEventListener("click", () => voteJoke("down"));
   $("#jokeSave").addEventListener("click", saveJoke);
