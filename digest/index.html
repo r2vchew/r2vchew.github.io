@@ -268,7 +268,13 @@ const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const TABS = [["news","News"],["deals","Deals"],["others","Others"],
               ["ctc","CTC"]];
-let DATA = null, TAB = "news", SCOPE = "today", BUSY = false;
+/* ?tab=deals opens straight to a tab. The Android widget uses it so a card can
+   land you where it came from; typed by hand it is harmless, and anything that
+   isn't a real tab falls back to News. */
+const WANTED_TAB = new URLSearchParams(location.search).get("tab");
+
+let DATA = null, SCOPE = "today", BUSY = false;
+let TAB = TABS.some(([id]) => id === WANTED_TAB) ? WANTED_TAB : "news";
 let JOKE = null, JOKES_VIEW = false, SAVED_JOKES = [], JOKE_FILTER = "all";
 
 const $ = s => document.querySelector(s);
