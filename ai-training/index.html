@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Training</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<style>
+  :root{
+    --paper:#F1F2F0; --surface:#FBFCFA;
+    --ink:#121614; --ink-2:#414A45; --ink-3:#6E7873; --ink-4:#9AA39E;
+    --rule:#DBDFDA; --rule-2:#E7EAE5;
+    --accent:#1F6F6B; --accent-soft:#DCE9E7; --accent-deep:#123F3C;
+    --flag:#8A5300; --flag-soft:#F3E7D3;
+    --display:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#101312;--surface:#171B19;--ink:#E6EAE7;--ink-2:#B2BAB6;
+      --ink-3:#848D89;--ink-4:#5D6663;--rule:#282D2B;--rule-2:#1E2321;
+      --accent:#5DB7B0;--accent-soft:#16302E;--accent-deep:#2E6B66;
+      --flag:#D59B4E;--flag-soft:#2E2415;}
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);
+       line-height:1.5;-webkit-font-smoothing:antialiased;
+       padding-bottom:env(safe-area-inset-bottom)}
+  .wrap{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+  @media (min-width:700px){ .wrap{padding:26px 20px 60px} }
+
+  /* ---- sign in (same shell as the digest) ---- */
+  .gate{max-width:390px;margin:14vh auto 0;padding:0 20px;text-align:left}
+  .gate h1{font-family:var(--display);font-size:30px;font-weight:400;margin:0 0 10px}
+  .gate p{font-size:14.5px;color:var(--ink-2);margin:0 0 18px}
+  .gate input{width:100%;font-size:16px;padding:12px 14px;border-radius:7px;
+              border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
+  .gate button{width:100%;margin-top:9px;font-size:15px;padding:12px;border-radius:7px;
+               border:1px solid var(--accent);background:var(--accent);color:var(--paper);
+               font-family:var(--body);cursor:pointer}
+  .gate .msg{font-size:13.5px;color:var(--accent);margin-top:14px;min-height:1.2em}
+  .gate .msg.bad{color:var(--flag)}
+  .gate .fine{font-size:12px;color:var(--ink-4);margin-top:22px;line-height:1.5}
+
+  /* ---- header ---- */
+  .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+       padding-bottom:12px;border-bottom:2px solid var(--ink)}
+  .top h1{font-family:var(--display);font-size:23px;font-weight:400;margin:0}
+  .top .sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+             text-transform:uppercase;color:var(--ink-3)}
+  .top .out{margin-left:auto;font-size:11.5px;color:var(--ink-4);background:none;
+            border:0;cursor:pointer;padding:2px 0;font-family:var(--body)}
+
+  .hint{font-size:12.5px;color:var(--ink-4);margin:12px 0 0;line-height:1.5}
+
+  /* ---- topic accordion ---- */
+  #content{margin-top:8px}
+  details.topic{border-bottom:1px solid var(--rule)}
+  details.topic > summary{list-style:none;cursor:pointer;padding:14px 2px;
+      display:flex;align-items:baseline;gap:10px}
+  details.topic > summary::-webkit-details-marker{display:none}
+  details.topic > summary::before{content:"▸";color:var(--ink-4);font-size:12px;
+      transition:transform .12s}
+  details.topic[open] > summary::before{transform:rotate(90deg)}
+  details.topic > summary .name{font-family:var(--display);font-size:17px;color:var(--ink)}
+  details.topic > summary .n{margin-left:auto;font-family:var(--mono);font-size:11px;
+      color:var(--ink-4)}
+  details.topic.uncat > summary .name{color:var(--ink-3);font-style:italic}
+  .uncat-note{font-size:12px;color:var(--ink-4);margin:0 0 10px;font-style:italic}
+
+  .topic-body{padding:0 2px 14px}
+
+  /* ---- item ---- */
+  .item{padding:11px 0;border-top:1px solid var(--rule-2)}
+  .item:first-child{border-top:0}
+  .item h3{font-family:var(--display);font-size:16.5px;line-height:1.34;margin:0;
+           font-weight:400;color:var(--ink)}
+  .item .brief{font-size:13.5px;color:var(--ink-2);margin:6px 0 0}
+  .item .date{font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-top:6px}
+
+  details.more{margin-top:8px}
+  details.more > summary{list-style:none;cursor:pointer;display:inline-block;
+      font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--accent);padding:3px 0}
+  details.more > summary::-webkit-details-marker{display:none}
+  details.more[open] > summary{margin-bottom:6px}
+  details.more .box{background:var(--surface);border:1px solid var(--rule);
+      border-radius:6px;padding:10px 13px}
+  details.more ul{margin:0;padding-left:17px;display:grid;gap:6px}
+  details.more li{font-size:13px;color:var(--ink-2)}
+
+  .empty-state{font-size:13.5px;color:var(--ink-4);font-style:italic;padding:26px 0}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate" hidden>
+  <h1>AI Training</h1>
+  <p>Sign in to browse the library. We'll email you a link — no password.</p>
+  <input id="email" type="email" inputmode="email" autocomplete="email"
+         placeholder="you@example.com" aria-label="Email address">
+  <button id="send">Email me a sign-in link</button>
+  <p class="msg" id="gateMsg"></p>
+  <p class="fine">Same sign-in as the Digest. This page holds no data of its own —
+     everything is fetched after you sign in.</p>
+</div>
+
+<div class="wrap" id="app" hidden>
+  <div class="top">
+    <h1>AI Training</h1>
+    <span class="sub" id="sub"></span>
+    <button class="out" id="signout">Sign out</button>
+  </div>
+  <p class="hint">Browse by topic. Your browser's find-in-page (Ctrl/Cmd+F) also
+     searches inside collapsed items.</p>
+  <div id="content"></div>
+</div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* Same project, same publishable key as the digest page — anon has no access
+   to any digest object, verified over HTTP, so this opens nothing on its own.
+   The gate is a signed-in user with a row in digest.household_members. */
+const SUPABASE_URL = "https://kejchvwswjpdrvyccufi.supabase.co";
+const SUPABASE_KEY = "sb_publishable_0sg-HAeFVVj4vnYAMMNQng_pSX-lvLs";
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtShortDate = d => new Date(d + "T12:00:00")
+  .toLocaleDateString("en-CA",{day:"numeric",month:"short"});
+
+/* ---------------- auth ---------------- */
+$("#send").addEventListener("click", async () => {
+  const email = $("#email").value.trim();
+  const msg = $("#gateMsg");
+  if(!email){ msg.textContent = "Enter your email first."; msg.className = "msg bad"; return; }
+  $("#send").disabled = true;
+  const { error } = await sb.auth.signInWithOtp({
+    email, options: { emailRedirectTo: location.href.split("#")[0] }
+  });
+  $("#send").disabled = false;
+  msg.className = "msg" + (error ? " bad" : "");
+  msg.textContent = error ? error.message
+    : "Sent. Open the link on this device — it signs you in and stays signed in.";
+});
+
+$("#signout").addEventListener("click", async () => {
+  await sb.auth.signOut(); location.reload();
+});
+
+/* ---------------- data ---------------- */
+async function load(){
+  const { data, error } = await sb.rpc("digest_feed");
+  if(error){
+    $("#content").innerHTML =
+      `<p class="empty-state">Couldn't load: ${esc(error.message)}</p>`;
+    return;
+  }
+  render(data.library || []);
+}
+
+/* Grouping is display-only — nothing here writes back to digest.stories.
+   Case differences ("AI Training" vs "AI training") collapse into one bucket
+   since that's clearly the same label typed twice; genuinely different labels
+   ("AI" vs "training" vs "AI Training") are left apart rather than guessed at,
+   since merging those would be a taxonomy call this page has no business making. */
+function groupByTopic(items){
+  const groups = new Map();
+  for(const it of items){
+    const raw = (it.topic || "").trim();
+    const key = raw ? raw.toLowerCase() : "\0uncategorized";
+    if(!groups.has(key)) groups.set(key, { label: raw || "Uncategorized", items: [] });
+    groups.get(key).items.push(it);
+  }
+  const list = [...groups.values()];
+  list.sort((a, b) => {
+    if(a.label === "Uncategorized") return 1;
+    if(b.label === "Uncategorized") return -1;
+    return a.label.localeCompare(b.label, "en", { sensitivity: "base" });
+  });
+  return list;
+}
+
+function itemEl(it){
+  const el = document.createElement("div");
+  el.className = "item";
+  el.innerHTML = `<h3>${esc(it.headline)}</h3>`
+    + (it.brief ? `<p class="brief">${esc(it.brief)}</p>` : "")
+    + (it.day ? `<p class="date">${esc(fmtShortDate(it.day))}</p>` : "");
+
+  const details = it.details || [];
+  if(details.length){
+    const d = document.createElement("details");
+    d.className = "more";
+    d.innerHTML = `<summary>Details</summary>
+      <div class="box"><ul>${details.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
+    el.appendChild(d);
+  }
+  return el;
+}
+
+function topicEl(group){
+  const d = document.createElement("details");
+  d.className = "topic" + (group.label === "Uncategorized" ? " uncat" : "");
+  const summary = document.createElement("summary");
+  summary.innerHTML = `<span class="name">${esc(group.label)}</span>
+    <span class="n">${group.items.length}</span>`;
+  d.appendChild(summary);
+
+  const body = document.createElement("div");
+  body.className = "topic-body";
+  if(group.label === "Uncategorized"){
+    body.insertAdjacentHTML("beforeend",
+      `<p class="uncat-note">Topic wasn't set when these were filed — not a real category, just everything still waiting to be sorted.</p>`);
+  }
+  group.items.forEach(it => body.appendChild(itemEl(it)));
+  d.appendChild(body);
+  return d;
+}
+
+function render(items){
+  $("#sub").textContent = `${items.length} techniques`;
+  const c = $("#content");
+  c.innerHTML = "";
+  if(!items.length){
+    c.innerHTML = `<p class="empty-state">Nothing filed yet.</p>`;
+    return;
+  }
+  const groups = groupByTopic(items);
+  $("#sub").textContent = `${items.length} techniques · ${groups.length} topics`;
+  groups.forEach(g => c.appendChild(topicEl(g)));
+}
+
+/* ---------------- boot ---------------- */
+async function boot(){
+  const { data: { session } } = await sb.auth.getSession();
+  const inApp = !!session;
+  $("#gate").hidden = inApp;
+  $("#app").hidden  = !inApp;
+  if(inApp){ await load(); }
+}
+sb.auth.onAuthStateChange(() => boot());
+boot();
+</script>
+</body>
+</html>
