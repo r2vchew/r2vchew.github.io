@@ -54,6 +54,29 @@
   .top .out{margin-left:auto;font-size:11.5px;color:var(--ink-4);background:none;
             border:0;cursor:pointer;padding:2px 0;font-family:var(--body)}
 
+  /* ---- next-run feedback ---- */
+  .feedback{margin:14px 0 2px;padding:11px 12px;background:var(--surface);
+            border:1px solid var(--rule);border-left:3px solid var(--accent);
+            border-radius:7px}
+  .feedback-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .feedback-head label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+                       text-transform:uppercase;color:var(--accent);font-weight:600}
+  .feedback-head span{font-size:12px;color:var(--ink-3)}
+  .feedback-row{display:flex;gap:7px;align-items:stretch;margin-top:8px}
+  .feedback-row textarea{flex:1;min-width:0;resize:vertical;font:inherit;font-size:14px;
+                         line-height:1.4;padding:8px 10px;border-radius:6px;
+                         border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+  .feedback-row button{font:inherit;font-size:12px;white-space:nowrap;padding:7px 11px;
+                       border-radius:6px;border:1px solid var(--accent);
+                       background:var(--accent);color:var(--paper);cursor:pointer}
+  .feedback-row button:disabled{opacity:.5;cursor:default}
+  .feedback-hint{font-size:11.5px;color:var(--ink-3);margin:7px 0 0}
+  @media (max-width:500px){
+    .feedback-row{flex-wrap:wrap}
+    .feedback-row textarea{flex-basis:100%}
+    .feedback-row button{margin-left:auto}
+  }
+
   /* ---- tabs: scrollable on narrow screens, and they float on scroll ----
      The banner above deliberately scrolls away; only the controls follow.
      .nav carries the same -14px bleed as .tabs so its background covers the
@@ -235,6 +258,19 @@
     <span class="date" id="date"></span>
     <button class="out" id="signout">Sign out</button>
   </div>
+  <section class="feedback" aria-labelledby="feedbackLabel">
+    <div class="feedback-head">
+      <label id="feedbackLabel" for="feedbackInput">Feedback for the next Digest</label>
+      <span>Read as an instruction, not just a rule.</span>
+    </div>
+    <div class="feedback-row">
+      <textarea id="feedbackInput" rows="2" maxlength="4000"
+                placeholder="Tell tomorrow's run what to change, preserve, or pay attention to…"
+                aria-label="Feedback for the next Digest"></textarea>
+      <button id="feedbackSend" type="button">Queue feedback</button>
+    </div>
+    <p class="feedback-hint">The next run will review your words in context, adapt where relevant, and record what it did.</p>
+  </section>
   <div id="navTop"></div>
   <div class="nav" id="nav">
     <div class="tabs" id="tabs" role="tablist"></div>
@@ -330,6 +366,23 @@ $("#signout").addEventListener("click", async () => {
   await sb.auth.signOut(); location.reload();
 });
 
+async function submitFeedback(){
+  const input = $("#feedbackInput"), button = $("#feedbackSend");
+  const body = input.value.trim();
+  if(!body){ input.focus(); return; }
+  button.disabled = true;
+  const { error } = await sb.rpc("digest_submit_feedback", { p_body: body });
+  button.disabled = false;
+  if(error){ toast("Didn't save feedback: " + error.message); return; }
+  input.value = "";
+  toast("✓ feedback queued for the next Digest run");
+}
+
+$("#feedbackSend").addEventListener("click", submitFeedback);
+$("#feedbackInput").addEventListener("keydown", e => {
+  if(e.key === "Enter" && (e.ctrlKey || e.metaKey)) submitFeedback();
+});
+
 /* ---------------- data ---------------- */
 async function load(){
   const { data, error } = await sb.rpc("digest_feed");
@@ -372,9 +425,10 @@ async function act(storyId, action, noteEl){
   } else {
     const label = TABS.find(t => t[0] === args.p_moved_to_tab);
     const applied = (data && data.applied) || [];
-    toast(applied.length
+    const feedback = note ? " · feedback queued" : "";
+    toast((applied.length
       ? "✓ " + applied.join(", ").replace(/moved to (\w+)/, "moved to " + (label ? label[1] : "$1"))
-      : "✓ noted");
+      : "✓ noted") + feedback);
   }
   if(noteEl) noteEl.value = "";
   await load();
