@@ -54,28 +54,6 @@
   .top .out{margin-left:auto;font-size:11.5px;color:var(--ink-4);background:none;
             border:0;cursor:pointer;padding:2px 0;font-family:var(--body)}
 
-  /* ---- next-run feedback ---- */
-  .feedback{margin:14px 0 2px;padding:11px 12px;background:var(--surface);
-            border:1px solid var(--rule);border-left:3px solid var(--accent);
-            border-radius:7px}
-  .feedback-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .feedback-head label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
-                       text-transform:uppercase;color:var(--accent);font-weight:600}
-  .feedback-head span{font-size:12px;color:var(--ink-3)}
-  .feedback-row{display:flex;gap:7px;align-items:stretch;margin-top:8px}
-  .feedback-row textarea{flex:1;min-width:0;resize:vertical;font:inherit;font-size:14px;
-                         line-height:1.4;padding:8px 10px;border-radius:6px;
-                         border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
-  .feedback-row button{font:inherit;font-size:12px;white-space:nowrap;padding:7px 11px;
-                       border-radius:6px;border:1px solid var(--accent);
-                       background:var(--accent);color:var(--paper);cursor:pointer}
-  .feedback-row button:disabled{opacity:.5;cursor:default}
-  .feedback-hint{font-size:11.5px;color:var(--ink-3);margin:7px 0 0}
-  @media (max-width:500px){
-    .feedback-row{flex-wrap:wrap}
-    .feedback-row textarea{flex-basis:100%}
-    .feedback-row button{margin-left:auto}
-  }
 
   /* ---- tabs: scrollable on narrow screens, and they float on scroll ----
      The banner above deliberately scrolls away; only the controls follow.
@@ -111,31 +89,6 @@
             padding:6px 11px;border-radius:5px;margin-left:auto;cursor:pointer;font-weight:600;
             border:1px solid var(--accent-deep);background:var(--accent-deep);color:var(--paper)}
   button.clearall:hover{opacity:.88}
-
-  /* ---- going on ----
-     Sits directly under the tab bar. Deliberately not styled like .urgent: urgent
-     is amber because it is about to expire, these are just things that are
-     happening. A due date borrows the amber accent on the left rule only. */
-  .life{margin-top:15px}
-  .life .sec{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-             color:var(--ink-3);font-weight:600;margin:0 0 7px}
-  .life .item{border:1px solid var(--rule);border-left:3px solid var(--accent);
-              background:var(--surface);border-radius:7px;padding:10px 12px;margin-bottom:8px}
-  .life .item.due{border-left-color:var(--flag)}
-  .life .item h3{margin:0;font-family:var(--display);font-size:15.5px;font-weight:400;
-                 line-height:1.34;color:var(--ink)}
-  .life .meta{font-size:12px;color:var(--ink-3);margin:4px 0 0;line-height:1.45}
-  .life .when{color:var(--accent);font-weight:600}
-  .life .item.due .when{color:var(--flag)}
-  .life .todo{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
-              color:var(--ink-4);border:1px dashed var(--rule);border-radius:4px;
-              padding:2px 6px;display:inline-block;margin-top:7px}
-  .life .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-  .life .acts button,.life .acts a{font-size:12px;line-height:1;padding:6px 10px;border-radius:5px;
-              border:1px solid var(--rule);background:transparent;color:var(--ink-3);
-              cursor:pointer;font-family:var(--body);text-decoration:none}
-  .life .acts .prim{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
-  .life .acts button:hover,.life .acts a:hover{border-color:var(--ink-4);color:var(--ink)}
 
   /* ---- urgent ---- */
   .urgent{border:1px solid var(--flag);background:var(--flag-soft);border-radius:7px;
@@ -258,25 +211,12 @@
     <span class="date" id="date"></span>
     <button class="out" id="signout">Sign out</button>
   </div>
-  <section class="feedback" aria-labelledby="feedbackLabel">
-    <div class="feedback-head">
-      <label id="feedbackLabel" for="feedbackInput">Feedback for the next Digest</label>
-      <span>Read as an instruction, not just a rule.</span>
-    </div>
-    <div class="feedback-row">
-      <textarea id="feedbackInput" rows="2" maxlength="4000"
-                placeholder="Tell tomorrow's run what to change, preserve, or pay attention to…"
-                aria-label="Feedback for the next Digest"></textarea>
-      <button id="feedbackSend" type="button">Queue feedback</button>
-    </div>
-    <p class="feedback-hint">The next run will review your words in context, adapt where relevant, and record what it did.</p>
-  </section>
+
   <div id="navTop"></div>
   <div class="nav" id="nav">
     <div class="tabs" id="tabs" role="tablist"></div>
     <div class="scope" id="scope"></div>
   </div>
-  <div id="life"></div>
   <div id="urgent"></div>
   <div id="content"></div>
 </div>
@@ -366,22 +306,6 @@ $("#signout").addEventListener("click", async () => {
   await sb.auth.signOut(); location.reload();
 });
 
-async function submitFeedback(){
-  const input = $("#feedbackInput"), button = $("#feedbackSend");
-  const body = input.value.trim();
-  if(!body){ input.focus(); return; }
-  button.disabled = true;
-  const { error } = await sb.rpc("digest_submit_feedback", { p_body: body });
-  button.disabled = false;
-  if(error){ toast("Didn't save feedback: " + error.message); return; }
-  input.value = "";
-  toast("✓ feedback queued for the next Digest run");
-}
-
-$("#feedbackSend").addEventListener("click", submitFeedback);
-$("#feedbackInput").addEventListener("keydown", e => {
-  if(e.key === "Enter" && (e.ctrlKey || e.metaKey)) submitFeedback();
-});
 
 /* ---------------- data ---------------- */
 async function load(){
@@ -520,8 +444,8 @@ function actionBar(s){
   el.className = "acts";
   const note = document.createElement("input");
   note.type = "text"; note.enterKeyHint = "done";
-  note.placeholder = "why? (optional — or “move to AI learning”)";
-  note.setAttribute("aria-label","Note for this action");
+  note.placeholder = "Improve this in the next Digest (optional)";
+  note.setAttribute("aria-label","Single-line feedback about this article for the next Digest");
 
   const mk = (label, cls, action, aria) => {
     const b = document.createElement("button");
@@ -626,136 +550,6 @@ function storyEl(s, compact){
   return el;
 }
 
-/* ---------------- going on ---------------- */
-
-/* The calendar hand-off. On the web this opens Google Calendar's own event
-   template, pre-filled; inside the Android app the WebViewClient intercepts
-   this exact URL and turns it into a CalendarContract.ACTION_INSERT intent.
-   One implementation, both surfaces, and either way it is the calendar's own
-   screen that actually saves — nothing is written without a deliberate tap. */
-function calendarUrl(it){
-  const pad = n => String(n).padStart(2, "0");
-  const stamp = (d, allDay) => allDay
-    ? `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}`
-    : d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-
-  let start, end, allDay = !!it.all_day;
-  if(it.event_start){
-    start = new Date(it.event_start);
-    end   = it.event_end ? new Date(it.event_end) : new Date(start.getTime() + 3600000);
-  } else if(it.due_on){
-    // A bill's due date is a day, not a moment. All-day end is exclusive.
-    start = new Date(it.due_on + "T00:00:00"); allDay = true;
-    end   = new Date(start.getTime() + 86400000);
-  } else {
-    return null;   // a note with no date has nothing to add
-  }
-  const p = new URLSearchParams({
-    action: "TEMPLATE",
-    text:   it.title,
-    dates:  `${stamp(start, allDay)}/${stamp(end, allDay)}`
-  });
-  if(it.detail)   p.set("details",  it.detail);
-  if(it.location) p.set("location", it.location);
-  return "https://calendar.google.com/calendar/render?" + p.toString();
-}
-
-const fmtWhen = it => {
-  const d = new Date(it.event_start);
-  return it.all_day
-    ? d.toLocaleDateString("en-CA", {weekday:"short", day:"numeric", month:"short"})
-    : d.toLocaleString("en-CA", {weekday:"short", day:"numeric", month:"short",
-                                 hour:"numeric", minute:"2-digit"});
-};
-
-/* Acting is one-way by design (guard 2 in the migration), so every action gets
-   the same ~6s undo the story actions have. Undo is digest_life_act's 'reopen'. */
-function lifeToastUndo(msg, id){
-  const t = $("#toast"), btn = $("#toastUndo");
-  $("#toastMsg").textContent = msg;
-  btn.hidden = false;
-  t.classList.add("show", "actionable");
-  const hide = () => { t.classList.remove("show", "actionable"); btn.onclick = null; };
-  btn.onclick = async () => {
-    hide();
-    const { error } = await sb.rpc("digest_life_act", { p_item_id: id, p_action: "reopen" });
-    toast(error ? "Undo failed: " + error.message : "↺ back");
-    if(!error) await load();
-  };
-  clearTimeout(t._t);
-  t._t = setTimeout(hide, 6000);
-}
-
-async function lifeAct(id, action, msg){
-  if(BUSY) return;
-  BUSY = true;
-  const { data, error } = await sb.rpc("digest_life_act", { p_item_id: id, p_action: action });
-  BUSY = false;
-  if(error){ toast("Didn't save: " + error.message); return; }
-  await load();
-  // ok:false means it was already acted on somewhere else — say so rather than
-  // reporting a success that did nothing.
-  if(data && data.ok === false) toast("Already handled.");
-  else lifeToastUndo(msg, id);
-}
-
-function lifeEl(it){
-  const el = document.createElement("div");
-  el.className = "item" + (it.due_on ? " due" : "");
-
-  const bits = [];
-  if(it.source_name)     bits.push(esc(it.source_name));
-  if(it.event_start)     bits.push(`<span class="when">${esc(fmtWhen(it))}</span>`);
-  if(it.due_on)          bits.push(`<span class="when">due ${esc(fmtShortDate(it.due_on))}</span>`);
-  if(it.amount != null)  bits.push("$" + Number(it.amount).toFixed(2));
-  if(it.location)        bits.push(esc(it.location));
-
-  el.innerHTML = `<h3>${esc(it.title)}</h3>`
-    + (bits.length  ? `<p class="meta">${bits.join(" · ")}</p>` : "")
-    + (it.detail    ? `<p class="meta">${esc(it.detail)}</p>`   : "")
-    + (it.action_note ? `<p class="meta">${esc(it.action_note)}</p>` : "")
-    + (it.action_undefined ? `<span class="todo">action not set yet</span>` : "");
-
-  const acts = document.createElement("div");
-  acts.className = "acts";
-
-  const cal = calendarUrl(it);
-  if(cal){
-    const a = document.createElement("a");
-    a.className = "prim"; a.href = cal; a.target = "_blank"; a.rel = "noopener";
-    a.textContent = "Add to calendar";
-    a.addEventListener("click", () => lifeAct(it.id, "added", "✓ added — " + it.title));
-    acts.appendChild(a);
-  }
-  [["done", "Done", "✓ done"], ["dismissed", "Not this", "removed"]].forEach(([act, label, m]) => {
-    const b = document.createElement("button");
-    b.textContent = label;
-    b.addEventListener("click", () => lifeAct(it.id, act, m + " — " + it.title));
-    acts.appendChild(b);
-  });
-  if(it.gmail_url){
-    const g = document.createElement("a");
-    g.href = it.gmail_url; g.target = "_blank"; g.rel = "noopener";
-    g.textContent = "Open email";
-    acts.appendChild(g);
-  }
-
-  el.appendChild(acts);
-  return el;
-}
-
-/* Shows on every tab: these are about Vince's life, not about whichever
-   tab happens to be selected. */
-function renderLife(){
-  const box = $("#life");
-  box.className = ""; box.innerHTML = "";
-  const items = DATA.life || [];
-  if(!items.length) return;
-  box.className = "life";
-  box.insertAdjacentHTML("beforeend", `<p class="sec">Going on — ${items.length}</p>`);
-  items.forEach(it => box.appendChild(lifeEl(it)));
-}
-
 function renderUrgent(){
   const box = $("#urgent"); box.innerHTML = "";
   if(TAB !== "news") return;
@@ -809,7 +603,6 @@ function render(){
     if(clearAllBtn) clearAllBtn.addEventListener("click", () => clearTab(TAB, SCOPE));
   }
 
-  renderLife();
   renderUrgent();
   const c = $("#content"); c.innerHTML = "";
 
