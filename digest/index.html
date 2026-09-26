@@ -499,7 +499,10 @@ function storyEl(s, compact){
   if(s.topic)   meta.insertAdjacentHTML("beforeend", `<span class="topic">${esc(s.topic)}</span>`);
   el.appendChild(meta);
 
-  const details = s.details || [], angles = s.angles || [], sources = s.sources || [];
+  // Older stories use a details array; current publishes may supply one text summary.
+  const details = Array.isArray(s.details) ? s.details
+    : typeof s.details === "string" && s.details.trim() ? [s.details] : [];
+  const angles = s.angles || [], sources = s.sources || [];
   const hasExtra = details.length || angles.length || sources.length;
   if(hasExtra){
     const d = document.createElement("div"); d.className = "detail";
